@@ -112,26 +112,35 @@ def build_parts() -> dict:
     parts_by_category = {}
 
     for epc_section in EPC_SECTIONS:
-        master_csv = PARTS_CATALOG_DIR / epc_section / "all_parts.csv"
-        if not master_csv.exists():
+        section_dir = PARTS_CATALOG_DIR / epc_section
+        if not section_dir.exists():
             continue
 
-        with open(master_csv, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                cat_code = row.get("category_code", "").strip()
-                if not cat_code:
-                    continue
-                parts_by_category.setdefault(cat_code, []).append({
-                    "oem_number": row.get("oem_number", ""),
-                    "quantity": row.get("quantity", ""),
-                    "production_period": row.get("production_period", ""),
-                    "applies_for_models": row.get("applies_for_models", ""),
-                    "notes": row.get("notes", ""),
-                    "replacements": row.get("replacements", ""),
-                    "group_code": row.get("group_code", ""),
-                    "group_name": row.get("group_name", ""),
-                })
+        # Read from master CSV if it exists, otherwise read individual category CSVs
+        csv_files = []
+        master_csv = section_dir / "all_parts.csv"
+        if master_csv.exists():
+            csv_files = [master_csv]
+        else:
+            csv_files = sorted(section_dir.rglob("parts.csv"))
+
+        for csv_file in csv_files:
+            with open(csv_file, "r", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    cat_code = row.get("category_code", "").strip()
+                    if not cat_code:
+                        continue
+                    parts_by_category.setdefault(cat_code, []).append({
+                        "oem_number": row.get("oem_number", ""),
+                        "quantity": row.get("quantity", ""),
+                        "production_period": row.get("production_period", ""),
+                        "applies_for_models": row.get("applies_for_models", ""),
+                        "notes": row.get("notes", ""),
+                        "replacements": row.get("replacements", ""),
+                        "group_code": row.get("group_code", ""),
+                        "group_name": row.get("group_name", ""),
+                    })
 
     return parts_by_category
 

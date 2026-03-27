@@ -60,3 +60,31 @@ export function getMaintenanceCards(): MaintenanceCard[] {
   const raw = fs.readFileSync(path.join(dataDir, 'maintenance.json'), 'utf-8');
   return JSON.parse(raw);
 }
+
+export function getMaintenanceCardById(id: string): MaintenanceCard | undefined {
+  return getMaintenanceCards().find(c => c.id === id);
+}
+
+export function getDiagramSectionSlug(code: string): string | undefined {
+  for (const s of getSections()) {
+    if (s.diagrams.some(d => d.code === code)) return s.slug;
+  }
+  return undefined;
+}
+
+export function getMaintenanceCardsByDiagram(diagramCode: string): MaintenanceCard[] {
+  return getMaintenanceCards().filter(c => c.relatedDiagrams.includes(diagramCode));
+}
+
+export function getPdfTitle(filename: string): string {
+  try {
+    const titlesPath = path.join(process.cwd(), 'public', 'data', 'manual-titles.json');
+    const titles: Record<string, string> = JSON.parse(fs.readFileSync(titlesPath, 'utf-8'));
+    if (titles[filename]) return titles[filename];
+  } catch {}
+  // Fallback for engine PDFs which have descriptive filenames
+  let name = filename.replace(/\.pdf$/i, '');
+  name = name.replace(/_/g, ' ');
+  name = name.replace(/\bno OBD\b/, '(no OBD)');
+  return name.trim();
+}

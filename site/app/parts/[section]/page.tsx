@@ -55,7 +55,7 @@ export default async function SectionPage({
 
       {/* Diagram Grid */}
       <section>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {data.diagrams.map((diagram) => {
             const urlCode = diagram.code.replace(/_/g, "-");
             return (
@@ -69,8 +69,7 @@ export default async function SectionPage({
                   <img
                     src={diagram.imagePath}
                     alt={`${diagram.code} — ${diagram.name}`}
-                    width={200}
-                    className="w-full mx-auto object-contain"
+                    className="w-full object-contain"
                     loading="lazy"
                   />
                 </div>

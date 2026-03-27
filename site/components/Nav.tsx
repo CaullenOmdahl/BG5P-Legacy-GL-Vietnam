@@ -28,10 +28,12 @@ export default function Nav() {
           {/* Logo / Title */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-foreground font-semibold tracking-tight shrink-0"
+            className="flex items-center gap-2.5 text-foreground shrink-0"
           >
-            <span className="text-accent text-lg font-bold">///</span>
-            <span className="text-sm sm:text-base">BG5P Service Manual</span>
+            <span className="font-mono text-accent text-sm font-bold tracking-widest">BG5P</span>
+            <span className="w-px h-4 bg-border" />
+            <span className="text-xs text-muted font-medium tracking-wide hidden sm:block">Service Manual</span>
+            <span className="text-xs text-muted font-medium tracking-wide sm:hidden">Manual</span>
           </Link>
 
           {/* Desktop search — between logo and links */}

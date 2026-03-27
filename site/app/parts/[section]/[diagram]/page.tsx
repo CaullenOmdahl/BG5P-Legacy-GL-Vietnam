@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getSections, getSectionBySlug, getParts } from '@/lib/data';
+import { getSections, getSectionBySlug, getParts, getMaintenanceCardsByDiagram } from '@/lib/data';
 import type { Metadata } from 'next';
 import DiagramViewer from '@/components/DiagramViewer';
 import PartsTable from '@/components/PartsTable';
@@ -67,6 +67,9 @@ export default async function DiagramPage({
   const categoryCode = diagramCode.split('_')[0];
   const parts = getParts(categoryCode);
 
+  // Maintenance guides that reference this diagram
+  const relatedMaintenance = getMaintenanceCardsByDiagram(diagramCode);
+
   // Previous / Next diagram navigation
   const diagramIndex = sectionData.diagrams.findIndex(
     (d) => d.code === diagramCode
@@ -106,6 +109,22 @@ export default async function DiagramPage({
         <p className="mt-1 text-sm text-muted font-mono">{diagramData.code}</p>
       </div>
 
+      {/* Related maintenance guides */}
+      {relatedMaintenance.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-muted">Maintenance:</span>
+          {relatedMaintenance.map((card) => (
+            <Link
+              key={card.id}
+              href={`/maintenance/${card.id}`}
+              className="inline-flex items-center gap-1 rounded px-2 py-0.5 border border-border bg-surface text-accent hover:border-accent transition-colors text-xs font-medium"
+            >
+              {card.title} &rarr;
+            </Link>
+          ))}
+        </div>
+      )}
+
       {/* Previous / Next navigation */}
       <div className="flex items-center justify-between gap-4">
         {prevDiagram ? (
@@ -130,23 +149,18 @@ export default async function DiagramPage({
         )}
       </div>
 
-      {/* Split layout: diagram + parts table */}
-      <div className="flex flex-col lg:flex-row gap-6">
-        {/* Diagram viewer — 60% on desktop */}
-        <div className="w-full lg:w-[60%] lg:flex-shrink-0">
-          <DiagramViewer
-            imagePath={diagramData.imagePath}
-            alt={`${diagramData.code} — ${diagramData.name}`}
-          />
-        </div>
+      {/* Diagram — full width */}
+      <DiagramViewer
+        imagePath={diagramData.imagePath}
+        alt={`${diagramData.code} — ${diagramData.name}`}
+      />
 
-        {/* Parts table — 40% on desktop */}
-        <div className="w-full lg:w-[40%] lg:min-w-0">
-          <h2 className="text-lg font-semibold text-foreground mb-3">
-            Parts List
-          </h2>
-          <PartsTable parts={parts} />
-        </div>
+      {/* Parts table — below diagram */}
+      <div>
+        <h2 className="text-lg font-semibold text-foreground mb-3">
+          Parts List
+        </h2>
+        <PartsTable parts={parts} />
       </div>
 
       {/* Bottom navigation (repeated for convenience) */}

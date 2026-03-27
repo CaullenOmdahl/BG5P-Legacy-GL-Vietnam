@@ -1,12 +1,13 @@
 import Fuse, { type IFuseOptions } from 'fuse.js';
 
 export interface SearchItem {
-  type: 'diagram' | 'part';
+  type: 'diagram' | 'part' | 'manual';
   label: string;        // display text
   detail?: string;      // secondary info (section name, group name, etc.)
-  sectionSlug: string;
-  diagramCode: string;  // with dashes for URL
+  sectionSlug?: string;
+  diagramCode?: string; // with dashes for URL
   oemNumber?: string;
+  href?: string;        // direct URL for manuals
 }
 
 const fuseOptions: IFuseOptions<SearchItem> = {

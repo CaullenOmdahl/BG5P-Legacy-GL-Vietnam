@@ -72,9 +72,8 @@ export default function SearchBar() {
           for (const [categoryCode, parts] of Object.entries(partsData)) {
             if (!Array.isArray(parts)) continue;
 
-            // Find which section/diagram this category belongs to
             let sectionSlug = '';
-            let diagramCode = categoryCode.replace(/_/g, '-');
+            const diagramCode = categoryCode.replace(/_/g, '-');
 
             for (const section of sections) {
               const matchingDiagram = section.diagrams.find(
@@ -97,6 +96,21 @@ export default function SearchBar() {
                 oemNumber: part.oem_number,
               });
             }
+          }
+        }
+
+        // Load manuals index
+        const manualsRes = await fetch('/api/manuals');
+        if (manualsRes.ok) {
+          const manuals: { label: string; detail: string; href: string; isPdf: boolean }[] =
+            await manualsRes.json();
+          for (const m of manuals) {
+            items.push({
+              type: 'manual',
+              label: m.label,
+              detail: m.detail,
+              href: m.href,
+            });
           }
         }
       } catch {
@@ -149,7 +163,15 @@ export default function SearchBar() {
     setIsOpen(false);
     setQuery('');
     setResults([]);
-    router.push(`/parts/${item.sectionSlug}/${item.diagramCode}`);
+    if (item.type === 'manual' && item.href) {
+      if (item.href.toLowerCase().endsWith('.pdf')) {
+        window.open(item.href, '_blank', 'noopener,noreferrer');
+      } else {
+        router.push(item.href);
+      }
+    } else {
+      router.push(`/parts/${item.sectionSlug}/${item.diagramCode}`);
+    }
   }
 
   function handleKeyDown(e: React.KeyboardEvent) {
@@ -215,7 +237,7 @@ export default function SearchBar() {
           onFocus={() => {
             if (results.length > 0) setIsOpen(true);
           }}
-          placeholder="Search diagrams, parts..."
+          placeholder="Search diagrams, parts, manuals..."
           className="w-full rounded-md border border-border bg-background pl-9 pr-3 py-1.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
           aria-label="Search diagrams and parts"
           aria-expanded={isOpen}
@@ -242,7 +264,7 @@ export default function SearchBar() {
           ) : (
             results.map((item, index) => (
               <li
-                key={`${item.type}-${item.sectionSlug}-${item.diagramCode}-${item.oemNumber ?? index}`}
+                key={`${item.type}-${item.href ?? `${item.sectionSlug}-${item.diagramCode}-${item.oemNumber ?? index}`}`}
                 id={`search-result-${index}`}
                 role="option"
                 aria-selected={index === activeIndex}
@@ -258,7 +280,21 @@ export default function SearchBar() {
                 onMouseEnter={() => setActiveIndex(index)}
               >
                 {/* Icon */}
-                {item.type === 'diagram' ? (
+                {item.type === 'manual' ? (
+                  <svg
+                    className="h-4 w-4 shrink-0 text-red-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                    />
+                  </svg>
+                ) : item.type === 'diagram' ? (
                   <svg
                     className="h-4 w-4 shrink-0 text-accent"
                     fill="none"

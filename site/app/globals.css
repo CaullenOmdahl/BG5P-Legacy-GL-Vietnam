@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f1117;
+  --background: #0c0e14;
   --foreground: #e4e4e7;
-  --surface: #1a1d27;
-  --accent: #0055a5;
-  --accent-hover: #0066cc;
+  --surface: #13151e;
+  --accent: #3a7ef5;
+  --accent-hover: #5a94f9;
   --amber: #f59e0b;
-  --muted: #71717a;
-  --border: #27272a;
+  --muted: #6b7280;
+  --border: #1e2132;
 }
 
 @theme inline {
@@ -30,7 +30,14 @@ html {
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  /* Subtle dot grid — technical schematic feel */
+  background-image: radial-gradient(
+    circle,
+    rgba(58, 126, 245, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   line-height: 1.6;
@@ -46,7 +53,7 @@ code,
   letter-spacing: 0.02em;
 }
 
-/* Scrollbar styling for dark theme */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -65,7 +72,7 @@ code,
   background: var(--muted);
 }
 
-/* Focus styles for accessibility */
+/* Focus styles */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
