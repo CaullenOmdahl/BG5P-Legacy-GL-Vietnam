@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large binary assets — tracked separately or generated
+public/diagrams/
+public/manuals/
