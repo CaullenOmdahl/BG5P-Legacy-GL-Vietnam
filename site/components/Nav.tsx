@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SearchBar from "@/components/SearchBar";
 
 const links = [
   { href: "/parts", label: "Parts" },
@@ -27,14 +28,19 @@ export default function Nav() {
           {/* Logo / Title */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-foreground font-semibold tracking-tight"
+            className="flex items-center gap-2 text-foreground font-semibold tracking-tight shrink-0"
           >
             <span className="text-accent text-lg font-bold">///</span>
             <span className="text-sm sm:text-base">BG5P Service Manual</span>
           </Link>
 
+          {/* Desktop search — between logo and links */}
+          <div className="hidden sm:block mx-4 flex-1 max-w-xs">
+            <SearchBar />
+          </div>
+
           {/* Desktop links */}
-          <div className="hidden sm:flex items-center gap-1">
+          <div className="hidden sm:flex items-center gap-1 shrink-0">
             {links.map(({ href, label }) => (
               <Link
                 key={href}
@@ -80,6 +86,11 @@ export default function Nav() {
             </svg>
           </button>
         </div>
+      </div>
+
+      {/* Mobile search — always visible, outside hamburger menu */}
+      <div className="sm:hidden px-4 pb-3 pt-1">
+        <SearchBar />
       </div>
 
       {/* Mobile menu */}
