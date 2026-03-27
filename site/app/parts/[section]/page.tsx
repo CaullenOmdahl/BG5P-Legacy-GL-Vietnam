@@ -35,7 +35,7 @@ export default async function SectionPage({
   return (
     <div className="flex flex-col gap-8">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-muted pt-4 sm:pt-8">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-muted pt-4 sm:pt-8">
         <Link href="/parts" className="hover:text-accent transition-colors">
           Parts
         </Link>

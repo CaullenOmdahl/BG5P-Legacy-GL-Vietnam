@@ -52,7 +52,7 @@ export default function PartsTable({ parts }: PartsTableProps) {
           <thead>
             <tr className="border-b border-border bg-background">
               <th
-                className="px-3 py-2 text-left font-semibold text-foreground cursor-pointer hover:text-accent transition-colors select-none"
+                className="px-3 py-3 text-left font-semibold text-foreground cursor-pointer hover:text-accent transition-colors select-none"
                 onClick={() => setSortAsc((prev) => !prev)}
               >
                 OEM Part Number{' '}

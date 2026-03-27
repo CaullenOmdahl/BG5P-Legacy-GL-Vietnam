@@ -59,7 +59,7 @@ export default function Nav() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="sm:hidden p-2 -mr-2 text-muted hover:text-foreground"
+            className="sm:hidden min-h-[44px] min-w-[44px] flex items-center justify-center -mr-2 text-muted hover:text-foreground"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
@@ -102,7 +102,7 @@ export default function Nav() {
                 key={href}
                 href={href}
                 onClick={() => setMenuOpen(false)}
-                className={`block px-3 py-2 rounded text-sm font-medium transition-colors ${
+                className={`block px-3 py-3 rounded text-sm font-medium transition-colors ${
                   isActive(href)
                     ? "bg-accent text-white"
                     : "text-muted hover:text-foreground hover:bg-white/5"

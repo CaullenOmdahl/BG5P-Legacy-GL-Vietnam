@@ -65,28 +65,30 @@ export default function AboutPage() {
           Decoded Chassis Plate
         </h2>
         <div className="rounded-lg border border-border bg-surface overflow-hidden">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="text-left px-4 py-3 text-muted font-medium">
-                  Code
-                </th>
-                <th className="text-left px-4 py-3 text-muted font-medium">
-                  Meaning
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {chassisPlate.map((row) => (
-                <tr key={row.code} className="border-b border-border last:border-0">
-                  <td className="px-4 py-3 font-mono text-accent font-medium">
-                    {row.code}
-                  </td>
-                  <td className="px-4 py-3 text-foreground">{row.meaning}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="text-left px-4 py-3 text-muted font-medium whitespace-nowrap">
+                    Code
+                  </th>
+                  <th className="text-left px-4 py-3 text-muted font-medium">
+                    Meaning
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {chassisPlate.map((row) => (
+                  <tr key={row.code} className="border-b border-border last:border-0">
+                    <td className="px-4 py-3 font-mono text-accent font-medium whitespace-nowrap">
+                      {row.code}
+                    </td>
+                    <td className="px-4 py-3 text-foreground">{row.meaning}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 

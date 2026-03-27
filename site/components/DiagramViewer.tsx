@@ -120,21 +120,21 @@ export default function DiagramViewer({ imagePath, alt }: DiagramViewerProps) {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setZoom((z) => clampZoom(z - 0.5))}
-            className="px-2 py-1 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
+            className="min-h-[44px] min-w-[44px] px-3 py-2 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
             aria-label="Zoom out"
           >
             &minus;
           </button>
           <button
             onClick={() => setZoom((z) => clampZoom(z + 0.5))}
-            className="px-2 py-1 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
+            className="min-h-[44px] min-w-[44px] px-3 py-2 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
             aria-label="Zoom in"
           >
             +
           </button>
           <button
             onClick={resetView}
-            className="px-2 py-1 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
+            className="min-h-[44px] px-3 py-2 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
             aria-label="Reset zoom"
           >
             Reset
@@ -146,7 +146,7 @@ export default function DiagramViewer({ imagePath, alt }: DiagramViewerProps) {
       <div
         ref={containerRef}
         className="relative overflow-hidden rounded-lg border border-border bg-white select-none"
-        style={{ cursor: zoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in' }}
+        style={{ cursor: zoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in', touchAction: 'none' }}
         onWheel={handleWheel}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}

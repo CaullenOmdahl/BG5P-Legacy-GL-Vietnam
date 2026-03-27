@@ -189,7 +189,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-sm">
+    <div ref={containerRef} className="relative w-full sm:max-w-sm">
       <div className="relative">
         {/* Magnifying glass icon */}
         <svg

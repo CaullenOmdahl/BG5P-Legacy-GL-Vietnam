@@ -107,13 +107,13 @@ export default async function DiagramPage({
       </div>
 
       {/* Previous / Next navigation */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-4">
         {prevDiagram ? (
           <Link
             href={`/parts/${section}/${prevDiagram.code.replace(/_/g, '-')}`}
-            className="text-sm text-accent hover:text-accent-hover transition-colors"
+            className="text-sm text-accent hover:text-accent-hover transition-colors min-w-0 truncate"
           >
-            &larr; {prevDiagram.code} {prevDiagram.name}
+            &larr; <span className="hidden sm:inline">{prevDiagram.code} {prevDiagram.name}</span><span className="sm:hidden">Prev</span>
           </Link>
         ) : (
           <span />
@@ -121,9 +121,9 @@ export default async function DiagramPage({
         {nextDiagram ? (
           <Link
             href={`/parts/${section}/${nextDiagram.code.replace(/_/g, '-')}`}
-            className="text-sm text-accent hover:text-accent-hover transition-colors"
+            className="text-sm text-accent hover:text-accent-hover transition-colors min-w-0 truncate text-right"
           >
-            {nextDiagram.code} {nextDiagram.name} &rarr;
+            <span className="hidden sm:inline">{nextDiagram.code} {nextDiagram.name}</span><span className="sm:hidden">Next</span> &rarr;
           </Link>
         ) : (
           <span />
