@@ -1,0 +1,366 @@
+[
+  {
+    "id": "oil-change",
+    "title": "Oil Change",
+    "difficulty": "Easy",
+    "interval": "Every 5,000 km or 6 months",
+    "specs": [
+      { "label": "Oil Type", "value": "5W-30 preferred (API SJ/SH or SG)" },
+      { "label": "Capacity (to upper level)", "value": "4.0 L (4.2 US qt)" },
+      { "label": "Capacity (to lower level)", "value": "3.0 L (3.2 US qt)" },
+      { "label": "Drain Plug Torque", "value": "44 Nm (4.5 kgf-m, 33 ft-lb)" },
+      { "label": "Oil Filter Thread", "value": "M20 x 1.5" },
+      { "label": "Oil Filter Type", "value": "Full-flow, 80 x 70 mm" },
+      { "label": "Oil Filter Wrench (ST)", "value": "498547000" },
+      { "label": "Alt. Viscosity (hot climate)", "value": "10W-30, 10W-40, 20W-40, 20W-50" }
+    ],
+    "steps": [
+      "Warm engine for 5 minutes, then shut off",
+      "Place drain pan under oil pan and remove drain plug",
+      "Allow oil to drain completely (5-10 minutes)",
+      "Replace drain plug gasket with new one",
+      "Tighten drain plug to 44 Nm (33 ft-lb)",
+      "Remove old oil filter using ST 498547000 or filter wrench",
+      "Apply thin coat of new oil to new filter gasket",
+      "Install new filter hand-tight, then turn 3/4 additional turn",
+      "Fill engine oil through filler cap to upper level mark (4.0 L)",
+      "Start engine, run for 1 minute, shut off and recheck level",
+      "Top up if necessary between L and F marks on dipstick"
+    ],
+    "relatedPdfs": [
+      "/manuals/EJ20E-SOHC-engine/EJ20_Lubrication.pdf"
+    ],
+    "relatedDiagrams": ["032_01"]
+  },
+  {
+    "id": "timing-belt",
+    "title": "Timing Belt Replacement",
+    "difficulty": "Advanced",
+    "interval": "Every 100,000 km or 60 months",
+    "specs": [
+      { "label": "Belt Tooth Length Z1", "value": "44 teeth" },
+      { "label": "Belt Tooth Length Z2", "value": "40.5 teeth" },
+      { "label": "Tensioner Adjuster Torque", "value": "25 Nm (2.5 kgf-m, 18.4 ft-lb)" },
+      { "label": "Belt Idler No. 1 Torque", "value": "39 Nm (4.0 kgf-m, 28.9 ft-lb)" },
+      { "label": "Belt Idler No. 2 Torque", "value": "39 Nm (4.0 kgf-m, 28.9 ft-lb)" },
+      { "label": "Camshaft Sprocket Torque", "value": "78 Nm (8.0 kgf-m, 57.9 ft-lb)" },
+      { "label": "Crank Pulley Bolt Torque", "value": "127 Nm (13.0 kgf-m, 94 ft-lb)" },
+      { "label": "Belt Cover Torque", "value": "5 Nm (0.5 kgf-m, 3.6 ft-lb)" },
+      { "label": "Belt-to-Guide Clearance", "value": "1.0 +/- 0.5 mm" },
+      { "label": "Tensioner Rod Extension", "value": "5.7 +/- 0.5 mm" },
+      { "label": "Tensioner Press Pressure", "value": "294 N (30 kgf, 66 lb)" },
+      { "label": "Crank Pulley Wrench (ST)", "value": "499977300" },
+      { "label": "Cam Sprocket Wrench (ST1)", "value": "499207100" },
+      { "label": "Cam Sprocket Wrench (ST2)", "value": "499207400" }
+    ],
+    "steps": [
+      "Disconnect battery ground cable",
+      "Remove V-belts (alternator, A/C, power steering)",
+      "Remove crankshaft pulley using ST 499977300",
+      "Remove belt covers (RH and LH)",
+      "Remove timing belt guide (MT vehicles only)",
+      "Mark timing belt rotation direction if reusing",
+      "Align crank sprocket mark (a) with cylinder block notch (b)",
+      "Verify cam sprocket alignment marks match cylinder head surfaces",
+      "Remove belt idler No. 2, then belt idler No. 1",
+      "Remove timing belt",
+      "Remove automatic belt tension adjuster assembly",
+      "Press adjuster rod down with 294 N pressure, insert 2mm stopper pin",
+      "Install new tensioner adjuster assembly - torque to 25 Nm",
+      "Install belt idler No. 1 - torque to 39 Nm",
+      "Align camshaft sprockets using ST1 and ST2",
+      "Install new timing belt matching alignment marks, ensure correct rotation",
+      "Install belt idler No. 2 - torque to 39 Nm",
+      "Remove stopper pin from tensioner adjuster",
+      "Install timing belt guide (MT only), check 1.0mm clearance",
+      "Install belt covers, crankshaft pulley, and V-belts",
+      "Rotate engine 2 full turns and verify all alignment marks"
+    ],
+    "relatedPdfs": [
+      "/manuals/EJ20E-SOHC-engine/EJ20_SOHC_Mechanical.pdf"
+    ],
+    "relatedDiagrams": ["013_01", "013_02"]
+  },
+  {
+    "id": "coolant-flush",
+    "title": "Coolant Flush",
+    "difficulty": "Easy",
+    "interval": "Every 30,000 km or 24 months",
+    "specs": [
+      { "label": "Coolant Type", "value": "Subaru Genuine Long-Life Coolant" },
+      { "label": "Capacity (MT, to FULL)", "value": "6.3 L (6.7 US qt)" },
+      { "label": "Capacity (AT, to FULL)", "value": "6.4 L (6.8 US qt)" },
+      { "label": "Reservoir Tank Capacity", "value": "0.45 L (0.5 US qt)" },
+      { "label": "Thermostat Opens", "value": "76-80 C (169-176 F)" },
+      { "label": "Thermostat Fully Open", "value": "91 C (196 F)" },
+      { "label": "Thermostat Valve Lift", "value": "9.0 mm (0.354 in) or more" },
+      { "label": "Thermostat Cover Torque", "value": "6.4 Nm (0.65 kgf-m, 4.7 ft-lb)" },
+      { "label": "Coolant Concentration", "value": "30-50% (adjust for climate)" },
+      { "label": "Radiator Cap Pressure", "value": "108 +/- 15 kPa (16 +/- 2 psi)" },
+      { "label": "Water Pump Bolt Torque", "value": "12 Nm (1.2 kgf-m, 8.7 ft-lb) in 2 stages" }
+    ],
+    "steps": [
+      "Allow engine to cool completely - radiator is pressurized when hot",
+      "Lift vehicle, remove under cover",
+      "Place drain pan under radiator, remove drain cock",
+      "Remove radiator cap to speed draining",
+      "Drain coolant completely from radiator and engine block",
+      "Close drain cock, fill radiator with clean water",
+      "Run engine at 2,000-3,000 rpm for 5 minutes to flush",
+      "Drain flush water and repeat if still discolored",
+      "Close drain cock, fill with Subaru Genuine Coolant mix to filler neck",
+      "Fill reservoir tank to FULL level",
+      "Warm engine at 2,000-3,000 rpm for 5+ minutes",
+      "Check radiator level as thermostat opens, top up as needed",
+      "Check reservoir level, add coolant to upper level mark",
+      "Install radiator cap and reservoir cap securely"
+    ],
+    "relatedPdfs": [
+      "/manuals/EJ20E-SOHC-engine/EJ20_Cooling.pdf"
+    ],
+    "relatedDiagrams": ["035_01", "036_01"]
+  },
+  {
+    "id": "brake-pads",
+    "title": "Brake Pads (Front & Rear)",
+    "difficulty": "Moderate",
+    "interval": "Every 20,000 km or as needed",
+    "specs": [
+      { "label": "Front Type", "value": "Disc (Floating type, ventilated)" },
+      { "label": "Front Pad Dimensions", "value": "112.4 x 44.3 x 11.0 mm" },
+      { "label": "Front Pad New Thickness (with backing)", "value": "17 mm (0.67 in)" },
+      { "label": "Front Pad Min Thickness (with backing)", "value": "7.5 mm (0.295 in)" },
+      { "label": "Front Disc Thickness (new)", "value": "24 mm (0.94 in)" },
+      { "label": "Front Disc Min Thickness", "value": "22 mm (0.87 in)" },
+      { "label": "Front Disc Max Runout", "value": "0.075 mm (0.003 in)" },
+      { "label": "Front Caliper Guide Pin Torque", "value": "37 Nm (3.8 kgf-m, 27.5 ft-lb)" },
+      { "label": "Front Support Bolt Torque", "value": "78 Nm (8.0 kgf-m, 58 ft-lb)" },
+      { "label": "Rear Type", "value": "Disc (Floating type)" },
+      { "label": "Rear Pad Dimensions", "value": "92.4 x 33.7 x 10.0 mm" },
+      { "label": "Rear Pad New Thickness (with backing)", "value": "15 mm (0.59 in)" },
+      { "label": "Rear Pad Min Thickness (with backing)", "value": "6.5 mm (0.256 in)" },
+      { "label": "Rear Disc Thickness (new)", "value": "10 mm (0.39 in)" },
+      { "label": "Rear Disc Min Thickness", "value": "8.5 mm (0.335 in)" },
+      { "label": "Rear Disc Max Runout", "value": "0.10 mm (0.004 in)" },
+      { "label": "Brake Fluid", "value": "DOT 3 or DOT 4" },
+      { "label": "Air Bleeder Screw Torque", "value": "8 Nm (0.8 kgf-m, 5.8 ft-lb)" }
+    ],
+    "steps": [
+      "Loosen wheel lug nuts, raise vehicle and support on jack stands",
+      "Remove wheel",
+      "Inspect pad thickness through caliper inspection hole",
+      "Remove caliper guide pin bolts (lower bolt first)",
+      "Swing caliper up and support with wire - do not hang by brake hose",
+      "Remove old pads, outer shim, inner shim, and pad clips",
+      "Clean caliper bracket/support with brake cleaner",
+      "Inspect disc rotor thickness and runout against service limits",
+      "Push caliper piston back using C-clamp (check fluid reservoir level first)",
+      "Install new pad clips on support bracket",
+      "Install new inner shim, pad (inside), pad (outside), and outer shim",
+      "Lower caliper over new pads and install guide pin bolts",
+      "Torque guide pin bolts to 37 Nm (front) or per spec (rear)",
+      "Reinstall wheel, torque lug nuts",
+      "Pump brake pedal several times before driving to seat pads",
+      "Check and top up brake fluid reservoir"
+    ],
+    "relatedPdfs": [
+      "/manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3677.pdf",
+      "/manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3678.pdf"
+    ],
+    "relatedDiagrams": ["265_01", "265_02", "265_03", "265_04"]
+  },
+  {
+    "id": "spark-plugs",
+    "title": "Spark Plugs",
+    "difficulty": "Moderate",
+    "interval": "Every 20,000 km or 12 months",
+    "specs": [
+      { "label": "Plug (without catalytic converter)", "value": "NGK BKR6E" },
+      { "label": "Plug (with catalytic converter)", "value": "Champion RC10YC4 or NGK BKR5E-11" },
+      { "label": "Thread Size", "value": "M14, P = 1.25" },
+      { "label": "Gap (without catalyst)", "value": "0.7-0.8 mm (0.028-0.031 in)" },
+      { "label": "Gap (with catalyst)", "value": "1.0-1.1 mm (0.039-0.043 in)" },
+      { "label": "Spark Plug Torque", "value": "21 Nm (2.1 kgf-m, 15 ft-lb)" },
+      { "label": "Ignition Coil Bolt Torque", "value": "6.4 Nm (0.65 kgf-m, 4.7 ft-lb)" },
+      { "label": "Spark Plug Cord Resistance", "value": "5.24-12.23 k-ohm" },
+      { "label": "Firing Order", "value": "1-3-2-4" },
+      { "label": "Ignition Coil", "value": "Hitachi CM12-100B" }
+    ],
+    "steps": [
+      "Disconnect battery ground cable",
+      "RH side: Remove air intake duct and resonator chamber",
+      "LH side: Disconnect washer motor, remove washer tank bolts",
+      "Remove spark plug cords by pulling on the boot, not the cord",
+      "Remove spark plugs with spark plug socket (16mm deep)",
+      "Inspect old plugs for fouling, damage, and wear",
+      "Check new plug gap with feeler gauge, adjust if needed",
+      "Install new spark plugs hand-tight first to prevent cross-threading",
+      "Torque spark plugs to 21 Nm (15 ft-lb) - dry threads only",
+      "If threads are oiled, reduce torque by approximately 1/3",
+      "Reconnect spark plug cords to correct positions (firing order 1-3-2-4)",
+      "Reinstall resonator chamber (torque to 32 Nm), air intake duct",
+      "Reinstall washer tank (LH side), reconnect battery"
+    ],
+    "relatedPdfs": [
+      "/manuals/EJ20E-SOHC-engine/EJ20_SOHC_Ignition_no_OBD.pdf"
+    ],
+    "relatedDiagrams": ["090_01"]
+  },
+  {
+    "id": "air-filter",
+    "title": "Air Filter Replacement",
+    "difficulty": "Easy",
+    "interval": "Every 20,000 km or 12 months (inspect every 10,000 km)",
+    "specs": [
+      { "label": "Filter Type", "value": "Panel filter element" },
+      { "label": "OEM Part Number", "value": "16546-AA020 (verify for model year)" },
+      { "label": "Case Bolt Torque", "value": "6.5 Nm (0.66 kgf-m, 4.8 ft-lb)" },
+      { "label": "Case Stay Bolt Torque", "value": "16 Nm (1.6 kgf-m, 11.6 ft-lb)" },
+      { "label": "Resonator Chamber Torque", "value": "33 Nm (3.4 kgf-m, 24.4 ft-lb)" }
+    ],
+    "steps": [
+      "Open hood and locate air cleaner case on top of engine",
+      "Release clips (B) above the air cleaner case",
+      "Remove bolts (A) securing air cleaner case to stays",
+      "Separate upper air cleaner case (case B) from lower (case A)",
+      "Remove air cleaner element from case",
+      "Inspect element - replace if excessively damaged or dirty",
+      "Clean inside of both air cleaner case halves",
+      "Install new air cleaner element into lower case",
+      "Reassemble upper case, fasten with clips after inserting lower tab",
+      "Reinstall securing bolts"
+    ],
+    "relatedPdfs": [
+      "/manuals/EJ20E-SOHC-engine/EJ20_SOHC_Intake.pdf"
+    ],
+    "relatedDiagrams": ["070_01"]
+  },
+  {
+    "id": "transmission-fluid",
+    "title": "Manual Transmission Fluid Change",
+    "difficulty": "Moderate",
+    "interval": "Every 50,000 km or 30 months",
+    "specs": [
+      { "label": "Fluid Type", "value": "GL-5 (75W-90 gear oil)" },
+      { "label": "Capacity", "value": "3.5 L (3.7 US qt)" },
+      { "label": "Transmission Type", "value": "5-speed synchromesh with reverse" },
+      { "label": "Transfer Gear Ratio", "value": "1.000" },
+      { "label": "Final Drive Ratio (2200cc)", "value": "3.900" },
+      { "label": "1st Gear Ratio", "value": "3.545" },
+      { "label": "2nd Gear Ratio", "value": "2.111" },
+      { "label": "3rd Gear Ratio", "value": "1.448" },
+      { "label": "4th Gear Ratio", "value": "1.088" },
+      { "label": "5th Gear Ratio", "value": "0.780" },
+      { "label": "Reverse Gear Ratio", "value": "3.416" },
+      { "label": "Drain/Fill Plug Torque", "value": "35 Nm (3.6 kgf-m, 25 ft-lb) *" },
+      { "label": "* Note", "value": "Community-standard value; not explicitly found in manual" }
+    ],
+    "steps": [
+      "Raise vehicle and support on jack stands, remove under cover",
+      "Place drain pan under transmission",
+      "Clean area around drain and fill plugs",
+      "Remove fill plug first (to ensure it can be removed before draining)",
+      "Remove drain plug and allow fluid to drain completely",
+      "Inspect drain plug magnet for metal particles",
+      "Install drain plug with new washer, torque to spec",
+      "Fill transmission through fill plug hole with GL-5 gear oil",
+      "Fill until fluid begins to seep from fill hole (3.5 L total)",
+      "Install fill plug with new washer, torque to spec",
+      "Lower vehicle and test-drive, checking all gears engage smoothly"
+    ],
+    "relatedPdfs": [
+      "/manuals/BG-chassis/TRANSMISSION/MANUAL TRANSMISSION AND DIFFERENTIAL/MSA5TCD97L3564.pdf"
+    ],
+    "relatedDiagrams": ["100_01", "110_01"]
+  },
+  {
+    "id": "clutch",
+    "title": "Clutch Replacement",
+    "difficulty": "Advanced",
+    "interval": "As needed (typically 100,000-150,000 km)",
+    "specs": [
+      { "label": "Clutch Disc O.D. x I.D. x Thickness", "value": "225 x 150 x 3.5 mm" },
+      { "label": "Clutch Disc Facing", "value": "Woven type" },
+      { "label": "Clutch Disc Spline O.D. (24 teeth)", "value": "25.2 mm" },
+      { "label": "Diaphragm Set Load (2200cc)", "value": "450 kg (992 lb)" },
+      { "label": "Release Bearing Type", "value": "Grease-packed self-aligning" },
+      { "label": "Release Lever Ratio", "value": "3.0" },
+      { "label": "Clutch Pedal Full Stroke", "value": "140-150 mm (5.51-5.91 in)" },
+      { "label": "Release Lever Stroke", "value": "24-26 mm (0.94-1.02 in)" },
+      { "label": "Release Lever Play (at center)", "value": "3-4 mm (0.12-0.16 in)" },
+      { "label": "Disc Rivet Depth (standard)", "value": "1.3-1.9 mm" },
+      { "label": "Disc Rivet Depth (wear limit)", "value": "0.3 mm" },
+      { "label": "Disc Runout Limit", "value": "1.0 mm at R=107 mm" },
+      { "label": "Cover Bolt Torque", "value": "15.7 Nm (1.6 kgf-m, 11.6 ft-lb)" }
+    ],
+    "steps": [
+      "Disconnect battery ground cable",
+      "Remove air intake duct and air cleaner assembly",
+      "Disconnect clutch cable or hydraulic line",
+      "Support engine with lifting device and wire ropes",
+      "Raise vehicle, remove front wheels and under cover",
+      "Drain transmission fluid",
+      "Remove front exhaust pipe",
+      "Remove propeller shaft (AWD models)",
+      "Disconnect all electrical connectors from transmission",
+      "Support transmission with jack, remove mounting bolts",
+      "Carefully lower and remove transmission",
+      "Mark clutch cover position relative to flywheel",
+      "Gradually loosen cover bolts in star pattern, remove clutch cover and disc",
+      "Inspect flywheel surface for scoring, heat damage, and runout",
+      "Inspect release bearing for noise and smooth rotation, replace if worn",
+      "Install new clutch disc using alignment tool (spline side toward transmission)",
+      "Install new clutch cover, align marks, torque bolts gradually to 15.7 Nm",
+      "Apply small amount of grease to input shaft splines",
+      "Install release bearing on release lever",
+      "Reinstall transmission, torque mounting bolts to spec",
+      "Reconnect all components in reverse order of removal",
+      "Fill transmission with GL-5 fluid (3.5 L)",
+      "Adjust clutch pedal free play, bleed hydraulic system if equipped"
+    ],
+    "relatedPdfs": [
+      "/manuals/BG-chassis/ENGINE - UNIVERSAL/CLUTCH/MSA5TCD97L3544.pdf",
+      "/manuals/BG-chassis/ENGINE - UNIVERSAL/CLUTCH/MSA5TCD97L3545.pdf"
+    ],
+    "relatedDiagrams": ["130_03", "130_04"]
+  },
+  {
+    "id": "differential-fluid",
+    "title": "Differential Fluid Change",
+    "difficulty": "Moderate",
+    "interval": "Every 50,000 km or 30 months",
+    "specs": [
+      { "label": "Front Diff Type", "value": "Straight bevel gear (integrated in transmission)" },
+      { "label": "Front Diff Gear Type", "value": "Hypoid" },
+      { "label": "Front Final Ratio (2200cc)", "value": "3.900" },
+      { "label": "Front Diff Fluid", "value": "GL-5 (shared with transmission, 3.5 L total)" },
+      { "label": "Rear Diff Type", "value": "Hypoid gear" },
+      { "label": "Rear Final Ratio (2200cc)", "value": "3.900" },
+      { "label": "Rear Diff Fluid Type", "value": "GL-5 (75W-90 gear oil)" },
+      { "label": "Rear Diff Capacity", "value": "0.8 L (0.85 US qt) *" },
+      { "label": "Rear Diff Bevel Gear Backlash", "value": "0.13-0.18 mm" },
+      { "label": "Center Diff Type", "value": "Viscous coupling with bevel gears (AWD)" },
+      { "label": "Drain/Fill Plug Torque", "value": "35 Nm (3.6 kgf-m, 25 ft-lb) *" },
+      { "label": "* Note", "value": "Rear diff capacity and plug torque are community-standard values" }
+    ],
+    "steps": [
+      "Raise vehicle and support securely on jack stands",
+      "Place drain pan under rear differential",
+      "Clean area around drain and fill plugs on rear diff housing",
+      "Remove fill plug first (17mm hex) to ensure it can be removed",
+      "Remove drain plug and drain old fluid completely",
+      "Inspect drain plug magnet for excessive metal particles",
+      "Clean and reinstall drain plug with new crush washer",
+      "Fill rear differential through fill hole with GL-5 75W-90 gear oil",
+      "Fill until fluid seeps from fill hole (approximately 0.8 L)",
+      "Install fill plug with new crush washer",
+      "Note: Front differential shares fluid with manual transmission",
+      "For front diff service, perform transmission fluid change procedure",
+      "Lower vehicle and test-drive, listening for whine or noise"
+    ],
+    "relatedPdfs": [
+      "/manuals/BG-chassis/TRANSMISSION/MANUAL TRANSMISSION AND DIFFERENTIAL/MSA5TCD97L3564.pdf"
+    ],
+    "relatedDiagrams": ["190_01", "195_02"]
+  }
+]
