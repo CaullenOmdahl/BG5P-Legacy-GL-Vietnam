@@ -6,6 +6,7 @@ Reads SECTIONS and SUBCATEGORY_NAMES from parts-catalog/download_diagrams.py
 and generates site/public/data/sections.json for the frontend.
 """
 
+import csv
 import json
 import re
 import sys
@@ -21,7 +22,11 @@ sys.path.insert(0, str(PARTS_CATALOG_DIR))
 from download_diagrams import SECTIONS, SUBCATEGORY_NAMES  # noqa: E402
 
 OUTPUT_DIR = SITE_DIR / "public" / "data"
-OUTPUT_FILE = OUTPUT_DIR / "sections.json"
+SECTIONS_FILE = OUTPUT_DIR / "sections.json"
+PARTS_FILE = OUTPUT_DIR / "parts.json"
+
+# EPC extraction output directories (from extract_epc.py)
+EPC_SECTIONS = ["engine", "body", "trans", "electric"]
 
 
 def folder_to_display_name(folder_name: str) -> str:
@@ -94,23 +99,72 @@ def build_sections() -> list[dict]:
     return sections
 
 
+def build_parts() -> dict:
+    """
+    Build parts data from EPC extraction CSVs.
+
+    Maps diagram category codes (e.g., "006") to lists of parts,
+    keyed by the 3-digit category code so the frontend can match
+    diagram codes like "006_01" to category "006".
+
+    Returns empty dict if no CSVs exist yet.
+    """
+    parts_by_category = {}
+
+    for epc_section in EPC_SECTIONS:
+        master_csv = PARTS_CATALOG_DIR / epc_section / "all_parts.csv"
+        if not master_csv.exists():
+            continue
+
+        with open(master_csv, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                cat_code = row.get("category_code", "").strip()
+                if not cat_code:
+                    continue
+                parts_by_category.setdefault(cat_code, []).append({
+                    "oem_number": row.get("oem_number", ""),
+                    "quantity": row.get("quantity", ""),
+                    "production_period": row.get("production_period", ""),
+                    "applies_for_models": row.get("applies_for_models", ""),
+                    "notes": row.get("notes", ""),
+                    "replacements": row.get("replacements", ""),
+                    "group_code": row.get("group_code", ""),
+                    "group_name": row.get("group_name", ""),
+                })
+
+    return parts_by_category
+
+
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+    # ── sections.json ──
     sections = build_sections()
-
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    with open(SECTIONS_FILE, "w", encoding="utf-8") as f:
         json.dump(sections, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
-    # Summary
     total_diagrams = sum(s["diagramCount"] for s in sections)
-    print(f"Generated {OUTPUT_FILE}")
+    print(f"Generated {SECTIONS_FILE}")
     print(f"  Sections: {len(sections)}")
     print(f"  Total diagrams: {total_diagrams}")
     print()
     for s in sections:
         print(f"  {s['slug']:30s}  {s['diagramCount']:3d} diagrams  ({s['name']})")
+
+    # ── parts.json ──
+    parts = build_parts()
+    with open(PARTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(parts, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+    total_parts = sum(len(v) for v in parts.values())
+    print(f"\nGenerated {PARTS_FILE}")
+    print(f"  Categories with parts: {len(parts)}")
+    print(f"  Total part entries: {total_parts}")
+    if not parts:
+        print("  (No EPC CSVs found yet — run extract_epc.py first)")
 
 
 if __name__ == "__main__":
