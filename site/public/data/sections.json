@@ -247,103 +247,103 @@
     "diagrams": [
       {
         "code": "100_01",
-        "name": "100_01",
+        "name": "MT, CLUTCH",
         "filename": "B11_100_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_100_01_LH_2_LR.gif"
       },
       {
         "code": "110_01",
-        "name": "110_01",
+        "name": "MT, TRANSMISSION ASSEMBLY",
         "filename": "B11_110_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_110_01_LH_2_LR.gif"
       },
       {
         "code": "111_01",
-        "name": "111_01",
+        "name": "MT, GASKET & SEAL KIT",
         "filename": "B11_111_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_111_01_LH_2_LR.gif"
       },
       {
         "code": "113_01",
-        "name": "113_01",
+        "name": "MT, TRANSMISSION CASE",
         "filename": "B11_113_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_113_01_LH_2_LR.gif"
       },
       {
         "code": "113_02",
-        "name": "113_02",
+        "name": "MT, TRANSMISSION CASE",
         "filename": "B11_113_02_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_113_02_LH_2_LR.gif"
       },
       {
         "code": "114_01",
-        "name": "114_01",
+        "name": "MT, MAIN SHAFT",
         "filename": "B11_114_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_114_01_LH_2_LR.gif"
       },
       {
         "code": "114_02",
-        "name": "114_02",
+        "name": "MT, MAIN SHAFT",
         "filename": "B11_114_02_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_114_02_LH_2_LR.gif"
       },
       {
         "code": "115_06",
-        "name": "115_06",
+        "name": "MT, DRIVE PINION SHAFT",
         "filename": "B11_115_06_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_115_06_LH_2_LR.gif"
       },
       {
         "code": "116_01",
-        "name": "116_01",
+        "name": "MT, AUXILIARY GEAR",
         "filename": "B11_116_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_116_01_LH_2_LR.gif"
       },
       {
         "code": "116_02",
-        "name": "116_02",
+        "name": "MT, AUXILIARY GEAR",
         "filename": "B11_116_02_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_116_02_LH_2_LR.gif"
       },
       {
         "code": "116_03",
-        "name": "116_03",
+        "name": "MT, AUXILIARY GEAR",
         "filename": "B11_116_03_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_116_03_LH_2_LR.gif"
       },
       {
         "code": "117_01",
-        "name": "117_01",
+        "name": "MT, SPEEDOMETER GEAR",
         "filename": "B11_117_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_117_01_LH_2_LR.gif"
       },
       {
         "code": "119_01",
-        "name": "119_01",
+        "name": "MT, TRANSMISSION HARNESS",
         "filename": "B11_119_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_119_01_LH_2_LR.gif"
       },
       {
         "code": "121_01",
-        "name": "121_01",
+        "name": "MT, TRANSFER & EXTENSION",
         "filename": "B11_121_01_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_121_01_LH_2_LR.gif"
       },
       {
         "code": "121_02",
-        "name": "121_02",
+        "name": "MT, TRANSFER & EXTENSION",
         "filename": "B11_121_02_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_121_02_LH_2_LR.gif"
       },
       {
         "code": "130_03",
-        "name": "130_03",
+        "name": "MT, SHIFTER FORK & SHIFTER RAIL",
         "filename": "B11_130_03_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_130_03_LH_2_LR.gif"
       },
       {
         "code": "130_04",
-        "name": "130_04",
+        "name": "MT, SHIFTER FORK & SHIFTER RAIL",
         "filename": "B11_130_04_LH_2_LR.gif",
         "imagePath": "/diagrams/04_MANUAL_TRANSMISSION/B11_130_04_LH_2_LR.gif"
       }
@@ -357,19 +357,19 @@
     "diagrams": [
       {
         "code": "190_01",
-        "name": "190_01",
+        "name": "DIFFERENTIAL (TRANSMISSION)",
         "filename": "B11_190_01_LH_2_LR.gif",
         "imagePath": "/diagrams/05_DIFFERENTIAL_PROPELLER/B11_190_01_LH_2_LR.gif"
       },
       {
         "code": "195_02",
-        "name": "195_02",
+        "name": "DIFFERENTIAL (INDIVIDUAL)",
         "filename": "B11_195_02_LH_2_LR.gif",
         "imagePath": "/diagrams/05_DIFFERENTIAL_PROPELLER/B11_195_02_LH_2_LR.gif"
       },
       {
         "code": "199_01",
-        "name": "199_01",
+        "name": "PROPELLER SHAFT",
         "filename": "B11_199_01_LH_2_LR.gif",
         "imagePath": "/diagrams/05_DIFFERENTIAL_PROPELLER/B11_199_01_LH_2_LR.gif"
       }
@@ -383,193 +383,193 @@
     "diagrams": [
       {
         "code": "200_01",
-        "name": "200_01",
+        "name": "FRONT SUSPENSION",
         "filename": "B11_200_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_200_01_LH_2_LR.gif"
       },
       {
         "code": "201_02",
-        "name": "201_02",
+        "name": "REAR SUSPENSION",
         "filename": "B11_201_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_201_02_LH_2_LR.gif"
       },
       {
         "code": "210_02",
-        "name": "210_02",
+        "name": "FRONT SHOCK ABSORBER",
         "filename": "B11_210_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_210_02_LH_2_LR.gif"
       },
       {
         "code": "211_02",
-        "name": "211_02",
+        "name": "REAR SHOCK ABSORBER",
         "filename": "B11_211_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_211_02_LH_2_LR.gif"
       },
       {
         "code": "220_01",
-        "name": "220_01",
+        "name": "AIR SUSPENSION SYSTEM",
         "filename": "B11_220_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_220_01_LH_2_LR.gif"
       },
       {
         "code": "220_02",
-        "name": "220_02",
+        "name": "AIR SUSPENSION SYSTEM",
         "filename": "B11_220_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_220_02_LH_2_LR.gif"
       },
       {
         "code": "260_01",
-        "name": "260_01",
+        "name": "PARKING BRAKE SYSTEM",
         "filename": "B11_260_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_260_01_LH_2_LR.gif"
       },
       {
         "code": "261_01",
-        "name": "261_01",
+        "name": "BRAKE SYSTEM (MASTER CYLINDER)",
         "filename": "B11_261_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_261_01_LH_2_LR.gif"
       },
       {
         "code": "261_02",
-        "name": "261_02",
+        "name": "BRAKE SYSTEM (MASTER CYLINDER)",
         "filename": "B11_261_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_261_02_LH_2_LR.gif"
       },
       {
         "code": "262_02",
-        "name": "262_02",
+        "name": "FRONT BRAKE",
         "filename": "B11_262_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_262_02_LH_2_LR.gif"
       },
       {
         "code": "262_04",
-        "name": "262_04",
+        "name": "FRONT BRAKE",
         "filename": "B11_262_04_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_262_04_LH_2_LR.gif"
       },
       {
         "code": "263_01",
-        "name": "263_01",
+        "name": "REAR BRAKE",
         "filename": "B11_263_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_263_01_LH_2_LR.gif"
       },
       {
         "code": "263_02",
-        "name": "263_02",
+        "name": "REAR BRAKE",
         "filename": "B11_263_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_263_02_LH_2_LR.gif"
       },
       {
         "code": "263_03",
-        "name": "263_03",
+        "name": "REAR BRAKE",
         "filename": "B11_263_03_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_263_03_LH_2_LR.gif"
       },
       {
         "code": "263_04",
-        "name": "263_04",
+        "name": "REAR BRAKE",
         "filename": "B11_263_04_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_263_04_LH_2_LR.gif"
       },
       {
         "code": "265_01",
-        "name": "265_01",
+        "name": "BRAKE PIPING",
         "filename": "B11_265_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_265_01_LH_2_LR.gif"
       },
       {
         "code": "265_02",
-        "name": "265_02",
+        "name": "BRAKE PIPING",
         "filename": "B11_265_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_265_02_LH_2_LR.gif"
       },
       {
         "code": "265_03",
-        "name": "265_03",
+        "name": "BRAKE PIPING",
         "filename": "B11_265_03_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_265_03_LH_2_LR.gif"
       },
       {
         "code": "265_04",
-        "name": "265_04",
+        "name": "BRAKE PIPING",
         "filename": "B11_265_04_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_265_04_LH_2_LR.gif"
       },
       {
         "code": "267_05",
-        "name": "267_05",
+        "name": "ANTILOCK BRAKE SYSTEM",
         "filename": "B11_267_05_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_267_05_LH_2_LR.gif"
       },
       {
         "code": "267_06",
-        "name": "267_06",
+        "name": "ANTILOCK BRAKE SYSTEM",
         "filename": "B11_267_06_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_267_06_LH_2_LR.gif"
       },
       {
         "code": "268_01",
-        "name": "268_01",
+        "name": "HILL HOLDER",
         "filename": "B11_268_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_268_01_LH_2_LR.gif"
       },
       {
         "code": "280_01",
-        "name": "280_01",
+        "name": "FRONT AXLE",
         "filename": "B11_280_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_280_01_LH_2_LR.gif"
       },
       {
         "code": "280_02",
-        "name": "280_02",
+        "name": "FRONT AXLE",
         "filename": "B11_280_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_280_02_LH_2_LR.gif"
       },
       {
         "code": "280_03",
-        "name": "280_03",
+        "name": "FRONT AXLE",
         "filename": "B11_280_03_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_280_03_LH_2_LR.gif"
       },
       {
         "code": "280_39",
-        "name": "280_39",
+        "name": "FRONT AXLE",
         "filename": "B11_280_39_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_280_39_LH_2_LR.gif"
       },
       {
         "code": "281_01",
-        "name": "281_01",
+        "name": "REAR AXLE",
         "filename": "B11_281_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_281_01_LH_2_LR.gif"
       },
       {
         "code": "281_02",
-        "name": "281_02",
+        "name": "REAR AXLE",
         "filename": "B11_281_02_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_281_02_LH_2_LR.gif"
       },
       {
         "code": "281_39",
-        "name": "281_39",
+        "name": "REAR AXLE",
         "filename": "B11_281_39_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_281_39_LH_2_LR.gif"
       },
       {
         "code": "290_01",
-        "name": "290_01",
+        "name": "DISK WHEEL",
         "filename": "B11_290_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_290_01_LH_2_LR.gif"
       },
       {
         "code": "291_01",
-        "name": "291_01",
+        "name": "WHEEL CAP",
         "filename": "B11_291_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_291_01_LH_2_LR.gif"
       },
       {
         "code": "292_01",
-        "name": "292_01",
+        "name": "TIRE",
         "filename": "B11_292_01_LH_2_LR.gif",
         "imagePath": "/diagrams/06_SUSPENSION_AXLE_BRAKE/B11_292_01_LH_2_LR.gif"
       }
@@ -583,115 +583,115 @@
     "diagrams": [
       {
         "code": "341_01",
-        "name": "341_01",
+        "name": "STEERING COLUMN",
         "filename": "B11_341_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_341_01_LH_2_LR.gif"
       },
       {
         "code": "342_01",
-        "name": "342_01",
+        "name": "STEERING WHEEL",
         "filename": "B11_342_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_342_01_LH_2_LR.gif"
       },
       {
         "code": "342_02",
-        "name": "342_02",
+        "name": "STEERING WHEEL",
         "filename": "B11_342_02_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_342_02_LH_2_LR.gif"
       },
       {
         "code": "343_01",
-        "name": "343_01",
+        "name": "AIR BAG",
         "filename": "B11_343_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_343_01_LH_2_LR.gif"
       },
       {
         "code": "343_02",
-        "name": "343_02",
+        "name": "AIR BAG",
         "filename": "B11_343_02_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_343_02_LH_2_LR.gif"
       },
       {
         "code": "343_03",
-        "name": "343_03",
+        "name": "AIR BAG",
         "filename": "B11_343_03_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_343_03_LH_2_LR.gif"
       },
       {
         "code": "343_04",
-        "name": "343_04",
+        "name": "AIR BAG",
         "filename": "B11_343_04_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_343_04_LH_2_LR.gif"
       },
       {
         "code": "346_01",
-        "name": "346_01",
+        "name": "POWER STEERING SYSTEM",
         "filename": "B11_346_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_346_01_LH_2_LR.gif"
       },
       {
         "code": "347_01",
-        "name": "347_01",
+        "name": "POWER STEERING GEAR BOX",
         "filename": "B11_347_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_347_01_LH_2_LR.gif"
       },
       {
         "code": "348_01",
-        "name": "348_01",
+        "name": "OIL PUMP",
         "filename": "B11_348_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_348_01_LH_2_LR.gif"
       },
       {
         "code": "348_04",
-        "name": "348_04",
+        "name": "OIL PUMP",
         "filename": "B11_348_04_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_348_04_LH_2_LR.gif"
       },
       {
         "code": "350_04",
-        "name": "350_04",
+        "name": "MANUAL GEAR SHIFT SYSTEM",
         "filename": "B11_350_04_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_350_04_LH_2_LR.gif"
       },
       {
         "code": "350_05",
-        "name": "350_05",
+        "name": "MANUAL GEAR SHIFT SYSTEM",
         "filename": "B11_350_05_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_350_05_LH_2_LR.gif"
       },
       {
         "code": "350_06",
-        "name": "350_06",
+        "name": "MANUAL GEAR SHIFT SYSTEM",
         "filename": "B11_350_06_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_350_06_LH_2_LR.gif"
       },
       {
         "code": "360_01",
-        "name": "360_01",
+        "name": "PEDAL SYSTEM (MT)",
         "filename": "B11_360_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_360_01_LH_2_LR.gif"
       },
       {
         "code": "360_02",
-        "name": "360_02",
+        "name": "PEDAL SYSTEM (MT)",
         "filename": "B11_360_02_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_360_02_LH_2_LR.gif"
       },
       {
         "code": "371_01",
-        "name": "371_01",
+        "name": "ACCEL CABLE",
         "filename": "B11_371_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_371_01_LH_2_LR.gif"
       },
       {
         "code": "372_01",
-        "name": "372_01",
+        "name": "SPEEDOMETER CABLE",
         "filename": "B11_372_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_372_01_LH_2_LR.gif"
       },
       {
         "code": "373_01",
-        "name": "373_01",
+        "name": "CLUTCH CABLE",
         "filename": "B11_373_01_LH_2_LR.gif",
         "imagePath": "/diagrams/07_STEERING/B11_373_01_LH_2_LR.gif"
       }
@@ -705,79 +705,79 @@
     "diagrams": [
       {
         "code": "410_03",
-        "name": "410_03",
+        "name": "ENGINE MOUNTING",
         "filename": "B11_410_03_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_410_03_LH_2_LR.gif"
       },
       {
         "code": "411_01",
-        "name": "411_01",
+        "name": "ENGINE SUPPORT",
         "filename": "B11_411_01_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_411_01_LH_2_LR.gif"
       },
       {
         "code": "415_01",
-        "name": "415_01",
+        "name": "DIFFERENTIAL MOUNTING",
         "filename": "B11_415_01_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_415_01_LH_2_LR.gif"
       },
       {
         "code": "420_01",
-        "name": "420_01",
+        "name": "FUEL PIPING",
         "filename": "B11_420_01_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_420_01_LH_2_LR.gif"
       },
       {
         "code": "420_02",
-        "name": "420_02",
+        "name": "FUEL PIPING",
         "filename": "B11_420_02_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_420_02_LH_2_LR.gif"
       },
       {
         "code": "421_03",
-        "name": "421_03",
+        "name": "FUEL TANK",
         "filename": "B11_421_03_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_421_03_LH_2_LR.gif"
       },
       {
         "code": "421_04",
-        "name": "421_04",
+        "name": "FUEL TANK",
         "filename": "B11_421_04_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_421_04_LH_2_LR.gif"
       },
       {
         "code": "440_01",
-        "name": "440_01",
+        "name": "EXHAUST",
         "filename": "B11_440_01_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_440_01_LH_2_LR.gif"
       },
       {
         "code": "440_02",
-        "name": "440_02",
+        "name": "EXHAUST",
         "filename": "B11_440_02_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_440_02_LH_2_LR.gif"
       },
       {
         "code": "440_03",
-        "name": "440_03",
+        "name": "EXHAUST",
         "filename": "B11_440_03_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_440_03_LH_2_LR.gif"
       },
       {
         "code": "440_04",
-        "name": "440_04",
+        "name": "EXHAUST",
         "filename": "B11_440_04_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_440_04_LH_2_LR.gif"
       },
       {
         "code": "450_03",
-        "name": "450_03",
+        "name": "ENGINE COOLING",
         "filename": "B11_450_03_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_450_03_LH_2_LR.gif"
       },
       {
         "code": "450_04",
-        "name": "450_04",
+        "name": "ENGINE COOLING",
         "filename": "B11_450_04_LH_2_LR.gif",
         "imagePath": "/diagrams/08_ENGINE_MOUNTING_COOLING/B11_450_04_LH_2_LR.gif"
       }
@@ -791,169 +791,169 @@
     "diagrams": [
       {
         "code": "510_01",
-        "name": "510_01",
+        "name": "RADIATOR PANEL",
         "filename": "B11_510_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_510_01_LH_2_LR.gif"
       },
       {
         "code": "511_01",
-        "name": "511_01",
+        "name": "WHEEL APRON",
         "filename": "B11_511_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_511_01_LH_2_LR.gif"
       },
       {
         "code": "512_01",
-        "name": "512_01",
+        "name": "FLOOR PANEL",
         "filename": "B11_512_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_512_01_LH_2_LR.gif"
       },
       {
         "code": "512_02",
-        "name": "512_02",
+        "name": "FLOOR PANEL",
         "filename": "B11_512_02_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_512_02_LH_2_LR.gif"
       },
       {
         "code": "512_03",
-        "name": "512_03",
+        "name": "FLOOR PANEL",
         "filename": "B11_512_03_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_512_03_LH_2_LR.gif"
       },
       {
         "code": "512_04",
-        "name": "512_04",
+        "name": "FLOOR PANEL",
         "filename": "B11_512_04_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_512_04_LH_2_LR.gif"
       },
       {
         "code": "513_01",
-        "name": "513_01",
+        "name": "TOE BOARD & FRONT PANEL & STEERING BEAM",
         "filename": "B11_513_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_513_01_LH_2_LR.gif"
       },
       {
         "code": "520_02",
-        "name": "520_02",
+        "name": "SIDE BODY OUTER",
         "filename": "B11_520_02_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_520_02_LH_2_LR.gif"
       },
       {
         "code": "521_02",
-        "name": "521_02",
+        "name": "SIDE BODY INNER",
         "filename": "B11_521_02_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_521_02_LH_2_LR.gif"
       },
       {
         "code": "530_02",
-        "name": "530_02",
+        "name": "ROOF PANEL",
         "filename": "B11_530_02_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_530_02_LH_2_LR.gif"
       },
       {
         "code": "540_01",
-        "name": "540_01",
+        "name": "FENDER",
         "filename": "B11_540_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_540_01_LH_2_LR.gif"
       },
       {
         "code": "541_02",
-        "name": "541_02",
+        "name": "MUDGUARD",
         "filename": "B11_541_02_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_541_02_LH_2_LR.gif"
       },
       {
         "code": "541_03",
-        "name": "541_03",
+        "name": "MUDGUARD",
         "filename": "B11_541_03_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_541_03_LH_2_LR.gif"
       },
       {
         "code": "550_01",
-        "name": "550_01",
+        "name": "FRONT HOOD & FRONT HOOD LOCK",
         "filename": "B11_550_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_550_01_LH_2_LR.gif"
       },
       {
         "code": "565_01",
-        "name": "565_01",
+        "name": "FUEL FLAP & OPENER",
         "filename": "B11_565_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_565_01_LH_2_LR.gif"
       },
       {
         "code": "565_02",
-        "name": "565_02",
+        "name": "FUEL FLAP & OPENER",
         "filename": "B11_565_02_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_565_02_LH_2_LR.gif"
       },
       {
         "code": "570_01",
-        "name": "570_01",
+        "name": "UNDER GUARD",
         "filename": "B11_570_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_570_01_LH_2_LR.gif"
       },
       {
         "code": "575_01",
-        "name": "575_01",
+        "name": "EXHAUST & MUFFLER COVER",
         "filename": "B11_575_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_575_01_LH_2_LR.gif"
       },
       {
         "code": "580_01",
-        "name": "580_01",
+        "name": "KEY KIT & KEY LOCK",
         "filename": "B11_580_01_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_580_01_LH_2_LR.gif"
       },
       {
         "code": "580_03",
-        "name": "580_03",
+        "name": "KEY KIT & KEY LOCK",
         "filename": "B11_580_03_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_580_03_LH_2_LR.gif"
       },
       {
         "code": "590_02",
-        "name": "590_02",
+        "name": "FRONT BUMPER",
         "filename": "B11_590_02_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_590_02_LH_2_LR.gif"
       },
       {
         "code": "590_06",
-        "name": "590_06",
+        "name": "FRONT BUMPER",
         "filename": "B11_590_06_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_590_06_LH_2_LR.gif"
       },
       {
         "code": "590_07",
-        "name": "590_07",
+        "name": "FRONT BUMPER",
         "filename": "B11_590_07_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_590_07_LH_2_LR.gif"
       },
       {
         "code": "590_08",
-        "name": "590_08",
+        "name": "FRONT BUMPER",
         "filename": "B11_590_08_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_590_08_LH_2_LR.gif"
       },
       {
         "code": "591_03",
-        "name": "591_03",
+        "name": "REAR BUMPER",
         "filename": "B11_591_03_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_591_03_LH_2_LR.gif"
       },
       {
         "code": "591_07",
-        "name": "591_07",
+        "name": "REAR BUMPER",
         "filename": "B11_591_07_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_591_07_LH_2_LR.gif"
       },
       {
         "code": "591_08",
-        "name": "591_08",
+        "name": "REAR BUMPER",
         "filename": "B11_591_08_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_591_08_LH_2_LR.gif"
       },
       {
         "code": "591_09",
-        "name": "591_09",
+        "name": "REAR BUMPER",
         "filename": "B11_591_09_LH_2_LR.gif",
         "imagePath": "/diagrams/09_BODY_KEY_BUMPER/B11_591_09_LH_2_LR.gif"
       }
@@ -967,67 +967,67 @@
     "diagrams": [
       {
         "code": "600_01",
-        "name": "600_01",
+        "name": "FRONT DOOR PANEL",
         "filename": "B11_600_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_600_01_LH_2_LR.gif"
       },
       {
         "code": "600_02",
-        "name": "600_02",
+        "name": "FRONT DOOR PANEL",
         "filename": "B11_600_02_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_600_02_LH_2_LR.gif"
       },
       {
         "code": "601_01",
-        "name": "601_01",
+        "name": "FRONT DOOR PARTS (GLASS & REGULATOR)",
         "filename": "B11_601_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_601_01_LH_2_LR.gif"
       },
       {
         "code": "602_01",
-        "name": "602_01",
+        "name": "FRONT DOOR PARTS (LATCH & HANDLE)",
         "filename": "B11_602_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_602_01_LH_2_LR.gif"
       },
       {
         "code": "610_01",
-        "name": "610_01",
+        "name": "REAR DOOR PANEL",
         "filename": "B11_610_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_610_01_LH_2_LR.gif"
       },
       {
         "code": "610_02",
-        "name": "610_02",
+        "name": "REAR DOOR PANEL",
         "filename": "B11_610_02_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_610_02_LH_2_LR.gif"
       },
       {
         "code": "611_01",
-        "name": "611_01",
+        "name": "REAR DOOR PARTS (GLASS & REGULATOR)",
         "filename": "B11_611_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_611_01_LH_2_LR.gif"
       },
       {
         "code": "612_01",
-        "name": "612_01",
+        "name": "REAR DOOR PARTS (LATCH & HANDLE)",
         "filename": "B11_612_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_612_01_LH_2_LR.gif"
       },
       {
         "code": "620_01",
-        "name": "620_01",
+        "name": "BACK DOOR PANEL",
         "filename": "B11_620_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_620_01_LH_2_LR.gif"
       },
       {
         "code": "621_01",
-        "name": "621_01",
+        "name": "BACK DOOR GLASS",
         "filename": "B11_621_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_621_01_LH_2_LR.gif"
       },
       {
         "code": "622_01",
-        "name": "622_01",
+        "name": "BACK DOOR PARTS",
         "filename": "B11_622_01_LH_2_LR.gif",
         "imagePath": "/diagrams/10_DOOR_PARTS/B11_622_01_LH_2_LR.gif"
       }
@@ -1041,103 +1041,103 @@
     "diagrams": [
       {
         "code": "640_01",
-        "name": "640_01",
+        "name": "FRONT SEAT",
         "filename": "B11_640_01_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_640_01_LH_2_LR.gif"
       },
       {
         "code": "640_03",
-        "name": "640_03",
+        "name": "FRONT SEAT",
         "filename": "B11_640_03_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_640_03_LH_2_LR.gif"
       },
       {
         "code": "641_04",
-        "name": "641_04",
+        "name": "REAR SEAT",
         "filename": "B11_641_04_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_641_04_LH_2_LR.gif"
       },
       {
         "code": "645_01",
-        "name": "645_01",
+        "name": "FRONT SEAT BELT",
         "filename": "B11_645_01_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_645_01_LH_2_LR.gif"
       },
       {
         "code": "646_02",
-        "name": "646_02",
+        "name": "REAR SEAT BELT",
         "filename": "B11_646_02_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_646_02_LH_2_LR.gif"
       },
       {
         "code": "650_01",
-        "name": "650_01",
+        "name": "WINDSHIELD GLASS",
         "filename": "B11_650_01_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_650_01_LH_2_LR.gif"
       },
       {
         "code": "652_02",
-        "name": "652_02",
+        "name": "REAR QUARTER",
         "filename": "B11_652_02_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_652_02_LH_2_LR.gif"
       },
       {
         "code": "654_04",
-        "name": "654_04",
+        "name": "SUN ROOF",
         "filename": "B11_654_04_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_654_04_LH_2_LR.gif"
       },
       {
         "code": "654_05",
-        "name": "654_05",
+        "name": "SUN ROOF",
         "filename": "B11_654_05_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_654_05_LH_2_LR.gif"
       },
       {
         "code": "654_06",
-        "name": "654_06",
+        "name": "SUN ROOF",
         "filename": "B11_654_06_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_654_06_LH_2_LR.gif"
       },
       {
         "code": "654_07",
-        "name": "654_07",
+        "name": "SUN ROOF",
         "filename": "B11_654_07_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_654_07_LH_2_LR.gif"
       },
       {
         "code": "654_08",
-        "name": "654_08",
+        "name": "SUN ROOF",
         "filename": "B11_654_08_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_654_08_LH_2_LR.gif"
       },
       {
         "code": "657_01",
-        "name": "657_01",
+        "name": "TONNEAU COVER",
         "filename": "B11_657_01_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_657_01_LH_2_LR.gif"
       },
       {
         "code": "660_01",
-        "name": "660_01",
+        "name": "INSTRUMENT PANEL",
         "filename": "B11_660_01_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_660_01_LH_2_LR.gif"
       },
       {
         "code": "660_02",
-        "name": "660_02",
+        "name": "INSTRUMENT PANEL",
         "filename": "B11_660_02_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_660_02_LH_2_LR.gif"
       },
       {
         "code": "660_03",
-        "name": "660_03",
+        "name": "INSTRUMENT PANEL",
         "filename": "B11_660_03_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_660_03_LH_2_LR.gif"
       },
       {
         "code": "660_04",
-        "name": "660_04",
+        "name": "INSTRUMENT PANEL",
         "filename": "B11_660_04_LH_2_LR.gif",
         "imagePath": "/diagrams/11_SEAT_INSTRUMENT_PANEL/B11_660_04_LH_2_LR.gif"
       }
@@ -1151,49 +1151,49 @@
     "diagrams": [
       {
         "code": "720_01",
-        "name": "720_01",
+        "name": "HEATER SYSTEM",
         "filename": "B11_720_01_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_720_01_LH_2_LR.gif"
       },
       {
         "code": "721_01",
-        "name": "721_01",
+        "name": "HEATER UNIT",
         "filename": "B11_721_01_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_721_01_LH_2_LR.gif"
       },
       {
         "code": "722_01",
-        "name": "722_01",
+        "name": "HEATER BLOWER",
         "filename": "B11_722_01_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_722_01_LH_2_LR.gif"
       },
       {
         "code": "723_01",
-        "name": "723_01",
+        "name": "HEATER CONTROL",
         "filename": "B11_723_01_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_723_01_LH_2_LR.gif"
       },
       {
         "code": "730_01",
-        "name": "730_01",
+        "name": "AIR CONDITIONER SYSTEM",
         "filename": "B11_730_01_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_730_01_LH_2_LR.gif"
       },
       {
         "code": "730_02",
-        "name": "730_02",
+        "name": "AIR CONDITIONER SYSTEM",
         "filename": "B11_730_02_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_730_02_LH_2_LR.gif"
       },
       {
         "code": "731_01",
-        "name": "731_01",
+        "name": "COOLING UNIT",
         "filename": "B11_731_01_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_731_01_LH_2_LR.gif"
       },
       {
         "code": "732_01",
-        "name": "732_01",
+        "name": "COMPRESSOR",
         "filename": "B11_732_01_LH_2_LR.gif",
         "imagePath": "/diagrams/12_HEATER_AC/B11_732_01_LH_2_LR.gif"
       }
@@ -1207,115 +1207,115 @@
     "diagrams": [
       {
         "code": "810_02",
-        "name": "810_02",
+        "name": "WIRING HARNESS (MAIN)",
         "filename": "B11_810_02_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_810_02_LH_2_LR.gif"
       },
       {
         "code": "810_03",
-        "name": "810_03",
+        "name": "WIRING HARNESS (MAIN)",
         "filename": "B11_810_03_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_810_03_LH_2_LR.gif"
       },
       {
         "code": "810_04",
-        "name": "810_04",
+        "name": "WIRING HARNESS (MAIN)",
         "filename": "B11_810_04_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_810_04_LH_2_LR.gif"
       },
       {
         "code": "812_01",
-        "name": "812_01",
+        "name": "WIRING HARNESS (INSTRUMENT PANEL)",
         "filename": "B11_812_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_812_01_LH_2_LR.gif"
       },
       {
         "code": "813_01",
-        "name": "813_01",
+        "name": "CORD (ROOF)",
         "filename": "B11_813_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_813_01_LH_2_LR.gif"
       },
       {
         "code": "814_01",
-        "name": "814_01",
+        "name": "CORD (DOOR)",
         "filename": "B11_814_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_814_01_LH_2_LR.gif"
       },
       {
         "code": "815_02",
-        "name": "815_02",
+        "name": "CORD (REAR)",
         "filename": "B11_815_02_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_815_02_LH_2_LR.gif"
       },
       {
         "code": "816_01",
-        "name": "816_01",
+        "name": "POWER WINDOW EQUIPMENT",
         "filename": "B11_816_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_816_01_LH_2_LR.gif"
       },
       {
         "code": "818_01",
-        "name": "818_01",
+        "name": "CORD (ANOTHER)",
         "filename": "B11_818_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_818_01_LH_2_LR.gif"
       },
       {
         "code": "820_01",
-        "name": "820_01",
+        "name": "BATTERY EQUIPMENT",
         "filename": "B11_820_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_820_01_LH_2_LR.gif"
       },
       {
         "code": "822_01",
-        "name": "822_01",
+        "name": "FUSE BOX",
         "filename": "B11_822_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_822_01_LH_2_LR.gif"
       },
       {
         "code": "822_02",
-        "name": "822_02",
+        "name": "FUSE BOX",
         "filename": "B11_822_02_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_822_02_LH_2_LR.gif"
       },
       {
         "code": "830_01",
-        "name": "830_01",
+        "name": "SWITCH (INSTRUMENT PANEL)",
         "filename": "B11_830_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_830_01_LH_2_LR.gif"
       },
       {
         "code": "830_02",
-        "name": "830_02",
+        "name": "SWITCH (INSTRUMENT PANEL)",
         "filename": "B11_830_02_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_830_02_LH_2_LR.gif"
       },
       {
         "code": "832_01",
-        "name": "832_01",
+        "name": "SWITCH (COMBINATION)",
         "filename": "B11_832_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_832_01_LH_2_LR.gif"
       },
       {
         "code": "832_02",
-        "name": "832_02",
+        "name": "SWITCH (COMBINATION)",
         "filename": "B11_832_02_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_832_02_LH_2_LR.gif"
       },
       {
         "code": "833_01",
-        "name": "833_01",
+        "name": "SWITCH (POWER WINDOW)",
         "filename": "B11_833_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_833_01_LH_2_LR.gif"
       },
       {
         "code": "835_01",
-        "name": "835_01",
+        "name": "ELECTRICAL PARTS (BODY)",
         "filename": "B11_835_01_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_835_01_LH_2_LR.gif"
       },
       {
         "code": "835_02",
-        "name": "835_02",
+        "name": "ELECTRICAL PARTS (BODY)",
         "filename": "B11_835_02_LH_2_LR.gif",
         "imagePath": "/diagrams/13_BODY_ELECTRICAL_1/B11_835_02_LH_2_LR.gif"
       }
@@ -1329,151 +1329,151 @@
     "diagrams": [
       {
         "code": "840_01",
-        "name": "840_01",
+        "name": "HEAD LAMP",
         "filename": "B11_840_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_840_01_LH_2_LR.gif"
       },
       {
         "code": "841_01",
-        "name": "841_01",
+        "name": "LAMP (FRONT)",
         "filename": "B11_841_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_841_01_LH_2_LR.gif"
       },
       {
         "code": "841_02",
-        "name": "841_02",
+        "name": "LAMP (FRONT)",
         "filename": "B11_841_02_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_841_02_LH_2_LR.gif"
       },
       {
         "code": "842_03",
-        "name": "842_03",
+        "name": "LAMP (REAR)",
         "filename": "B11_842_03_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_842_03_LH_2_LR.gif"
       },
       {
         "code": "842_04",
-        "name": "842_04",
+        "name": "LAMP (REAR)",
         "filename": "B11_842_04_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_842_04_LH_2_LR.gif"
       },
       {
         "code": "843_01",
-        "name": "843_01",
+        "name": "LAMP (LICENSE)",
         "filename": "B11_843_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_843_01_LH_2_LR.gif"
       },
       {
         "code": "845_01",
-        "name": "845_01",
+        "name": "LAMP (FOG)",
         "filename": "B11_845_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_845_01_LH_2_LR.gif"
       },
       {
         "code": "845_03",
-        "name": "845_03",
+        "name": "LAMP (FOG)",
         "filename": "B11_845_03_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_845_03_LH_2_LR.gif"
       },
       {
         "code": "846_01",
-        "name": "846_01",
+        "name": "LAMP (ROOM)",
         "filename": "B11_846_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_846_01_LH_2_LR.gif"
       },
       {
         "code": "846_02",
-        "name": "846_02",
+        "name": "LAMP (ROOM)",
         "filename": "B11_846_02_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_846_02_LH_2_LR.gif"
       },
       {
         "code": "846_03",
-        "name": "846_03",
+        "name": "LAMP (ROOM)",
         "filename": "B11_846_03_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_846_03_LH_2_LR.gif"
       },
       {
         "code": "847_02",
-        "name": "847_02",
+        "name": "LAMP (HIGH MOUNT STOP LAMP)",
         "filename": "B11_847_02_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_847_02_LH_2_LR.gif"
       },
       {
         "code": "850_01",
-        "name": "850_01",
+        "name": "METER",
         "filename": "B11_850_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_850_01_LH_2_LR.gif"
       },
       {
         "code": "850_02",
-        "name": "850_02",
+        "name": "METER",
         "filename": "B11_850_02_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_850_02_LH_2_LR.gif"
       },
       {
         "code": "860_01",
-        "name": "860_01",
+        "name": "AUDIO PARTS (RADIO)",
         "filename": "B11_860_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_860_01_LH_2_LR.gif"
       },
       {
         "code": "862_01",
-        "name": "862_01",
+        "name": "ANTENNA",
         "filename": "B11_862_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_862_01_LH_2_LR.gif"
       },
       {
         "code": "863_01",
-        "name": "863_01",
+        "name": "CLOCK",
         "filename": "B11_863_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_863_01_LH_2_LR.gif"
       },
       {
         "code": "863_03",
-        "name": "863_03",
+        "name": "CLOCK",
         "filename": "B11_863_03_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_863_03_LH_2_LR.gif"
       },
       {
         "code": "863_04",
-        "name": "863_04",
+        "name": "CLOCK",
         "filename": "B11_863_04_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_863_04_LH_2_LR.gif"
       },
       {
         "code": "870_01",
-        "name": "870_01",
+        "name": "WIPER (WINDSHIELD)",
         "filename": "B11_870_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_870_01_LH_2_LR.gif"
       },
       {
         "code": "871_01",
-        "name": "871_01",
+        "name": "WIPER (REAR)",
         "filename": "B11_871_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_871_01_LH_2_LR.gif"
       },
       {
         "code": "875_01",
-        "name": "875_01",
+        "name": "WINDSHIELD WASHER",
         "filename": "B11_875_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_875_01_LH_2_LR.gif"
       },
       {
         "code": "876_01",
-        "name": "876_01",
+        "name": "REAR WASHER",
         "filename": "B11_876_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_876_01_LH_2_LR.gif"
       },
       {
         "code": "877_01",
-        "name": "877_01",
+        "name": "HORN",
         "filename": "B11_877_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_877_01_LH_2_LR.gif"
       },
       {
         "code": "880_01",
-        "name": "880_01",
+        "name": "CRUISE CONTROL EQUIPMENT",
         "filename": "B11_880_01_LH_2_LR.gif",
         "imagePath": "/diagrams/14_BODY_ELECTRICAL_2/B11_880_01_LH_2_LR.gif"
       }
@@ -1487,109 +1487,109 @@
     "diagrams": [
       {
         "code": "900_02",
-        "name": "900_02",
+        "name": "PLUG",
         "filename": "B11_900_02_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_900_02_LH_2_LR.gif"
       },
       {
         "code": "900_03",
-        "name": "900_03",
+        "name": "PLUG",
         "filename": "B11_900_03_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_900_03_LH_2_LR.gif"
       },
       {
         "code": "901_01",
-        "name": "901_01",
+        "name": "WEATHER STRIP",
         "filename": "B11_901_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_901_01_LH_2_LR.gif"
       },
       {
         "code": "911_01",
-        "name": "911_01",
+        "name": "FRONT GRILLE",
         "filename": "B11_911_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_911_01_LH_2_LR.gif"
       },
       {
         "code": "912_01",
-        "name": "912_01",
+        "name": "REAR VIEW MIRROR",
         "filename": "B11_912_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_912_01_LH_2_LR.gif"
       },
       {
         "code": "913_01",
-        "name": "913_01",
+        "name": "PROTECTOR",
         "filename": "B11_913_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_913_01_LH_2_LR.gif"
       },
       {
         "code": "913_02",
-        "name": "913_02",
+        "name": "PROTECTOR",
         "filename": "B11_913_02_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_913_02_LH_2_LR.gif"
       },
       {
         "code": "913_03",
-        "name": "913_03",
+        "name": "PROTECTOR",
         "filename": "B11_913_03_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_913_03_LH_2_LR.gif"
       },
       {
         "code": "915_01",
-        "name": "915_01",
+        "name": "MOLDING",
         "filename": "B11_915_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_915_01_LH_2_LR.gif"
       },
       {
         "code": "916_01",
-        "name": "916_01",
+        "name": "STRIPE",
         "filename": "B11_916_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_916_01_LH_2_LR.gif"
       },
       {
         "code": "918_01",
-        "name": "918_01",
+        "name": "LABEL (CAUTION)",
         "filename": "B11_918_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_918_01_LH_2_LR.gif"
       },
       {
         "code": "919_01",
-        "name": "919_01",
+        "name": "LETTER MARK",
         "filename": "B11_919_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_919_01_LH_2_LR.gif"
       },
       {
         "code": "919_02",
-        "name": "919_02",
+        "name": "LETTER MARK",
         "filename": "B11_919_02_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_919_02_LH_2_LR.gif"
       },
       {
         "code": "920_01",
-        "name": "920_01",
+        "name": "COWL PANEL",
         "filename": "B11_920_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_920_01_LH_2_LR.gif"
       },
       {
         "code": "921_01",
-        "name": "921_01",
+        "name": "SPOILER",
         "filename": "B11_921_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_921_01_LH_2_LR.gif"
       },
       {
         "code": "921_03",
-        "name": "921_03",
+        "name": "SPOILER",
         "filename": "B11_921_03_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_921_03_LH_2_LR.gif"
       },
       {
         "code": "921_04",
-        "name": "921_04",
+        "name": "SPOILER",
         "filename": "B11_921_04_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_921_04_LH_2_LR.gif"
       },
       {
         "code": "922_01",
-        "name": "922_01",
+        "name": "ROOF RAIL",
         "filename": "B11_922_01_LH_2_LR.gif",
         "imagePath": "/diagrams/15_OUTER_ACCESSORIES/B11_922_01_LH_2_LR.gif"
       }
@@ -1603,97 +1603,97 @@
     "diagrams": [
       {
         "code": "930_01",
-        "name": "930_01",
+        "name": "CONSOLE BOX",
         "filename": "B11_930_01_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_930_01_LH_2_LR.gif"
       },
       {
         "code": "930_02",
-        "name": "930_02",
+        "name": "CONSOLE BOX",
         "filename": "B11_930_02_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_930_02_LH_2_LR.gif"
       },
       {
         "code": "931_01",
-        "name": "931_01",
+        "name": "ROOM INNER PARTS",
         "filename": "B11_931_01_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_931_01_LH_2_LR.gif"
       },
       {
         "code": "931_02",
-        "name": "931_02",
+        "name": "ROOM INNER PARTS",
         "filename": "B11_931_02_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_931_02_LH_2_LR.gif"
       },
       {
         "code": "935_02",
-        "name": "935_02",
+        "name": "COVER",
         "filename": "B11_935_02_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_935_02_LH_2_LR.gif"
       },
       {
         "code": "940_03",
-        "name": "940_03",
+        "name": "INNER TRIM",
         "filename": "B11_940_03_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_940_03_LH_2_LR.gif"
       },
       {
         "code": "940_04",
-        "name": "940_04",
+        "name": "INNER TRIM",
         "filename": "B11_940_04_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_940_04_LH_2_LR.gif"
       },
       {
         "code": "941_01",
-        "name": "941_01",
+        "name": "DOOR TRIM",
         "filename": "B11_941_01_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_941_01_LH_2_LR.gif"
       },
       {
         "code": "941_02",
-        "name": "941_02",
+        "name": "DOOR TRIM",
         "filename": "B11_941_02_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_941_02_LH_2_LR.gif"
       },
       {
         "code": "942_02",
-        "name": "942_02",
+        "name": "ROOF TRIM",
         "filename": "B11_942_02_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_942_02_LH_2_LR.gif"
       },
       {
         "code": "950_01",
-        "name": "950_01",
+        "name": "MAT",
         "filename": "B11_950_01_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_950_01_LH_2_LR.gif"
       },
       {
         "code": "950_03",
-        "name": "950_03",
+        "name": "MAT",
         "filename": "B11_950_03_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_950_03_LH_2_LR.gif"
       },
       {
         "code": "953_01",
-        "name": "953_01",
+        "name": "SILENCER",
         "filename": "B11_953_01_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_953_01_LH_2_LR.gif"
       },
       {
         "code": "955_02",
-        "name": "955_02",
+        "name": "FLOOR INSULATOR",
         "filename": "B11_955_02_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_955_02_LH_2_LR.gif"
       },
       {
         "code": "956_01",
-        "name": "956_01",
+        "name": "HOOD INSULATOR",
         "filename": "B11_956_01_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_956_01_LH_2_LR.gif"
       },
       {
         "code": "970_01",
-        "name": "970_01",
+        "name": "TOOL KIT & JACK",
         "filename": "B11_970_01_LH_2_LR.gif",
         "imagePath": "/diagrams/16_INNER_ACCESSORIES/B11_970_01_LH_2_LR.gif"
       }
