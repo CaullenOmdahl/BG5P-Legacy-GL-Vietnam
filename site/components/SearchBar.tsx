@@ -73,16 +73,36 @@ export default function SearchBar() {
             if (!Array.isArray(parts)) continue;
 
             let sectionSlug = '';
-            const diagramCode = categoryCode.replace(/_/g, '-');
+            let diagramCode = categoryCode.replace(/_/g, '-');
 
+            // Find matching section and diagram for this category
             for (const section of sections) {
               const matchingDiagram = section.diagrams.find(
-                (d) => d.code === categoryCode
+                (d) => d.code === categoryCode || d.code.startsWith(categoryCode + '_')
               );
               if (matchingDiagram) {
                 sectionSlug = section.slug;
+                // If the category code doesn't have a suffix, use the first matching full diagram code
+                if (categoryCode.length === 3) {
+                  diagramCode = matchingDiagram.code.replace(/_/g, '-');
+                }
                 break;
               }
+            }
+
+            // Skip if we couldn't find a section (to avoid broken links)
+            if (!sectionSlug) continue;
+
+            // Add the category code itself as a searchable item
+            if (categoryCode.length === 3) {
+              const categoryName = parts[0]?.group_name || 'Category';
+              items.push({
+                type: 'diagram',
+                label: `${categoryCode} - ${categoryName}`,
+                detail: 'Category',
+                sectionSlug,
+                diagramCode,
+              });
             }
 
             for (const part of parts) {
