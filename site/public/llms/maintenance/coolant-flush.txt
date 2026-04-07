@@ -1,0 +1,42 @@
+# Coolant Flush
+Difficulty: Easy | Interval: Every 30,000 km or 24 months
+
+## Specs
+  Coolant Type: Subaru Genuine Long-Life Coolant
+  Capacity (MT, to FULL): 6.3 L (6.7 US qt)
+  Capacity (AT, to FULL): 6.4 L (6.8 US qt)
+  Reservoir Tank Capacity: 0.45 L (0.5 US qt)
+  Thermostat Opens: 76-80 C (169-176 F)
+  Thermostat Fully Open: 91 C (196 F)
+  Thermostat Valve Lift: 9.0 mm (0.354 in) or more
+  Thermostat Cover Torque: 6.4 Nm (0.65 kgf-m, 4.7 ft-lb)
+  Coolant Concentration: 30-50% (adjust for climate)
+  Radiator Cap Pressure: 108 +/- 15 kPa (16 +/- 2 psi)
+  Water Pump Bolt Torque: 12 Nm (1.2 kgf-m, 8.7 ft-lb) in 2 stages
+
+## Steps
+  1. Allow engine to cool completely - radiator is pressurized when hot
+  2. Lift vehicle, remove under cover
+  3. Place drain pan under radiator, remove drain cock
+  4. Remove radiator cap to speed draining
+  5. Drain coolant completely from radiator and engine block
+  6. Close drain cock, fill radiator with clean water
+  7. Run engine at 2,000-3,000 rpm for 5 minutes to flush
+  8. Drain flush water and repeat if still discolored
+  9. Close drain cock, fill with Subaru Genuine Coolant mix to filler neck
+  10. Fill reservoir tank to FULL level
+  11. Warm engine at 2,000-3,000 rpm for 5+ minutes
+  12. Check radiator level as thermostat opens, top up as needed
+  13. Check reservoir level, add coolant to upper level mark
+  14. Install radiator cap and reservoir cap securely
+
+## Parts
+### 035_01: WATER PUMP
+
+### 036_01: WATER PIPE (1)
+
+## Service Manuals
+  /manuals/EJ20E-SOHC-engine/EJ20_Cooling.pdf
+
+## Full Section
+/llms/engine-main.txt

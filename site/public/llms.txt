@@ -1,0 +1,76 @@
+# BG5P Legacy GL — Service Reference
+
+> Parts diagrams, maintenance guides, and factory service manuals for the 1994-1998 Subaru BG5P Legacy Touring Wagon GL. Vietnamese market, left-hand drive, EJ20E 2.0L SOHC NA, 5MT AWD.
+
+## Vehicle
+- Model: BG5P | Engine: EJ20E 2.0L Flat-4 SOHC NA | 120 HP / 184 Nm
+- Transmission: 5-speed manual | Drivetrain: Full-time AWD
+- Market: Vietnam (General Market LHD export, built in Gunma, Japan)
+- Diagnostics: SSM1 protocol only — NO OBD-II port
+- Years: 1994-1998 | Steering: Left-hand drive
+
+## How to Search
+
+This reference is split into small files. Fetch only what you need.
+
+| Question type | What to fetch |
+|---|---|
+| Task or procedure ("how do I change the oil?") | `/llms/maintenance/{id}.txt` — has steps, specs, AND part numbers |
+| System or category ("what steering parts exist?") | `/llms/{section-slug}.txt` — all diagrams and parts for that system |
+| Specific part number ("what is 30210AA370?") | `/llms/parts-index.txt` — every OEM number with name and section |
+| General overview | You're reading it |
+
+## Maintenance Procedures
+
+Fetch: `/llms/maintenance/{id}.txt`
+Each file includes the full procedure, all specs/torque values, AND the related OEM part numbers.
+
+- [Oil Change](/llms/maintenance/oil-change.txt): Easy | Every 5,000 km or 6 months | Oil Type: 5W-30 preferred (API SJ/SH or SG), Capacity (to upper level): 4.0 L (4.2 US qt), Capacity (to lower level): 3.0 L (3.2 US qt)
+- [Timing Belt Replacement](/llms/maintenance/timing-belt.txt): Advanced | Every 100,000 km or 60 months | Belt Tooth Length Z1: 44 teeth, Belt Tooth Length Z2: 40.5 teeth, Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
+- [Coolant Flush](/llms/maintenance/coolant-flush.txt): Easy | Every 30,000 km or 24 months | Coolant Type: Subaru Genuine Long-Life Coolant, Capacity (MT, to FULL): 6.3 L (6.7 US qt), Capacity (AT, to FULL): 6.4 L (6.8 US qt)
+- [Brake Pads (Front & Rear)](/llms/maintenance/brake-pads.txt): Moderate | Every 20,000 km or as needed | Front Type: Disc (Floating type, ventilated), Front Pad Dimensions: 112.4 x 44.3 x 11.0 mm, Front Pad New Thickness (with backing): 17 mm (0.67 in)
+- [Spark Plugs](/llms/maintenance/spark-plugs.txt): Moderate | Every 20,000 km or 12 months | Plug (without catalytic converter): NGK BKR6E, Plug (with catalytic converter): Champion RC10YC4 or NGK BKR5E-11, Thread Size: M14, P = 1.25
+- [Air Filter Replacement](/llms/maintenance/air-filter.txt): Easy | Every 20,000 km or 12 months (inspect every 10,000 km) | Filter Type: Panel filter element, OEM Part Number: 16546-AA020 (verify for model year), Case Bolt Torque: 6.5 Nm (0.66 kgf-m, 4.8 ft-lb)
+- [Manual Transmission Fluid Change](/llms/maintenance/transmission-fluid.txt): Moderate | Every 50,000 km or 30 months | Fluid Type: GL-5 (75W-90 gear oil), Capacity: 3.5 L (3.7 US qt), Transmission Type: 5-speed synchromesh with reverse
+- [Clutch Replacement](/llms/maintenance/clutch.txt): Advanced | As needed (typically 100,000-150,000 km) | Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm, Clutch Disc Facing: Woven type, Clutch Disc Spline O.D. (24 teeth): 25.2 mm
+- [Differential Fluid Change](/llms/maintenance/differential-fluid.txt): Moderate | Every 50,000 km or 30 months | Front Diff Type: Straight bevel gear (integrated in transmission), Front Diff Gear Type: Hypoid, Front Final Ratio (2200cc): 3.900
+
+## Parts Catalog Sections
+
+Fetch: `/llms/{section-slug}.txt`
+Each file lists every diagram and every OEM part number in that system, plus any related maintenance procedures.
+
+- [Engine Main](/llms/engine-main.txt): 19 diagrams — Block, head, pistons, crankshaft, timing belt, oil pan, valvetrain, gaskets | Maintenance: timing-belt, oil-change, coolant-flush
+- [Engine Auxiliaries](/llms/engine-auxiliaries.txt): 10 diagrams — Intake, exhaust, fuel injection, air filter, pulleys, belts | Maintenance: air-filter
+- [Engine Electrical](/llms/engine-electrical.txt): 7 diagrams — Spark plugs, alternator, starter motor, sensors, ignition coil | Maintenance: spark-plugs
+- [Manual Transmission](/llms/manual-transmission.txt): 17 diagrams — Gearbox internals, shift linkage, synchros, clutch assembly | Maintenance: transmission-fluid, clutch
+- [Differential Propeller](/llms/differential-propeller.txt): 3 diagrams — Front/rear differentials, propeller shaft, viscous coupling | Maintenance: differential-fluid
+- [Suspension Axle Brake](/llms/suspension-axle-brake.txt): 32 diagrams — Shocks, springs, control arms, hubs, calipers, rotors, brake lines | Maintenance: brake-pads
+- [Steering](/llms/steering.txt): 19 diagrams — Rack, column, power steering pump, tie rods, U-joints
+- [Engine Mounting Cooling](/llms/engine-mounting-cooling.txt): 13 diagrams — Engine mounts, radiator, water pump, thermostat, hoses, fan
+- [Body Key Bumper](/llms/body-key-bumper.txt): 28 diagrams — Body panels, bumpers, fenders, hood, trunk, locks, mirrors, glass
+- [Door Parts](/llms/door-parts.txt): 11 diagrams — Door shells, glass, window regulators, handles, weatherstrips
+- [Seat Instrument Panel](/llms/seat-instrument-panel.txt): 17 diagrams — Seats, seatbelts, dashboard, gauges, glovebox, console
+- [Heater & AC](/llms/heater-ac.txt): 8 diagrams — Heater core, blower motor, A/C compressor, evaporator, controls
+- [Body Electrical 1](/llms/body-electrical-1.txt): 19 diagrams — Main harness, fuse box, relays, switches, ground points
+- [Body Electrical 2](/llms/body-electrical-2.txt): 25 diagrams — Headlights, tail lights, wipers, horn, power windows, door locks
+- [Outer Accessories](/llms/outer-accessories.txt): 18 diagrams — Roof rails, mud flaps, emblems, antenna, spoiler, tow hook
+- [Inner Accessories](/llms/inner-accessories.txt): 16 diagrams — Floor mats, cargo area, jack, tool kit, spare tire, cup holder
+
+## Part Number Lookup
+
+- [Part Number Index](/llms/parts-index.txt): 2429 parts, sorted by OEM number
+
+## Service Manuals (PDF, not machine-readable)
+
+363 factory PDFs. Referenced by URL in maintenance and section files above.
+- EJ20E engine manuals: `/manuals/EJ20E-SOHC-engine/{filename}.pdf`
+- BG chassis manuals: `/manuals/BG-chassis/{section}/{subsection}/{filename}.pdf`
+
+## Compatibility Notes
+
+- USDM Legacy used EJ22 (2.2L), NOT EJ20E — engine-specific parts and procedures differ
+- No OBD-II port — diagnostics require SSM1 scan tool or manual CEL code reading
+- BG chassis parts (body, suspension, brakes, steering) are shared across all BG5 variants
+- Engine parts are EJ20E-specific — always verify part numbers against this catalog
+- "BG5P" model code: BG=Legacy Wagon 2nd gen, 5=EJ20 series, P=General Market export

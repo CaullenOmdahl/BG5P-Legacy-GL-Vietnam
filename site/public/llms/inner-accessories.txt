@@ -1,0 +1,52 @@
+# Inner Accessories
+16 exploded diagrams | BG5P Legacy GL EJ20E SOHC NA
+
+## Parts by Diagram
+
+### 930_01: CONSOLE BOX
+(no parts data)
+
+### 930_02: CONSOLE BOX
+(no parts data)
+
+### 931_01: ROOM INNER PARTS
+(no parts data)
+
+### 931_02: ROOM INNER PARTS
+(no parts data)
+
+### 935_02: COVER
+(no parts data)
+
+### 940_03: INNER TRIM
+(no parts data)
+
+### 940_04: INNER TRIM
+(no parts data)
+
+### 941_01: DOOR TRIM
+(no parts data)
+
+### 941_02: DOOR TRIM
+(no parts data)
+
+### 942_02: ROOF TRIM
+(no parts data)
+
+### 950_01: MAT
+(no parts data)
+
+### 950_03: MAT
+(no parts data)
+
+### 953_01: SILENCER
+(no parts data)
+
+### 955_02: FLOOR INSULATOR
+(no parts data)
+
+### 956_01: HOOD INSULATOR
+(no parts data)
+
+### 970_01: TOOL KIT & JACK
+(no parts data)

@@ -1,0 +1,55 @@
+# Manual Transmission Fluid Change
+Difficulty: Moderate | Interval: Every 50,000 km or 30 months
+
+## Specs
+  Fluid Type: GL-5 (75W-90 gear oil)
+  Capacity: 3.5 L (3.7 US qt)
+  Transmission Type: 5-speed synchromesh with reverse
+  Transfer Gear Ratio: 1.000
+  Final Drive Ratio (2200cc): 3.900
+  1st Gear Ratio: 3.545
+  2nd Gear Ratio: 2.111
+  3rd Gear Ratio: 1.448
+  4th Gear Ratio: 1.088
+  5th Gear Ratio: 0.780
+  Reverse Gear Ratio: 3.416
+  Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
+  * Note: Community-standard value; not explicitly found in manual
+
+## Steps
+  1. Raise vehicle and support on jack stands, remove under cover
+  2. Place drain pan under transmission
+  3. Clean area around drain and fill plugs
+  4. Remove fill plug first (to ensure it can be removed before draining)
+  5. Remove drain plug and allow fluid to drain completely
+  6. Inspect drain plug magnet for metal particles
+  7. Install drain plug with new washer, torque to spec
+  8. Fill transmission through fill plug hole with GL-5 gear oil
+  9. Fill until fluid begins to seep from fill hole (3.5 L total)
+  10. Install fill plug with new washer, torque to spec
+  11. Lower vehicle and test-drive, checking all gears engage smoothly
+
+## Parts
+### 100_01: MT, CLUTCH
+010510250 | FLANGE BOLT
+30542AA040 | COVER-RELEASE DUST x01
+30620AA041 | CYLINDER ASSEMBLY-CLUTCH OPERATE x01
+023508000 | SELF LOCKING NUT
+30210AA370 | COVER COMPLETE-CLUTCH x01
+30539AA000 | CLIP-CLUTCH SLEEVE x02
+30534AA001 | SPRING-RELEASE LEVER RETAINER x01
+30100AA620 | DISK COMPLETE-CLUTCH x01
+30100AA680 | DISK COMPLETE-CLUTCH x01
+30537AA030 | PIVOT-RELEASE LEVER x01
+30530AA021 | LEVER-CLUTCH RELEASE x01
+30502AA051 | BEARING-CLUTCH RELEASE x01
+011308180 | BOLT AND WASHER ASSEMBLY
+
+### 110_01: MT, TRANSMISSION ASSEMBLY
+32000AE370 | MANUAL TRANSMISSION ASSEMBLY x01
+
+## Service Manuals
+  /manuals/BG-chassis/TRANSMISSION/MANUAL TRANSMISSION AND DIFFERENTIAL/MSA5TCD97L3564.pdf
+
+## Full Section
+/llms/manual-transmission.txt

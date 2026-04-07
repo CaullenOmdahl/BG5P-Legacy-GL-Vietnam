@@ -1,0 +1,110 @@
+# Timing Belt Replacement
+Difficulty: Advanced | Interval: Every 100,000 km or 60 months
+
+## Specs
+  Belt Tooth Length Z1: 44 teeth
+  Belt Tooth Length Z2: 40.5 teeth
+  Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
+  Belt Idler No. 1 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)
+  Belt Idler No. 2 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)
+  Camshaft Sprocket Torque: 78 Nm (8.0 kgf-m, 57.9 ft-lb)
+  Crank Pulley Bolt Torque: 127 Nm (13.0 kgf-m, 94 ft-lb)
+  Belt Cover Torque: 5 Nm (0.5 kgf-m, 3.6 ft-lb)
+  Belt-to-Guide Clearance: 1.0 +/- 0.5 mm
+  Tensioner Rod Extension: 5.7 +/- 0.5 mm
+  Tensioner Press Pressure: 294 N (30 kgf, 66 lb)
+  Crank Pulley Wrench (ST): 499977300
+  Cam Sprocket Wrench (ST1): 499207100
+  Cam Sprocket Wrench (ST2): 499207400
+
+## Steps
+  1. Disconnect battery ground cable
+  2. Remove V-belts (alternator, A/C, power steering)
+  3. Remove crankshaft pulley using ST 499977300
+  4. Remove belt covers (RH and LH)
+  5. Remove timing belt guide (MT vehicles only)
+  6. Mark timing belt rotation direction if reusing
+  7. Align crank sprocket mark (a) with cylinder block notch (b)
+  8. Verify cam sprocket alignment marks match cylinder head surfaces
+  9. Remove belt idler No. 2, then belt idler No. 1
+  10. Remove timing belt
+  11. Remove automatic belt tension adjuster assembly
+  12. Press adjuster rod down with 294 N pressure, insert 2mm stopper pin
+  13. Install new tensioner adjuster assembly - torque to 25 Nm
+  14. Install belt idler No. 1 - torque to 39 Nm
+  15. Align camshaft sprockets using ST1 and ST2
+  16. Install new timing belt matching alignment marks, ensure correct rotation
+  17. Install belt idler No. 2 - torque to 39 Nm
+  18. Remove stopper pin from tensioner adjuster
+  19. Install timing belt guide (MT only), check 1.0mm clearance
+  20. Install belt covers, crankshaft pulley, and V-belts
+  21. Rotate engine 2 full turns and verify all alignment marks
+
+## Parts
+### 013_01: CAMSHAFT & TIMING BELT
+13073AA142 | IDLER COMPLETE-BELT x01
+13073AA180 | IDLER COMPLETE-BELT x01
+13032AA210 | CAMSHAFT COMPLETE-INTAKE,RIGHT x01
+806732050 | OIL SEAL x04
+13091AA060 | SEALING-TENSIONER x01
+13035AA210 | CAMSHAFT COMPLETE-EXHAUST,RIGHT x01
+13044AA020 | SPROCKET COMPLETE-CAMSHAFT INTAKE RIGHT x01
+13091AA050 | SEALING-TENSIONER x01
+800112080 | BOLT x04
+13038AA210 | CAMSHAFT COMPLETE-INTAKE,LEFT x01
+13156AA041 | BRACKET COMPLETE-TENSIONER x01
+13145AA001 | GUIDE-TIMING BELT x01
+13145AA000 | GUIDE-TIMING BELT x01
+800706800 | BOLT x02
+13051AA020 | SPROCKET COMPLETE-CAMSHAFT INTAKE LEFT x01
+13053AA210 | CAMSHAFT COMPLETE-EXHAUST,LEFT x01
+13049AA020 | SPROCKET COMPLETE-CAMSHAFT EXHAUST RIGHT x01
+800110360 | BOLT x02
+010508420 | FLANGE BOLT
+808208330 | BOLT x02
+010508220 | FLANGE BOLT
+13085AA010 | IDLER COMPLETE-BELT,NO.2 x01
+808208380 | BOLT x01
+800110240 | BOLT x01
+13054AA020 | SPROCKET COMPLETE-CAMSHAFT EXHAUST LEFT x01
+12305AA222 | PULLEY-CRANKSHAFT x01
+13033AA001 | ADJUSTER ASSEMBLY-BELT TENSIONER x01
+13028AA072 | BELT-TIMING x01
+12369AA011 | BOLT-CRANKSHAFT PULLEY x01
+
+### 013_02: CAMSHAFT & TIMING BELT
+13073AA142 | IDLER COMPLETE-BELT x01
+13073AA180 | IDLER COMPLETE-BELT x01
+13032AA210 | CAMSHAFT COMPLETE-INTAKE,RIGHT x01
+806732050 | OIL SEAL x04
+13091AA060 | SEALING-TENSIONER x01
+13035AA210 | CAMSHAFT COMPLETE-EXHAUST,RIGHT x01
+13044AA020 | SPROCKET COMPLETE-CAMSHAFT INTAKE RIGHT x01
+13091AA050 | SEALING-TENSIONER x01
+800112080 | BOLT x04
+13038AA210 | CAMSHAFT COMPLETE-INTAKE,LEFT x01
+13156AA041 | BRACKET COMPLETE-TENSIONER x01
+13145AA001 | GUIDE-TIMING BELT x01
+13145AA000 | GUIDE-TIMING BELT x01
+800706800 | BOLT x02
+13051AA020 | SPROCKET COMPLETE-CAMSHAFT INTAKE LEFT x01
+13053AA210 | CAMSHAFT COMPLETE-EXHAUST,LEFT x01
+13049AA020 | SPROCKET COMPLETE-CAMSHAFT EXHAUST RIGHT x01
+800110360 | BOLT x02
+010508420 | FLANGE BOLT
+808208330 | BOLT x02
+010508220 | FLANGE BOLT
+13085AA010 | IDLER COMPLETE-BELT,NO.2 x01
+808208380 | BOLT x01
+800110240 | BOLT x01
+13054AA020 | SPROCKET COMPLETE-CAMSHAFT EXHAUST LEFT x01
+12305AA222 | PULLEY-CRANKSHAFT x01
+13033AA001 | ADJUSTER ASSEMBLY-BELT TENSIONER x01
+13028AA072 | BELT-TIMING x01
+12369AA011 | BOLT-CRANKSHAFT PULLEY x01
+
+## Service Manuals
+  /manuals/EJ20E-SOHC-engine/EJ20_SOHC_Mechanical.pdf
+
+## Full Section
+/llms/engine-main.txt

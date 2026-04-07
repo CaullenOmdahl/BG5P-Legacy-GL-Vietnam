@@ -1,0 +1,55 @@
+# Spark Plugs
+Difficulty: Moderate | Interval: Every 20,000 km or 12 months
+
+## Specs
+  Plug (without catalytic converter): NGK BKR6E
+  Plug (with catalytic converter): Champion RC10YC4 or NGK BKR5E-11
+  Thread Size: M14, P = 1.25
+  Gap (without catalyst): 0.7-0.8 mm (0.028-0.031 in)
+  Gap (with catalyst): 1.0-1.1 mm (0.039-0.043 in)
+  Spark Plug Torque: 21 Nm (2.1 kgf-m, 15 ft-lb)
+  Ignition Coil Bolt Torque: 6.4 Nm (0.65 kgf-m, 4.7 ft-lb)
+  Spark Plug Cord Resistance: 5.24-12.23 k-ohm
+  Firing Order: 1-3-2-4
+  Ignition Coil: Hitachi CM12-100B
+
+## Steps
+  1. Disconnect battery ground cable
+  2. RH side: Remove air intake duct and resonator chamber
+  3. LH side: Disconnect washer motor, remove washer tank bolts
+  4. Remove spark plug cords by pulling on the boot, not the cord
+  5. Remove spark plugs with spark plug socket (16mm deep)
+  6. Inspect old plugs for fouling, damage, and wear
+  7. Check new plug gap with feeler gauge, adjust if needed
+  8. Install new spark plugs hand-tight first to prevent cross-threading
+  9. Torque spark plugs to 21 Nm (15 ft-lb) - dry threads only
+  10. If threads are oiled, reduce torque by approximately 1/3
+  11. Reconnect spark plug cords to correct positions (firing order 1-3-2-4)
+  12. Reinstall resonator chamber (torque to 32 Nm), air intake duct
+  13. Reinstall washer tank (LH side), reconnect battery
+
+## Parts
+### 090_01: SPARK PLUG & HIGH TENSION CORD
+01050818A | FLANGE BOLT
+800206730 | BOLT x04
+22451AA620 | CABLE COMPLETE-HIGH TENSION,NO.1 x02
+22433AA370 | COIL ASSEMBLY-IGNITION x01
+10006AA091 | HANGER-ENGINE x01
+808208310 | BOLT x01
+22451AA580 | CABLE COMPLETE-HIGH TENSION,NO.1 x01
+22060AA061 | SENSOR ASSEMBLY-KNOCK x01
+22401AA370 | SPARK PLUG x04
+800506350 | BOLT & WASHER ASSEMBLY x02
+010406200 | FLANGE BOLT
+22053AA052 | SENSOR ASSEMBLY-CRANKSHAFT x01
+01040614G | FLANGE BOLT
+22454AA130 | CABLE COMPLETE-HIGH TENSION,NO.4 x01
+22056AA062 | SENSOR ASSEMBLY-CAMSHAFT x01
+22472KA060 | SUPPORTER-HIGH TENSION CABLE x01
+22464AA001 | BRACKET-POWER STEERING PIPE x01
+
+## Service Manuals
+  /manuals/EJ20E-SOHC-engine/EJ20_SOHC_Ignition_no_OBD.pdf
+
+## Full Section
+/llms/engine-electrical.txt

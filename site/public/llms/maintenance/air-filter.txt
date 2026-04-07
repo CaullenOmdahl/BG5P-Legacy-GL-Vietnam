@@ -1,0 +1,44 @@
+# Air Filter Replacement
+Difficulty: Easy | Interval: Every 20,000 km or 12 months (inspect every 10,000 km)
+
+## Specs
+  Filter Type: Panel filter element
+  OEM Part Number: 16546-AA020 (verify for model year)
+  Case Bolt Torque: 6.5 Nm (0.66 kgf-m, 4.8 ft-lb)
+  Case Stay Bolt Torque: 16 Nm (1.6 kgf-m, 11.6 ft-lb)
+  Resonator Chamber Torque: 33 Nm (3.4 kgf-m, 24.4 ft-lb)
+
+## Steps
+  1. Open hood and locate air cleaner case on top of engine
+  2. Release clips (B) above the air cleaner case
+  3. Remove bolts (A) securing air cleaner case to stays
+  4. Separate upper air cleaner case (case B) from lower (case A)
+  5. Remove air cleaner element from case
+  6. Inspect element - replace if excessively damaged or dirty
+  7. Clean inside of both air cleaner case halves
+  8. Install new air cleaner element into lower case
+  9. Reassemble upper case, fasten with clips after inserting lower tab
+  10. Reinstall securing bolts
+
+## Parts
+### 070_01: AIR CLEANER & ELEMENT
+46053AC090 | CASE COMPLETE-AIR CLEANER,UPPER x01
+46033AC000 | GUIDE-AIR CLEANER x02
+22680AA160 | METER ASSEMBLY-AIR FLOW x01
+22680AA190 | METER ASSEMBLY-AIR FLOW x01
+46060AA010 | CUSHION-AIR CLEANER x01
+46060AC050 | CUSHION-AIR CLEANER x01
+46060AC020 | CUSHION-AIR CLEANER x01
+010006200 | FLANGE BOLT-PILOT
+16546AA020 | ELEMENT-AIR CLEANER x01
+46061FA000 | SPACER x02
+46060FA000 | CUSHION-AIR CLEANER x02
+46060AC030 | CUSHION-AIR CLEANER x02
+746056120 | CLAMP x02
+46053AC080 | CASE COMPLETE-AIR CLEANER,LOWER x01
+
+## Service Manuals
+  /manuals/EJ20E-SOHC-engine/EJ20_SOHC_Intake.pdf
+
+## Full Section
+/llms/engine-auxiliaries.txt

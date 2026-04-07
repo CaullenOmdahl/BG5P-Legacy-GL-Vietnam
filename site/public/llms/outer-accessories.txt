@@ -1,0 +1,58 @@
+# Outer Accessories
+18 exploded diagrams | BG5P Legacy GL EJ20E SOHC NA
+
+## Parts by Diagram
+
+### 900_02: PLUG
+(no parts data)
+
+### 900_03: PLUG
+(no parts data)
+
+### 901_01: WEATHER STRIP
+(no parts data)
+
+### 911_01: FRONT GRILLE
+(no parts data)
+
+### 912_01: REAR VIEW MIRROR
+(no parts data)
+
+### 913_01: PROTECTOR
+(no parts data)
+
+### 913_02: PROTECTOR
+(no parts data)
+
+### 913_03: PROTECTOR
+(no parts data)
+
+### 915_01: MOLDING
+(no parts data)
+
+### 916_01: STRIPE
+(no parts data)
+
+### 918_01: LABEL (CAUTION)
+(no parts data)
+
+### 919_01: LETTER MARK
+(no parts data)
+
+### 919_02: LETTER MARK
+(no parts data)
+
+### 920_01: COWL PANEL
+(no parts data)
+
+### 921_01: SPOILER
+(no parts data)
+
+### 921_03: SPOILER
+(no parts data)
+
+### 921_04: SPOILER
+(no parts data)
+
+### 922_01: ROOF RAIL
+(no parts data)

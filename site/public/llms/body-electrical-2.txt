@@ -1,0 +1,79 @@
+# Body Electrical 2
+25 exploded diagrams | BG5P Legacy GL EJ20E SOHC NA
+
+## Parts by Diagram
+
+### 840_01: HEAD LAMP
+(no parts data)
+
+### 841_01: LAMP (FRONT)
+(no parts data)
+
+### 841_02: LAMP (FRONT)
+(no parts data)
+
+### 842_03: LAMP (REAR)
+(no parts data)
+
+### 842_04: LAMP (REAR)
+(no parts data)
+
+### 843_01: LAMP (LICENSE)
+(no parts data)
+
+### 845_01: LAMP (FOG)
+(no parts data)
+
+### 845_03: LAMP (FOG)
+(no parts data)
+
+### 846_01: LAMP (ROOM)
+(no parts data)
+
+### 846_02: LAMP (ROOM)
+(no parts data)
+
+### 846_03: LAMP (ROOM)
+(no parts data)
+
+### 847_02: LAMP (HIGH MOUNT STOP LAMP)
+(no parts data)
+
+### 850_01: METER
+(no parts data)
+
+### 850_02: METER
+(no parts data)
+
+### 860_01: AUDIO PARTS (RADIO)
+(no parts data)
+
+### 862_01: ANTENNA
+(no parts data)
+
+### 863_01: CLOCK
+(no parts data)
+
+### 863_03: CLOCK
+(no parts data)
+
+### 863_04: CLOCK
+(no parts data)
+
+### 870_01: WIPER (WINDSHIELD)
+(no parts data)
+
+### 871_01: WIPER (REAR)
+(no parts data)
+
+### 875_01: WINDSHIELD WASHER
+(no parts data)
+
+### 876_01: REAR WASHER
+(no parts data)
+
+### 877_01: HORN
+(no parts data)
+
+### 880_01: CRUISE CONTROL EQUIPMENT
+(no parts data)

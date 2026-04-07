@@ -1,0 +1,34 @@
+# Oil Change
+Difficulty: Easy | Interval: Every 5,000 km or 6 months
+
+## Specs
+  Oil Type: 5W-30 preferred (API SJ/SH or SG)
+  Capacity (to upper level): 4.0 L (4.2 US qt)
+  Capacity (to lower level): 3.0 L (3.2 US qt)
+  Drain Plug Torque: 44 Nm (4.5 kgf-m, 33 ft-lb)
+  Oil Filter Thread: M20 x 1.5
+  Oil Filter Type: Full-flow, 80 x 70 mm
+  Oil Filter Wrench (ST): 498547000
+  Alt. Viscosity (hot climate): 10W-30, 10W-40, 20W-40, 20W-50
+
+## Steps
+  1. Warm engine for 5 minutes, then shut off
+  2. Place drain pan under oil pan and remove drain plug
+  3. Allow oil to drain completely (5-10 minutes)
+  4. Replace drain plug gasket with new one
+  5. Tighten drain plug to 44 Nm (33 ft-lb)
+  6. Remove old oil filter using ST 498547000 or filter wrench
+  7. Apply thin coat of new oil to new filter gasket
+  8. Install new filter hand-tight, then turn 3/4 additional turn
+  9. Fill engine oil through filler cap to upper level mark (4.0 L)
+  10. Start engine, run for 1 minute, shut off and recheck level
+  11. Top up if necessary between L and F marks on dipstick
+
+## Parts
+### 032_01: OIL PUMP & FILTER
+
+## Service Manuals
+  /manuals/EJ20E-SOHC-engine/EJ20_Lubrication.pdf
+
+## Full Section
+/llms/engine-main.txt
