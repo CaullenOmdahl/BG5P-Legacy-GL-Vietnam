@@ -1,0 +1,4 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+electric,833,SWITCH (POWER WINDOW),0451S,TAPPING SCREW-TRUSS HEAD,045104100,,,,,,,,
+electric,833,SWITCH (POWER WINDOW),83071,SWITCH-POWER WINDOW MAIN,83081AC100,01,01.06.1997 - 30.11.1998,,,,S +W,,
+electric,833,SWITCH (POWER WINDOW),83071A,SWITCH-POWER WINDOW SUB FRONT,83081AC110,03,01.06.1997 - 30.11.1998,,,,S +W,,

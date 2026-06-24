@@ -1,0 +1,4 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+engine,091,ENGINE WIRING HARNESS,0104S,FLANGE BOLT,010408120,,,,,,,,
+engine,091,ENGINE WIRING HARNESS,24020,HARNESS-ENGINE,24020AB692,01,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,091,ENGINE WIRING HARNESS,24226,CLIP-BAND,24226KA000,03,01.06.1997 - 30.11.1998,,,,EJ20E,,

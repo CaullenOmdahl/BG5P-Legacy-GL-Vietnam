@@ -28,6 +28,12 @@ export interface Part {
   group_name: string;
 }
 
+export interface PartStatus {
+  status: 'not_applicable' | 'no_itemized_rows' | 'source_unpublished';
+  source: string;
+  detail: string;
+}
+
 export interface MaintenanceCard {
   id: string;
   title: string;
@@ -54,6 +60,14 @@ export function getParts(categoryCode: string): Part[] {
   const raw = fs.readFileSync(path.join(dataDir, 'parts.json'), 'utf-8');
   const all = JSON.parse(raw);
   return all[categoryCode] || [];
+}
+
+export function getPartsStatus(categoryCode: string): PartStatus | undefined {
+  const statusPath = path.join(dataDir, 'parts-status.json');
+  if (!fs.existsSync(statusPath)) return undefined;
+  const raw = fs.readFileSync(statusPath, 'utf-8');
+  const all = JSON.parse(raw);
+  return all[categoryCode];
 }
 
 export function getMaintenanceCards(): MaintenanceCard[] {

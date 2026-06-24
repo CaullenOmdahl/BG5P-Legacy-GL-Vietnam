@@ -20,6 +20,10 @@ This reference is split into small files. Fetch only what you need.
 | Specific part number ("what is 30210AA370?") | `/llms/parts-index.txt` — every OEM number with name and section |
 | General overview | You're reading it |
 
+## Full Site Index
+
+- [Full Site Index](/llms/site-index.txt): all public pages, diagram images, and manual PDFs
+
 ## Maintenance Procedures
 
 Fetch: `/llms/maintenance/{id}.txt`
@@ -59,12 +63,13 @@ Each file lists every diagram and every OEM part number in that system, plus any
 
 ## Part Number Lookup
 
-- [Part Number Index](/llms/parts-index.txt): 2429 parts, sorted by OEM number
+- [Part Number Index](/llms/parts-index.txt): 3030 parts, sorted by OEM number
 
 ## Service Manuals (PDF, not machine-readable)
 
-363 factory PDFs. Referenced by URL in maintenance and section files above.
+373 openable factory PDFs. Referenced by URL in maintenance and section files above.
 - EJ20E engine manuals: `/manuals/EJ20E-SOHC-engine/{filename}.pdf`
+- EJ20 electrical archive members: `/manuals/EJ20E-SOHC-engine/EJ20_Electrical_System/{filename}.pdf`
 - BG chassis manuals: `/manuals/BG-chassis/{section}/{subsection}/{filename}.pdf`
 
 ## Compatibility Notes

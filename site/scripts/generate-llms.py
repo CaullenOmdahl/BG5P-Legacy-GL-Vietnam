@@ -3,21 +3,85 @@
 
 import json
 import os
+from pathlib import Path
+from urllib.parse import quote
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "public", "data")
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "public", "llms")
+PUBLIC_DIR = Path(__file__).resolve().parents[1] / "public"
+BASE_URL = os.environ.get("BG5_SITE_BASE_URL", "https://bg5.caphedigital.com").rstrip("/")
 
 def load(name):
     with open(os.path.join(DATA_DIR, name)) as f:
+        return json.load(f)
+
+def load_optional(name):
+    path = os.path.join(DATA_DIR, name)
+    if not os.path.exists(path):
+        return {}
+    with open(path) as f:
         return json.load(f)
 
 def diagram_key(code):
     """032_01 -> 032"""
     return code.split("_")[0]
 
+def url_for_path(path):
+    return f"{BASE_URL}/{quote(path.strip('/'), safe='/')}"
+
+def html_routes(sections, maintenance):
+    routes = ["/", "/about", "/manuals", "/parts", "/maintenance"]
+    for card in maintenance:
+        routes.append(f"/maintenance/{card['id']}")
+    for section in sections:
+        routes.append(f"/parts/{section['slug']}")
+        for diagram in section["diagrams"]:
+            routes.append(f"/parts/{section['slug']}/{diagram['code'].replace('_', '-')}")
+    return list(dict.fromkeys(routes))
+
+def zip_backed_archive(path):
+    try:
+        with path.open("rb") as fh:
+            return fh.read(2) == b"PK"
+    except OSError:
+        return False
+
+def manual_pdf_urls():
+    manuals_dir = PUBLIC_DIR / "manuals"
+    urls = []
+    for pdf in sorted(manuals_dir.rglob("*.pdf"), key=lambda p: str(p).lower()):
+        if zip_backed_archive(pdf):
+            continue
+        urls.append(url_for_path(pdf.relative_to(PUBLIC_DIR).as_posix()))
+    return urls
+
+def write_site_index(sections, maintenance):
+    manual_urls = manual_pdf_urls()
+    lines = []
+    lines.append("# BG5P Full Site Index")
+    lines.append("")
+    lines.append("## Public HTML Pages")
+    for route in html_routes(sections, maintenance):
+        lines.append(url_for_path(route))
+    lines.append("")
+    lines.append("## Diagram Image Assets")
+    for section in sections:
+        for diagram in section["diagrams"]:
+            lines.append(url_for_path(diagram["imagePath"]))
+    lines.append("")
+    lines.append("## Manual PDF Assets")
+    lines.extend(manual_urls)
+
+    path = os.path.join(OUT_DIR, "site-index.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    print(f"  site-index.txt ({len(lines)} lines)")
+    return len(manual_urls)
+
 def main():
     sections = load("sections.json")
     parts = load("parts.json")
+    parts_status = load_optional("parts-status.json")
     maintenance = load("maintenance.json")
 
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -96,9 +160,14 @@ def main():
         for d in s["diagrams"]:
             key = diagram_key(d["code"])
             diagram_parts = parts.get(key, [])
+            status = parts_status.get(key)
             lines.append(f"### {d['code']}: {d['name']}")
             if not diagram_parts:
-                lines.append("(no parts data)")
+                if status:
+                    lines.append(status["detail"])
+                    lines.append(f"Source: {status['source']}")
+                else:
+                    lines.append("No local parts rows or source status recorded.")
             else:
                 for p in diagram_parts:
                     qty = f" x{p['quantity']}" if p.get("quantity") else ""
@@ -207,6 +276,9 @@ def main():
         f.write("\n".join(lines))
     print(f"  parts-index.txt ({len(lines)} lines)")
 
+    # --- Generate full site index ---
+    manual_pdf_count = write_site_index(sections, maintenance)
+
     # --- Generate llms.txt (the router/index) ---
     lines = []
     lines.append("# BG5P Legacy GL — Service Reference")
@@ -230,6 +302,10 @@ def main():
     lines.append("| System or category (\"what steering parts exist?\") | `/llms/{section-slug}.txt` — all diagrams and parts for that system |")
     lines.append("| Specific part number (\"what is 30210AA370?\") | `/llms/parts-index.txt` — every OEM number with name and section |")
     lines.append("| General overview | You're reading it |")
+    lines.append("")
+    lines.append("## Full Site Index")
+    lines.append("")
+    lines.append("- [Full Site Index](/llms/site-index.txt): all public pages, diagram images, and manual PDFs")
     lines.append("")
     lines.append("## Maintenance Procedures")
     lines.append("")
@@ -257,8 +333,9 @@ def main():
     lines.append("")
     lines.append("## Service Manuals (PDF, not machine-readable)")
     lines.append("")
-    lines.append("363 factory PDFs. Referenced by URL in maintenance and section files above.")
+    lines.append(f"{manual_pdf_count} openable factory PDFs. Referenced by URL in maintenance and section files above.")
     lines.append("- EJ20E engine manuals: `/manuals/EJ20E-SOHC-engine/{filename}.pdf`")
+    lines.append("- EJ20 electrical archive members: `/manuals/EJ20E-SOHC-engine/EJ20_Electrical_System/{filename}.pdf`")
     lines.append("- BG chassis manuals: `/manuals/BG-chassis/{section}/{subsection}/{filename}.pdf`")
     lines.append("")
     lines.append("## Compatibility Notes")

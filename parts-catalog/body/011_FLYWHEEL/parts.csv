@@ -1,0 +1,3 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+body,011,FLYWHEEL,12332,PLATE-DRIVE,12332AA032,01,01.06.1997 - 30.11.1998,,,,AT.(EJ18E+EJ20E+EJ20D),,
+body,011,FLYWHEEL,A21067,bolt,800210670,08,01.06.1997 - 30.11.1998,,,,AT.(EJ18E+EJ20#+EJ25D),,

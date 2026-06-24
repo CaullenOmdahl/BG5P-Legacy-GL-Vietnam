@@ -30,6 +30,59 @@ function humanizeName(filename: string): string {
   return name.trim();
 }
 
+function isZipBackedArchive(filePath: string): boolean {
+  try {
+    const fd = fs.openSync(filePath, "r");
+    try {
+      const signature = Buffer.alloc(4);
+      fs.readSync(fd, signature, 0, 4, 0);
+      return signature[0] === 0x50 && signature[1] === 0x4b;
+    } finally {
+      fs.closeSync(fd);
+    }
+  } catch {
+    return false;
+  }
+}
+
+function readManualPdfEntries(
+  dirPath: string,
+  urlPrefix: string,
+  detail: string
+): ManualEntry[] {
+  if (!fs.existsSync(dirPath)) return [];
+
+  const entries: ManualEntry[] = [];
+  for (const dirent of fs
+    .readdirSync(dirPath, { withFileTypes: true })
+    .sort((a, b) => a.name.localeCompare(b.name))) {
+    const entryPath = path.join(dirPath, dirent.name);
+    const entryUrl = `${urlPrefix}/${encodeURIComponent(dirent.name)}`;
+
+    if (dirent.isDirectory()) {
+      entries.push(...readManualPdfEntries(entryPath, entryUrl, detail));
+      continue;
+    }
+
+    if (!dirent.isFile() || !dirent.name.toLowerCase().endsWith(".pdf")) {
+      continue;
+    }
+
+    if (isZipBackedArchive(entryPath)) {
+      continue;
+    }
+
+    entries.push({
+      label: humanizeName(dirent.name),
+      detail,
+      href: entryUrl,
+      isPdf: true,
+    });
+  }
+
+  return entries;
+}
+
 export interface ManualEntry {
   label: string;
   detail: string;
@@ -42,19 +95,13 @@ export async function GET() {
 
   // Engine PDFs — index each individually (they have descriptive names)
   const engineDir = path.join(MANUALS_DIR, "EJ20E-SOHC-engine");
-  if (fs.existsSync(engineDir)) {
-    for (const filename of fs
-      .readdirSync(engineDir)
-      .filter((f) => f.toLowerCase().endsWith(".pdf"))
-      .sort()) {
-      entries.push({
-        label: humanizeName(filename),
-        detail: "EJ20E Engine Manual",
-        href: `/manuals/EJ20E-SOHC-engine/${encodeURIComponent(filename)}`,
-        isPdf: true,
-      });
-    }
-  }
+  entries.push(
+    ...readManualPdfEntries(
+      engineDir,
+      "/manuals/EJ20E-SOHC-engine",
+      "EJ20E Engine Manual"
+    )
+  );
 
   // Chassis — one entry per subsection (PDF names are opaque MSA codes)
   const chassisDir = path.join(MANUALS_DIR, "BG-chassis");
@@ -73,18 +120,13 @@ export async function GET() {
         const anchor = `${slugify(sectionName)}-${slugify(subName)}`;
         // Index each PDF individually now that we have real titles
         const subPath = path.join(chassisDir, sectionName, subName);
-        const pdfFiles = fs
-          .readdirSync(subPath)
-          .filter((f) => f.toLowerCase().endsWith(".pdf"))
-          .sort();
-        for (const filename of pdfFiles) {
-          entries.push({
-            label: humanizeName(filename),
-            detail: `${subName} — ${sectionName}`,
-            href: `/manuals/BG-chassis/${encodeURIComponent(sectionName)}/${encodeURIComponent(subName)}/${encodeURIComponent(filename)}`,
-            isPdf: true,
-          });
-        }
+        entries.push(
+          ...readManualPdfEntries(
+            subPath,
+            `/manuals/BG-chassis/${encodeURIComponent(sectionName)}/${encodeURIComponent(subName)}`,
+            `${subName} — ${sectionName}`
+          )
+        );
         // Also add a subsection entry for browsing
         entries.push({
           label: subName,

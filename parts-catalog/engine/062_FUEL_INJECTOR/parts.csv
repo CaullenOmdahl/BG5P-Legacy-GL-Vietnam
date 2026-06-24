@@ -1,0 +1,11 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+engine,062,FUEL INJECTOR,0116S,bolt and washer assembly,01160514A,,,,,,,,
+engine,062,FUEL INJECTOR,0104S,FLANGE BOLT,010408200,,,,,,,,
+engine,062,FUEL INJECTOR,16605,HOLDER-FUEL INJECTOR,16605AA030,04,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,062,FUEL INJECTOR,16607,INSULATOR-FUEL INJECTOR,16607AA040,04,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,062,FUEL INJECTOR,16608,SEAL-FUEL INJECTOR,16608AA020,04,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,062,FUEL INJECTOR,16611,INJECTOR SUB ASSEMBLY,16611AA290,04,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,062,FUEL INJECTOR,16699,seal O ring,16699AA000,01,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,062,FUEL INJECTOR,17533,"PIPE-FUEL,RIGHT",17533AA070,01,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,062,FUEL INJECTOR,17535,"PIPE-FUEL,LEFT",17535AA060,01,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,062,FUEL INJECTOR,22670,REGULATOR ASSEMBLY-PRESSURE,22670AA050,01,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,

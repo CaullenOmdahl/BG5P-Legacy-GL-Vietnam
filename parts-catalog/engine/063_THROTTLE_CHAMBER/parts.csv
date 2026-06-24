@@ -1,0 +1,7 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+engine,063,THROTTLE CHAMBER,0118S,bolt and washer assembly,011804200,,,,,,,,
+engine,063,THROTTLE CHAMBER,0104S,FLANGE BOLT,01040840A,,,,,,,,
+engine,063,THROTTLE CHAMBER,16118,CHAMBER ASSEMBLY-THROTTLE,16118AB310,01,01.06.1997 - 30.11.1998,,,,EJ20E +EJ20D,lean burn excluding,
+engine,063,THROTTLE CHAMBER,16175,GASKET-INTAKE MANIFOLD,16175AA180,01,01.06.1997 - 30.11.1998,,,,EJ20E,lean burn excluding,
+engine,063,THROTTLE CHAMBER,22633,SENSOR ASSEMBLY-THROTTLE,22633AA110,01,01.06.1997 - 30.11.1997,,,,EJ20E +EJ20D +EJ25D,,22633AA111 ITCA part is available
+engine,063,THROTTLE CHAMBER,22633,SENSOR ASSEMBLY-THROTTLE,22633AA111,01,01.12.1997 - 30.11.1998,,,,EJ20E +EJ20D +EJ25D,,

@@ -1,12 +1,19 @@
 import Link from "next/link";
-import { getMaintenanceCards } from "@/lib/data";
 import type { Metadata } from "next";
+import { Wrench } from "lucide-react";
+import { getMaintenanceCards } from "@/lib/data";
+import {
+  getCopy,
+  getPageMetadata,
+  localizeDifficulty,
+  localizeMaintenanceCard,
+} from "@/lib/i18n";
+import { getServerLocale } from "@/lib/server-locale";
 
-export const metadata: Metadata = {
-  title: "Maintenance Guides — BG5P Legacy GL",
-  description:
-    "Quick-reference specs, torque values, and step-by-step procedures for the EJ20E SOHC NA.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getServerLocale();
+  return getPageMetadata(locale, "maintenance");
+}
 
 const difficultyColors: Record<string, string> = {
   Easy: "bg-green-600 text-white",
@@ -14,33 +21,46 @@ const difficultyColors: Record<string, string> = {
   Advanced: "bg-red-600 text-white",
 };
 
-export default function MaintenancePage() {
+export default async function MaintenancePage() {
+  const locale = await getServerLocale();
+  const copy = getCopy(locale).maintenance;
   const cards = getMaintenanceCards();
 
   return (
     <div className="flex flex-col gap-8">
-      <section className="pt-4 sm:pt-8">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Maintenance Guides
-        </h1>
-        <p className="mt-2 text-base sm:text-lg text-muted max-w-2xl">
-          Quick-reference specs and procedures for the EJ20E SOHC NA
-        </p>
+      <section className="bg5-panel-strong rounded-lg p-5 sm:p-7">
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-md border border-border bg-panel text-accent">
+            <Wrench className="h-6 w-6" aria-hidden="true" />
+          </div>
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              {copy.eyebrow}
+            </p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              {copy.title}
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted sm:text-base">
+              {copy.description}
+            </p>
+          </div>
+        </div>
       </section>
 
       <section>
-        <ul className="flex flex-col divide-y divide-border border border-border rounded-lg overflow-hidden">
-          {cards.map((card) => {
+        <ul className="overflow-hidden rounded-lg border border-border bg-surface">
+          {cards.map((rawCard) => {
+            const card = localizeMaintenanceCard(rawCard, locale);
             const badgeClass =
-              difficultyColors[card.difficulty] ?? "bg-muted text-foreground";
+              difficultyColors[rawCard.difficulty] ?? "bg-muted text-foreground";
             return (
               <li key={card.id}>
                 <Link
                   href={`/maintenance/${card.id}`}
-                  className="flex items-center justify-between gap-4 px-4 py-4 bg-surface hover:bg-white/5 transition-colors"
+                  className="flex items-center justify-between gap-4 border-b border-border px-4 py-4 transition-colors last:border-b-0 hover:bg-panel"
                 >
-                  <div className="flex flex-col gap-0.5 min-w-0">
-                    <span className="text-sm font-medium text-foreground truncate">
+                  <div className="flex min-w-0 flex-col gap-0.5">
+                    <span className="truncate text-sm font-medium text-foreground">
                       {card.title}
                     </span>
                     <span className="text-xs text-muted">{card.interval}</span>
@@ -48,7 +68,7 @@ export default function MaintenancePage() {
                   <span
                     className={`shrink-0 rounded px-2 py-0.5 text-xs font-semibold ${badgeClass}`}
                   >
-                    {card.difficulty}
+                    {localizeDifficulty(rawCard.difficulty, locale)}
                   </span>
                 </Link>
               </li>

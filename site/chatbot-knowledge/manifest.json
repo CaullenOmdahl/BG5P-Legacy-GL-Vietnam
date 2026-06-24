@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-06-24T17:24:22Z",
+  "source_upload_folder": "chatgpt-bg5-diagnostic-expert/upload_20_files",
+  "documents": [
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/GPT_INSTRUCTIONS.md",
+      "target": "GPT_INSTRUCTIONS.md",
+      "kind": "md",
+      "bytes": 2696
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/README.md",
+      "target": "PACK_README.md",
+      "kind": "md",
+      "bytes": 2707
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/00_BG5P_Diagnostic_Expert_Source_Map.md",
+      "target": "00_BG5P_Diagnostic_Expert_Source_Map.md",
+      "kind": "md",
+      "bytes": 283786
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/01_BG5P_EJ20E_No_OBD_Diagnostics_Searchable.pdf",
+      "target": "pdf-text/01_BG5P_EJ20E_No_OBD_Diagnostics_Searchable.txt",
+      "kind": "pdf-text",
+      "bytes": 269487
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/02_BG5P_EJ20E_Fuel_Ignition_Electrical_Searchable.pdf",
+      "target": "pdf-text/02_BG5P_EJ20E_Fuel_Ignition_Electrical_Searchable.txt",
+      "kind": "pdf-text",
+      "bytes": 238497
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/03_BG5P_EJ20E_Mechanical_Cooling_Lubrication_Searchable.pdf",
+      "target": "pdf-text/03_BG5P_EJ20E_Mechanical_Cooling_Lubrication_Searchable.txt",
+      "kind": "pdf-text",
+      "bytes": 374055
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/04_BG5P_BG_Chassis_Wiring_Electrical_Searchable.pdf",
+      "target": "pdf-text/04_BG5P_BG_Chassis_Wiring_Electrical_Searchable.txt",
+      "kind": "pdf-text",
+      "bytes": 469066
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/05_BG5P_BG_Chassis_Drivetrain_Clutch_AWD_Searchable.pdf",
+      "target": "pdf-text/05_BG5P_BG_Chassis_Drivetrain_Clutch_AWD_Searchable.txt",
+      "kind": "pdf-text",
+      "bytes": 300082
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/06_BG5P_BG_Chassis_Suspension_Brakes_Steering_HVAC_Searchable.pdf",
+      "target": "pdf-text/06_BG5P_BG_Chassis_Suspension_Brakes_Steering_HVAC_Searchable.txt",
+      "kind": "pdf-text",
+      "bytes": 846777
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/07_BG5P_Diagnostic_Quick_Reference.md",
+      "target": "07_BG5P_Diagnostic_Quick_Reference.md",
+      "kind": "md",
+      "bytes": 18912
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md",
+      "target": "08_BG5P_Maintenance_Parts_LLM_Corpus.md",
+      "kind": "md",
+      "bytes": 732590
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/09_BG5P_Parts_Diagram_Index.csv",
+      "target": "09_BG5P_Parts_Diagram_Index.csv",
+      "kind": "csv",
+      "bytes": 1549349
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/10_BG5P_BG_Chassis_Body_Interior_SRS_Searchable.pdf",
+      "target": "pdf-text/10_BG5P_BG_Chassis_Body_Interior_SRS_Searchable.txt",
+      "kind": "pdf-text",
+      "bytes": 294183
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/11_BG5P_Web_Deeplink_Sitemap.md",
+      "target": "11_BG5P_Web_Deeplink_Sitemap.md",
+      "kind": "md",
+      "bytes": 248104
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/12_BG5P_Consumables_Wear_Interchange.md",
+      "target": "12_BG5P_Consumables_Wear_Interchange.md",
+      "kind": "md",
+      "bytes": 26351
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/13_BG5P_OEM_Parts_Master.csv",
+      "target": "13_BG5P_OEM_Parts_Master.csv",
+      "kind": "csv",
+      "bytes": 953973
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/14_BG5P_Shared_Engine_Interchange_Candidates.csv",
+      "target": "14_BG5P_Shared_Engine_Interchange_Candidates.csv",
+      "kind": "csv",
+      "bytes": 111431
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/15_BG5P_Parts_Interchange_Research.md",
+      "target": "15_BG5P_Parts_Interchange_Research.md",
+      "kind": "md",
+      "bytes": 7604
+    },
+    {
+      "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/16_BG5P_Common_Issues_Internet_Research.md",
+      "target": "16_BG5P_Common_Issues_Internet_Research.md",
+      "kind": "md",
+      "bytes": 24048
+    }
+  ]
+}

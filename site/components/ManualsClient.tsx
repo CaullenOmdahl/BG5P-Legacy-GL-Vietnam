@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useLocale } from "@/components/LocaleProvider";
+import { getCopy, localizeManualTitle, localizeTechnicalName } from "@/lib/i18n";
 
 export interface PdfEntry {
   name: string;
@@ -69,6 +71,8 @@ export default function ManualsClient({
   chassisSections,
   totalCount,
 }: Props) {
+  const { locale } = useLocale();
+  const text = getCopy(locale).manuals;
   const [filter, setFilter] = useState("");
   // Track open state for sections and subsections independently
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
@@ -76,10 +80,12 @@ export default function ManualsClient({
 
   const q = filter.trim().toLowerCase();
 
-  const filteredEngine = useMemo(
-    () => (q ? enginePdfs.filter((p) => p.name.toLowerCase().includes(q)) : enginePdfs),
-    [enginePdfs, q]
-  );
+  const filteredEngine = useMemo(() => {
+    if (!q) return enginePdfs;
+    return enginePdfs.filter((p) =>
+      `${p.name} ${localizeManualTitle(p.name, locale)}`.toLowerCase().includes(q)
+    );
+  }, [enginePdfs, locale, q]);
 
   const filteredChassis = useMemo(() => {
     if (!q) return chassisSections;
@@ -87,20 +93,35 @@ export default function ManualsClient({
       .map((section) => {
         const sectionHit =
           section.name.toLowerCase().includes(q) ||
-          section.description.toLowerCase().includes(q);
+          section.description.toLowerCase().includes(q) ||
+          localizeTechnicalName(section.name, locale).toLowerCase().includes(q) ||
+          (
+            text.sectionDescriptions[
+              section.name as keyof typeof text.sectionDescriptions
+            ] ?? ""
+          )
+            .toLowerCase()
+            .includes(q);
         const filteredSubs = section.subsections
           .map((sub) => {
-            const subHit = sectionHit || sub.name.toLowerCase().includes(q);
+            const subHit =
+              sectionHit ||
+              sub.name.toLowerCase().includes(q) ||
+              localizeTechnicalName(sub.name, locale).toLowerCase().includes(q);
             const filteredPdfs = subHit
               ? sub.pdfs
-              : sub.pdfs.filter((p) => p.name.toLowerCase().includes(q));
+              : sub.pdfs.filter((p) =>
+                  `${p.name} ${localizeManualTitle(p.name, locale)}`
+                    .toLowerCase()
+                    .includes(q)
+                );
             return { ...sub, pdfs: filteredPdfs };
           })
           .filter((sub) => sub.pdfs.length > 0);
         return { ...section, subsections: filteredSubs };
       })
       .filter((s) => s.subsections.length > 0);
-  }, [chassisSections, q]);
+  }, [chassisSections, locale, q, text.sectionDescriptions]);
 
   function toggleSection(name: string) {
     setOpenSections((prev) => ({ ...prev, [name]: !prev[name] }));
@@ -142,14 +163,14 @@ export default function ManualsClient({
           type="text"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          placeholder={`Filter ${totalCount} documents…`}
-          className="w-full rounded-md border border-border bg-background pl-9 pr-10 py-2 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+          placeholder={text.filterPlaceholder(totalCount)}
+          className="h-11 w-full rounded-md border border-border bg-surface pl-9 pr-10 text-sm text-foreground transition-colors placeholder:text-muted focus:border-accent focus:outline-none"
         />
         {filter && (
           <button
             onClick={() => setFilter("")}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-muted hover:text-foreground transition-colors text-sm"
-            aria-label="Clear filter"
+            aria-label={text.clearFilter}
           >
             ✕
           </button>
@@ -158,34 +179,32 @@ export default function ManualsClient({
 
       {noResults && (
         <p className="text-sm text-muted text-center py-4">
-          No documents matching &ldquo;{filter}&rdquo;
+          {text.noDocuments(filter)}
         </p>
       )}
 
-      {/* ── EJ20E Engine Manuals ── */}
       {filteredEngine.length > 0 && (
         <section>
           <div className="mb-3">
             <h2 className="text-xl font-semibold text-foreground">
-              EJ20E Engine Manuals
+              {text.engineTitle}
             </h2>
             <p className="mt-1 text-sm text-muted">
-              {filteredEngine.length} document{filteredEngine.length !== 1 ? "s" : ""}{" "}
-              — EJ20 2.0L SOHC NA engine
+              {text.engineSubtitle(filteredEngine.length)}
             </p>
           </div>
-          <ul className="flex flex-col divide-y divide-border border border-border rounded-lg overflow-hidden">
+          <ul className="flex flex-col divide-y divide-border overflow-hidden rounded-lg border border-border bg-surface">
             {filteredEngine.map((pdf) => (
               <li key={pdf.href}>
                 <a
                   href={pdf.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 px-4 py-3 bg-surface hover:bg-white/5 transition-colors"
+                  className="group flex items-center gap-3 px-4 py-3 transition-colors hover:bg-panel"
                 >
                   <PdfIcon />
                   <span className="flex-1 text-sm font-medium text-foreground group-hover:text-accent transition-colors">
-                    {pdf.name}
+                    {localizeManualTitle(pdf.name, locale)}
                   </span>
                   <span className="text-xs text-muted whitespace-nowrap">{pdf.size}</span>
                 </a>
@@ -195,20 +214,18 @@ export default function ManualsClient({
         </section>
       )}
 
-      {/* ── BG Chassis Manuals ── */}
       {filteredChassis.length > 0 && (
         <section>
           <div className="mb-3">
             <h2 className="text-xl font-semibold text-foreground">
-              BG Chassis Manuals
+              {text.chassisTitle}
             </h2>
             <p className="mt-1 text-sm text-muted">
-              {chassisSections.reduce(
+              {text.chassisSubtitle(chassisSections.reduce(
                 (n, s) =>
                   n + s.subsections.reduce((m, sub) => m + sub.pdfs.length, 0),
                 0
-              )}{" "}
-              documents — body, electrical, mechanical, transmission &amp; wiring
+              ))}
             </p>
           </div>
 
@@ -223,26 +240,26 @@ export default function ManualsClient({
               return (
                 <div
                   key={section.name}
-                  className="rounded-lg border border-border overflow-hidden"
+                  className="overflow-hidden rounded-lg border border-border bg-surface"
                 >
                   {/* Level 1: section header */}
                   <button
                     onClick={() => toggleSection(section.name)}
-                    className="w-full flex items-center gap-3 px-4 py-3 bg-surface hover:bg-white/5 transition-colors text-left"
+                    className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-panel"
                   >
                     <ChevronIcon open={sectionOpen} />
                     <div className="flex-1 min-w-0">
                       <span className="block text-sm font-semibold text-foreground">
-                        {section.name
-                          .toLowerCase()
-                          .replace(/\b\w/g, (c) => c.toUpperCase())}
+                        {localizeTechnicalName(section.name, locale)}
                       </span>
                       <span className="block text-xs text-muted mt-0.5">
-                        {section.description}
+                        {text.sectionDescriptions[
+                          section.name as keyof typeof text.sectionDescriptions
+                        ] ?? section.description}
                       </span>
                     </div>
                     <span className="text-xs text-muted whitespace-nowrap shrink-0">
-                      {sectionPdfCount} docs
+                      {text.docs(sectionPdfCount)}
                     </span>
                   </button>
 
@@ -262,10 +279,10 @@ export default function ManualsClient({
                             >
                               <ChevronIcon open={subOpen} />
                               <span className="flex-1 text-xs font-semibold text-foreground uppercase tracking-wide">
-                                {sub.name}
+                                {localizeTechnicalName(sub.name, locale)}
                               </span>
                               <span className="text-xs text-muted whitespace-nowrap shrink-0">
-                                {sub.pdfs.length} docs
+                                {text.docs(sub.pdfs.length)}
                               </span>
                             </button>
 
@@ -282,7 +299,7 @@ export default function ManualsClient({
                                     >
                                       <PdfIcon />
                                       <span className="flex-1 text-sm text-foreground group-hover:text-accent transition-colors">
-                                        {pdf.name}
+                                        {localizeManualTitle(pdf.name, locale)}
                                       </span>
                                       <span className="text-xs text-muted whitespace-nowrap shrink-0">
                                         {pdf.size}

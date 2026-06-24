@@ -105,7 +105,8 @@ Service manuals:
 32000AE370 | MANUAL TRANSMISSION ASSEMBLY x01 | 02.1997 - 11.1998 | S.25.MT
 
 ### 111_01: MT, GASKET & SEAL KIT
-(no parts data)
+EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
+Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/111/
 
 ### 113_01: MT, TRANSMISSION CASE
 800608430 | BOLT x04 | 02.1997 - 11.1998 | MT
@@ -417,19 +418,24 @@ Service manuals:
 32229AA140 | SHAFT-DRIVEN x01 | OD=49.975-49.967
 
 ### 116_01: MT, AUXILIARY GEAR
-(no parts data)
+EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
+Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/116/
 
 ### 116_02: MT, AUXILIARY GEAR
-(no parts data)
+EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
+Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/116/
 
 ### 116_03: MT, AUXILIARY GEAR
-(no parts data)
+EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
+Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/116/
 
 ### 117_01: MT, SPEEDOMETER GEAR
-(no parts data)
+EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
+Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/117/
 
 ### 119_01: MT, TRANSMISSION HARNESS
-(no parts data)
+EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
+Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/119/
 
 ### 121_01: MT, TRANSFER & EXTENSION
 011308180 | BOLT AND WASHER ASSEMBLY

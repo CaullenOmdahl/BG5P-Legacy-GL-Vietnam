@@ -1,0 +1,7 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+trans,199,PROPELLER SHAFT,0218S,NUT,021808006,,,,,,,,
+trans,199,PROPELLER SHAFT,0218S,NUT,021808000,,,,,,,,
+trans,199,PROPELLER SHAFT,0320S,SPRING WASHER,032008006,,,,,,,,
+trans,199,PROPELLER SHAFT,27111,PROPELLER SHAFT ASSEMBLY,27031AC140,01,01.06.1997 - 30.11.1998,,,,F4W#.AT.(EJ18E+EJ20E+EJ20D),,
+trans,199,PROPELLER SHAFT,M25005,bolt and washer assembly,901250050,02,01.06.1997 - 30.11.1998,,,,F4W.(MT+AT),,
+trans,199,PROPELLER SHAFT,M66001,bolt,901660010,04,01.06.1997 - 30.11.1998,,,,F4W.(MT+AT),,

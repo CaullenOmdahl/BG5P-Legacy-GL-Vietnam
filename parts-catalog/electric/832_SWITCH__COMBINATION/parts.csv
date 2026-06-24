@@ -1,0 +1,6 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+electric,832,SWITCH (COMBINATION),0471S,TAPPING SCREW-PAN FLANGE HEAD,047105100,,,,,,,,
+electric,832,SWITCH (COMBINATION),81988A,clip,81910TA010,01,01.06.1997 - 30.11.1998,,,,*S +W,,
+electric,832,SWITCH (COMBINATION),83111,SWITCH ASSEMBLY-COMBINATION,83111AC662,01,01.06.1997 - 30.11.1998,,,,*W.(BRIGLD+TSR+GT#+25T#+LAN#),,
+electric,832,SWITCH (COMBINATION),83111,SWITCH ASSEMBLY-COMBINATION,83161AC001,01,01.06.1997 - 30.11.1998,,,,*W.(BRIGLD+TSR+GT#+25T#+LAN#),,
+electric,832,SWITCH (COMBINATION),W115032,CLIP-BAND,909115032,02,01.06.1997 - 30.11.1998,,,,*S +W,,

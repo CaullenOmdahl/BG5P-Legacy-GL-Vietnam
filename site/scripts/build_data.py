@@ -142,6 +142,13 @@ def build_parts() -> dict:
                         "group_name": row.get("group_name", ""),
                     })
 
+    if PARTS_FILE.exists():
+        with open(PARTS_FILE, "r", encoding="utf-8") as f:
+            existing_parts = json.load(f)
+        merged = dict(existing_parts)
+        merged.update(parts_by_category)
+        return merged
+
     return parts_by_category
 
 

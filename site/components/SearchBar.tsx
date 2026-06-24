@@ -4,6 +4,14 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Fuse from 'fuse.js';
 import { createSearchIndex, search, type SearchItem } from '@/lib/search';
+import { useLocale } from '@/components/LocaleProvider';
+import {
+  getCopy,
+  localizeManualTitle,
+  localizePartText,
+  localizeSectionName,
+  localizeTechnicalName,
+} from '@/lib/i18n';
 
 interface Section {
   slug: string;
@@ -21,6 +29,8 @@ interface PartEntry {
 
 export default function SearchBar() {
   const router = useRouter();
+  const { locale } = useLocale();
+  const text = getCopy(locale).components.search;
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -45,8 +55,9 @@ export default function SearchBar() {
             const firstDiagram = section.diagrams[0];
             items.push({
               type: 'diagram',
-              label: section.name,
-              detail: 'Section',
+              label: localizeSectionName(section.name, locale),
+              detail: text.section,
+              keywords: `${section.name} ${localizeSectionName(section.name, locale)} ${firstDiagram.code}`,
               sectionSlug: section.slug,
               diagramCode: firstDiagram.code.replace(/_/g, '-'),
             });
@@ -54,10 +65,13 @@ export default function SearchBar() {
 
           // Add each diagram
           for (const diagram of section.diagrams) {
+            const localizedDiagramName = localizeTechnicalName(diagram.name, locale);
+            const localizedSectionName = localizeSectionName(section.name, locale);
             items.push({
               type: 'diagram',
-              label: diagram.name,
-              detail: section.name,
+              label: localizedDiagramName,
+              detail: localizedSectionName,
+              keywords: `${diagram.name} ${localizedDiagramName} ${section.name} ${localizedSectionName} ${diagram.code}`,
               sectionSlug: section.slug,
               diagramCode: diagram.code.replace(/_/g, '-'),
             });
@@ -95,11 +109,13 @@ export default function SearchBar() {
 
             // Add the category code itself as a searchable item
             if (categoryCode.length === 3) {
-              const categoryName = parts[0]?.group_name || 'Category';
+              const categoryName = parts[0]?.group_name || text.category;
+              const localizedCategoryName = localizePartText(categoryName, locale);
               items.push({
                 type: 'diagram',
-                label: `${categoryCode} - ${categoryName}`,
-                detail: 'Category',
+                label: `${categoryCode} - ${localizedCategoryName}`,
+                detail: text.category,
+                keywords: `${categoryCode} ${categoryName} ${localizedCategoryName}`,
                 sectionSlug,
                 diagramCode,
               });
@@ -110,7 +126,8 @@ export default function SearchBar() {
               items.push({
                 type: 'part',
                 label: part.oem_number,
-                detail: part.group_name || '',
+                detail: localizePartText(part.group_name, locale),
+                keywords: `${part.oem_number} ${part.group_name || ''} ${localizePartText(part.group_name, locale)}`,
                 sectionSlug,
                 diagramCode,
                 oemNumber: part.oem_number,
@@ -127,8 +144,9 @@ export default function SearchBar() {
           for (const m of manuals) {
             items.push({
               type: 'manual',
-              label: m.label,
-              detail: m.detail,
+              label: localizeManualTitle(m.label, locale),
+              detail: localizeTechnicalName(m.detail, locale),
+              keywords: `${m.label} ${m.detail} ${localizeManualTitle(m.label, locale)}`,
               href: m.href,
             });
           }
@@ -141,7 +159,7 @@ export default function SearchBar() {
     }
 
     buildIndex();
-  }, []);
+  }, [locale, text.category, text.section]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -231,11 +249,11 @@ export default function SearchBar() {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full sm:max-w-sm">
+    <div ref={containerRef} className="relative w-full">
       <div className="relative">
         {/* Magnifying glass icon */}
         <svg
-          className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted pointer-events-none"
+          className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={2}
@@ -257,9 +275,9 @@ export default function SearchBar() {
           onFocus={() => {
             if (results.length > 0) setIsOpen(true);
           }}
-          placeholder="Search diagrams, parts, manuals..."
-          className="w-full rounded-md border border-border bg-background pl-9 pr-3 py-1.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
-          aria-label="Search diagrams and parts"
+          placeholder={text.placeholder}
+          className="h-11 w-full rounded-md border border-border bg-surface/85 pl-10 pr-3 text-sm text-foreground shadow-inner shadow-black/10 transition-colors placeholder:text-muted/70 focus:border-accent focus:outline-none"
+          aria-label={text.aria}
           aria-expanded={isOpen}
           aria-haspopup="listbox"
           role="combobox"
@@ -275,11 +293,11 @@ export default function SearchBar() {
         <ul
           id="search-results"
           role="listbox"
-          className="absolute top-full left-0 right-0 z-50 mt-1 max-h-80 overflow-y-auto rounded-md border border-border bg-surface shadow-lg"
+          className="absolute left-0 right-0 top-full z-50 mt-2 max-h-96 overflow-y-auto rounded-md border border-border bg-panel shadow-2xl shadow-black/40"
         >
           {results.length === 0 ? (
             <li className="px-3 py-3 text-sm text-muted text-center">
-              No results
+              {text.noResults}
             </li>
           ) : (
             results.map((item, index) => (
@@ -288,10 +306,10 @@ export default function SearchBar() {
                 id={`search-result-${index}`}
                 role="option"
                 aria-selected={index === activeIndex}
-                className={`flex items-center gap-2.5 px-3 py-2 cursor-pointer text-sm transition-colors ${
+                className={`flex cursor-pointer items-center gap-2.5 px-3 py-2.5 text-sm transition-colors ${
                   index === activeIndex
                     ? 'bg-accent/15 text-foreground'
-                    : 'text-foreground hover:bg-white/5'
+                    : 'text-foreground hover:bg-surface'
                 }`}
                 onMouseDown={(e) => {
                   e.preventDefault();
