@@ -65,7 +65,7 @@
       "Remove belt idler No. 2, then belt idler No. 1",
       "Remove timing belt",
       "Remove automatic belt tension adjuster assembly",
-      "Press adjuster rod down with 294 N pressure, insert 2mm stopper pin",
+      "Using a vertical press, press adjuster rod down with 294 N pressure gradually for more than 3 minutes, then insert 2mm stopper pin",
       "Install new tensioner adjuster assembly - torque to 25 Nm",
       "Install belt idler No. 1 - torque to 39 Nm",
       "Align camshaft sprockets using ST1 and ST2",
@@ -252,8 +252,8 @@
       { "label": "4th Gear Ratio", "value": "1.088" },
       { "label": "5th Gear Ratio", "value": "0.780" },
       { "label": "Reverse Gear Ratio", "value": "3.416" },
-      { "label": "Drain/Fill Plug Torque", "value": "35 Nm (3.6 kgf-m, 25 ft-lb) *" },
-      { "label": "* Note", "value": "Community-standard value; not explicitly found in manual" }
+      { "label": "Transmission Drain Plug Torque", "value": "70 Nm (7.1 kgf-m, 51.6 ft-lb) for gasket-type plug, or 44 Nm (4.5 kgf-m, 32.5 ft-lb) for tapered-thread plug" },
+      { "label": "Transmission Fill Plug Torque", "value": "44 Nm (4.5 kgf-m, 32.5 ft-lb)" }
     ],
     "steps": [
       "Raise vehicle and support on jack stands, remove under cover",
@@ -340,7 +340,7 @@
       { "label": "Rear Diff Capacity", "value": "0.8 L (0.85 US qt) *" },
       { "label": "Rear Diff Bevel Gear Backlash", "value": "0.13-0.18 mm" },
       { "label": "Center Diff Type", "value": "Viscous coupling with bevel gears (AWD)" },
-      { "label": "Drain/Fill Plug Torque", "value": "35 Nm (3.6 kgf-m, 25 ft-lb) *" },
+      { "label": "Rear Diff Drain/Fill Plug Torque", "value": "35 Nm (3.6 kgf-m, 25 ft-lb) *" },
       { "label": "* Note", "value": "Rear diff capacity and plug torque are community-standard values" }
     ],
     "steps": [

@@ -17,7 +17,7 @@ Specs:
   Rear Diff Capacity: 0.8 L (0.85 US qt) *
   Rear Diff Bevel Gear Backlash: 0.13-0.18 mm
   Center Diff Type: Viscous coupling with bevel gears (AWD)
-  Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
+  Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
   * Note: Rear diff capacity and plug torque are community-standard values
 
 Steps:

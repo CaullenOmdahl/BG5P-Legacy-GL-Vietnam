@@ -18,8 +18,8 @@ Specs:
   4th Gear Ratio: 1.088
   5th Gear Ratio: 0.780
   Reverse Gear Ratio: 3.416
-  Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
-  * Note: Community-standard value; not explicitly found in manual
+  Transmission Drain Plug Torque: 70 Nm (7.1 kgf-m, 51.6 ft-lb) for gasket-type plug, or 44 Nm (4.5 kgf-m, 32.5 ft-lb) for tapered-thread plug
+  Transmission Fill Plug Torque: 44 Nm (4.5 kgf-m, 32.5 ft-lb)
 
 Steps:
   1. Raise vehicle and support on jack stands, remove under cover

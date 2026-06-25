@@ -34,7 +34,7 @@ Steps:
   9. Remove belt idler No. 2, then belt idler No. 1
   10. Remove timing belt
   11. Remove automatic belt tension adjuster assembly
-  12. Press adjuster rod down with 294 N pressure, insert 2mm stopper pin
+  12. Using a vertical press, press adjuster rod down with 294 N pressure gradually for more than 3 minutes, then insert 2mm stopper pin
   13. Install new tensioner adjuster assembly - torque to 25 Nm
   14. Install belt idler No. 1 - torque to 39 Nm
   15. Align camshaft sprockets using ST1 and ST2

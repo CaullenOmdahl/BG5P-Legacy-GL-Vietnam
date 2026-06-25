@@ -1086,7 +1086,8 @@ const MAINTENANCE_VI: Record<string, MaintenanceTranslation> = {
       "4th Gear Ratio": "Tỷ số số 4",
       "5th Gear Ratio": "Tỷ số số 5",
       "Reverse Gear Ratio": "Tỷ số số lùi",
-      "Drain/Fill Plug Torque": "Lực siết ốc xả/châm",
+      "Transmission Drain Plug Torque": "Lực siết ốc xả hộp số",
+      "Transmission Fill Plug Torque": "Lực siết ốc châm hộp số",
       "* Note": "* Ghi chú",
     },
     steps: [
@@ -1161,7 +1162,7 @@ const MAINTENANCE_VI: Record<string, MaintenanceTranslation> = {
       "Rear Diff Capacity": "Dung tích vi sai sau",
       "Rear Diff Bevel Gear Backlash": "Độ rơ bánh răng côn vi sai sau",
       "Center Diff Type": "Loại vi sai giữa",
-      "Drain/Fill Plug Torque": "Lực siết ốc xả/châm",
+      "Rear Diff Drain/Fill Plug Torque": "Lực siết ốc xả/châm vi sai sau",
       "* Note": "* Ghi chú",
     },
     steps: [
