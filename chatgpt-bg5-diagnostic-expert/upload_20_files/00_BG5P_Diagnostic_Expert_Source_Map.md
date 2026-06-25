@@ -20,9 +20,9 @@ These repository sources are integrated into the strict 10-file upload set, so t
 
 | Source | Integrated Into | Rows / Lines | SHA-256 | Purpose |
 |---|---|---:|---|---|
-| `docs/bg5p-consumables-wear-interchange.md` | `08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 253 lines | `e5ad5fadc3a7669f` | Purchase-facing consumables and wear-parts interchange guide with confidence labels. |
+| `docs/bg5p-consumables-wear-interchange.md` | `08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 253 lines | `0c0f88edfb64d6e3` | Purchase-facing consumables and wear-parts interchange guide with confidence labels. |
 | `docs/parts-interchange-research.md` | `08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 140 lines | `8b651223035fa78a` | Parts-interchange research rules, Car-Part/Hollander usage boundaries, and source hierarchy. |
-| `docs/bg5p-oem-parts-master.csv` | `09_BG5P_Parts_Diagram_Index.csv` | 3044 rows | `915fad861524ebeb` | Full local EPC-derived OEM part master with interchange signal and confidence gate fields. |
+| `docs/bg5p-oem-parts-master.csv` | `09_BG5P_Parts_Diagram_Index.csv` | 3044 rows | `d19081f0c5711f2d` | Full local EPC-derived OEM part master with interchange signal and confidence gate fields. |
 | `docs/bg5p-shared-engine-interchange-candidates.csv` | `09_BG5P_Parts_Diagram_Index.csv` | 301 rows | `edc9eaff868758df` | Rows where EPC text explicitly mentions EJ20E plus donor engine tokens such as EJ18E or EJ25D. |
 
 ## Recommended 20-File Upload Set
@@ -54,8 +54,8 @@ Use `upload_20_files/` for the normal Custom GPT build. It currently uses 17 fil
 | `upload_10_files/04_BG5P_BG_Chassis_Wiring_Electrical_Searchable.pdf` | 27.37 MB | 304 | `1fb6593ea2462db9` | BG chassis wiring diagrams, connector conventions, body and engine electrical. |
 | `upload_10_files/05_BG5P_BG_Chassis_Drivetrain_Clutch_AWD_Searchable.pdf` | 10.73 MB | 142 | `1509bdf4fe27515c` | Manual transmission, differential, clutch, AWD system. |
 | `upload_10_files/06_BG5P_BG_Chassis_Suspension_Brakes_Steering_HVAC_Searchable.pdf` | 24.91 MB | 428 | `d7e368adfb57579d` | Suspension, brakes, steering, wheels/axles, HVAC, pedals/cables. |
-| `upload_10_files/07_BG5P_Diagnostic_Quick_Reference.md` | 0.02 MB | 408 | `e8a9ba875841f545` | Concise diagnostic workflow, DTC list, service intervals, common specs. |
-| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13046 | `47ddc843785b07a1` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
+| `upload_10_files/07_BG5P_Diagnostic_Quick_Reference.md` | 0.02 MB | 408 | `d621226753886cb6` | Concise diagnostic workflow, DTC list, service intervals, common specs. |
+| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13046 | `435f47a165e09c5c` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
 | `upload_10_files/09_BG5P_Parts_Diagram_Index.csv` | 1.48 MB | 3044 | `cc2d583e5d96e2a8` | Structured OEM part, diagram, interchange signal, confidence gate, and shared-engine candidate lookup table. |
 
 ## Source Grouping

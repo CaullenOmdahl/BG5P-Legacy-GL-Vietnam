@@ -12,7 +12,7 @@ Difficulty: Advanced | Interval: Every 100,000 km or 60 months
   Belt Cover Torque: 5 Nm (0.5 kgf-m, 3.6 ft-lb)
   Belt-to-Guide Clearance: 1.0 +/- 0.5 mm
   Tensioner Rod Extension: 5.7 +/- 0.5 mm
-  Tensioner Press Pressure: 294 N (30 kgf, 66 lb)
+  Tensioner Press Force: 294 N (30 kgf, 66 lb)
   Crank Pulley Wrench (ST): 499977300
   Cam Sprocket Wrench (ST1): 499207100
   Cam Sprocket Wrench (ST2): 499207400
@@ -29,7 +29,7 @@ Difficulty: Advanced | Interval: Every 100,000 km or 60 months
   9. Remove belt idler No. 2, then belt idler No. 1
   10. Remove timing belt
   11. Remove automatic belt tension adjuster assembly
-  12. Using a vertical press, press adjuster rod down with 294 N pressure gradually for more than 3 minutes, then insert 2mm stopper pin
+  12. Using a vertical press, press adjuster rod down with 294 N force gradually for more than 3 minutes, then insert 2mm stopper pin
   13. Install new tensioner adjuster assembly - torque to 25 Nm
   14. Install belt idler No. 1 - torque to 39 Nm
   15. Align camshaft sprockets using ST1 and ST2

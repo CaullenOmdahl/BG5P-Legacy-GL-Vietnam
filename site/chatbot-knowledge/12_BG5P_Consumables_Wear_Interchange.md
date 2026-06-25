@@ -114,7 +114,7 @@ shape before ordering.
 | Rear brake rotor | `26310AA040` -> `26310AA050` | Exact BG5/EJ20E/F4WD/MT `26700` page lists `26310AA040` with replacement `26310AA050`; 01.06.1997-30.11.1998 row applies to S.F4W/W.F4W LX/TXS/BRIGLD. | 95%+ if rear disc package is physically confirmed. |
 | Rear caliper seal kit | `26697AA040`, D=38 | Exact BG5/EJ20E/F4WD/MT `26697` page lists D=38 seal kit for W.F4W LX/TXS and 01.06.1997-30.11.1998 S.F4W/W.F4W LX/TXS/BRIGLD/GT#/25T#/LAN#. | 95%+ after confirming D=38 rear caliper. |
 | Rear parking-brake shoe kit | `26698AC000` -> `26698AC010` | Exact BG5/EJ20E/F4WD/MT `26694` page lists W.F4W LX/TXS/BRIGLD application for 01.06.1997-30.11.1998. | 95%+ if rear disc/drum-in-hat parking brake is present. |
-| Rear pad clips/shims | `26232AA020`, `26233AA020`, `26233AA030` | Same rear disk package in local data. | High candidate; buy hardware by confirmed rear pad/caliper package. |
+| Rear pad clips/shims | `26232AA020`, `26233AA020`, `26233AA030` | Same rear disc package in local data. | High candidate; buy hardware by confirmed rear pad/caliper package. |
 | Master-cylinder reservoir/filter parts | `26451AC000`, `26456AC000`, `26448AC110` | Local row explicitly includes `S.2W.GL.EJ20E` and other BG chassis notes. | High candidate; not common wear unless damaged/contaminated. |
 
 Quality brake brands once fitment is confirmed: Subaru OEM, Akebono, Advics,

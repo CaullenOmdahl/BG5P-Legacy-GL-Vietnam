@@ -48,7 +48,7 @@
       { "label": "Belt Cover Torque", "value": "5 Nm (0.5 kgf-m, 3.6 ft-lb)" },
       { "label": "Belt-to-Guide Clearance", "value": "1.0 +/- 0.5 mm" },
       { "label": "Tensioner Rod Extension", "value": "5.7 +/- 0.5 mm" },
-      { "label": "Tensioner Press Pressure", "value": "294 N (30 kgf, 66 lb)" },
+      { "label": "Tensioner Press Force", "value": "294 N (30 kgf, 66 lb)" },
       { "label": "Crank Pulley Wrench (ST)", "value": "499977300" },
       { "label": "Cam Sprocket Wrench (ST1)", "value": "499207100" },
       { "label": "Cam Sprocket Wrench (ST2)", "value": "499207400" }
@@ -65,7 +65,7 @@
       "Remove belt idler No. 2, then belt idler No. 1",
       "Remove timing belt",
       "Remove automatic belt tension adjuster assembly",
-      "Using a vertical press, press adjuster rod down with 294 N pressure gradually for more than 3 minutes, then insert 2mm stopper pin",
+      "Using a vertical press, press adjuster rod down with 294 N force gradually for more than 3 minutes, then insert 2mm stopper pin",
       "Install new tensioner adjuster assembly - torque to 25 Nm",
       "Install belt idler No. 1 - torque to 39 Nm",
       "Align camshaft sprockets using ST1 and ST2",
