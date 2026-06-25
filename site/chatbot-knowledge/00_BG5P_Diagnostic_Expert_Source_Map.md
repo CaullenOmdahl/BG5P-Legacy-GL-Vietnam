@@ -49,13 +49,13 @@ Use `upload_20_files/` for the normal Custom GPT build. It currently uses 17 fil
 |---|---:|---:|---|---|
 | `upload_10_files/00_BG5P_Diagnostic_Expert_Source_Map.md` | self | self | self | Vehicle scope, file inventory, source provenance, upload strategy. |
 | `upload_10_files/01_BG5P_EJ20E_No_OBD_Diagnostics_Searchable.pdf` | 10.97 MB | 114 | `9b38557acb704beb` | Core no-OBD diagnostic trees, CEL/MIL flash codes, ECM I/O, DTC procedures. |
-| `upload_10_files/02_BG5P_EJ20E_Fuel_Ignition_Electrical_Searchable.pdf` | 23.90 MB | 140 | `42424ee1f077eb07` | Fuel injection, ignition, engine electrical, starting/charging, emissions, speed control. |
-| `upload_10_files/03_BG5P_EJ20E_Mechanical_Cooling_Lubrication_Searchable.pdf` | 37.25 MB | 180 | `b09771dbfb8851fc` | Mechanical service, intake, cooling, lubrication, exhaust. |
-| `upload_10_files/04_BG5P_BG_Chassis_Wiring_Electrical_Searchable.pdf` | 27.37 MB | 304 | `1fb6593ea2462db9` | BG chassis wiring diagrams, connector conventions, body and engine electrical. |
-| `upload_10_files/05_BG5P_BG_Chassis_Drivetrain_Clutch_AWD_Searchable.pdf` | 10.73 MB | 142 | `1509bdf4fe27515c` | Manual transmission, differential, clutch, AWD system. |
-| `upload_10_files/06_BG5P_BG_Chassis_Suspension_Brakes_Steering_HVAC_Searchable.pdf` | 24.91 MB | 428 | `d7e368adfb57579d` | Suspension, brakes, steering, wheels/axles, HVAC, pedals/cables. |
-| `upload_10_files/07_BG5P_Diagnostic_Quick_Reference.md` | 0.02 MB | 407 | `f2e46d4377e5b83d` | Concise diagnostic workflow, DTC list, service intervals, common specs. |
-| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13046 | `cc49571ca2bbcd16` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
+| `upload_10_files/02_BG5P_EJ20E_Fuel_Ignition_Electrical_Searchable.pdf` | 23.90 MB | 140 | `ef1d9a0d08cb4ecb` | Fuel injection, ignition, engine electrical, starting/charging, emissions, speed control. |
+| `upload_10_files/03_BG5P_EJ20E_Mechanical_Cooling_Lubrication_Searchable.pdf` | 37.25 MB | 180 | `488b0fab12aa34d5` | Mechanical service, intake, cooling, lubrication, exhaust. |
+| `upload_10_files/04_BG5P_BG_Chassis_Wiring_Electrical_Searchable.pdf` | 27.37 MB | 304 | `af29a62744bc7334` | BG chassis wiring diagrams, connector conventions, body and engine electrical. |
+| `upload_10_files/05_BG5P_BG_Chassis_Drivetrain_Clutch_AWD_Searchable.pdf` | 10.73 MB | 142 | `fa43b781c3e48d5c` | Manual transmission, differential, clutch, AWD system. |
+| `upload_10_files/06_BG5P_BG_Chassis_Suspension_Brakes_Steering_HVAC_Searchable.pdf` | 24.91 MB | 428 | `15ce1453034e6020` | Suspension, brakes, steering, wheels/axles, HVAC, pedals/cables. |
+| `upload_10_files/07_BG5P_Diagnostic_Quick_Reference.md` | 0.02 MB | 407 | `5c95ab92dddea857` | Concise diagnostic workflow, DTC list, service intervals, common specs. |
+| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13046 | `7ed401107c2dda43` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
 | `upload_10_files/09_BG5P_Parts_Diagram_Index.csv` | 1.48 MB | 3044 | `a6e638a109838c7b` | Structured OEM part, diagram, interchange signal, confidence gate, and shared-engine candidate lookup table. |
 
 ## Source Grouping

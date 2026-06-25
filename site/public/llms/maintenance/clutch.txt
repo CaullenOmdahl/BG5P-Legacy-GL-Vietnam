@@ -2,7 +2,7 @@
 Difficulty: Advanced | Interval: As needed (typically 100,000-150,000 km)
 
 ## Specs
-  Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
+  Clutch Disc Facing O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
   Clutch Disc Facing: Woven type
   Clutch Disc Spline O.D. (24 teeth): 25.2 mm
   Diaphragm Set Load (BG5P EJ20E): 450 kg (992 lb)

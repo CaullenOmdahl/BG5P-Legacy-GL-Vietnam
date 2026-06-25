@@ -3920,7 +3920,7 @@ Service manuals:
 Difficulty: Advanced | Interval: As needed (typically 100,000-150,000 km)
 
 Specs:
-  Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
+  Clutch Disc Facing O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
   Clutch Disc Facing: Woven type
   Clutch Disc Spline O.D. (24 teeth): 25.2 mm
   Diaphragm Set Load (BG5P EJ20E): 450 kg (992 lb)
@@ -10481,18 +10481,18 @@ Difficulty: Moderate | Interval: Every 20,000 km or as needed
 
 Specs:
   Front Type: Disc (Floating type, ventilated)
-  Front Pad Dimensions: 112.4 x 44.3 x 11.0 mm
-  Front Pad New Thickness (with backing): 17 mm (0.67 in)
-  Front Pad Min Thickness (with backing): 7.5 mm (0.295 in)
+  Front Pad Dimensions (friction material): 112.4 x 44.3 x 11.0 mm
+  Front Pad Standard Thickness (factory service check, including back metal): 17 mm (0.67 in)
+  Front Pad Wear Limit (factory service check, including back metal): 7.5 mm (0.295 in)
   Front Disc Thickness (new): 24 mm (0.94 in)
   Front Disc Min Thickness: 22 mm (0.87 in)
   Front Disc Max Runout: 0.075 mm (0.003 in)
   Front Caliper Guide Pin Torque: 37 Nm (3.8 kgf-m, 27.5 ft-lb)
   Front Support Bolt Torque: 78 Nm (8.0 kgf-m, 58 ft-lb)
   Rear Type: Disc (Floating type)
-  Rear Pad Dimensions: 92.4 x 33.7 x 10.0 mm
-  Rear Pad New Thickness (with backing): 15 mm (0.59 in)
-  Rear Pad Min Thickness (with backing): 6.5 mm (0.256 in)
+  Rear Pad Dimensions (friction material): 92.4 x 33.7 x 10.0 mm
+  Rear Pad Standard Thickness (factory service check, including back metal): 15 mm (0.59 in)
+  Rear Pad Wear Limit (factory service check, including back metal): 6.5 mm (0.256 in)
   Rear Disc Thickness (new): 10 mm (0.39 in)
   Rear Disc Min Thickness: 8.5 mm (0.335 in)
   Rear Disc Max Runout: 0.10 mm (0.004 in)
@@ -11642,18 +11642,18 @@ Difficulty: Moderate | Interval: Every 20,000 km or as needed
 
 ## Specs
   Front Type: Disc (Floating type, ventilated)
-  Front Pad Dimensions: 112.4 x 44.3 x 11.0 mm
-  Front Pad New Thickness (with backing): 17 mm (0.67 in)
-  Front Pad Min Thickness (with backing): 7.5 mm (0.295 in)
+  Front Pad Dimensions (friction material): 112.4 x 44.3 x 11.0 mm
+  Front Pad Standard Thickness (factory service check, including back metal): 17 mm (0.67 in)
+  Front Pad Wear Limit (factory service check, including back metal): 7.5 mm (0.295 in)
   Front Disc Thickness (new): 24 mm (0.94 in)
   Front Disc Min Thickness: 22 mm (0.87 in)
   Front Disc Max Runout: 0.075 mm (0.003 in)
   Front Caliper Guide Pin Torque: 37 Nm (3.8 kgf-m, 27.5 ft-lb)
   Front Support Bolt Torque: 78 Nm (8.0 kgf-m, 58 ft-lb)
   Rear Type: Disc (Floating type)
-  Rear Pad Dimensions: 92.4 x 33.7 x 10.0 mm
-  Rear Pad New Thickness (with backing): 15 mm (0.59 in)
-  Rear Pad Min Thickness (with backing): 6.5 mm (0.256 in)
+  Rear Pad Dimensions (friction material): 92.4 x 33.7 x 10.0 mm
+  Rear Pad Standard Thickness (factory service check, including back metal): 15 mm (0.59 in)
+  Rear Pad Wear Limit (factory service check, including back metal): 6.5 mm (0.256 in)
   Rear Disc Thickness (new): 10 mm (0.39 in)
   Rear Disc Min Thickness: 8.5 mm (0.335 in)
   Rear Disc Max Runout: 0.10 mm (0.004 in)
@@ -11996,7 +11996,7 @@ Difficulty: Moderate | Interval: Every 20,000 km or as needed
 Difficulty: Advanced | Interval: As needed (typically 100,000-150,000 km)
 
 ## Specs
-  Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
+  Clutch Disc Facing O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
   Clutch Disc Facing: Woven type
   Clutch Disc Spline O.D. (24 teeth): 25.2 mm
   Diaphragm Set Load (BG5P EJ20E): 450 kg (992 lb)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T12:13:32Z",
+  "generated_at": "2026-06-25T12:48:13Z",
   "source_upload_folder": "chatgpt-bg5-diagnostic-expert/upload_20_files",
   "documents": [
     {
@@ -60,13 +60,13 @@
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/07_BG5P_Diagnostic_Quick_Reference.md",
       "target": "07_BG5P_Diagnostic_Quick_Reference.md",
       "kind": "md",
-      "bytes": 19084
+      "bytes": 19259
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "target": "08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "kind": "md",
-      "bytes": 734266
+      "bytes": 734616
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/09_BG5P_Parts_Diagram_Index.csv",
