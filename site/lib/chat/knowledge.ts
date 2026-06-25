@@ -334,12 +334,28 @@ function walkPublicFiles(dir: string): string[] {
   return files;
 }
 
+function isZipBackedArchive(filePath: string): boolean {
+  try {
+    const file = fs.openSync(filePath, "r");
+    try {
+      const signature = Buffer.alloc(2);
+      fs.readSync(file, signature, 0, 2, 0);
+      return signature[0] === 0x50 && signature[1] === 0x4b;
+    } finally {
+      fs.closeSync(file);
+    }
+  } catch {
+    return false;
+  }
+}
+
 function loadManualRoutes(): ManualRoute[] {
   if (manualRouteCache) return manualRouteCache;
 
   const manualDir = path.join(PUBLIC_DIR, "manuals");
   manualRouteCache = walkPublicFiles(manualDir)
     .filter((filePath) => path.extname(filePath).toLowerCase() === ".pdf")
+    .filter((filePath) => !isZipBackedArchive(filePath))
     .map((filePath) => {
       const relativePublicPath = path.relative(PUBLIC_DIR, filePath);
       return {

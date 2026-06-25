@@ -34,6 +34,7 @@ const widgetRequired = [
   "isImageHref",
   "inlineSourcePreview",
   "trimUserFirstHistory",
+  "setPageContext(getPageContext())",
   "![",
 ];
 
@@ -65,6 +66,7 @@ const knowledgeRequired = [
   "prioritizeSpecificPublicLinks",
   "11_BG5P_Web_Deeplink_Sitemap.md",
   "00_BG5P_Diagnostic_Expert_Source_Map.md",
+  "isZipBackedArchive",
 ];
 
 for (const marker of knowledgeRequired) {
@@ -105,8 +107,23 @@ assert.equal(trimmedHistory[0].role, "user");
 assert.equal(trimmedHistory.at(-1).role, "user");
 assert.ok(!widget.includes(".slice(-8)"), "Widget must not trim chat history directly");
 assert.ok(
+  widget.includes("function openPanel()") &&
+    widget.indexOf("setPageContext(getPageContext())", widget.indexOf("function openPanel()")) >
+      widget.indexOf("function openPanel()"),
+  "Floating chat open path should refresh page context"
+);
+assert.ok(
   !route.includes("if (forwarded) return forwarded.split(\",\")[0].trim();"),
   "API route must not trust unverified X-Forwarded-For for rate limits"
+);
+assert.ok(
+  route.includes("BG5_TRUSTED_PROXY_SECRET") && route.includes("x-bg5-trusted-proxy"),
+  "API route should require a trusted proxy marker before forwarded IP rate-limit keys"
+);
+assert.ok(
+  knowledge.includes("isZipBackedArchive") &&
+    knowledge.includes("!isZipBackedArchive(filePath)"),
+  "Chat manual routes should exclude ZIP-backed PDF archives"
 );
 
 const exactDiagramPatternMatch = knowledge.match(/exactDiagramCode[\s\S]*?query\.match\((\/[^\n]+\/[a-z]*)\)/);

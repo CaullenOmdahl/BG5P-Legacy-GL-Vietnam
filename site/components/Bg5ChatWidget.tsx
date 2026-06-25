@@ -967,6 +967,7 @@ export default function Bg5ChatWidget() {
   }, []);
 
   function openPanel() {
+    setPageContext(getPageContext());
     setOpen(true);
     window.setTimeout(() => inputRef.current?.focus(), 80);
   }
