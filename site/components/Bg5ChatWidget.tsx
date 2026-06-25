@@ -300,7 +300,8 @@ function CloseIcon() {
 }
 
 function isSafeHref(href: string): boolean {
-  return href.startsWith("/") || href.startsWith("https://") || href.startsWith("http://");
+  if (href.startsWith("/")) return !href.startsWith("//");
+  return href.startsWith("https://") || href.startsWith("http://");
 }
 
 function isSafeSourceHref(href: string): boolean {

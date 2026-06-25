@@ -8,6 +8,7 @@ const route = fs.readFileSync(path.join(root, "app/api/chat/route.ts"), "utf8");
 const page = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const knowledge = fs.readFileSync(path.join(root, "lib/chat/knowledge.ts"), "utf8");
 const history = fs.readFileSync(path.join(root, "lib/chat/history.ts"), "utf8");
+const manualsClient = fs.readFileSync(path.join(root, "components/ManualsClient.tsx"), "utf8");
 
 const widgetRequired = [
   "Locale",
@@ -124,6 +125,17 @@ assert.ok(
   knowledge.includes("isZipBackedArchive") &&
     knowledge.includes("!isZipBackedArchive(filePath)"),
   "Chat manual routes should exclude ZIP-backed PDF archives"
+);
+assert.ok(
+  widget.includes("href.startsWith(\"/\")") && widget.includes("!href.startsWith(\"//\")"),
+  "Markdown links should reject protocol-relative external URLs"
+);
+assert.ok(
+  manualsClient.includes("window.location.hash.slice(1)") &&
+    manualsClient.includes("setOpenSections") &&
+    manualsClient.includes("setOpenSubs") &&
+    manualsClient.includes("scrollIntoView"),
+  "Manuals hash deeplinks should open their containing section and subsection"
 );
 
 const exactDiagramPatternMatch = knowledge.match(/exactDiagramCode[\s\S]*?query\.match\((\/[^\n]+\/[a-z]*)\)/);

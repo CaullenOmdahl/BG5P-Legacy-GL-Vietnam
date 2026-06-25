@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocale } from "@/components/LocaleProvider";
 import { getCopy, localizeManualTitle, localizeTechnicalName } from "@/lib/i18n";
 
@@ -79,6 +79,29 @@ export default function ManualsClient({
   const [openSubs, setOpenSubs] = useState<Record<string, boolean>>({});
 
   const q = filter.trim().toLowerCase();
+
+  useEffect(() => {
+    function openHashTarget() {
+      const anchor = window.location.hash.slice(1);
+      if (!anchor) return;
+
+      for (const section of chassisSections) {
+        const sub = section.subsections.find((candidate) => candidate.anchor === anchor);
+        if (!sub) continue;
+
+        setOpenSections((prev) => ({ ...prev, [section.name]: true }));
+        setOpenSubs((prev) => ({ ...prev, [`${section.name}/${sub.name}`]: true }));
+        window.requestAnimationFrame(() => {
+          document.getElementById(anchor)?.scrollIntoView({ block: "start" });
+        });
+        return;
+      }
+    }
+
+    openHashTarget();
+    window.addEventListener("hashchange", openHashTarget);
+    return () => window.removeEventListener("hashchange", openHashTarget);
+  }, [chassisSections]);
 
   const filteredEngine = useMemo(() => {
     if (!q) return enginePdfs;
