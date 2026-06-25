@@ -11,7 +11,7 @@ Specs:
   Capacity: 3.5 L (3.7 US qt)
   Transmission Type: 5-speed synchromesh with reverse
   Transfer Gear Ratio: 1.000
-  Final Drive Ratio (2200cc): 3.900
+  Final Drive Ratio (BG5P EJ20E): 3.900
   1st Gear Ratio: 3.545
   2nd Gear Ratio: 2.111
   3rd Gear Ratio: 1.448
@@ -44,7 +44,7 @@ Specs:
   Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
   Clutch Disc Facing: Woven type
   Clutch Disc Spline O.D. (24 teeth): 25.2 mm
-  Diaphragm Set Load (2200cc): 450 kg (992 lb)
+  Diaphragm Set Load (BG5P EJ20E): 450 kg (992 lb)
   Release Bearing Type: Grease-packed self-aligning
   Release Lever Ratio: 3.0
   Clutch Pedal Full Stroke: 140-150 mm (5.51-5.91 in)

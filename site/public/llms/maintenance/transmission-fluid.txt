@@ -6,7 +6,7 @@ Difficulty: Moderate | Interval: Every 50,000 km or 30 months
   Capacity: 3.5 L (3.7 US qt)
   Transmission Type: 5-speed synchromesh with reverse
   Transfer Gear Ratio: 1.000
-  Final Drive Ratio (2200cc): 3.900
+  Final Drive Ratio (BG5P EJ20E): 3.900
   1st Gear Ratio: 3.545
   2nd Gear Ratio: 2.111
   3rd Gear Ratio: 1.448

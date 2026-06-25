@@ -9,10 +9,10 @@ Difficulty: Moderate | Interval: Every 50,000 km or 30 months
 Specs:
   Front Diff Type: Straight bevel gear (integrated in transmission)
   Front Diff Gear Type: Hypoid
-  Front Final Ratio (2200cc): 3.900
+  Front Final Ratio (BG5P EJ20E): 3.900
   Front Diff Fluid: GL-5 (shared with transmission, 3.5 L total)
   Rear Diff Type: Hypoid gear
-  Rear Final Ratio (2200cc): 3.900
+  Rear Final Ratio (BG5P EJ20E): 3.900
   Rear Diff Fluid Type: GL-5 (75W-90 gear oil)
   Rear Diff Capacity: 0.8 L (0.85 US qt) *
   Rear Diff Bevel Gear Backlash: 0.13-0.18 mm

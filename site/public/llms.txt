@@ -37,7 +37,7 @@ Each file includes the full procedure, all specs/torque values, AND the related 
 - [Air Filter Replacement](/llms/maintenance/air-filter.txt): Easy | Every 20,000 km or 12 months (inspect every 10,000 km) | Filter Type: Panel filter element, OEM Part Number: 16546-AA020 (verify for model year), Case Bolt Torque: 6.5 Nm (0.66 kgf-m, 4.8 ft-lb)
 - [Manual Transmission Fluid Change](/llms/maintenance/transmission-fluid.txt): Moderate | Every 50,000 km or 30 months | Fluid Type: GL-5 (75W-90 gear oil), Capacity: 3.5 L (3.7 US qt), Transmission Type: 5-speed synchromesh with reverse
 - [Clutch Replacement](/llms/maintenance/clutch.txt): Advanced | As needed (typically 100,000-150,000 km) | Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm, Clutch Disc Facing: Woven type, Clutch Disc Spline O.D. (24 teeth): 25.2 mm
-- [Differential Fluid Change](/llms/maintenance/differential-fluid.txt): Moderate | Every 50,000 km or 30 months | Front Diff Type: Straight bevel gear (integrated in transmission), Front Diff Gear Type: Hypoid, Front Final Ratio (2200cc): 3.900
+- [Differential Fluid Change](/llms/maintenance/differential-fluid.txt): Moderate | Every 50,000 km or 30 months | Front Diff Type: Straight bevel gear (integrated in transmission), Front Diff Gear Type: Hypoid, Front Final Ratio (BG5P EJ20E): 3.900
 
 ## Parts Catalog Sections
 

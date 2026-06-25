@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify ZIP-backed manual archives are exposed as website PDF assets."""
+"""Verify manual archive assets and generated archive index pages."""
 
 from __future__ import annotations
 
@@ -9,7 +9,9 @@ from pathlib import Path
 
 
 SITE_DIR = Path(__file__).resolve().parents[1]
+PROJECT_DIR = SITE_DIR.parent
 ENGINE_MANUALS_DIR = SITE_DIR / "public" / "manuals" / "EJ20E-SOHC-engine"
+BG_CHASSIS_DIR = PROJECT_DIR / "manuals" / "BG-chassis"
 
 ARCHIVES = {
     "EJ20_Electrical_System.pdf": ENGINE_MANUALS_DIR / "EJ20_Electrical_System",
@@ -44,6 +46,23 @@ def main() -> int:
             expected = extracted_dir / Path(member).name
             if not expected.exists():
                 failures.append(f"missing extracted archive member: {expected}")
+
+    if not BG_CHASSIS_DIR.exists():
+        failures.append(f"missing BG chassis manual directory: {BG_CHASSIS_DIR}")
+    else:
+        for index_path in sorted(BG_CHASSIS_DIR.rglob("index.html")):
+            text = index_path.read_text(encoding="utf-8")
+            lower = text.lower()
+            missing = [
+                token
+                for token in ("<!doctype html", "<head", "<title", "<body")
+                if token not in lower
+            ]
+            if missing:
+                failures.append(
+                    f"manual index lacks document structure: {index_path} "
+                    f"({', '.join(missing)})"
+                )
 
     if failures:
         print("manual archive asset verification failed:", file=sys.stderr)

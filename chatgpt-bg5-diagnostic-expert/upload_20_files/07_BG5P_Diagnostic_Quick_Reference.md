@@ -299,7 +299,7 @@
   - Capacity: 3.5 L (3.7 US qt)
   - Transmission Type: 5-speed synchromesh with reverse
   - Transfer Gear Ratio: 1.000
-  - Final Drive Ratio (2200cc): 3.900
+  - Final Drive Ratio (BG5P EJ20E): 3.900
   - 1st Gear Ratio: 3.545
   - 2nd Gear Ratio: 2.111
   - 3rd Gear Ratio: 1.448
@@ -332,7 +332,7 @@
   - Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
   - Clutch Disc Facing: Woven type
   - Clutch Disc Spline O.D. (24 teeth): 25.2 mm
-  - Diaphragm Set Load (2200cc): 450 kg (992 lb)
+  - Diaphragm Set Load (BG5P EJ20E): 450 kg (992 lb)
   - Release Bearing Type: Grease-packed self-aligning
   - Release Lever Ratio: 3.0
   - Clutch Pedal Full Stroke: 140-150 mm (5.51-5.91 in)
@@ -378,10 +378,10 @@
 - Specs:
   - Front Diff Type: Straight bevel gear (integrated in transmission)
   - Front Diff Gear Type: Hypoid
-  - Front Final Ratio (2200cc): 3.900
+  - Front Final Ratio (BG5P EJ20E): 3.900
   - Front Diff Fluid: GL-5 (shared with transmission, 3.5 L total)
   - Rear Diff Type: Hypoid gear
-  - Rear Final Ratio (2200cc): 3.900
+  - Rear Final Ratio (BG5P EJ20E): 3.900
   - Rear Diff Fluid Type: GL-5 (75W-90 gear oil)
   - Rear Diff Capacity: 0.8 L (0.85 US qt) *
   - Rear Diff Bevel Gear Backlash: 0.13-0.18 mm
