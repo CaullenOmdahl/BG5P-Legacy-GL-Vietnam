@@ -62,6 +62,7 @@
 | 11 | Crankshaft position sensor | No signal from crankshaft position sensor when ignition is ON; ECM-to-sensor harness short/open. |
 | 21 | Engine coolant temperature sensor | Engine coolant temperature sensor signal abnormal; ECM-to-sensor harness short/open. |
 | 22 | Knock sensor | Knock sensor signal abnormal; ECM-to-sensor harness short/open. |
+| 23 | Mass Air Flow (MAF) sensor | Mass Air Flow sensor signal abnormal; ECM-to-MAF-sensor harness short/open. |
 | 45 | Pressure sensor | Pressure sensor signal abnormal; ECM-to-pressure-sensor harness short/open. |
 | 24 | Idle air control solenoid valve | IAC solenoid valve not functioning; ECM-to-IAC harness short/open. |
 | 26 | Intake air temperature sensor | Intake air temperature signal abnormal; ECM-to-IAT harness short/open. |
