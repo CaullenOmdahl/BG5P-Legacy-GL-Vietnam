@@ -1,28 +1,13 @@
 {
-  "111": {
-    "status": "not_applicable",
-    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/111/",
-    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
-  },
   "116": {
-    "status": "not_applicable",
-    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/116/",
-    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
-  },
-  "117": {
-    "status": "not_applicable",
-    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/117/",
-    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
-  },
-  "119": {
-    "status": "not_applicable",
-    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/119/",
-    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/",
+    "detail": "MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction."
   },
   "373": {
     "status": "not_applicable",
-    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/373/",
-    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
+    "source": "https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/373/",
+    "detail": "MT-compatible BG5/EJ20E/TXS EPC source marks this clutch-cable subgroup as not applicable for the selected manual-transmission complectation."
   },
   "410": {
     "status": "no_itemized_rows",

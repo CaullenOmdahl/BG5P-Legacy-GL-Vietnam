@@ -55,7 +55,7 @@ Use `upload_20_files/` for the normal Custom GPT build. It currently uses 17 fil
 | `upload_10_files/05_BG5P_BG_Chassis_Drivetrain_Clutch_AWD_Searchable.pdf` | 10.73 MB | 142 | `1509bdf4fe27515c` | Manual transmission, differential, clutch, AWD system. |
 | `upload_10_files/06_BG5P_BG_Chassis_Suspension_Brakes_Steering_HVAC_Searchable.pdf` | 24.91 MB | 428 | `d7e368adfb57579d` | Suspension, brakes, steering, wheels/axles, HVAC, pedals/cables. |
 | `upload_10_files/07_BG5P_Diagnostic_Quick_Reference.md` | 0.02 MB | 407 | `f2e46d4377e5b83d` | Concise diagnostic workflow, DTC list, service intervals, common specs. |
-| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13028 | `b1d88dffa140398a` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
+| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13046 | `cc49571ca2bbcd16` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
 | `upload_10_files/09_BG5P_Parts_Diagram_Index.csv` | 1.48 MB | 3044 | `a6e638a109838c7b` | Structured OEM part, diagram, interchange signal, confidence gate, and shared-engine candidate lookup table. |
 
 ## Source Grouping

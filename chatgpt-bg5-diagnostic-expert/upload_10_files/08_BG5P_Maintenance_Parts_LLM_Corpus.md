@@ -3984,8 +3984,7 @@ Service manuals:
 32000AE370 | MANUAL TRANSMISSION ASSEMBLY x01 | 02.1997 - 11.1998 | S.25.MT
 
 ### 111_01: MT, GASKET & SEAL KIT
-EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
-Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/111/
+32001AA000 | GASKET & SEAL KIT-MANUAL TRANSMISSION x01 | 01.12.1995 - 31.07.1997
 
 ### 113_01: MT, TRANSMISSION CASE
 800608430 | BOLT x04 | 02.1997 - 11.1998 | MT
@@ -4297,24 +4296,31 @@ Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/111/
 32229AA140 | SHAFT-DRIVEN x01 | OD=49.975-49.967
 
 ### 116_01: MT, AUXILIARY GEAR
-EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
-Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/116/
+MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction.
+Source: https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/
 
 ### 116_02: MT, AUXILIARY GEAR
-EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
-Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/116/
+MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction.
+Source: https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/
 
 ### 116_03: MT, AUXILIARY GEAR
-EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
-Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/116/
+MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction.
+Source: https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/
 
 ### 117_01: MT, SPEEDOMETER GEAR
-EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
-Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/117/
+031512000 | SNAP RING-OUTER
+32713AA002 | SHAFT-SPEEDOMETER x01 | 01.12.1995 - 31.07.1997
+32714AA051 | GEAR-SPEEDOMETER DRIVEN x01 | 01.12.1995 - 31.07.1997 | lean burn model excluding
+32714AA420 | GEAR-SPEEDOMETER DRIVEN x01 | 01.12.1995 - 31.07.1997 | lean burn model
+803012060 | WASHER x01 | 01.12.1995 - 31.07.1997
+805012020 | SNAP RING-OUTER x01 | 01.12.1995 - 31.07.1997
+806712090 | OIL SEAL x01 | 01.12.1995 - 31.01.1997
+806712100 | OIL SEAL x01 | 01.02.1997 - 31.07.1997
 
 ### 119_01: MT, TRANSMISSION HARNESS
-EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
-Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/119/
+21046GA070 | CLIP-AIR SUSPENSION x01 | 01.12.1995 - 31.07.1997
+425665500 | CLIP-NO.3,A x01 | 01.12.1995 - 31.07.1997
+24233AA230 | CLIP-NO.4 x01 | 01.12.1995 - 31.07.1997
 
 ### 121_01: MT, TRANSFER & EXTENSION
 011308180 | BOLT AND WASHER ASSEMBLY
@@ -5004,6 +5010,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 031304001 | CLIP | Steering | 360
 031306001 | CLIP | Steering | 360
 031432000 | SNAP RING-INNER | Steering | 350
+031512000 | SNAP RING-OUTER | Manual Transmission | 117
 031514000 | SNAP RING-OUTER | Manual Transmission | 130
 031524000 | SNAP RING-OUTER | Steering | 350
 032006003 | SPRING WASHER | Seat Instrument Panel | 640
@@ -5474,6 +5481,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 20560AA040 | WASHER-FRONT STRUT,LOWER | Suspension Axle Brake | 210
 20741AA050 | PLUG B | Suspension Axle Brake | 220
 20741AA060 | PLUG C | Suspension Axle Brake | 220
+21046GA070 | CLIP-AIR SUSPENSION | Manual Transmission | 119
 21047GA811 | BUSHING-STABILIZER | Suspension Axle Brake | 201
 21067GA050 | BALL JOINT COMPLETE | Suspension Axle Brake | 200
 21114AA050 | GASKET-WATER PUMP | Engine Main | 035
@@ -5580,6 +5588,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 24020AB692 | HARNESS-ENGINE | Engine Electrical | 091
 24226KA000 | CLIP-BAND | Engine Electrical | 091
 24233AA053 | CLIP-NO.4 | Engine Main | 005
+24233AA230 | CLIP-NO.4 | Manual Transmission | 119
 24233AA270 | CLIP-NO.4 | Manual Transmission | 113
 25229AA001 | RELAY & BRACKET ASSEMBLY | Engine Electrical | 096
 25232AA020 | RELAY | Engine Electrical | 096
@@ -5752,6 +5761,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 31260GA790 | NUT | Steering | 348
 31260GA840 | BOLT-GEAR BOX,VALVE | Steering | 347
 32000AE370 | MANUAL TRANSMISSION ASSEMBLY | Manual Transmission | 110
+32001AA000 | GASKET & SEAL KIT-MANUAL TRANSMISSION | Manual Transmission | 111
 32005AA051 | SWITCH ASSEMBLY-BACK LAMP | Manual Transmission | 121
 32008AA071 | SWITCH ASSEMBLY-NEUTRAL | Manual Transmission | 121
 32024AA001 | GAUGE ASSEMBLY-OIL LEVEL | Manual Transmission | 113
@@ -5820,6 +5830,9 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 32650AA000 | SYNCHRONIZER SET | Manual Transmission | 115
 32650AA010 | SYNCHRONIZER SET | Manual Transmission | 114
 32652AA000 | RING-BAULK,1ST | Manual Transmission | 115
+32713AA002 | SHAFT-SPEEDOMETER | Manual Transmission | 117
+32714AA051 | GEAR-SPEEDOMETER DRIVEN | Manual Transmission | 117
+32714AA420 | GEAR-SPEEDOMETER DRIVEN | Manual Transmission | 117
 32801AA080 | ROD-FORK,1ST & 2ND | Manual Transmission | 130
 32804AA060 | FORK COMPLETE-SHIFT,1ST & 2ND | Manual Transmission | 130
 32804AA070 | FORK COMPLETE-SHIFT,1ST & 2ND | Manual Transmission | 130
@@ -6154,6 +6167,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 42162AA410 | HOSE-RETURN | Engine Mounting Cooling | 421
 42172AA161 | BAND ASSEMBLY-FUEL TANK,RIGHT | Engine Mounting Cooling | 421
 42172AA181 | BAND ASSEMBLY-FUEL TANK,LEFT | Engine Mounting Cooling | 421
+425665500 | CLIP-NO.3,A | Manual Transmission | 119
 44016AC000 | SPRING-EXHAUST PIPE | Engine Mounting Cooling | 440
 44021AC030 | BRACKET-EXHAUST PIPE HANGER | Engine Mounting Cooling | 440
 44021AC160 | BRACKET-EXHAUST PIPE HANGER | Engine Mounting Cooling | 440
@@ -7076,6 +7090,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 802642010 | LOCKING NUT | Manual Transmission | 115
 803010120 | WASHER | Engine Electrical | 093
 803010120 | WASHER | Engine Main | 004
+803012060 | WASHER | Manual Transmission | 117
 803018110 | WASHER | Manual Transmission | 115
 803020151 | WASHER | Manual Transmission | 114
 803020152 | WASHER | Manual Transmission | 114
@@ -7121,6 +7136,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 804014060 | STRAIGHT PIN | Engine Main | 004
 804505060 | WOOD RUF KEY | Engine Main | 010
 804505080 | WOOD RUF KEY | Manual Transmission | 115
+805012020 | SNAP RING-OUTER | Manual Transmission | 117
 805028011 | SNAP RING-OUTER | Differential Propeller | 190
 805028012 | SNAP RING-OUTER | Differential Propeller | 190
 805030041 | SNAP RING-OUTER | Manual Transmission | 121
@@ -7163,6 +7179,8 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 806432060 | NEEDLE BEARING | Manual Transmission | 114
 806441010 | NEEDLE BEARING | Manual Transmission | 121
 806533010 | THRUST BEARING | Manual Transmission | 115
+806712090 | OIL SEAL | Manual Transmission | 117
+806712100 | OIL SEAL | Manual Transmission | 117
 806718100 | OIL SEAL | Manual Transmission | 121
 806725090 | OIL SEAL | Manual Transmission | 114
 806730041 | OIL SEAL | Differential Propeller | 190
@@ -10448,8 +10466,8 @@ https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_Starting_Charging.pd
 690302530 | PLUG,25 x01 | 02.1997 - 11.1998 | MT +AT
 
 ### 373_01: CLUTCH CABLE
-EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.
-Source: https://subaru.epc-data.com/legacy/bg5/141-ej20e/trans/373/
+MT-compatible BG5/EJ20E/TXS EPC source marks this clutch-cable subgroup as not applicable for the selected manual-transmission complectation.
+Source: https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/373/
 
 ## Source: site/public/llms/suspension-axle-brake.txt
 

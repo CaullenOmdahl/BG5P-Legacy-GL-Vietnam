@@ -413,13 +413,14 @@ export function exactMaintenanceId(query: string): string | null {
 }
 
 export function loadChatInstructions(): string {
-  if (instructionCache) return instructionCache;
+  if (instructionCache !== null) return instructionCache;
 
   const filePath = path.join(KNOWLEDGE_DIR, "GPT_INSTRUCTIONS.md");
-  instructionCache = fs.existsSync(filePath)
+  const instructions = fs.existsSync(filePath)
     ? fs.readFileSync(filePath, "utf-8").trim()
     : "";
-  return instructionCache;
+  instructionCache = instructions;
+  return instructions;
 }
 
 function scoreChunk(chunk: KnowledgeChunk, queryTokens: string[], query: string): number {

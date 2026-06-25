@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T12:07:21Z",
+  "generated_at": "2026-06-25T12:13:32Z",
   "source_upload_folder": "chatgpt-bg5-diagnostic-expert/upload_20_files",
   "documents": [
     {
@@ -66,7 +66,7 @@
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "target": "08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "kind": "md",
-      "bytes": 733118
+      "bytes": 734266
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/09_BG5P_Parts_Diagram_Index.csv",

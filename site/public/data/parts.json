@@ -33466,5 +33466,131 @@
       "group_code": "90371O",
       "group_name": "PLUG-HOLE"
     }
+  ],
+  "111": [
+    {
+      "oem_number": "32001AA000",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "MT",
+      "notes": "",
+      "replacements": "",
+      "group_code": "32001",
+      "group_name": "GASKET & SEAL KIT-MANUAL TRANSMISSION"
+    }
+  ],
+  "117": [
+    {
+      "oem_number": "031512000",
+      "quantity": "",
+      "production_period": "",
+      "applies_for_models": "",
+      "notes": "",
+      "replacements": "",
+      "group_code": "0315S",
+      "group_name": "SNAP RING-OUTER"
+    },
+    {
+      "oem_number": "32713AA002",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "MT",
+      "notes": "",
+      "replacements": "",
+      "group_code": "32713",
+      "group_name": "SHAFT-SPEEDOMETER"
+    },
+    {
+      "oem_number": "32714AA051",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "F4W.MT.(EJ20E+EJ20D)",
+      "notes": "lean burn model excluding",
+      "replacements": "",
+      "group_code": "32714",
+      "group_name": "GEAR-SPEEDOMETER DRIVEN"
+    },
+    {
+      "oem_number": "32714AA420",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "W.F4W.MT.EJ20E",
+      "notes": "lean burn model",
+      "replacements": "",
+      "group_code": "32714",
+      "group_name": "GEAR-SPEEDOMETER DRIVEN"
+    },
+    {
+      "oem_number": "803012060",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "MT",
+      "notes": "",
+      "replacements": "",
+      "group_code": "D01206",
+      "group_name": "WASHER"
+    },
+    {
+      "oem_number": "805012020",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "MT",
+      "notes": "",
+      "replacements": "",
+      "group_code": "F01202",
+      "group_name": "SNAP RING-OUTER"
+    },
+    {
+      "oem_number": "806712090",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.01.1997",
+      "applies_for_models": "MT",
+      "notes": "",
+      "replacements": "806712100 ITCA part is available",
+      "group_code": "G71209",
+      "group_name": "OIL SEAL"
+    },
+    {
+      "oem_number": "806712100",
+      "quantity": "01",
+      "production_period": "01.02.1997 - 31.07.1997",
+      "applies_for_models": "MT",
+      "notes": "",
+      "replacements": "",
+      "group_code": "G7121",
+      "group_name": "OIL SEAL"
+    }
+  ],
+  "119": [
+    {
+      "oem_number": "21046GA070",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "MT.(EJ18E+EJ20E+EJ20D)",
+      "notes": "",
+      "replacements": "",
+      "group_code": "20786",
+      "group_name": "CLIP-AIR SUSPENSION"
+    },
+    {
+      "oem_number": "425665500",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "MT.(EJ18E+EJ20E+EJ20D)",
+      "notes": "",
+      "replacements": "",
+      "group_code": "24232A",
+      "group_name": "CLIP-NO.3,A"
+    },
+    {
+      "oem_number": "24233AA230",
+      "quantity": "01",
+      "production_period": "01.12.1995 - 31.07.1997",
+      "applies_for_models": "MT",
+      "notes": "",
+      "replacements": "",
+      "group_code": "24233",
+      "group_name": "CLIP-NO.4"
+    }
   ]
 }

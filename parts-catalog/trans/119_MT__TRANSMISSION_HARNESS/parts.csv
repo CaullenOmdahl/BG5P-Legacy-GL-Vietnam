@@ -1,0 +1,4 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+trans,119,"MT, TRANSMISSION HARNESS",20786,CLIP-AIR SUSPENSION,21046GA070,01,01.12.1995 - 31.07.1997,,,,MT.(EJ18E+EJ20E+EJ20D),,
+trans,119,"MT, TRANSMISSION HARNESS",24232A,"CLIP-NO.3,A",425665500,01,01.12.1995 - 31.07.1997,,,,MT.(EJ18E+EJ20E+EJ20D),,
+trans,119,"MT, TRANSMISSION HARNESS",24233,CLIP-NO.4,24233AA230,01,01.12.1995 - 31.07.1997,,,,MT,,
