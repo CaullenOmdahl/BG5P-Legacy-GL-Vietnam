@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { MAX_CHAT_HISTORY_MESSAGES, trimUserFirstHistory } from "@/lib/chat/history";
 import { loadChatInstructions, retrieveKnowledge, retrievePublicLinks } from "@/lib/chat/knowledge";
 import { callMiniMax, type MiniMaxMessage, MiniMaxError } from "@/lib/chat/minimax";
 import { checkRateLimit } from "@/lib/chat/rate-limit";
@@ -27,9 +28,15 @@ interface PageContext {
   title?: string;
 }
 
-const MAX_HISTORY_MESSAGES = 8;
 const MAX_MESSAGE_CHARS = 1800;
 const MAX_CONTEXT_FIELD_CHARS = 220;
+const TRUSTED_PROXY_SECRET_HEADER = "x-bg5-trusted-proxy";
+const DEFAULT_TRUSTED_CLIENT_IP_HEADERS = ["x-forwarded-for", "x-real-ip"];
+const TRUSTED_CLIENT_IP_HEADERS = new Set([
+  ...DEFAULT_TRUSTED_CLIENT_IP_HEADERS,
+  "cf-connecting-ip",
+  "x-vercel-forwarded-for",
+]);
 
 const API_ERRORS = {
   en: {
@@ -55,9 +62,26 @@ function jsonError(message: string, status: number, extra: Record<string, string
 }
 
 function getClientKey(request: NextRequest): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
-  return request.headers.get("x-real-ip") ?? "local";
+  const trustedProxySecret = process.env.BG5_TRUSTED_PROXY_SECRET?.trim();
+  const proxyIsTrusted =
+    Boolean(trustedProxySecret) &&
+    request.headers.get(TRUSTED_PROXY_SECRET_HEADER) === trustedProxySecret;
+
+  if (proxyIsTrusted) {
+    const configuredHeader = process.env.BG5_CLIENT_IP_HEADER?.trim().toLowerCase();
+    const headerNames =
+      configuredHeader && TRUSTED_CLIENT_IP_HEADERS.has(configuredHeader)
+        ? [configuredHeader]
+        : DEFAULT_TRUSTED_CLIENT_IP_HEADERS;
+
+    for (const headerName of headerNames) {
+      const value = request.headers.get(headerName);
+      const clientIp = value?.split(",")[0]?.trim();
+      if (clientIp) return `ip:${clientIp}`;
+    }
+  }
+
+  return "untrusted-proxy-or-local";
 }
 
 function hasValidOrigin(request: NextRequest): boolean {
@@ -76,7 +100,7 @@ function hasValidOrigin(request: NextRequest): boolean {
 function normalizeMessages(value: unknown): IncomingMessage[] {
   if (!Array.isArray(value)) return [];
 
-  return value
+  const messages = value
     .filter((message): message is IncomingMessage => {
       if (!message || typeof message !== "object") return false;
       const candidate = message as Partial<IncomingMessage>;
@@ -86,11 +110,12 @@ function normalizeMessages(value: unknown): IncomingMessage[] {
         candidate.content.trim().length > 0
       );
     })
-    .slice(-MAX_HISTORY_MESSAGES)
     .map((message) => ({
       role: message.role,
       content: message.content.trim().slice(0, MAX_MESSAGE_CHARS),
     }));
+
+  return trimUserFirstHistory(messages, MAX_CHAT_HISTORY_MESSAGES);
 }
 
 function normalizeLocale(value: unknown): Locale | null {

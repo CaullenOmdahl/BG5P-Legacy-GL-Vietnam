@@ -7,6 +7,7 @@ const widget = fs.readFileSync(path.join(root, "components/Bg5ChatWidget.tsx"), 
 const route = fs.readFileSync(path.join(root, "app/api/chat/route.ts"), "utf8");
 const page = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const knowledge = fs.readFileSync(path.join(root, "lib/chat/knowledge.ts"), "utf8");
+const history = fs.readFileSync(path.join(root, "lib/chat/history.ts"), "utf8");
 
 const widgetRequired = [
   "Locale",
@@ -32,6 +33,7 @@ const widgetRequired = [
   "renderImageMarkdown",
   "isImageHref",
   "inlineSourcePreview",
+  "trimUserFirstHistory",
   "![",
 ];
 
@@ -48,6 +50,9 @@ const routeRequired = [
   "Mode-specific behavior",
   "Structured user context",
   "Inline diagram images are allowed when using public bg5.caphedigital.com diagram URLs",
+  "BG5_TRUSTED_PROXY_SECRET",
+  "x-bg5-trusted-proxy",
+  "trimUserFirstHistory",
 ];
 
 for (const marker of routeRequired) {
@@ -65,6 +70,44 @@ const knowledgeRequired = [
 for (const marker of knowledgeRequired) {
   assert.ok(knowledge.includes(marker), `Knowledge routing missing marker: ${marker}`);
 }
+
+const historyRequired = [
+  "MAX_CHAT_HISTORY_MESSAGES = 8",
+  "trimUserFirstHistory",
+  "trimmed[0]?.role === \"assistant\"",
+];
+
+for (const marker of historyRequired) {
+  assert.ok(history.includes(marker), `Chat history helper missing marker: ${marker}`);
+}
+
+const trimUserFirstHistory = (messages, maxMessages = 8) => {
+  let trimmed = messages.slice(-maxMessages);
+  while (trimmed[0]?.role === "assistant") {
+    trimmed = trimmed.slice(1);
+  }
+  return trimmed;
+};
+const fiveTurnInFlight = [
+  "user",
+  "assistant",
+  "user",
+  "assistant",
+  "user",
+  "assistant",
+  "user",
+  "assistant",
+  "user",
+].map((role, index) => ({ role, content: `m${index}` }));
+const trimmedHistory = trimUserFirstHistory(fiveTurnInFlight);
+assert.equal(trimmedHistory.length, 7);
+assert.equal(trimmedHistory[0].role, "user");
+assert.equal(trimmedHistory.at(-1).role, "user");
+assert.ok(!widget.includes(".slice(-8)"), "Widget must not trim chat history directly");
+assert.ok(
+  !route.includes("if (forwarded) return forwarded.split(\",\")[0].trim();"),
+  "API route must not trust unverified X-Forwarded-For for rate limits"
+);
 
 const exactDiagramPatternMatch = knowledge.match(/exactDiagramCode[\s\S]*?query\.match\((\/[^\n]+\/[a-z]*)\)/);
 assert.ok(exactDiagramPatternMatch, "Knowledge routing missing exact diagram pattern");

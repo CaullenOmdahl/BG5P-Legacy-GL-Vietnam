@@ -2,6 +2,7 @@
 
 import { FormEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/LocaleProvider";
+import { trimUserFirstHistory } from "@/lib/chat/history";
 import { getEffectiveLocale, SITE_LOCALE_EVENT, type Locale } from "@/lib/locale";
 
 interface ChatSource {
@@ -998,10 +999,9 @@ export default function Bg5ChatWidget() {
           diagnosticMode: mode,
           intake,
           pageContext: diagnosticSession.pageContext,
-          messages: nextMessages
-            .filter((message) => message.id !== "initial")
-            .slice(-8)
-            .map(({ role, content }) => ({ role, content })),
+          messages: trimUserFirstHistory(
+            nextMessages.filter((message) => message.id !== "initial")
+          ).map(({ role, content }) => ({ role, content })),
         }),
       });
 

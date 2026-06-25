@@ -38,7 +38,14 @@ MINIMAX_MODEL=MiniMax-M2.7-highspeed
 MINIMAX_MAX_TOKENS=1800
 MINIMAX_TEMPERATURE=1
 MINIMAX_TOP_P=0.95
+BG5_TRUSTED_PROXY_SECRET=
+BG5_CLIENT_IP_HEADER=x-forwarded-for
 ```
+
+`/api/chat` rate limiting ignores forwarded client IP headers unless the proxy
+also sends `x-bg5-trusted-proxy` with `BG5_TRUSTED_PROXY_SECRET`. Without that
+trusted proxy marker, requests share a conservative local key instead of trusting
+client-supplied `X-Forwarded-For` values.
 
 The deployable chatbot knowledge lives in `chatbot-knowledge/`. Regenerate it after changing the GPT pack:
 
