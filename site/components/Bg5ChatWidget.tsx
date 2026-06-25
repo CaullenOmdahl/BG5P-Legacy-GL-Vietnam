@@ -862,8 +862,9 @@ export default function Bg5ChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>(() => [
-    ...loadPersistedMessages(getEffectiveLocale(locale)),
+    createInitialMessage(getEffectiveLocale(locale)),
   ]);
+  const [messagesHydrated, setMessagesHydrated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copiedId, setCopiedId] = useState("");
@@ -901,6 +902,11 @@ export default function Bg5ChatWidget() {
   }, []);
 
   useEffect(() => {
+    setMessages(loadPersistedMessages(getEffectiveLocale(locale)));
+    setMessagesHydrated(true);
+  }, []);
+
+  useEffect(() => {
     setMessages((current) =>
       current.length === 1 && current[0].id === "initial"
         ? [createInitialMessage(getEffectiveLocale(locale))]
@@ -927,8 +933,9 @@ export default function Bg5ChatWidget() {
   }, [locale]);
 
   useEffect(() => {
+    if (!messagesHydrated) return;
     savePersistedMessages(messages);
-  }, [messages]);
+  }, [messages, messagesHydrated]);
 
   useEffect(() => {
     saveDiagnosticSession(mode, intake);

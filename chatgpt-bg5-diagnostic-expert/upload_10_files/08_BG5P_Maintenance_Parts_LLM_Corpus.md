@@ -1329,7 +1329,7 @@ Specs:
   Rear Diff Capacity: 0.8 L (0.85 US qt) *
   Rear Diff Bevel Gear Backlash: 0.13-0.18 mm
   Center Diff Type: Viscous coupling with bevel gears (AWD)
-  Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
+  Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 26 ft-lb) *
   * Note: Rear diff capacity and plug torque are community-standard values
 
 Steps:
@@ -2127,8 +2127,8 @@ Service manuals:
 Difficulty: Advanced | Interval: Every 100,000 km or 60 months
 
 Specs:
-  Belt Tooth Length Z1: 44 teeth
-  Belt Tooth Length Z2: 40.5 teeth
+  Belt Tooth Count Z1: 44 teeth
+  Belt Tooth Count Z2: 40.5 teeth
   Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
   Belt Idler No. 1 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)
   Belt Idler No. 2 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)
@@ -12235,7 +12235,7 @@ Difficulty: Moderate | Interval: Every 50,000 km or 30 months
   Rear Diff Capacity: 0.8 L (0.85 US qt) *
   Rear Diff Bevel Gear Backlash: 0.13-0.18 mm
   Center Diff Type: Viscous coupling with bevel gears (AWD)
-  Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
+  Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 26 ft-lb) *
   * Note: Rear diff capacity and plug torque are community-standard values
 
 ## Steps
@@ -12485,8 +12485,8 @@ Difficulty: Moderate | Interval: Every 20,000 km or 12 months
 Difficulty: Advanced | Interval: Every 100,000 km or 60 months
 
 ## Specs
-  Belt Tooth Length Z1: 44 teeth
-  Belt Tooth Length Z2: 40.5 teeth
+  Belt Tooth Count Z1: 44 teeth
+  Belt Tooth Count Z2: 40.5 teeth
   Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
   Belt Idler No. 1 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)
   Belt Idler No. 2 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)

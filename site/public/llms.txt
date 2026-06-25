@@ -30,7 +30,7 @@ Fetch: `/llms/maintenance/{id}.txt`
 Each file includes the full procedure, all specs/torque values, AND the related OEM part numbers.
 
 - [Oil Change](/llms/maintenance/oil-change.txt): Easy | Every 5,000 km or 6 months | Oil Type: 5W-30 preferred (API SJ/SH or SG), Capacity (to upper level): 4.0 L (4.2 US qt), Capacity (to lower level): 3.0 L (3.2 US qt)
-- [Timing Belt Replacement](/llms/maintenance/timing-belt.txt): Advanced | Every 100,000 km or 60 months | Belt Tooth Length Z1: 44 teeth, Belt Tooth Length Z2: 40.5 teeth, Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
+- [Timing Belt Replacement](/llms/maintenance/timing-belt.txt): Advanced | Every 100,000 km or 60 months | Belt Tooth Count Z1: 44 teeth, Belt Tooth Count Z2: 40.5 teeth, Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
 - [Coolant Flush](/llms/maintenance/coolant-flush.txt): Easy | Every 30,000 km or 24 months | Coolant Type: Subaru Genuine Long-Life Coolant, Capacity (MT, to FULL): 6.3 L (6.7 US qt), Capacity (AT, to FULL): 6.4 L (6.8 US qt)
 - [Brake Pads (Front & Rear)](/llms/maintenance/brake-pads.txt): Moderate | Every 20,000 km or as needed | Front Type: Disc (Floating type, ventilated), Front Pad Dimensions (friction material): 112.4 x 44.3 x 11.0 mm, Front Pad Standard Thickness (factory service check, including back metal): 17 mm (0.67 in)
 - [Spark Plugs](/llms/maintenance/spark-plugs.txt): Moderate | Every 20,000 km or 12 months | Plug (without catalytic converter): NGK BKR6E, Plug (with catalytic converter): Champion RC10YC4 or NGK BKR5E-11, Thread Size: M14, P = 1.25

@@ -54,8 +54,8 @@ Use `upload_20_files/` for the normal Custom GPT build. It currently uses 17 fil
 | `upload_10_files/04_BG5P_BG_Chassis_Wiring_Electrical_Searchable.pdf` | 27.37 MB | 304 | `1fb6593ea2462db9` | BG chassis wiring diagrams, connector conventions, body and engine electrical. |
 | `upload_10_files/05_BG5P_BG_Chassis_Drivetrain_Clutch_AWD_Searchable.pdf` | 10.73 MB | 142 | `1509bdf4fe27515c` | Manual transmission, differential, clutch, AWD system. |
 | `upload_10_files/06_BG5P_BG_Chassis_Suspension_Brakes_Steering_HVAC_Searchable.pdf` | 24.91 MB | 428 | `d7e368adfb57579d` | Suspension, brakes, steering, wheels/axles, HVAC, pedals/cables. |
-| `upload_10_files/07_BG5P_Diagnostic_Quick_Reference.md` | 0.02 MB | 408 | `d621226753886cb6` | Concise diagnostic workflow, DTC list, service intervals, common specs. |
-| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13046 | `435f47a165e09c5c` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
+| `upload_10_files/07_BG5P_Diagnostic_Quick_Reference.md` | 0.02 MB | 408 | `39f0c4abe5721f7c` | Concise diagnostic workflow, DTC list, service intervals, common specs. |
+| `upload_10_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 0.70 MB | 13046 | `b5aa26e6b38e35c4` | LLM-friendly maintenance, parts, consumables, wear-parts interchange, and sourcing research text. |
 | `upload_10_files/09_BG5P_Parts_Diagram_Index.csv` | 1.48 MB | 3044 | `cc2d583e5d96e2a8` | Structured OEM part, diagram, interchange signal, confidence gate, and shared-engine candidate lookup table. |
 
 ## Source Grouping

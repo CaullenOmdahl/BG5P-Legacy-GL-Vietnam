@@ -114,6 +114,12 @@ assert.ok(
   "Floating chat open path should refresh page context"
 );
 assert.ok(
+  widget.includes("messagesHydrated") &&
+    widget.includes("setMessages(loadPersistedMessages") &&
+    !widget.includes("useState<ChatMessage[]>(() => [\n    ...loadPersistedMessages"),
+  "Persisted chat history should load after mount to avoid hydration mismatch"
+);
+assert.ok(
   !route.includes("if (forwarded) return forwarded.split(\",\")[0].trim();"),
   "API route must not trust unverified X-Forwarded-For for rate limits"
 );
