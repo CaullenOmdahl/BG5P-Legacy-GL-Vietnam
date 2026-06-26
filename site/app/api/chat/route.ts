@@ -158,7 +158,7 @@ function normalizeMode(value: unknown): DiagnosticMode {
 
 function compactField(value: unknown): string | undefined {
   if (typeof value !== "string") return undefined;
-  const trimmed = value.trim().slice(0, MAX_CONTEXT_FIELD_CHARS);
+  const trimmed = value.replace(/\s+/g, " ").trim().slice(0, MAX_CONTEXT_FIELD_CHARS);
   return trimmed || undefined;
 }
 
@@ -353,10 +353,8 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     if (error instanceof MiniMaxError) {
-      return jsonError(
-        locale === "vi" ? API_ERRORS.vi.providerFailed : error.message,
-        error.status
-      );
+      console.error("MiniMax chat provider failed", error);
+      return jsonError(API_ERRORS[locale].providerFailed, error.status);
     }
     return jsonError(API_ERRORS[locale].assistantFailed, 500);
   }

@@ -55,6 +55,8 @@ const routeRequired = [
   "BG5_TRUSTED_PROXY_SECRET",
   "x-bg5-trusted-proxy",
   "trimUserFirstHistory",
+  "value.replace(/\\s+/g, \" \")",
+  "API_ERRORS[locale].providerFailed",
 ];
 
 for (const marker of routeRequired) {
@@ -68,6 +70,7 @@ const knowledgeRequired = [
   "11_BG5P_Web_Deeplink_Sitemap.md",
   "00_BG5P_Diagnostic_Expert_Source_Map.md",
   "isZipBackedArchive",
+  "isTemplatePublicUrl",
 ];
 
 for (const marker of knowledgeRequired) {
@@ -128,9 +131,20 @@ assert.ok(
   "API route should require a trusted proxy marker before forwarded IP rate-limit keys"
 );
 assert.ok(
+  route.includes("value.replace(/\\s+/g, \" \")") &&
+    route.includes("console.error(\"MiniMax chat provider failed\"") &&
+    !route.includes("locale === \"vi\" ? API_ERRORS.vi.providerFailed : error.message"),
+  "API route should sanitize structured context lines and hide provider details"
+);
+assert.ok(
   knowledge.includes("isZipBackedArchive") &&
     knowledge.includes("!isZipBackedArchive(filePath)"),
   "Chat manual routes should exclude ZIP-backed PDF archives"
+);
+assert.ok(
+  knowledge.includes("isTemplatePublicUrl") &&
+    knowledge.includes(".filter((url) => !isTemplatePublicUrl(url))"),
+  "Chat public links should reject sitemap/template URLs"
 );
 assert.ok(
   widget.includes("href.startsWith(\"/\")") && widget.includes("!href.startsWith(\"//\")"),

@@ -467,9 +467,19 @@ function scoreChunk(chunk: KnowledgeChunk, queryTokens: string[], query: string)
   return score;
 }
 
+function isTemplatePublicUrl(url: string): boolean {
+  return /\.\.\.|[{}]|%7b|%7d/i.test(url);
+}
+
 function extractPublicUrls(text: string): string[] {
   const matches = text.match(/https:\/\/bg5\.caphedigital\.com\/[^\s`|)]+/g) ?? [];
-  return Array.from(new Set(matches.map((url) => url.replace(/[.,;]+$/, ""))));
+  return Array.from(
+    new Set(
+      matches
+        .map((url) => url.replace(/[.,;]+$/, ""))
+        .filter((url) => !isTemplatePublicUrl(url))
+    )
+  );
 }
 
 function localizePublicTitle(title: string, locale: Locale): string {
