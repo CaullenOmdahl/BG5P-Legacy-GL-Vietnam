@@ -151,11 +151,22 @@ assert.ok(
   "Markdown links should reject protocol-relative external URLs"
 );
 assert.ok(
+  widget.includes("url.hostname === \"bg5.caphedigital.com\"") &&
+    widget.includes("token.startsWith(\"http\") && isSafeHref(token)"),
+  "Assistant markdown links should stay on local paths or the trusted BG5 host"
+);
+assert.ok(
   manualsClient.includes("window.location.hash.slice(1)") &&
     manualsClient.includes("setOpenSections") &&
     manualsClient.includes("setOpenSubs") &&
     manualsClient.includes("scrollIntoView"),
   "Manuals hash deeplinks should open their containing section and subsection"
+);
+assert.ok(
+  fs.readFileSync(path.join(root, "components/LocaleProvider.tsx"), "utf8").includes(
+    "effective !== initialLocale"
+  ),
+  "Stored locale mismatch should refresh server-rendered route content"
 );
 
 const exactDiagramPatternMatch = knowledge.match(/exactDiagramCode[\s\S]*?query\.match\((\/[^\n]+\/[a-z]*)\)/);

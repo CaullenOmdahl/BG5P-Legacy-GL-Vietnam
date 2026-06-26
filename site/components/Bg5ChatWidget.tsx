@@ -301,7 +301,12 @@ function CloseIcon() {
 
 function isSafeHref(href: string): boolean {
   if (href.startsWith("/")) return !href.startsWith("//");
-  return href.startsWith("https://") || href.startsWith("http://");
+  try {
+    const url = new URL(href);
+    return url.protocol === "https:" && url.hostname === "bg5.caphedigital.com";
+  } catch {
+    return false;
+  }
 }
 
 function isSafeSourceHref(href: string): boolean {
@@ -414,7 +419,7 @@ function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
           label
         )
       );
-    } else if (token.startsWith("http")) {
+    } else if (token.startsWith("http") && isSafeHref(token)) {
       nodes.push(
         <a
           key={key}

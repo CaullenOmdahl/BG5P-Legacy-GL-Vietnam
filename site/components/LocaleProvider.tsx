@@ -38,7 +38,12 @@ export function LocaleProvider({
     const effective = getEffectiveLocale(initialLocale);
     setLocaleState(effective);
     setSiteLocale(effective);
-  }, [initialLocale]);
+    if (effective !== initialLocale) {
+      startTransition(() => {
+        router.refresh();
+      });
+    }
+  }, [initialLocale, router, startTransition]);
 
   const value = useMemo<LocaleContextValue>(
     () => ({
