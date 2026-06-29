@@ -601,6 +601,7 @@ def make_parts_csv() -> None:
                 "shared_confidence_statement",
                 "shared_required_verification",
             ],
+            lineterminator="\n",
         )
         writer.writeheader()
 

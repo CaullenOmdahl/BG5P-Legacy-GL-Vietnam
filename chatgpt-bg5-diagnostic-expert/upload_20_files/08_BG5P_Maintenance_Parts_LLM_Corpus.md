@@ -4860,10 +4860,10 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 010006166 | FLANGE BOLT-PILOT | Steering | 346
 010006200 | FLANGE BOLT-PILOT | Engine Auxiliaries | 070
 010008160 | FLANGE BOLT-PILOT | Body Electrical 1 | 820
+010008160 | FLANGE BOLT-PILOT | Body Key Bumper | 560
 010008160 | FLANGE BOLT-PILOT | Inner Accessories | 970
 010008160 | FLANGE BOLT-PILOT | Steering | 350
 010008160 | FLANGE BOLT-PILOT | Suspension Axle Brake | 265
-010008160 | FLANGE BOLT-PILOT | Unknown | 560
 010008166 | FLANGE BOLT-PILOT | Engine Mounting Cooling | 450
 010008166 | FLANGE BOLT-PILOT | Suspension Axle Brake | 265
 010008167 | FLANGE BOLT-PILOT | Body Key Bumper | 575
@@ -4987,7 +4987,6 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 023808000 | FLANGE NUT | Body Key Bumper | 513
 023808000 | FLANGE NUT | Manual Transmission | 113
 023808000 | FLANGE NUT | Suspension Axle Brake | 267
-023808000 | FLANGE NUT | Unknown | 560
 023808006 | FLANGE NUT | Heater & AC | 732
 023808006 | FLANGE NUT | Steering | 343
 023810000 | FLANGE NUT | Manual Transmission | 113
@@ -5057,7 +5056,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 045104100 | TAPPING SCREW-TRUSS HEAD | Body Electrical 1 | 830
 045104100 | TAPPING SCREW-TRUSS HEAD | Inner Accessories | 930
 045104103 | TAPPING SCREW-TRUSS HEAD | Seat Instrument Panel | 657
-045104108 | TAPPING SCREW-TRUSS HEAD | Unknown | 651
+045104108 | TAPPING SCREW-TRUSS HEAD | Seat Instrument Panel | 651
 045104120 | TAPPING SCREW-TRUSS HEAD | Body Electrical 1 | 816
 045104120 | TAPPING SCREW-TRUSS HEAD | Inner Accessories | 930
 045105080 | TAPPING SCREW-TRUSS HEAD | Seat Instrument Panel | 660
@@ -6371,24 +6370,24 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 57490AC100 | KEY KIT | Body Key Bumper | 580
 57490AC120 | KEY KIT | Body Key Bumper | 580
 57490AC280 | KEY KIT | Body Key Bumper | 580
-57501AC050 | TRUNK LID COMPLETE | Unknown | 560
-57501AC060 | TRUNK LID COMPLETE | Unknown | 560
-57501AC090 | TRUNK LID COMPLETE | Unknown | 560
-57520AC000 | HINGE ASSEMBLY-TRUNK LID,RIGHT | Unknown | 560
-57520AC010 | HINGE ASSEMBLY-TRUNK LID,LEFT | Unknown | 560
-57521AC060 | TORSION BAR-TRUNK LID,RIGHT | Unknown | 560
-57521AC070 | TORSION BAR-TRUNK LID,LEFT | Unknown | 560
-57521AC080 | TORSION BAR-TRUNK LID,RIGHT | Unknown | 560
-57521AC090 | TORSION BAR-TRUNK LID,LEFT | Unknown | 560
-57530AC000 | LOCK ASSEMBLY-TRUNK LID | Unknown | 560
-57531AC000 | STRIKER-TRUNK LID | Unknown | 560
-57532AC000 | WEATHER STRIP-TRUNK LID | Unknown | 560
-57533AA010 | STOPPER-TRUNK LID | Unknown | 560
-57533AC020 | STOPPER-TRUNK LID | Unknown | 560
-57533AC040 | STOPPER-TRUNK LID | Unknown | 560
-57534AC010 | COVER-LOCK,TRUNK LID | Unknown | 560
-57535AA031 | PROTECTOR-STOPPER | Unknown | 560
-57536AA040 | PLUG-TRUNK LID | Unknown | 560
+57501AC050 | TRUNK LID COMPLETE | Body Key Bumper | 560
+57501AC060 | TRUNK LID COMPLETE | Body Key Bumper | 560
+57501AC090 | TRUNK LID COMPLETE | Body Key Bumper | 560
+57520AC000 | HINGE ASSEMBLY-TRUNK LID,RIGHT | Body Key Bumper | 560
+57520AC010 | HINGE ASSEMBLY-TRUNK LID,LEFT | Body Key Bumper | 560
+57521AC060 | TORSION BAR-TRUNK LID,RIGHT | Body Key Bumper | 560
+57521AC070 | TORSION BAR-TRUNK LID,LEFT | Body Key Bumper | 560
+57521AC080 | TORSION BAR-TRUNK LID,RIGHT | Body Key Bumper | 560
+57521AC090 | TORSION BAR-TRUNK LID,LEFT | Body Key Bumper | 560
+57530AC000 | LOCK ASSEMBLY-TRUNK LID | Body Key Bumper | 560
+57531AC000 | STRIKER-TRUNK LID | Body Key Bumper | 560
+57532AC000 | WEATHER STRIP-TRUNK LID | Body Key Bumper | 560
+57533AA010 | STOPPER-TRUNK LID | Body Key Bumper | 560
+57533AC020 | STOPPER-TRUNK LID | Body Key Bumper | 560
+57533AC040 | STOPPER-TRUNK LID | Body Key Bumper | 560
+57534AC010 | COVER-LOCK,TRUNK LID | Body Key Bumper | 560
+57535AA031 | PROTECTOR-STOPPER | Body Key Bumper | 560
+57536AA040 | PLUG-TRUNK LID | Body Key Bumper | 560
 57601AC000 | LID ASSEMBLY-FUEL FILLER | Body Key Bumper | 565
 57601AC020 | LID ASSEMBLY-FUEL FILLER | Body Key Bumper | 565
 57610AC000 | HINGE COMPLETE-FLAP | Body Key Bumper | 565
@@ -6518,7 +6517,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 62412FA030 | HOLDER-DOOR HANDLE FRONT,LEFT | Door Parts | 612
 62510AC000ML | REMOTE ASSEMBLY-DOOR,RIGHT | Door Parts | 602
 62510AC010ML | REMOTE ASSEMBLY-DOOR,LEFT | Door Parts | 602
-62512FA000 | HOLDER-ROD | Unknown | 560
+62512FA000 | HOLDER-ROD | Body Key Bumper | 560
 62520AC000 | HOLDER-REMOTE | Door Parts | 612
 62520AC010 | HOLDER-REMOTE | Door Parts | 602
 62530AC000 | TAPPING SCREW-DOOR PARTS | Door Parts | 602
@@ -6705,14 +6704,14 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 65026AC060 | FASTHNER-MOLDING,FRONT SIDE LEFT | Seat Instrument Panel | 650
 65032AC000 | LOCATE PIN-FRONT WINDOW GLASS RIGHT | Seat Instrument Panel | 650
 65032AC010 | LOCATE PIN-FRONT WINDOW GLASS LEFT | Seat Instrument Panel | 650
-65109AC500NI | GLASS-REAR WINDOW | Unknown | 651
-65121AC020 | DAM RUBBER-REAR | Unknown | 651
-65122AC000 | STOPPER-REAR WINDOW,RIGHT | Unknown | 651
-65122AC010 | STOPPER-REAR WINDOW,LEFT | Unknown | 651
-65123AC000 | MOLDING ASSEMBLY-REAR WINDOW | Unknown | 651
-65123AC010 | MOLDING-REAR WINDOW LOWER | Unknown | 651
-65132AC000 | LOCATE PIN-REAR WINDOW RIGHT | Unknown | 651
-65132AC010 | LOCATE PIN-REAR WINDOW LEFT | Unknown | 651
+65109AC500NI | GLASS-REAR WINDOW | Seat Instrument Panel | 651
+65121AC020 | DAM RUBBER-REAR | Seat Instrument Panel | 651
+65122AC000 | STOPPER-REAR WINDOW,RIGHT | Seat Instrument Panel | 651
+65122AC010 | STOPPER-REAR WINDOW,LEFT | Seat Instrument Panel | 651
+65123AC000 | MOLDING ASSEMBLY-REAR WINDOW | Seat Instrument Panel | 651
+65123AC010 | MOLDING-REAR WINDOW LOWER | Seat Instrument Panel | 651
+65132AC000 | LOCATE PIN-REAR WINDOW RIGHT | Seat Instrument Panel | 651
+65132AC010 | LOCATE PIN-REAR WINDOW LEFT | Seat Instrument Panel | 651
 65209AC840NA | GLASS-SIX LIGHT,RIGHT | Seat Instrument Panel | 652
 65209AC841NA | GLASS-SIX LIGHT,RIGHT | Seat Instrument Panel | 652
 65209AC850NA | GLASS-SIX LIGHT,LEFT | Seat Instrument Panel | 652
@@ -6747,10 +6746,10 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 65492AC020 | SCREW-DRAIN,SUN ROOF | Seat Instrument Panel | 654
 65492AC030 | SCREW-DEFLECTOR,SUN ROOF | Seat Instrument Panel | 654
 65492AC040 | SCREW-MOTOR,SUN ROOF | Seat Instrument Panel | 654
-65516AC001MU | GRILLE ASSEMBLY-SPEAKER,RIGHT | Unknown | 656
-65516AC011MU | GRILLE ASSEMBLY-SPEAKER LEFT | Unknown | 656
-65520AC010MU | TRIMMING PANEL ASSEMBLY-REAR SHELF | Unknown | 656
-65520AC020MU | TRIMMING PANEL ASSEMBLY-REAR SHELF | Unknown | 656
+65516AC001MU | GRILLE ASSEMBLY-SPEAKER,RIGHT | Seat Instrument Panel | 656
+65516AC011MU | GRILLE ASSEMBLY-SPEAKER LEFT | Seat Instrument Panel | 656
+65520AC010MU | TRIMMING PANEL ASSEMBLY-REAR SHELF | Seat Instrument Panel | 656
+65520AC020MU | TRIMMING PANEL ASSEMBLY-REAR SHELF | Seat Instrument Panel | 656
 65548GA210MA | CLIP | Seat Instrument Panel | 641
 65548GA210MS | clip | Inner Accessories | 942
 65550AC100MU | TONNEAU COVER ASSEMBLY | Seat Instrument Panel | 657
@@ -7019,7 +7018,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 745128040 | PACKING-RADIATOR | Engine Mounting Cooling | 450
 746056120 | CLAMP | Engine Auxiliaries | 070
 759114000 | TURN CLIP-MUD GUARD | Body Key Bumper | 541
-760122110 | CLIP | Unknown | 560
+760122110 | CLIP | Body Key Bumper | 560
 760182000 | LABEL-CHILD LOCK | Door Parts | 612
 765548180 | CLIP-REAR LUGGAGE SHELF | Inner Accessories | 940
 782211070 | CATCHER-FUSE | Body Electrical 1 | 822
@@ -7456,7 +7455,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 901000058 | FLANGE BOLT | Door Parts | 602
 901000065 | FLANGE BOLT | Engine Mounting Cooling | 421
 901000079 | FLANGE BOLT | Steering | 348
-901000086 | FLANGE BOLT | Unknown | 560
+901000086 | FLANGE BOLT | Body Key Bumper | 560
 901000109 | FLANGE BOLT | Suspension Axle Brake | 201
 901000110 | FLANGE BOLT | Suspension Axle Brake | 201
 901000111 | FLANGE BOLT | Suspension Axle Brake | 201
@@ -7485,7 +7484,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 901130007 | BOLT & WASHER ASSEMBLY | Seat Instrument Panel | 640
 901130011 | BOLT & WASHER ASSEMBLY | Suspension Axle Brake | 262
 901250011 | BOLT & WASHER ASSEMBLY | Steering | 341
-901250021 | BOLT & WASHER ASSEMBLY | Unknown | 560
+901250021 | BOLT & WASHER ASSEMBLY | Body Key Bumper | 560
 901250029 | BOLT & WASHER ASSEMBLY | Seat Instrument Panel | 640
 901250050 | bolt and washer assembly | Differential Propeller | 199
 901250054 | BOLT & WASHER ASSEMBLY | Suspension Axle Brake | 201
@@ -7544,7 +7543,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 904650003 | SCREW | Door Parts | 602
 904680002 | SCREW | Seat Instrument Panel | 640
 904720001 | F.T.TAPPING SCREW | Seat Instrument Panel | 640
-904860007 | TAPPING SCREW | Unknown | 656
+904860007 | TAPPING SCREW | Seat Instrument Panel | 656
 905920031 | BLIND RIVET | Body Key Bumper | 590
 90711AC000 | SILENCER-TUNNEL,REAR | Inner Accessories | 953
 90711AC010 | SILENCER-FRONT FLOOR REAR,RIGHT | Inner Accessories | 953
@@ -7753,7 +7752,7 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 94062AC000 | CLIP-COVER SIDE SILL | Inner Accessories | 940
 94064AC000 | BRACKET | Inner Accessories | 940
 94070GA010 | CLIP-DOOR | Inner Accessories | 940
-94070GA010 | CLIP-DOOR | Unknown | 656
+94070GA010 | CLIP-DOOR | Seat Instrument Panel | 656
 94077AA030MS | CAP-TRIM PANEL ROOF | Inner Accessories | 942
 94087AA000 | BULB-STEP LAMP | Inner Accessories | 941
 94099AA000ML | CLIP A-MAT FLOOR | Inner Accessories | 950
@@ -12640,6 +12639,7 @@ Use these documents as advice and evidence maps, then use `09_BG5P_Parts_Diagram
 # BG5P Consumables And Wear Parts Interchange Guide
 
 Date: 2026-04-29
+Last validation pass: 2026-06-29
 
 Target vehicle: Subaru Legacy Touring Wagon GL, model code BG5P, approximate
 1997, EJ20E 2.0L NA SOHC, 5-speed manual, full-time AWD, LHD
@@ -12663,7 +12663,7 @@ Use these labels exactly when buying:
 | 95%+ | Exact BG5/EJ20E or exact BG/B11 chassis evidence plus an OEM part number or documented Subaru supersession. Any option split, production split, LHD/RHD split, ABS/brake split, transmission split, or emission/catalyst split must be resolved. |
 | High candidate | Strong catalog evidence, but one confirmation remains. Measure or inspect before ordering. |
 | Search lead | Useful part number for searching, but not purchase-ready without confirmation. |
-| No-buy yet | The number appears in the local data, but the application is wrong or incomplete for this car. |
+| Not purchase-approved | The number appears in local or external data, but the application is wrong, too broad, or incomplete for this car. |
 
 Car-Part/Hollander is useful for availability and salvage-yard sanity checks,
 but it is not enough for 95% confidence on this imported BG5P unless the yard
@@ -12680,7 +12680,7 @@ lookup.
 |---|---|---|---|
 | Frame/build date | Exact frame number and build month. | Several 1997 rows overlap, especially timing guide, clutch cover, rear brake, and early/late supersessions. | Full frame/VIN, build plate, transmission code. |
 | Emissions/catalyst | Whether this car has the catalyst/exhaust-converter setup shown in the BG5/EJ20E MT EPC. | Spark plug selection differs between the factory manual's catalyst and non-catalyst notes. | Photos of converter, oxygen sensor, emissions label, current plug part number. |
-| Front brakes | Confirm 14 inch, 1-pot front caliper and rotor dimensions. | The exact MT EPC page confirms the 14 inch / 1-pot brake family, but rate limits blocked the exact pad and rotor subpages. The earlier `S.25 + W.(25+OBK)` pad/rotor numbers are not acceptable as BG5P proof. | Caliper casting, rotor OD/thickness, pad shape, ABS/no ABS, wheel size. |
+| Front brakes | Confirm 14 inch, 1-pot front caliper and rotor dimensions. | The exact MT EPC page confirms the 14 inch / 1-pot brake family. The earlier `S.25 + W.(25+OBK)` pad/rotor numbers are not acceptable as BG5P proof, and 2026-06-29 external rechecks did not produce BG5P/EJ20E-specific purchase proof. | Caliper casting, rotor OD/thickness, pad shape, ABS/no ABS, wheel size. |
 | Rear brakes | Confirm rear disc brake with D=38 caliper. | The exact MT EPC resolves rear disc parts for W.F4W LX/TXS/BRIGLD, but the actual BG5P still needs a physical package check before stocking parts. | Rear rotor OD/thickness, caliper piston/casting, parking-brake shoe type. |
 | Radiator hoses | Exact hose-kit subpage or physical hose match. | The exact MT EPC confirms radiator and hose group for MT EJ20E/EJ20D, but the individual hose numbers in the local data came from a different captured variant. | Hose photos, radiator tank layout, upper/lower hose routing, old hose markings. |
 | Fuel tank / pump / strainer | Pump hanger and in-tank filter layout. | Local rows mix 2WD, A/S, AT, and EJ25D notes; enough for leads, not enough for bulk buying. | Pump hanger photos, connector, strainer shape, fuel line routing, tank access layout. |
@@ -12718,7 +12718,7 @@ timing-belt job, subject to confirming the actual engine production split.
 | Camshaft oil seal | `806732050` -> `806732150`, qty 2 | EJ18E + EJ20E, 01.06.1997-30.11.1998 | 95%+. Replace while belt is off if leaking or age-unknown. |
 | Crank pulley | `12305AA121` -> `12305AA242` | EJ18E + EJ20E, 01.06.1997-30.11.1998 | Not normally a consumable, but useful for damage/interchange searches. |
 | Timing belt guide, MT only | `13145AA000` -> `13145AA001` -> `13145AA020` | Exact BG5/EJ20E/F4WD/MT EPC page lists `13145AA000` for 01.01.1997-31.07.1997 and `13145AA001` for 01.06.1997-30.11.1998, both under `MT.(EJ18E+EJ20E)`, with later replacement `13145AA020`. | Upgraded from no-buy to 95%+ once build month is known. Manual clearance is 1.0 +/- 0.5 mm. |
-| EJ25D timing belt | `13028AA072` | Local row is EJ25D only | No-buy for BG5P EJ20E unless a separate EJ20E source proves it. |
+| EJ25D timing belt | `13028AA072` | Local row is EJ25D only | Not purchase-approved for BG5P EJ20E unless a separate EJ20E source proves it. |
 
 Recommended quality brands for timing service, once the exact kit contents are
 matched to the OEM numbers: Subaru OEM, Mitsuboshi, Bando, NTN, NSK, Koyo,
@@ -12730,7 +12730,7 @@ is a BG Legacy kit.
 | Item | OEM Numbers | Evidence And Interchange | Confidence / Notes |
 |---|---|---|---|
 | Radiator assembly, MT | `45199AC041` | Exact BG5/EJ20E/F4WD/MT EPC page lists radiator assembly for `MT.(EJ18E+EJ20E+EJ20D)`, including 01.06.1997-30.11.1998. | 95%+ for OEM radiator assembly if the car has original MT cooling layout. |
-| Radiator hose kit / upper-lower hoses | Exact MT page uses `45162K*A` and `45162K*B` hose-kit groups; local captured variant lists `45167AA020` inlet and `45167AA030` outlet. | Exact MT EPC confirms the radiator/hose group, but individual hose-kit subpages were not resolved. The `45167AA020/030` rows came from the local captured data and need physical route comparison. | High candidate only. Photograph or measure the actual hoses before buying. |
+| Radiator hose kit / upper-lower hoses | Exact MT page uses `45162K*A` and `45162K*B` hose-kit groups; local captured variant lists `45167AA020` inlet and `45167AA030` outlet. | Exact MT EPC confirms the radiator/hose group. Local rows list `45167AA020/030`, but 2026-06-29 external spot checks only found broad Legacy/Impreza/Outback fitment for `45167AA020`, not BG5P/EJ20E-specific proof. | Search lead. Photograph or measure the actual hoses before buying. |
 | Fuel tank filter / strainer | `42072AA011`; alternate tank-filter row `42072AA120` | `42072AA011` applies to EJ18E + 2W.EJ20E + EJ20E.A/S + EJ25D. `42072AA120` appears in fuel-tank rows for EJ20E.A/S + LX.AT.EJ20E + EJ25D. | High candidate. Treat as in-tank/tank filter, not a universal inline fuel filter. Confirm pump hanger/tank style. |
 | Fuel pump assembly / pump | `42021AC013`, `42021AA320` | Local fuel-tank category rows mention EJ20E.A/S + EJ25D. | Search lead for fuel-pump work. Confirm connector, hanger, and pressure requirement before ordering. |
 | Fuel pump packing | `42060AA070` | Local fuel-tank category row mentions EJ20E.A/S + EJ25D. | Search lead; buy with pump service only after hanger confirmation. |
@@ -12740,15 +12740,18 @@ is a BG Legacy kit.
 The first pass used several `S.25 + W.(25+OBK)` brake rows. Those are not
 purchase proof for this BG5P. The exact BG5/EJ20E/F4WD/MT/TXS EPC page shows
 the front brake family as 14 inch / 1-pot and resolves the rear disc brake
-family for W.F4W LX/TXS/BRIGLD. For 95% confidence, still measure the car's
+family for W.F4W LX/TXS/BRIGLD. On 2026-06-29, direct PartSouq rechecks for
+`26296`, `26300`, `45162G`, and `45162H` were blocked by Cloudflare challenge
+pages, so this guide falls back to local EPC-derived rows and public dealer
+catalog spot checks. For 95% confidence, still measure the car's
 rotor diameter/thickness, match caliper casting, confirm ABS, and compare pad
 shape before ordering.
 
 | Item | OEM Numbers | Local Evidence | Confidence / Notes |
 |---|---|---|---|
-| Front brake family | 14 inch front brake, 1-pot caliper; seal kit `26297AC000` | Exact BG5/EJ20E/F4WD/MT page for `26297` lists 1-pot front caliper seal kit for S/W LX/TXS/BRI# and brake-size 14 inch family. Service data gives front pad dimensions 112.4 x 44.3 x 11.0 mm and front disc 24 x 260 mm for the common 2200/AWD brake spec. | 95%+ for 14 inch / 1-pot family if the car matches. Exact front pad (`26296`) and rotor (`26300`) subpages were rate-limited, so do not buy `26296AC040/050` or `26310AA092` as BG5P proof. |
-| Front brake pad kit | Not fully resolved. Suspect 14 inch BG pad family, not the `S.25 + W.(25+OBK)` rows from the first pass. | Earlier local rows `26296AC040/050` apply to 25/Outback-style notes, not the exact EJ20E MT front-brake family. | Still needs proof. Record old pad backing number or match exact EPC `134-ej20e/trans/262/26296/` once rate limit clears. |
-| Front brake rotor | Not fully resolved. Expected 14 inch family, likely 24 x 260 mm if matching the BG 2200/AWD service spec. | Earlier local `26310AA092` row applies to 25/Outback-style notes, not proof for this car. | Still needs proof. Measure rotor OD/thickness and reopen exact EPC `134-ej20e/trans/262/26300/`. |
+| Front brake family | 14 inch front brake, 1-pot caliper; seal kit `26297AC000` | Exact BG5/EJ20E/F4WD/MT page for `26297` lists 1-pot front caliper seal kit for S/W LX/TXS/BRI# and brake-size 14 inch family. Service data gives front pad dimensions 112.4 x 44.3 x 11.0 mm and front disc 24 x 260 mm for the common 2200/AWD brake spec. | 95%+ for the 14 inch / 1-pot family if the car matches. Do not treat `26296AC040/050` or `26310AA092` as BG5P proof. |
+| Front brake pad kit | No purchase-approved OEM pad number from current evidence. | Local rows `26296AC040/050` apply to `S.25 + W.(25+OBK)`. A 2026-06-29 public dealer spot check for `26296AC040` also listed 1997-1999 2.5L Legacy/Outback-type fitments, not BG5P/EJ20E proof. | Record old pad backing number or match the exact BG5P/EJ20E EPC `26296` page before buying. |
+| Front brake rotor | No purchase-approved OEM rotor number from current evidence. | Local `26310AA092` applies to `S.25 + W.(25+OBK)`. A 2026-06-29 public dealer spot check did not establish BG5P/EJ20E fitment. | Measure rotor OD/thickness and match the exact BG5P/EJ20E EPC `26300` page before buying. |
 | Rear brake pad kit | `26296AA062` | Exact BG5/EJ20E/F4WD/MT `26696A` page lists `26296AA062` for W.F4W.TXS.MT and for 01.06.1997-30.11.1998 S.F4W/W.F4W LX/TXS/BRIGLD. Service data gives rear disc pad dimensions 92.4 x 33.7 x 10.0 mm and backing-inclusive new/min thickness 15.0/6.5 mm. | Upgraded to 95%+ if the car has rear D=38 disc brakes. |
 | Rear brake rotor | `26310AA040` -> `26310AA050` | Exact BG5/EJ20E/F4WD/MT `26700` page lists `26310AA040` with replacement `26310AA050`; 01.06.1997-30.11.1998 row applies to S.F4W/W.F4W LX/TXS/BRIGLD. | 95%+ if rear disc package is physically confirmed. |
 | Rear caliper seal kit | `26697AA040`, D=38 | Exact BG5/EJ20E/F4WD/MT `26697` page lists D=38 seal kit for W.F4W LX/TXS and 01.06.1997-30.11.1998 S.F4W/W.F4W LX/TXS/BRIGLD/GT#/25T#/LAN#. | 95%+ after confirming D=38 rear caliper. |
@@ -13035,12 +13038,12 @@ Use this order:
 
 ## Structured Source Available In CSV: docs/bg5p-oem-parts-master.csv
 
-- Rows: 3044
+- Rows: 3608
 - Columns: category_code, section, diagram, group_code, group_name, oem_number, quantity, production_period, applies_for_models, notes, engine_tokens, interchange_signal, confidence_gate, required_verification
 - Integrated target: `09_BG5P_Parts_Diagram_Index.csv`
 
 ## Structured Source Available In CSV: docs/bg5p-shared-engine-interchange-candidates.csv
 
-- Rows: 301
+- Rows: 261
 - Columns: category_code, section, diagram, group_code, group_name, oem_number, quantity, production_period, applies_for_models, notes, donor_engine_tokens, confidence_statement, required_verification
 - Integrated target: `09_BG5P_Parts_Diagram_Index.csv`

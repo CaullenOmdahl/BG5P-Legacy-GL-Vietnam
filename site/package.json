@@ -9,6 +9,7 @@
     "generate:llms": "python3 scripts/generate-llms.py",
     "generate:index": "node scripts/generate-site-index.mjs && python3 scripts/generate-llms.py",
     "verify:index": "node scripts/verify-site-index.mjs",
+    "verify:catalog": "python3 scripts/verify_catalog_quality.py",
     "verify:parts": "python3 scripts/verify_parts_coverage.py",
     "test:chat-workbench": "node scripts/test-chat-workbench.mjs",
     "start": "next start"

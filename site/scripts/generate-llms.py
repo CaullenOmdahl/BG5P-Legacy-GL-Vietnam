@@ -3,12 +3,17 @@
 
 import json
 import os
+import sys
 from pathlib import Path
 from urllib.parse import quote
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "public", "data")
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "public", "llms")
 PUBLIC_DIR = Path(__file__).resolve().parents[1] / "public"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+from parts_category_metadata import diagram_index as build_diagram_index  # noqa: E402
+
 BASE_URL = os.environ.get("BG5_SITE_BASE_URL", "https://bg5.caphedigital.com").rstrip("/")
 
 def load(name):
@@ -249,11 +254,12 @@ def main():
     lines.append("")
     lines.append("OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE")
 
-    # Build section lookup for each diagram key
-    diagram_to_section = {}
-    for s in sections:
-        for d in s["diagrams"]:
-            diagram_to_section[diagram_key(d["code"])] = (s["name"], d["code"], d["name"])
+    # Build section lookup for each diagram key, including known off-diagram
+    # EPC categories used by the raw catalog rows.
+    diagram_to_section = {
+        category_code: (section_name, category_code, diagram_name)
+        for category_code, (section_name, diagram_name) in build_diagram_index(sections).items()
+    }
 
     index_rows = []
     seen = set()

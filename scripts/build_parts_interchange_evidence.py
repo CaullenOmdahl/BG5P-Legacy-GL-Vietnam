@@ -6,10 +6,14 @@ from __future__ import annotations
 import csv
 import json
 import re
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from parts_category_metadata import diagram_index  # noqa: E402
+
 DATA_DIR = ROOT / "site" / "public" / "data"
 DOCS_DIR = ROOT / "docs"
 
@@ -59,15 +63,6 @@ SHARED_FIELDS = [
 def read_json(path: Path):
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
-
-
-def diagram_index(sections: list[dict]) -> dict[str, tuple[str, str]]:
-    index: dict[str, tuple[str, str]] = {}
-    for section in sections:
-        for diagram in section["diagrams"]:
-            category_code = diagram["code"].split("_", 1)[0]
-            index[category_code] = (section["name"], diagram["name"])
-    return index
 
 
 def engine_tokens(row: dict) -> list[str]:
@@ -161,7 +156,7 @@ def build_rows(parts: dict, diagrams: dict[str, tuple[str, str]]) -> list[dict]:
 def write_csv(path: Path, fields: list[str], rows: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({field: row.get(field, "") for field in fields})

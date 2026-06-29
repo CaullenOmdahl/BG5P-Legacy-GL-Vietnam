@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T13:40:55Z",
+  "generated_at": "2026-06-29T08:21:50Z",
   "source_upload_folder": "chatgpt-bg5-diagnostic-expert/upload_20_files",
   "documents": [
     {
@@ -66,13 +66,13 @@
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "target": "08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "kind": "md",
-      "bytes": 734599
+      "bytes": 735209
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/09_BG5P_Parts_Diagram_Index.csv",
       "target": "09_BG5P_Parts_Diagram_Index.csv",
       "kind": "csv",
-      "bytes": 1549349
+      "bytes": 1778468
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/10_BG5P_BG_Chassis_Body_Interior_SRS_Searchable.pdf",
@@ -90,19 +90,19 @@
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/12_BG5P_Consumables_Wear_Interchange.md",
       "target": "12_BG5P_Consumables_Wear_Interchange.md",
       "kind": "md",
-      "bytes": 26534
+      "bytes": 26789
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/13_BG5P_OEM_Parts_Master.csv",
       "target": "13_BG5P_OEM_Parts_Master.csv",
       "kind": "csv",
-      "bytes": 953972
+      "bytes": 1108393
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/14_BG5P_Shared_Engine_Interchange_Candidates.csv",
       "target": "14_BG5P_Shared_Engine_Interchange_Candidates.csv",
       "kind": "csv",
-      "bytes": 111431
+      "bytes": 97114
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/15_BG5P_Parts_Interchange_Research.md",

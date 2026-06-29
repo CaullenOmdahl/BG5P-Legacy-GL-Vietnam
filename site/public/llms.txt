@@ -63,7 +63,7 @@ Each file lists every diagram and every OEM part number in that system, plus any
 
 ## Part Number Lookup
 
-- [Part Number Index](/llms/parts-index.txt): 3042 parts, sorted by OEM number
+- [Part Number Index](/llms/parts-index.txt): 3041 parts, sorted by OEM number
 
 ## Service Manuals (PDF, not machine-readable)
 

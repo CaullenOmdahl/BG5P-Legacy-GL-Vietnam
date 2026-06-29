@@ -449,7 +449,7 @@ def write_category_csv(epc_section: str, category_code: str, category_name: str,
     category_dir.mkdir(parents=True, exist_ok=True)
     csv_path = category_dir / "parts.csv"
     with csv_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=CSV_FIELDS)
+        writer = csv.DictWriter(handle, fieldnames=CSV_FIELDS, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow(
