@@ -11,15 +11,15 @@ Specs:
   Capacity: 3.5 L (3.7 US qt)
   Transmission Type: 5-speed synchromesh with reverse
   Transfer Gear Ratio: 1.000
-  Final Drive Ratio (2200cc): 3.900
+  Final Drive Ratio (BG5P EJ20E): 3.900
   1st Gear Ratio: 3.545
   2nd Gear Ratio: 2.111
   3rd Gear Ratio: 1.448
   4th Gear Ratio: 1.088
   5th Gear Ratio: 0.780
   Reverse Gear Ratio: 3.416
-  Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
-  * Note: Community-standard value; not explicitly found in manual
+  Transmission Drain Plug Torque: 70 Nm (7.1 kgf-m, 51.6 ft-lb) for gasket-type plug, or 44 Nm (4.5 kgf-m, 32.5 ft-lb) for tapered-thread plug
+  Transmission Fill Plug Torque: 44 Nm (4.5 kgf-m, 32.5 ft-lb)
 
 Steps:
   1. Raise vehicle and support on jack stands, remove under cover
@@ -41,10 +41,10 @@ Service manuals:
 Difficulty: Advanced | Interval: As needed (typically 100,000-150,000 km)
 
 Specs:
-  Clutch Disc O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
+  Clutch Disc Facing O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
   Clutch Disc Facing: Woven type
   Clutch Disc Spline O.D. (24 teeth): 25.2 mm
-  Diaphragm Set Load (2200cc): 450 kg (992 lb)
+  Diaphragm Set Load (BG5P EJ20E): 450 kg (992 lb)
   Release Bearing Type: Grease-packed self-aligning
   Release Lever Ratio: 3.0
   Clutch Pedal Full Stroke: 140-150 mm (5.51-5.91 in)
@@ -105,7 +105,7 @@ Service manuals:
 32000AE370 | MANUAL TRANSMISSION ASSEMBLY x01 | 02.1997 - 11.1998 | S.25.MT
 
 ### 111_01: MT, GASKET & SEAL KIT
-(no parts data)
+32001AA000 | GASKET & SEAL KIT-MANUAL TRANSMISSION x01 | 01.12.1995 - 31.07.1997
 
 ### 113_01: MT, TRANSMISSION CASE
 800608430 | BOLT x04 | 02.1997 - 11.1998 | MT
@@ -417,19 +417,31 @@ Service manuals:
 32229AA140 | SHAFT-DRIVEN x01 | OD=49.975-49.967
 
 ### 116_01: MT, AUXILIARY GEAR
-(no parts data)
+MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction.
+Source: https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/
 
 ### 116_02: MT, AUXILIARY GEAR
-(no parts data)
+MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction.
+Source: https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/
 
 ### 116_03: MT, AUXILIARY GEAR
-(no parts data)
+MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction.
+Source: https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/
 
 ### 117_01: MT, SPEEDOMETER GEAR
-(no parts data)
+031512000 | SNAP RING-OUTER
+32713AA002 | SHAFT-SPEEDOMETER x01 | 01.12.1995 - 31.07.1997
+32714AA051 | GEAR-SPEEDOMETER DRIVEN x01 | 01.12.1995 - 31.07.1997 | lean burn model excluding
+32714AA420 | GEAR-SPEEDOMETER DRIVEN x01 | 01.12.1995 - 31.07.1997 | lean burn model
+803012060 | WASHER x01 | 01.12.1995 - 31.07.1997
+805012020 | SNAP RING-OUTER x01 | 01.12.1995 - 31.07.1997
+806712090 | OIL SEAL x01 | 01.12.1995 - 31.01.1997
+806712100 | OIL SEAL x01 | 01.02.1997 - 31.07.1997
 
 ### 119_01: MT, TRANSMISSION HARNESS
-(no parts data)
+21046GA070 | CLIP-AIR SUSPENSION x01 | 01.12.1995 - 31.07.1997
+425665500 | CLIP-NO.3,A x01 | 01.12.1995 - 31.07.1997
+24233AA230 | CLIP-NO.4 x01 | 01.12.1995 - 31.07.1997
 
 ### 121_01: MT, TRANSFER & EXTENSION
 011308180 | BOLT AND WASHER ASSEMBLY

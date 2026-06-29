@@ -1,0 +1,6 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+body,935,COVER,0402S,FLANGE SCREW-PILOT,040205100,,,,,,,,
+body,935,COVER,0450S,TAPPING SCREW-TRUSS HEAD,045006160,,,,,,,,
+body,935,COVER,0450S,TAPPING SCREW-TRUSS HEAD,045004100,,,,,,,,
+body,935,COVER,91144,BOX-SUB TRUNK,91047AA011,01,01.06.1997 - 30.11.1998,,,,W.(BRIGLD+TSR+GT#+25T#+LAN#),,
+body,935,COVER,91181A,GROMMET-REAR FLOOR SIDE,91033AA000,01,01.06.1997 - 30.11.1998,,,,W,,

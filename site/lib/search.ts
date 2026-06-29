@@ -4,6 +4,7 @@ export interface SearchItem {
   type: 'diagram' | 'part' | 'manual';
   label: string;        // display text
   detail?: string;      // secondary info (section name, group name, etc.)
+  keywords?: string;    // hidden bilingual terms for retrieval
   sectionSlug?: string;
   diagramCode?: string; // with dashes for URL
   oemNumber?: string;
@@ -14,7 +15,8 @@ const fuseOptions: IFuseOptions<SearchItem> = {
   keys: [
     { name: 'label', weight: 0.4 },
     { name: 'oemNumber', weight: 0.35 },
-    { name: 'detail', weight: 0.25 },
+    { name: 'detail', weight: 0.2 },
+    { name: 'keywords', weight: 0.2 },
   ],
   threshold: 0.35,
   includeScore: true,

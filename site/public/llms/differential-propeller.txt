@@ -9,15 +9,15 @@ Difficulty: Moderate | Interval: Every 50,000 km or 30 months
 Specs:
   Front Diff Type: Straight bevel gear (integrated in transmission)
   Front Diff Gear Type: Hypoid
-  Front Final Ratio (2200cc): 3.900
+  Front Final Ratio (BG5P EJ20E): 3.900
   Front Diff Fluid: GL-5 (shared with transmission, 3.5 L total)
   Rear Diff Type: Hypoid gear
-  Rear Final Ratio (2200cc): 3.900
+  Rear Final Ratio (BG5P EJ20E): 3.900
   Rear Diff Fluid Type: GL-5 (75W-90 gear oil)
   Rear Diff Capacity: 0.8 L (0.85 US qt) *
   Rear Diff Bevel Gear Backlash: 0.13-0.18 mm
   Center Diff Type: Viscous coupling with bevel gears (AWD)
-  Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 25 ft-lb) *
+  Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 26 ft-lb) *
   * Note: Rear diff capacity and plug torque are community-standard values
 
 Steps:
@@ -146,4 +146,9 @@ Service manuals:
 383875200 | LOCK NUT-DRIVE PINION x01 | 02.1997 - 11.1998 | F4W.MT +AT.EJ25D
 
 ### 199_01: PROPELLER SHAFT
-(no parts data)
+021808006 | NUT
+021808000 | NUT
+032008006 | SPRING WASHER
+27031AC140 | PROPELLER SHAFT ASSEMBLY x01 | 01.06.1997 - 30.11.1998
+901250050 | bolt and washer assembly x02 | 01.06.1997 - 30.11.1998
+901660010 | bolt x04 | 01.06.1997 - 30.11.1998

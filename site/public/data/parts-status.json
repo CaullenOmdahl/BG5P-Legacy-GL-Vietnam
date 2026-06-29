@@ -1,0 +1,82 @@
+{
+  "116": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/116/",
+    "detail": "MT-compatible BG5/EJ20E EPC source has a category page for this subgroup but exposes no itemized OEM part rows in the local extraction."
+  },
+  "373": {
+    "status": "not_applicable",
+    "source": "https://subaru.epc-data.com/legacy/bg5/134-ej20e/trans/373/",
+    "detail": "MT-compatible BG5/EJ20E/TXS EPC source marks this clutch-cable subgroup as not applicable for the selected manual-transmission complectation."
+  },
+  "410": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/engine/410/",
+    "detail": "EPC source has a category page but no itemized OEM part rows for the selected BG5 AT complectation."
+  },
+  "411": {
+    "status": "source_unpublished",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/engine/411/",
+    "detail": "Selected BG5 AT EPC source did not publish an itemized category page during local extraction; no OEM rows are available in the local corpus."
+  },
+  "622": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/body/622/",
+    "detail": "EPC source has a category page but no itemized OEM part rows for the selected BG5 AT complectation."
+  },
+  "846": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/electric/846/",
+    "detail": "EPC source has a category page but no itemized OEM part rows for the selected BG5 AT complectation."
+  },
+  "850": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/electric/850/",
+    "detail": "EPC source has a category page but no itemized OEM part rows for the selected BG5 AT complectation."
+  },
+  "860": {
+    "status": "not_applicable",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/electric/860/",
+    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
+  },
+  "862": {
+    "status": "source_unpublished",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/electric/862/",
+    "detail": "Selected BG5 AT EPC source did not publish an itemized category page during local extraction; no OEM rows are available in the local corpus."
+  },
+  "863": {
+    "status": "source_unpublished",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/electric/863/",
+    "detail": "Selected BG5 AT EPC source did not publish an itemized category page during local extraction; no OEM rows are available in the local corpus."
+  },
+  "871": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/electric/871/",
+    "detail": "EPC source has a category page but no itemized OEM part rows for the selected BG5 AT complectation."
+  },
+  "877": {
+    "status": "source_unpublished",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/electric/877/",
+    "detail": "Selected BG5 AT EPC source did not publish an itemized category page during local extraction; no OEM rows are available in the local corpus."
+  },
+  "900": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/body/900/",
+    "detail": "EPC source has a category page but no itemized OEM part rows for the selected BG5 AT complectation."
+  },
+  "916": {
+    "status": "not_applicable",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/body/916/",
+    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
+  },
+  "921": {
+    "status": "no_itemized_rows",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/body/921/",
+    "detail": "EPC source has a category page but no itemized OEM part rows for the selected BG5 AT complectation."
+  },
+  "956": {
+    "status": "not_applicable",
+    "source": "https://subaru.epc-data.com/legacy/bg5/141-ej20e/body/956/",
+    "detail": "EPC source marks this subgroup as not applicable for the selected BG5 AT complectation."
+  }
+}

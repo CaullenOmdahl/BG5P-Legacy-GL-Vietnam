@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { useLocale } from '@/components/LocaleProvider';
+import { getCopy } from '@/lib/i18n';
 
 interface DiagramViewerProps {
   imagePath: string;
@@ -8,6 +10,8 @@ interface DiagramViewerProps {
 }
 
 export default function DiagramViewer({ imagePath, alt }: DiagramViewerProps) {
+  const { locale } = useLocale();
+  const text = getCopy(locale).components.diagramViewer;
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -114,30 +118,30 @@ export default function DiagramViewer({ imagePath, alt }: DiagramViewerProps) {
     <div className="flex flex-col gap-2">
       {/* Controls */}
       <div className="flex items-center justify-between">
-        <span className="text-sm text-muted">
+        <span className="font-mono text-xs text-muted">
           {zoom.toFixed(1)}x zoom
         </span>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setZoom((z) => clampZoom(z - 0.5))}
-            className="min-h-[44px] min-w-[44px] px-3 py-2 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
-            aria-label="Zoom out"
+            className="min-h-[44px] min-w-[44px] rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground transition-colors hover:border-accent"
+            aria-label={text.zoomOut}
           >
             &minus;
           </button>
           <button
             onClick={() => setZoom((z) => clampZoom(z + 0.5))}
-            className="min-h-[44px] min-w-[44px] px-3 py-2 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
-            aria-label="Zoom in"
+            className="min-h-[44px] min-w-[44px] rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground transition-colors hover:border-accent"
+            aria-label={text.zoomIn}
           >
             +
           </button>
           <button
             onClick={resetView}
-            className="min-h-[44px] px-3 py-2 text-sm rounded border border-border bg-surface text-foreground hover:border-accent transition-colors"
-            aria-label="Reset zoom"
+            className="min-h-[44px] rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground transition-colors hover:border-accent"
+            aria-label={text.resetZoom}
           >
-            Reset
+            {text.reset}
           </button>
         </div>
       </div>
@@ -145,7 +149,7 @@ export default function DiagramViewer({ imagePath, alt }: DiagramViewerProps) {
       {/* Image container */}
       <div
         ref={containerRef}
-        className="relative overflow-hidden rounded-lg border border-border bg-white select-none"
+        className="relative overflow-hidden rounded-lg border border-border bg-white select-none shadow-inner shadow-black/15"
         style={{ cursor: zoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in', touchAction: 'none' }}
         onWheel={handleWheel}
         onMouseDown={handleMouseDown}
@@ -170,7 +174,7 @@ export default function DiagramViewer({ imagePath, alt }: DiagramViewerProps) {
       </div>
 
       <p className="text-xs text-muted">
-        Scroll to zoom &middot; Drag to pan &middot; Pinch on mobile
+        {text.hint}
       </p>
     </div>
   );

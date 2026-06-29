@@ -1,0 +1,4 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+engine,020,ROCKER COVER,13264,"COVER COMPLETE-VALVE ROCKER,RIGHT",13264AA070,01,01.06.1997 - 30.11.1998,,,,EJ18E +EJ20E,,
+engine,020,ROCKER COVER,13271,WASHER-ROCKER COVER,13271AA050,06,01.06.1997 - 30.11.1998,,,,EJ18E +EJ20E,,13271AA051 ITCA part is available
+engine,020,ROCKER COVER,13278,"COVER COMPLETE-VALVE ROCKER,LEFT",13278AA060,01,01.06.1997 - 30.11.1998,,,,EJ18E +EJ20E,,

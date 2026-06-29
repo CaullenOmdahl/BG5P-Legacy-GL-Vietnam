@@ -1,63 +1,87 @@
 import Link from "next/link";
 import { getSections } from "@/lib/data";
 import type { Metadata } from "next";
+import { CircuitBoard } from "lucide-react";
+import {
+  diagramCount,
+  getCopy,
+  getPageMetadata,
+  localizeSectionName,
+  localizeTechnicalName,
+} from "@/lib/i18n";
+import { getServerLocale } from "@/lib/server-locale";
 
-export const metadata: Metadata = {
-  title: "Parts Catalog — BG5P Legacy GL",
-  description:
-    "262 exploded parts diagrams for the BG5P EJ20E SOHC NA, organized across 16 sections.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getServerLocale();
+  return getPageMetadata(locale, "parts");
+}
 
-export default function PartsPage() {
+export default async function PartsPage() {
+  const locale = await getServerLocale();
+  const copy = getCopy(locale).parts;
   const sections = getSections();
 
   return (
     <div className="flex flex-col gap-8">
-      {/* Header */}
-      <section className="pt-4 sm:pt-8">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Parts Catalog
-        </h1>
-        <p className="mt-2 text-base sm:text-lg text-muted max-w-2xl">
-          262 exploded parts diagrams for the BG5P EJ20E SOHC NA
-        </p>
+      <section className="bg5-panel-strong rounded-lg p-5 sm:p-7">
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-md border border-border bg-panel text-accent">
+            <CircuitBoard className="h-6 w-6" aria-hidden="true" />
+          </div>
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              {copy.eyebrow}
+            </p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              {copy.title}
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted sm:text-base">
+              {copy.description}
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Section Grid */}
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {sections.map((section) => {
             const thumbnail = section.diagrams[0];
+            const sectionName = localizeSectionName(section.name, locale);
+            const thumbnailName = thumbnail
+              ? localizeTechnicalName(thumbnail.name, locale)
+              : "";
 
             return (
               <Link
                 key={section.slug}
                 href={`/parts/${section.slug}`}
-                className="group rounded-lg border border-border bg-surface p-4 transition-colors hover:border-accent"
+                className="group bg5-panel rounded-lg p-4 transition-colors hover:border-accent"
               >
-                {/* Thumbnail */}
                 {thumbnail && (
-                  <div className="mb-3 overflow-hidden rounded-md bg-white">
+                  <div className="mb-4 aspect-[4/3] overflow-hidden rounded-md border border-border bg-white">
                     <img
                       src={thumbnail.imagePath}
-                      alt={`${section.name} — ${thumbnail.name}`}
+                      alt={`${sectionName} ${copy.diagramAltSeparator} ${thumbnailName}`}
                       width={200}
-                      className="w-full max-w-[200px] mx-auto object-contain"
+                      className="mx-auto h-full w-full max-w-[240px] object-contain p-2"
                       loading="lazy"
                     />
                   </div>
                 )}
 
-                {/* Info */}
-                <h2 className="text-base font-semibold text-foreground group-hover:text-accent transition-colors">
-                  {section.name}
-                </h2>
-                <p className="mt-1 text-sm text-muted">
-                  {section.diagramCount} diagram{section.diagramCount !== 1 && "s"}
-                </p>
-                <span className="mt-2 inline-block text-sm font-medium text-accent">
-                  View diagrams &rarr;
-                </span>
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h2 className="text-base font-semibold text-foreground transition-colors group-hover:text-accent">
+                      {sectionName}
+                    </h2>
+                    <p className="mt-1 text-sm text-muted">
+                      {diagramCount(locale, section.diagramCount)}
+                    </p>
+                  </div>
+                  <span className="rounded border border-border px-2 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted group-hover:border-accent group-hover:text-accent">
+                    {copy.open}
+                  </span>
+                </div>
               </Link>
             );
           })}

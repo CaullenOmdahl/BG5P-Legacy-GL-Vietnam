@@ -1,107 +1,152 @@
 import Link from "next/link";
+import {
+  BookOpenText,
+  CircuitBoard,
+  FileText,
+  Gauge,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
+import Bg5HomeAssistant from "@/components/Bg5HomeAssistant";
+import { getCopy } from "@/lib/i18n";
+import { getServerLocale } from "@/lib/server-locale";
 
-const specs = [
-  { label: "Chassis", value: "BG5P" },
-  { label: "Engine", value: "EJ20E 2.0L Flat-4 SOHC NA" },
-  { label: "Power", value: "120 HP / 184 Nm" },
-  { label: "Transmission", value: "5-speed manual, full-time AWD" },
-  { label: "Years", value: "1994–1998" },
-  { label: "Market", value: "Vietnam (General Market LHD export)" },
-  { label: "Diagnostics", value: "SSM1 (no OBD-II)" },
-];
+const sectionIcons = {
+  "/parts": CircuitBoard,
+  "/maintenance": Wrench,
+  "/manuals": BookOpenText,
+} as const;
 
-const sections = [
-  {
-    index: "01",
-    title: "Parts Catalog",
-    href: "/parts",
-    description: "262 exploded diagrams across 16 sections with OEM part numbers",
-  },
-  {
-    index: "02",
-    title: "Maintenance Guides",
-    href: "/maintenance",
-    description: "Specs, torque values, and step-by-step service procedures",
-  },
-  {
-    index: "03",
-    title: "Service Manuals",
-    href: "/manuals",
-    description: "363 factory PDFs — EJ20E engine and full BG chassis",
-  },
-];
+export default async function Page() {
+  const locale = await getServerLocale();
+  const copy = getCopy(locale).home;
 
-export default function Page() {
   return (
-    <div className="flex flex-col gap-12">
-      {/* Hero */}
-      <section className="pt-10 sm:pt-16">
-        <p className="font-mono text-xs text-accent uppercase tracking-widest mb-4 opacity-80">
-          Chassis BG5P · EJ20E SOHC · Vietnam Market · 1994–1998
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground leading-tight">
-          Legacy GL
-          <span className="block text-muted font-normal text-2xl sm:text-3xl mt-1">
-            Service Reference
-          </span>
-        </h1>
-        <p className="mt-4 text-sm sm:text-base text-muted max-w-lg leading-relaxed">
-          Parts diagrams, factory manuals, and maintenance procedures for the
-          Vietnamese-market Subaru Legacy Touring Wagon.
-        </p>
-      </section>
-
-      {/* Vehicle Specs */}
-      <section>
-        <p className="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">
-          Vehicle Specifications
-        </p>
-        <div className="rounded-lg border border-border overflow-hidden">
-          {specs.map((spec, i) => (
-            <div
-              key={spec.label}
-              className={`flex items-baseline gap-4 px-4 py-2.5 text-sm ${
-                i % 2 === 0 ? "bg-surface" : "bg-background/60"
-              }`}
-            >
-              <dt className="text-muted w-28 shrink-0">{spec.label}</dt>
-              <dd className="text-foreground font-medium font-mono text-xs sm:text-sm">
-                {spec.value}
-              </dd>
+    <div className="flex flex-col gap-8 pb-10">
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="bg5-panel-strong min-w-0 rounded-lg p-5 sm:p-7">
+          <div className="flex min-w-0 flex-col gap-8">
+            <div className="min-w-0">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
+                {copy.eyebrow}
+              </p>
+              <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+                {copy.title}
+              </h1>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-muted sm:text-base">
+                {copy.description}
+              </p>
             </div>
-          ))}
+
+            <div className="grid min-w-0 gap-2 sm:grid-cols-5">
+              {copy.specs.map((spec) => (
+                <div
+                  key={spec.label}
+                  className="rounded-md border border-border bg-background/55 px-3 py-3"
+                >
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+                    {spec.label}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold leading-snug text-foreground">
+                    {spec.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+
+        <Bg5HomeAssistant />
       </section>
 
-      {/* CTA Cards */}
-      <section>
-        <p className="font-mono text-[10px] uppercase tracking-widest text-muted mb-3">
-          Reference Material
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {sections.map((section) => (
+      <section className="grid gap-4 lg:grid-cols-3">
+        {copy.sections.map((section) => {
+          const Icon = sectionIcons[section.href as keyof typeof sectionIcons];
+          return (
             <Link
               key={section.href}
               href={section.href}
-              className="group relative rounded-lg border border-border bg-surface p-5 transition-all duration-200 hover:border-accent hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58,126,245,0.12)]"
+              className="group bg5-panel rounded-lg p-4 transition-colors hover:border-accent"
             >
-              <span className="font-mono text-[10px] text-muted/60 mb-3 block">
-                {section.index}
-              </span>
-              <h3 className="text-base font-semibold text-foreground group-hover:text-accent transition-colors">
-                {section.title}
-              </h3>
-              <p className="mt-1.5 text-xs text-muted leading-relaxed">
-                {section.description}
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-accent">
-                Browse
-                <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </span>
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-panel text-accent">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted group-hover:text-accent">
+                  {copy.open}
+                </span>
+              </div>
+              <div className="mt-5">
+                <h2 className="text-lg font-semibold text-foreground">
+                  {section.title}
+                </h2>
+                <p className="mt-1 font-mono text-xs text-accent">
+                  {section.value} {section.unit}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-muted">
+                  {section.description}
+                </p>
+              </div>
             </Link>
-          ))}
+          );
+        })}
+      </section>
+
+      <section className="grid gap-4 lg:grid-cols-2">
+        <div className="bg5-panel rounded-lg p-5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-panel text-amber">
+              <Gauge className="h-5 w-5" aria-hidden="true" />
+            </div>
+            <div>
+              <h2 className="text-base font-semibold text-foreground">
+                {copy.diagnosticTitle}
+              </h2>
+              <p className="text-sm text-muted">{copy.diagnosticSubtitle}</p>
+            </div>
+          </div>
+          <ul className="mt-5 flex flex-col gap-3">
+            {copy.diagnosticPaths.map((item) => (
+              <li key={item} className="flex gap-3 text-sm text-muted">
+                <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="bg5-panel rounded-lg p-5">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-panel text-accent">
+              <FileText className="h-5 w-5" aria-hidden="true" />
+            </div>
+            <div>
+              <h2 className="text-base font-semibold text-foreground">
+                {copy.linksTitle}
+              </h2>
+              <p className="text-sm text-muted">{copy.linksSubtitle}</p>
+            </div>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-3">
+            <a
+              href="/llms.txt"
+              className="rounded-md border border-border bg-background/55 px-3 py-3 text-sm font-medium text-foreground hover:border-accent hover:text-accent"
+            >
+              {copy.linkLabels.sitemap}
+            </a>
+            <Link
+              href="/manuals"
+              className="rounded-md border border-border bg-background/55 px-3 py-3 text-sm font-medium text-foreground hover:border-accent hover:text-accent"
+            >
+              {copy.linkLabels.manuals}
+            </Link>
+            <Link
+              href="/parts"
+              className="rounded-md border border-border bg-background/55 px-3 py-3 text-sm font-medium text-foreground hover:border-accent hover:text-accent"
+            >
+              {copy.linkLabels.parts}
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { MaintenanceCard as MaintenanceCardType } from "@/lib/data";
+import { useLocale } from "@/components/LocaleProvider";
+import { getCopy, localizeDifficulty, localizeMaintenanceCard } from "@/lib/i18n";
 
 const difficultyColors: Record<string, string> = {
   Easy: "bg-green-600 text-white",
@@ -44,54 +46,56 @@ export default function MaintenanceCard({
   resolvedPdfLinks?: ResolvedPdfLink[];
   resolvedDiagramLinks?: ResolvedDiagramLink[];
 }) {
-  const [specsOpen, setSpecsOpen] = useState(false);
-  const [stepsOpen, setStepsOpen] = useState(false);
+  const { locale } = useLocale();
+  const text = getCopy(locale).maintenance;
+  const localizedCard = localizeMaintenanceCard(card, locale);
+  const [technicalOpen, setTechnicalOpen] = useState(false);
+  const [procedureOpen, setProcedureOpen] = useState(false);
 
   // Expand by default on desktop (md+)
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
     if (mq.matches) {
-      setSpecsOpen(true);
-      setStepsOpen(true);
+      setTechnicalOpen(true);
+      setProcedureOpen(true);
     }
   }, []);
 
   const badgeClass = difficultyColors[card.difficulty] ?? "bg-muted text-foreground";
 
   return (
-    <div className="rounded-lg border border-border bg-surface p-5 flex flex-col gap-4">
+    <div className="bg5-panel rounded-lg p-5 flex flex-col gap-4">
       {/* Header */}
       <div className="flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
+          <h3 className="text-lg font-semibold text-foreground">{localizedCard.title}</h3>
           <span
             className={`shrink-0 rounded px-2 py-0.5 text-xs font-semibold ${badgeClass}`}
           >
-            {card.difficulty}
+            {localizeDifficulty(card.difficulty, locale)}
           </span>
         </div>
-        <p className="text-sm text-muted">{card.interval}</p>
+        <p className="text-sm text-muted">{localizedCard.interval}</p>
       </div>
 
-      {/* Specs Section */}
-      {card.specs.length > 0 && (
+      {localizedCard.specs.length > 0 && (
         <div className="border-t border-border pt-3">
           <button
-            onClick={() => setSpecsOpen(!specsOpen)}
+            onClick={() => setTechnicalOpen(!technicalOpen)}
             className="flex w-full items-center justify-between text-sm font-medium text-foreground hover:text-accent transition-colors"
-            aria-expanded={specsOpen}
+            aria-expanded={technicalOpen}
           >
-            <span>Specs</span>
-            <ChevronIcon open={specsOpen} />
+            <span>{text.specs}</span>
+            <ChevronIcon open={technicalOpen} />
           </button>
-          {specsOpen && (
+          {technicalOpen && (
             <div className="mt-3 overflow-x-auto">
               <table className="w-full text-sm">
                 <tbody>
-                  {card.specs.map((spec, i) => (
+                  {localizedCard.specs.map((spec, i) => (
                     <tr
                       key={spec.label}
-                      className={i % 2 === 0 ? "bg-background/50" : ""}
+                      className={i % 2 === 0 ? "bg-background/55" : ""}
                     >
                       <td className="py-1.5 px-2 text-muted whitespace-nowrap">
                         {spec.label}
@@ -108,20 +112,19 @@ export default function MaintenanceCard({
         </div>
       )}
 
-      {/* Steps Section */}
-      {card.steps.length > 0 && (
+      {localizedCard.steps.length > 0 && (
         <div className="border-t border-border pt-3">
           <button
-            onClick={() => setStepsOpen(!stepsOpen)}
+            onClick={() => setProcedureOpen(!procedureOpen)}
             className="flex w-full items-center justify-between text-sm font-medium text-foreground hover:text-accent transition-colors"
-            aria-expanded={stepsOpen}
+            aria-expanded={procedureOpen}
           >
-            <span>Steps</span>
-            <ChevronIcon open={stepsOpen} />
+            <span>{text.steps}</span>
+            <ChevronIcon open={procedureOpen} />
           </button>
-          {stepsOpen && (
+          {procedureOpen && (
             <ol className="mt-3 space-y-2 text-sm text-foreground list-decimal list-inside marker:text-muted">
-              {card.steps.map((step, i) => (
+              {localizedCard.steps.map((step, i) => (
                 <li key={i} className="leading-relaxed">
                   {step}
                 </li>
@@ -131,13 +134,12 @@ export default function MaintenanceCard({
         </div>
       )}
 
-      {/* Related Links */}
       {(resolvedPdfLinks.length > 0 || resolvedDiagramLinks.length > 0) && (
         <div className="border-t border-border pt-4 flex flex-col gap-4">
           {resolvedPdfLinks.length > 0 && (
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted mb-2">
-                PDFs
+                {text.pdfs}
               </p>
               <div className="flex flex-col gap-2">
                 {resolvedPdfLinks.map((link) => (
@@ -186,7 +188,7 @@ export default function MaintenanceCard({
           {resolvedDiagramLinks.length > 0 && (
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted mb-2">
-                Parts Diagrams
+                {text.partsDiagrams}
               </p>
               <div className="flex flex-col gap-2">
                 {resolvedDiagramLinks.map((link) => (

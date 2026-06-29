@@ -1,0 +1,5 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+body,620,BACK DOOR PANEL,60810,PANEL-REAR GATE,61700AC000,01,01.06.1997 - 30.11.1998,,,,W.(LX+TXS+BRIGLD+TSR+GT#+25T#),,
+body,620,BACK DOOR PANEL,60870,HINGE-BACK DOOR,61820FC000,01,01.06.1997 - 30.11.1998,,,,W,,61820FC100 ITCA part is available
+body,620,BACK DOOR PANEL,M000045,FLANGE BOLT,901000045,04,01.06.1997 - 30.11.1998,,,,W,,
+body,620,BACK DOOR PANEL,N600003,NUT,902600003,04,01.06.1997 - 30.11.1998,,,,W,,

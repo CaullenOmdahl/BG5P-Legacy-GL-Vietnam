@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BG5P Legacy GL Website
 
-## Getting Started
+Next.js site for `bg5.caphedigital.com`.
 
-First, run the development server:
+## Local Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev -- -p 3011
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## MiniMax Diagnostic Chatbot
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site includes a same-origin chatbot at `/api/chat`, a global `Ask BG5P` widget, and a homepage AI workbench entry point. The browser never receives the MiniMax key; the API route reads it from server environment variables.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The chat request can include:
 
-## Learn More
+- `locale`: `en` or `vi`
+- `diagnosticMode`: `diagnose`, `decode-code`, `find-part`, or `find-manual`
+- `intake`: symptom, flash code, starts/runs state, condition, and recent work
+- `pageContext`: current site path and page title
 
-To learn more about Next.js, take a look at the following resources:
+The API may use internal RAG files for reasoning, but user-facing `sources` are restricted to public `https://bg5.caphedigital.com/...` links.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The server uses MiniMax's Anthropic-compatible Messages API at `/anthropic/v1/messages`, matching the recommended text integration path from MiniMax's docs index.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Required production variable:
 
-## Deploy on Vercel
+```bash
+MINIMAX_API_KEY=...
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Optional variables are documented in `.env.example`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+MINIMAX_API_BASE=https://api.minimax.io
+MINIMAX_MODEL=MiniMax-M2.7-highspeed
+MINIMAX_MAX_TOKENS=1800
+MINIMAX_TEMPERATURE=1
+MINIMAX_TOP_P=0.95
+BG5_TRUSTED_PROXY_SECRET=
+BG5_CLIENT_IP_HEADER=x-forwarded-for
+```
+
+`/api/chat` rate limiting ignores forwarded client IP headers unless the proxy
+also sends `x-bg5-trusted-proxy` with `BG5_TRUSTED_PROXY_SECRET`. Without that
+trusted proxy marker, requests share a conservative local key instead of trusting
+client-supplied `X-Forwarded-For` values.
+
+The deployable chatbot knowledge lives in `chatbot-knowledge/`. Regenerate it after changing the GPT pack:
+
+```bash
+cd ..
+python scripts/build_site_chatbot_knowledge.py
+```
+
+The Docker image copies `public/`, `chatbot-knowledge/`, the standalone Next server, and static assets into the runtime image.
+
+## Build
+
+```bash
+npm run build
+```

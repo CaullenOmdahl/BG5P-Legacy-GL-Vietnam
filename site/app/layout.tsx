@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Nav from "@/components/Nav";
+import AppShell from "@/components/AppShell";
+import { getPageMetadata } from "@/lib/i18n";
+import { getServerLocale } from "@/lib/server-locale";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,27 +15,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "BG5P Legacy GL — Service Reference",
-  description:
-    "Parts diagrams, maintenance guides, and service manuals for the 1994–1998 Subaru BG5P Legacy GL sedan — Vietnam market RHD.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getServerLocale();
+  return getPageMetadata(locale, "root");
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getServerLocale();
+
   return (
     <html
-      lang="en"
+      lang={locale}
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Nav />
-        <main className="flex-1 mx-auto w-full max-w-5xl px-4 sm:px-6 py-6">
-          {children}
-        </main>
+      <body className="min-h-full">
+        <AppShell initialLocale={locale}>{children}</AppShell>
       </body>
     </html>
   );

@@ -5,12 +5,14 @@ import ManualsClient, {
   type PdfEntry,
   type ChassisSection,
 } from "@/components/ManualsClient";
+import { BookOpenText } from "lucide-react";
+import { getCopy, getPageMetadata, SITE_COPY } from "@/lib/i18n";
+import { getServerLocale } from "@/lib/server-locale";
 
-export const metadata: Metadata = {
-  title: "Service Manuals — BG5P Legacy GL",
-  description:
-    "363 factory service manual PDFs for the BG5P Legacy GL — EJ20E engine and BG chassis documentation.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getServerLocale();
+  return getPageMetadata(locale, "manuals");
+}
 
 const MANUALS_DIR = path.join(process.cwd(), "public", "manuals");
 const TITLES_FILE = path.join(process.cwd(), "public", "data", "manual-titles.json");
@@ -22,21 +24,6 @@ function loadTitles(): Record<string, string> {
     return {};
   }
 }
-
-const SECTION_DESCRIPTIONS: Record<string, string> = {
-  "BODY SECTION":
-    "Body panels, exterior trim, doors & windows, seats, interior, airbags",
-  "ELECTRICAL SECTION":
-    "Lighting, instrument cluster, HVAC controls, power accessories",
-  "ENGINE - UNIVERSAL":
-    "Engine mechanical, fuel system, exhaust, engine mounts, clutch",
-  "MECHANICAL COMPONENTS SECTION":
-    "Brakes, suspension, steering, wheels & axles, A/C system",
-  TRANSMISSION:
-    "Manual & automatic transmission, front/rear/center differentials",
-  "WIRING DIAGRAM SECTION":
-    "Full electrical wiring diagrams and circuit schematics",
-};
 
 function formatBytes(bytes: number): string {
   if (bytes >= 1_048_576) return `${(bytes / 1_048_576).toFixed(1)} MB`;
@@ -60,21 +47,55 @@ function humanizeName(filename: string): string {
   return name.trim();
 }
 
+function isZipBackedArchive(filePath: string): boolean {
+  try {
+    const fd = fs.openSync(filePath, "r");
+    try {
+      const signature = Buffer.alloc(4);
+      fs.readSync(fd, signature, 0, 4, 0);
+      return signature[0] === 0x50 && signature[1] === 0x4b;
+    } finally {
+      fs.closeSync(fd);
+    }
+  } catch {
+    return false;
+  }
+}
+
 function readPdfs(dirPath: string, urlPrefix: string): PdfEntry[] {
   if (!fs.existsSync(dirPath)) return [];
-  return fs
-    .readdirSync(dirPath)
-    .filter((f) => f.toLowerCase().endsWith(".pdf"))
-    .map((filename) => {
-      const stats = fs.statSync(path.join(dirPath, filename));
-      return {
-        name: humanizeName(filename),
-        href: `${urlPrefix}/${encodeURIComponent(filename)}`,
-        size: formatBytes(stats.size),
-        bytes: stats.size,
-      };
-    })
-    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const entries: PdfEntry[] = [];
+
+  for (const dirent of fs
+    .readdirSync(dirPath, { withFileTypes: true })
+    .sort((a, b) => a.name.localeCompare(b.name))) {
+    const entryPath = path.join(dirPath, dirent.name);
+    const entryUrl = `${urlPrefix}/${encodeURIComponent(dirent.name)}`;
+
+    if (dirent.isDirectory()) {
+      entries.push(...readPdfs(entryPath, entryUrl));
+      continue;
+    }
+
+    if (!dirent.isFile() || !dirent.name.toLowerCase().endsWith(".pdf")) {
+      continue;
+    }
+
+    if (isZipBackedArchive(entryPath)) {
+      continue;
+    }
+
+    const stats = fs.statSync(entryPath);
+    entries.push({
+      name: humanizeName(dirent.name),
+      href: entryUrl,
+      size: formatBytes(stats.size),
+      bytes: stats.size,
+    });
+  }
+
+  return entries.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function loadEnginePdfs(): PdfEntry[] {
@@ -112,13 +133,18 @@ function loadChassisSections(): ChassisSection[] {
 
       return {
         name: sectionName,
-        description: SECTION_DESCRIPTIONS[sectionName] ?? "",
+        description:
+          SITE_COPY.en.manuals.sectionDescriptions[
+            sectionName as keyof typeof SITE_COPY.en.manuals.sectionDescriptions
+          ] ?? "",
         subsections,
       };
     });
 }
 
-export default function ManualsPage() {
+export default async function ManualsPage() {
+  const locale = await getServerLocale();
+  const copy = getCopy(locale).manuals;
   const enginePdfs = loadEnginePdfs();
   const chassisSections = loadChassisSections();
   const totalCount =
@@ -130,25 +156,23 @@ export default function ManualsPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      {/* Header */}
-      <section className="pt-4 sm:pt-8">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-          Service Manuals
-        </h1>
-        <p className="mt-2 text-base sm:text-lg text-muted max-w-2xl">
-          Factory service manual PDFs &mdash; {totalCount} documents
-        </p>
-        <p className="mt-3 text-sm text-muted max-w-2xl leading-relaxed">
-          Two sources:{" "}
-          <strong className="text-foreground font-medium">
-            EJ20E engine-specific
-          </strong>{" "}
-          manuals covering the SOHC 2.0L flat-four, and{" "}
-          <strong className="text-foreground font-medium">BG chassis</strong>{" "}
-          manuals covering all BG-platform Legacy models (body, electrical,
-          mechanical, transmission, and wiring). Chassis documents are factory
-          Subaru reference PDFs identified by their MSA document code.
-        </p>
+      <section className="bg5-panel-strong rounded-lg p-5 sm:p-7">
+        <div className="flex items-start gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-md border border-border bg-panel text-accent">
+            <BookOpenText className="h-6 w-6" aria-hidden="true" />
+          </div>
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              {copy.eyebrow}
+            </p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              {copy.title}
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted sm:text-base">
+              {totalCount} {copy.description}
+            </p>
+          </div>
+        </div>
       </section>
 
       <ManualsClient

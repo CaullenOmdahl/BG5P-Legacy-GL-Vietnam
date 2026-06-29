@@ -1,0 +1,6 @@
+section,category_code,category_name,group_code,group_name,oem_number,quantity,production_period,applicable_option,spec_color,trim_code,applies_for_models,notes,replacements
+electric,880,CRUISE CONTROL EQUIPMENT,0237S,FLANGE NUT,023706000,,,,,,,,
+electric,880,CRUISE CONTROL EQUIPMENT,0237S,FLANGE NUT,023706006,,,,,,,,
+electric,880,CRUISE CONTROL EQUIPMENT,0100S,FLANGE BOLT-PILOT,010006126,,,,,,,,
+electric,880,CRUISE CONTROL EQUIPMENT,0474S,TAPPING SCREW-HEXAGON FLANGE HEAD,047406126,,,,,,,,
+electric,880,CRUISE CONTROL EQUIPMENT,90371O,PLUG-HOLE,90321AA180,02,01.06.1997 - 30.11.1998,,,,S.(LX+TXS+BRI#+TSR+RS) +W.(LX+TXS+BRI#+TSR),,

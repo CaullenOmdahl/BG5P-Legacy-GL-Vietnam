@@ -2,12 +2,17 @@
 
 import { useState, useMemo } from 'react';
 import type { Part } from '@/lib/data';
+import { useLocale } from '@/components/LocaleProvider';
+import { getCopy, localizePartText } from '@/lib/i18n';
 
 interface PartsTableProps {
   parts: Part[];
+  emptyMessage?: string;
 }
 
-export default function PartsTable({ parts }: PartsTableProps) {
+export default function PartsTable({ parts, emptyMessage }: PartsTableProps) {
+  const { locale } = useLocale();
+  const text = getCopy(locale).components.partsTable;
   const [sortAsc, setSortAsc] = useState(true);
 
   // Group parts by group_name, then sort within groups
@@ -39,14 +44,14 @@ export default function PartsTable({ parts }: PartsTableProps) {
     return (
       <div className="rounded-lg border border-border bg-surface p-6 text-center">
         <p className="text-muted text-sm">
-          Parts data not yet available — extraction in progress
+          {emptyMessage ?? text.empty}
         </p>
       </div>
     );
   }
 
   return (
-    <div className="rounded-lg border border-border bg-surface overflow-hidden">
+    <div className="overflow-hidden rounded-lg border border-border bg-surface">
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
@@ -55,31 +60,31 @@ export default function PartsTable({ parts }: PartsTableProps) {
                 className="px-3 py-3 text-left font-semibold text-foreground cursor-pointer hover:text-accent transition-colors select-none"
                 onClick={() => setSortAsc((prev) => !prev)}
               >
-                OEM Part Number{' '}
+                {text.oemPartNumber}{' '}
                 <span className="text-muted text-xs">
                   {sortAsc ? '\u25B2' : '\u25BC'}
                 </span>
               </th>
               <th className="px-3 py-2 text-left font-semibold text-foreground">
-                Qty
+                {text.quantity}
               </th>
               <th className="px-3 py-2 text-left font-semibold text-foreground hidden md:table-cell">
-                Production Period
+                {text.productionPeriod}
               </th>
               <th className="px-3 py-2 text-left font-semibold text-foreground hidden lg:table-cell">
-                Models
+                {text.models}
               </th>
               <th className="px-3 py-2 text-left font-semibold text-foreground hidden md:table-cell">
-                Notes
+                {text.notes}
               </th>
               <th className="px-3 py-2 text-left font-semibold text-foreground hidden lg:table-cell">
-                Replacements
+                {text.replacements}
               </th>
             </tr>
           </thead>
           <tbody>
             {grouped.map((group) => (
-              <GroupRows key={group.name} group={group} />
+              <GroupRows key={group.name} group={group} locale={locale} />
             ))}
           </tbody>
         </table>
@@ -88,7 +93,13 @@ export default function PartsTable({ parts }: PartsTableProps) {
   );
 }
 
-function GroupRows({ group }: { group: { name: string; parts: Part[] } }) {
+function GroupRows({
+  group,
+  locale,
+}: {
+  group: { name: string; parts: Part[] };
+  locale: 'en' | 'vi';
+}) {
   return (
     <>
       {group.name && (
@@ -97,30 +108,30 @@ function GroupRows({ group }: { group: { name: string; parts: Part[] } }) {
             colSpan={6}
             className="px-3 py-2 text-xs font-semibold text-accent uppercase tracking-wide bg-background/50"
           >
-            {group.name}
+            {localizePartText(group.name, locale)}
           </td>
         </tr>
       )}
       {group.parts.map((part, i) => (
         <tr
           key={`${part.oem_number}-${i}`}
-          className="border-b border-border last:border-b-0 hover:bg-white/[0.02] transition-colors"
+          className="border-b border-border transition-colors last:border-b-0 hover:bg-panel"
         >
           <td className="px-3 py-2">
             <span className="part-number text-foreground">{part.oem_number}</span>
           </td>
           <td className="px-3 py-2 text-muted">{part.quantity}</td>
           <td className="px-3 py-2 text-muted hidden md:table-cell">
-            {part.production_period || '\u2014'}
+            {localizePartText(part.production_period, locale) || '\u2014'}
           </td>
           <td className="px-3 py-2 text-muted hidden lg:table-cell">
-            {part.applies_for_models || '\u2014'}
+            {localizePartText(part.applies_for_models, locale) || '\u2014'}
           </td>
           <td className="px-3 py-2 text-muted hidden md:table-cell">
-            {part.notes || '\u2014'}
+            {localizePartText(part.notes, locale) || '\u2014'}
           </td>
           <td className="px-3 py-2 text-muted hidden lg:table-cell">
-            {part.replacements || '\u2014'}
+            {localizePartText(part.replacements, locale) || '\u2014'}
           </td>
         </tr>
       ))}
