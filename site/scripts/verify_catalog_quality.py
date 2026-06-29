@@ -11,6 +11,14 @@ ROOT = Path(__file__).resolve().parents[2]
 SITE_DIR = ROOT / "site"
 MASTER_CSV = ROOT / "docs" / "bg5p-oem-parts-master.csv"
 PARTS_INDEX = SITE_DIR / "public" / "llms" / "parts-index.txt"
+SHARED_INTERCHANGE_CSVS = [
+    ROOT / "docs" / "bg5p-shared-engine-interchange-candidates.csv",
+    ROOT
+    / "chatgpt-bg5-diagnostic-expert"
+    / "upload_20_files"
+    / "14_BG5P_Shared_Engine_Interchange_Candidates.csv",
+    SITE_DIR / "chatbot-knowledge" / "14_BG5P_Shared_Engine_Interchange_Candidates.csv",
+]
 
 EXPECTED_CATEGORY_LABELS = {
     "560": ("Body Key Bumper", "TRUNK LID"),
@@ -41,6 +49,19 @@ def read_parts_index_rows() -> list[dict[str, str]]:
     return rows
 
 
+def duplicate_csv_row_numbers(csv_path: Path) -> list[int]:
+    seen: set[tuple[str, ...]] = set()
+    duplicates: list[int] = []
+    with csv_path.open("r", encoding="utf-8", newline="") as handle:
+        for line_number, row in enumerate(csv.reader(handle), start=1):
+            key = tuple(row)
+            if key in seen:
+                duplicates.append(line_number)
+                continue
+            seen.add(key)
+    return duplicates
+
+
 def main() -> None:
     failures: list[str] = []
 
@@ -57,6 +78,14 @@ def main() -> None:
         failures.append(
             f"{PARTS_INDEX.relative_to(SITE_DIR)} contains {len(unknown_index)} row(s) with Unknown section labels"
         )
+
+    for csv_path in SHARED_INTERCHANGE_CSVS:
+        duplicate_lines = duplicate_csv_row_numbers(csv_path)
+        if duplicate_lines:
+            failures.append(
+                f"{csv_path.relative_to(ROOT)} contains duplicate row(s) at line(s): "
+                f"{', '.join(str(line) for line in duplicate_lines)}"
+            )
 
     by_category: dict[str, list[dict[str, str]]] = {}
     for row in master_rows:
