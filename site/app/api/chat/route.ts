@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createHash } from "node:crypto";
+import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { MAX_CHAT_HISTORY_MESSAGES, trimUserFirstHistory } from "@/lib/chat/history";
 import { loadChatInstructions, retrieveKnowledge, retrievePublicLinks } from "@/lib/chat/knowledge";
 import { callMiniMax, type MiniMaxMessage, MiniMaxError } from "@/lib/chat/minimax";
@@ -32,8 +32,10 @@ interface PageContext {
 const MAX_MESSAGE_CHARS = 1800;
 const MAX_CONTEXT_FIELD_CHARS = 220;
 const TRUSTED_PROXY_SECRET_HEADER = "x-bg5-trusted-proxy";
-const CLIENT_SESSION_HEADER = "x-bg5-client-session";
-const CLIENT_SESSION_PATTERN = /^[a-zA-Z0-9_-]{16,80}$/;
+const RATE_LIMIT_SESSION_COOKIE = "bg5_chat_session";
+const RATE_LIMIT_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
+const RATE_LIMIT_COOKIE_ID_PATTERN = /^[a-f0-9]{32}$/;
+const RATE_LIMIT_COOKIE_SIGNATURE_PATTERN = /^[a-f0-9]{64}$/;
 const DEFAULT_TRUSTED_CLIENT_IP_HEADERS = ["x-forwarded-for", "x-real-ip"];
 const TRUSTED_CLIENT_IP_HEADERS = new Set([
   ...DEFAULT_TRUSTED_CLIENT_IP_HEADERS,
@@ -64,11 +66,81 @@ function jsonError(message: string, status: number, extra: Record<string, string
   return NextResponse.json({ error: message, ...extra }, { status });
 }
 
+interface ClientIdentity {
+  key: string;
+  sessionCookie?: string;
+}
+
 function stableHash(value: string): string {
   return createHash("sha256").update(value).digest("hex").slice(0, 32);
 }
 
-function getClientKey(request: NextRequest): string {
+function getRateLimitSecret(): string {
+  return (
+    process.env.BG5_RATE_LIMIT_SECRET?.trim() ||
+    process.env.BG5_TRUSTED_PROXY_SECRET?.trim() ||
+    process.env.MINIMAX_API_KEY?.trim() ||
+    ""
+  );
+}
+
+function signRateLimitSession(id: string, secret: string): string {
+  return createHmac("sha256", secret).update(id).digest("hex");
+}
+
+function signaturesEqual(a: string, b: string): boolean {
+  if (
+    !RATE_LIMIT_COOKIE_SIGNATURE_PATTERN.test(a) ||
+    !RATE_LIMIT_COOKIE_SIGNATURE_PATTERN.test(b)
+  ) {
+    return false;
+  }
+  return timingSafeEqual(Buffer.from(a, "hex"), Buffer.from(b, "hex"));
+}
+
+function readSignedSessionId(request: NextRequest, secret: string): string | null {
+  const cookieValue = request.cookies.get(RATE_LIMIT_SESSION_COOKIE)?.value;
+  const [id, signature] = cookieValue?.split(".") ?? [];
+  if (
+    !id ||
+    !signature ||
+    !RATE_LIMIT_COOKIE_ID_PATTERN.test(id) ||
+    !RATE_LIMIT_COOKIE_SIGNATURE_PATTERN.test(signature)
+  ) {
+    return null;
+  }
+
+  const expectedSignature = signRateLimitSession(id, secret);
+  return signaturesEqual(signature, expectedSignature) ? id : null;
+}
+
+function createSessionCookie(secret: string): string {
+  const id = randomBytes(16).toString("hex");
+  return `${id}.${signRateLimitSession(id, secret)}`;
+}
+
+function withClientSessionCookie(
+  response: NextResponse,
+  identity: ClientIdentity,
+  request: NextRequest
+): NextResponse {
+  if (!identity.sessionCookie) return response;
+
+  response.cookies.set({
+    name: RATE_LIMIT_SESSION_COOKIE,
+    value: identity.sessionCookie,
+    httpOnly: true,
+    sameSite: "lax",
+    secure:
+      request.nextUrl.protocol === "https:" ||
+      request.headers.get("x-forwarded-proto") === "https",
+    maxAge: RATE_LIMIT_SESSION_MAX_AGE_SECONDS,
+    path: "/",
+  });
+  return response;
+}
+
+function getClientIdentity(request: NextRequest): ClientIdentity {
   const trustedProxySecret = process.env.BG5_TRUSTED_PROXY_SECRET?.trim();
   const proxyIsTrusted =
     Boolean(trustedProxySecret) &&
@@ -84,13 +156,16 @@ function getClientKey(request: NextRequest): string {
     for (const headerName of headerNames) {
       const value = request.headers.get(headerName);
       const clientIp = value?.split(",")[0]?.trim();
-      if (clientIp) return `ip:${clientIp}`;
+      if (clientIp) return { key: `ip:${clientIp}` };
     }
   }
 
-  const clientSession = request.headers.get(CLIENT_SESSION_HEADER)?.trim();
-  if (clientSession && CLIENT_SESSION_PATTERN.test(clientSession)) {
-    return `session:${clientSession}`;
+  const rateLimitSecret = getRateLimitSecret();
+  const signedSessionId = rateLimitSecret
+    ? readSignedSessionId(request, rateLimitSecret)
+    : null;
+  if (signedSessionId) {
+    return { key: `session:${signedSessionId}` };
   }
 
   const fallbackParts = [
@@ -100,7 +175,10 @@ function getClientKey(request: NextRequest): string {
     request.headers.get("host") ?? "no-host",
   ];
 
-  return `untrusted:${stableHash(fallbackParts.join("\n"))}`;
+  return {
+    key: `untrusted:${stableHash(fallbackParts.join("\n"))}`,
+    sessionCookie: rateLimitSecret ? createSessionCookie(rateLimitSecret) : undefined,
+  };
 }
 
 function hasValidOrigin(request: NextRequest): boolean {
@@ -313,18 +391,27 @@ export async function POST(request: NextRequest) {
     return jsonError(API_ERRORS[requestLocale].invalidOrigin, 403);
   }
 
-  const rateLimit = checkRateLimit(getClientKey(request));
+  const clientIdentity = getClientIdentity(request);
+  const rateLimit = checkRateLimit(clientIdentity.key);
   if (!rateLimit.allowed) {
-    return jsonError(API_ERRORS[requestLocale].rateLimited, 429, {
-      retryAfter: rateLimit.retryAfter,
-    });
+    return withClientSessionCookie(
+      jsonError(API_ERRORS[requestLocale].rateLimited, 429, {
+        retryAfter: rateLimit.retryAfter,
+      }),
+      clientIdentity,
+      request
+    );
   }
 
   let body: unknown;
   try {
     body = await request.json();
   } catch {
-    return jsonError(API_ERRORS[requestLocale].invalidJson, 400);
+    return withClientSessionCookie(
+      jsonError(API_ERRORS[requestLocale].invalidJson, 400),
+      clientIdentity,
+      request
+    );
   }
 
   const messages = normalizeMessages((body as { messages?: unknown })?.messages);
@@ -335,7 +422,11 @@ export async function POST(request: NextRequest) {
   const pageContext = normalizePageContext((body as { pageContext?: unknown })?.pageContext);
 
   if (!lastUserMessage) {
-    return jsonError(API_ERRORS[locale].missingMessage, 400);
+    return withClientSessionCookie(
+      jsonError(API_ERRORS[locale].missingMessage, 400),
+      clientIdentity,
+      request
+    );
   }
 
   const retrievalQuery = buildRetrievalQuery(
@@ -366,15 +457,27 @@ export async function POST(request: NextRequest) {
 
   try {
     const answer = await callMiniMax(minimaxMessages);
-    return NextResponse.json({
-      answer,
-      sources: publicLinks,
-    });
+    return withClientSessionCookie(
+      NextResponse.json({
+        answer,
+        sources: publicLinks,
+      }),
+      clientIdentity,
+      request
+    );
   } catch (error) {
     if (error instanceof MiniMaxError) {
       console.error("MiniMax chat provider failed", error);
-      return jsonError(API_ERRORS[locale].providerFailed, error.status);
+      return withClientSessionCookie(
+        jsonError(API_ERRORS[locale].providerFailed, error.status),
+        clientIdentity,
+        request
+      );
     }
-    return jsonError(API_ERRORS[locale].assistantFailed, 500);
+    return withClientSessionCookie(
+      jsonError(API_ERRORS[locale].assistantFailed, 500),
+      clientIdentity,
+      request
+    );
   }
 }

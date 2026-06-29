@@ -9,6 +9,8 @@ const page = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const knowledge = fs.readFileSync(path.join(root, "lib/chat/knowledge.ts"), "utf8");
 const history = fs.readFileSync(path.join(root, "lib/chat/history.ts"), "utf8");
 const manualsClient = fs.readFileSync(path.join(root, "components/ManualsClient.tsx"), "utf8");
+const bgChassisPublicIndexPath = path.join(root, "public/manuals/BG-chassis/index.html");
+const bgChassisSourceIndexPath = path.join(root, "../manuals/BG-chassis/index.html");
 
 const widgetRequired = [
   "Locale",
@@ -20,7 +22,6 @@ const widgetRequired = [
   "diagnosticSession",
   "pageContext",
   "CHAT_MESSAGES_STORAGE_KEY",
-  "CHAT_CLIENT_SESSION_STORAGE_KEY",
   "loadPersistedMessages",
   "savePersistedMessages",
   "MAX_PERSISTED_MESSAGES",
@@ -55,11 +56,14 @@ const routeRequired = [
   "Inline diagram images are allowed when using public bg5.caphedigital.com diagram URLs",
   "BG5_TRUSTED_PROXY_SECRET",
   "x-bg5-trusted-proxy",
-  "x-bg5-client-session",
+  "BG5_RATE_LIMIT_SECRET",
+  "bg5_chat_session",
   "trimUserFirstHistory",
   "value.replace(/\\s+/g, \" \")",
   "API_ERRORS[locale].providerFailed",
   "createHash",
+  "createHmac",
+  "timingSafeEqual",
 ];
 
 for (const marker of routeRequired) {
@@ -134,11 +138,15 @@ assert.ok(
   "API route should require a trusted proxy marker before forwarded IP rate-limit keys"
 );
 assert.ok(
-  route.includes("x-bg5-client-session") &&
-    route.includes("session:${clientSession}") &&
+  route.includes("bg5_chat_session") &&
+    route.includes("signRateLimitSession") &&
+    route.includes("httpOnly: true") &&
+    route.includes("sameSite: \"lax\"") &&
+    route.includes("session:${signedSessionId}") &&
     route.includes("untrusted:${stableHash") &&
+    !route.includes("x-bg5-client-session") &&
     !route.includes("return \"untrusted-proxy-or-local\""),
-  "API route should avoid one shared fallback rate-limit bucket for every visitor"
+  "API route should use server-signed session cookies instead of caller-controlled rate keys"
 );
 assert.ok(
   route.includes("value.replace(/\\s+/g, \" \")") &&
@@ -161,10 +169,10 @@ assert.ok(
   "Markdown links should reject protocol-relative external URLs"
 );
 assert.ok(
-  widget.includes("X-BG5-Client-Session") &&
-    widget.includes("getClientSessionId()") &&
+  !widget.includes("X-BG5-Client-Session") &&
+    !widget.includes("getClientSessionId()") &&
     !widget.includes("replace(/[`*_>#-]/g"),
-  "Widget should send a client session rate-limit key and preserve hyphenated copied text"
+  "Widget should rely on server-issued rate-limit cookies and preserve hyphenated copied text"
 );
 
 const stripMarkdown = (content) =>
@@ -197,6 +205,13 @@ assert.ok(
     manualsClient.includes("setOpenSubs") &&
     manualsClient.includes("scrollIntoView"),
   "Manuals hash deeplinks should open their containing section and subsection"
+);
+assert.ok(
+  fs.existsSync(bgChassisPublicIndexPath) &&
+    fs.existsSync(bgChassisSourceIndexPath) &&
+    fs.readFileSync(bgChassisPublicIndexPath, "utf8").includes("BODY%20SECTION/index.html") &&
+    fs.readFileSync(bgChassisSourceIndexPath, "utf8").includes("BODY%20SECTION/index.html"),
+  "BG-chassis static manual section indexes should have an existing parent index"
 );
 assert.ok(
   fs.readFileSync(path.join(root, "components/LocaleProvider.tsx"), "utf8").includes(
