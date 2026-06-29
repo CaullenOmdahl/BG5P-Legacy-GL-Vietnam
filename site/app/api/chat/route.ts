@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createHash } from "node:crypto";
 import { MAX_CHAT_HISTORY_MESSAGES, trimUserFirstHistory } from "@/lib/chat/history";
 import { loadChatInstructions, retrieveKnowledge, retrievePublicLinks } from "@/lib/chat/knowledge";
 import { callMiniMax, type MiniMaxMessage, MiniMaxError } from "@/lib/chat/minimax";
@@ -31,6 +32,8 @@ interface PageContext {
 const MAX_MESSAGE_CHARS = 1800;
 const MAX_CONTEXT_FIELD_CHARS = 220;
 const TRUSTED_PROXY_SECRET_HEADER = "x-bg5-trusted-proxy";
+const CLIENT_SESSION_HEADER = "x-bg5-client-session";
+const CLIENT_SESSION_PATTERN = /^[a-zA-Z0-9_-]{16,80}$/;
 const DEFAULT_TRUSTED_CLIENT_IP_HEADERS = ["x-forwarded-for", "x-real-ip"];
 const TRUSTED_CLIENT_IP_HEADERS = new Set([
   ...DEFAULT_TRUSTED_CLIENT_IP_HEADERS,
@@ -61,6 +64,10 @@ function jsonError(message: string, status: number, extra: Record<string, string
   return NextResponse.json({ error: message, ...extra }, { status });
 }
 
+function stableHash(value: string): string {
+  return createHash("sha256").update(value).digest("hex").slice(0, 32);
+}
+
 function getClientKey(request: NextRequest): string {
   const trustedProxySecret = process.env.BG5_TRUSTED_PROXY_SECRET?.trim();
   const proxyIsTrusted =
@@ -81,7 +88,19 @@ function getClientKey(request: NextRequest): string {
     }
   }
 
-  return "untrusted-proxy-or-local";
+  const clientSession = request.headers.get(CLIENT_SESSION_HEADER)?.trim();
+  if (clientSession && CLIENT_SESSION_PATTERN.test(clientSession)) {
+    return `session:${clientSession}`;
+  }
+
+  const fallbackParts = [
+    request.headers.get("user-agent") ?? "no-user-agent",
+    request.headers.get("accept-language") ?? "no-accept-language",
+    request.headers.get("origin") ?? "no-origin",
+    request.headers.get("host") ?? "no-host",
+  ];
+
+  return `untrusted:${stableHash(fallbackParts.join("\n"))}`;
 }
 
 function hasValidOrigin(request: NextRequest): boolean {

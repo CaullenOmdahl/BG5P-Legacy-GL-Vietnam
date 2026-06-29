@@ -83,6 +83,7 @@ const DEFAULT_INTAKE: IntakeContext = {
 
 const SESSION_STORAGE_KEY = "bg5-diagnosticSession-v1";
 const CHAT_MESSAGES_STORAGE_KEY = "bg5-chat-messages-v1";
+const CHAT_CLIENT_SESSION_STORAGE_KEY = "bg5-chat-client-session-v1";
 const MAX_PERSISTED_MESSAGES = 24;
 const IMAGE_MARKDOWN_PREFIX = "![";
 
@@ -812,9 +813,40 @@ function getPageContext(): PageContext {
 function stripMarkdown(content: string): string {
   return content
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/[`*_>#-]/g, "")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/^\s{0,3}[-*+]\s+/gm, "")
+    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+    .replace(/^>\s?/gm, "")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function createClientSessionId(): string {
+  const randomUuid = window.crypto?.randomUUID?.();
+  if (randomUuid) return randomUuid;
+
+  if (window.crypto?.getRandomValues) {
+    const randomValues = new Uint32Array(4);
+    window.crypto.getRandomValues(randomValues);
+    const randomPart = Array.from(randomValues, (value) => value.toString(36)).join("");
+    return `${Date.now().toString(36)}-${randomPart}`;
+  }
+
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+}
+
+function getClientSessionId(): string {
+  try {
+    const stored = window.localStorage.getItem(CHAT_CLIENT_SESSION_STORAGE_KEY);
+    if (stored) return stored;
+    const next = createClientSessionId();
+    window.localStorage.setItem(CHAT_CLIENT_SESSION_STORAGE_KEY, next);
+    return next;
+  } catch {
+    return createClientSessionId();
+  }
 }
 
 function buildFallbackPrompt(mode: DiagnosticMode, intake: IntakeContext, locale: Locale): string {
@@ -1007,7 +1039,10 @@ export default function Bg5ChatWidget() {
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-BG5-Client-Session": getClientSessionId(),
+        },
         body: JSON.stringify({
           locale,
           diagnosticMode: mode,

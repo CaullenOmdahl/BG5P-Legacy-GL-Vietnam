@@ -20,6 +20,7 @@ const widgetRequired = [
   "diagnosticSession",
   "pageContext",
   "CHAT_MESSAGES_STORAGE_KEY",
+  "CHAT_CLIENT_SESSION_STORAGE_KEY",
   "loadPersistedMessages",
   "savePersistedMessages",
   "MAX_PERSISTED_MESSAGES",
@@ -54,9 +55,11 @@ const routeRequired = [
   "Inline diagram images are allowed when using public bg5.caphedigital.com diagram URLs",
   "BG5_TRUSTED_PROXY_SECRET",
   "x-bg5-trusted-proxy",
+  "x-bg5-client-session",
   "trimUserFirstHistory",
   "value.replace(/\\s+/g, \" \")",
   "API_ERRORS[locale].providerFailed",
+  "createHash",
 ];
 
 for (const marker of routeRequired) {
@@ -131,6 +134,13 @@ assert.ok(
   "API route should require a trusted proxy marker before forwarded IP rate-limit keys"
 );
 assert.ok(
+  route.includes("x-bg5-client-session") &&
+    route.includes("session:${clientSession}") &&
+    route.includes("untrusted:${stableHash") &&
+    !route.includes("return \"untrusted-proxy-or-local\""),
+  "API route should avoid one shared fallback rate-limit bucket for every visitor"
+);
+assert.ok(
   route.includes("value.replace(/\\s+/g, \" \")") &&
     route.includes("console.error(\"MiniMax chat provider failed\"") &&
     !route.includes("locale === \"vi\" ? API_ERRORS.vi.providerFailed : error.message"),
@@ -149,6 +159,32 @@ assert.ok(
 assert.ok(
   widget.includes("href.startsWith(\"/\")") && widget.includes("!href.startsWith(\"//\")"),
   "Markdown links should reject protocol-relative external URLs"
+);
+assert.ok(
+  widget.includes("X-BG5-Client-Session") &&
+    widget.includes("getClientSessionId()") &&
+    !widget.includes("replace(/[`*_>#-]/g"),
+  "Widget should send a client session rate-limit key and preserve hyphenated copied text"
+);
+
+const stripMarkdown = (content) =>
+  content
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/^\s{0,3}[-*+]\s+/gm, "")
+    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+    .replace(/^>\s?/gm, "")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+assert.equal(
+  stripMarkdown("- Check no-OBD mode with 22690-AA310 and https://bg5.caphedigital.com/foo-bar"),
+  "Check no-OBD mode with 22690-AA310 and https://bg5.caphedigital.com/foo-bar"
+);
+assert.equal(
+  stripMarkdown("- Open B11_032_01_LH_2_LR.gif for the pressure-sensor hose routing"),
+  "Open B11_032_01_LH_2_LR.gif for the pressure-sensor hose routing"
 );
 assert.ok(
   widget.includes("url.hostname === \"bg5.caphedigital.com\"") &&
