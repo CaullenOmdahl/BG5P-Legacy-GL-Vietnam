@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
+import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { MAX_CHAT_HISTORY_MESSAGES, trimUserFirstHistory } from "@/lib/chat/history";
 import { loadChatInstructions, retrieveKnowledge, retrievePublicLinks } from "@/lib/chat/knowledge";
 import { callMiniMax, type MiniMaxMessage, MiniMaxError } from "@/lib/chat/minimax";
@@ -37,6 +37,7 @@ const RATE_LIMIT_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 const RATE_LIMIT_COOKIE_ID_PATTERN = /^[a-f0-9]{32}$/;
 const RATE_LIMIT_COOKIE_SIGNATURE_PATTERN = /^[a-f0-9]{64}$/;
 const DEFAULT_TRUSTED_CLIENT_IP_HEADERS = ["x-forwarded-for", "x-real-ip"];
+const ANONYMOUS_CLIENT_KEY = "anonymous";
 const TRUSTED_CLIENT_IP_HEADERS = new Set([
   ...DEFAULT_TRUSTED_CLIENT_IP_HEADERS,
   "cf-connecting-ip",
@@ -69,10 +70,6 @@ function jsonError(message: string, status: number, extra: Record<string, string
 interface ClientIdentity {
   key: string;
   sessionCookie?: string;
-}
-
-function stableHash(value: string): string {
-  return createHash("sha256").update(value).digest("hex").slice(0, 32);
 }
 
 function getRateLimitSecret(): string {
@@ -168,15 +165,8 @@ function getClientIdentity(request: NextRequest): ClientIdentity {
     return { key: `session:${signedSessionId}` };
   }
 
-  const fallbackParts = [
-    request.headers.get("user-agent") ?? "no-user-agent",
-    request.headers.get("accept-language") ?? "no-accept-language",
-    request.headers.get("origin") ?? "no-origin",
-    request.headers.get("host") ?? "no-host",
-  ];
-
   return {
-    key: `untrusted:${stableHash(fallbackParts.join("\n"))}`,
+    key: ANONYMOUS_CLIENT_KEY,
     sessionCookie: rateLimitSecret ? createSessionCookie(rateLimitSecret) : undefined,
   };
 }
@@ -394,13 +384,9 @@ export async function POST(request: NextRequest) {
   const clientIdentity = getClientIdentity(request);
   const rateLimit = checkRateLimit(clientIdentity.key);
   if (!rateLimit.allowed) {
-    return withClientSessionCookie(
-      jsonError(API_ERRORS[requestLocale].rateLimited, 429, {
-        retryAfter: rateLimit.retryAfter,
-      }),
-      clientIdentity,
-      request
-    );
+    return jsonError(API_ERRORS[requestLocale].rateLimited, 429, {
+      retryAfter: rateLimit.retryAfter,
+    });
   }
 
   let body: unknown;

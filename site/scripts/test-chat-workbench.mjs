@@ -9,6 +9,7 @@ const route = fs.readFileSync(path.join(root, "app/api/chat/route.ts"), "utf8");
 const page = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const knowledge = fs.readFileSync(path.join(root, "lib/chat/knowledge.ts"), "utf8");
 const history = fs.readFileSync(path.join(root, "lib/chat/history.ts"), "utf8");
+const rateLimit = fs.readFileSync(path.join(root, "lib/chat/rate-limit.ts"), "utf8");
 const manualsClient = fs.readFileSync(path.join(root, "components/ManualsClient.tsx"), "utf8");
 const bgChassisPublicIndexPath = path.join(root, "public/manuals/BG-chassis/index.html");
 const bgChassisSourceIndexPath = path.join(root, "../manuals/BG-chassis/index.html");
@@ -72,9 +73,9 @@ const routeRequired = [
   "trimUserFirstHistory",
   "value.replace(/\\s+/g, \" \")",
   "API_ERRORS[locale].providerFailed",
-  "createHash",
   "createHmac",
   "timingSafeEqual",
+  "ANONYMOUS_CLIENT_KEY",
 ];
 
 for (const marker of routeRequired) {
@@ -154,10 +155,21 @@ assert.ok(
     route.includes("httpOnly: true") &&
     route.includes("sameSite: \"lax\"") &&
     route.includes("session:${signedSessionId}") &&
-    route.includes("untrusted:${stableHash") &&
+    route.includes("key: ANONYMOUS_CLIENT_KEY") &&
+    route.includes("return jsonError(API_ERRORS[requestLocale].rateLimited") &&
+    !route.includes("stableHash") &&
+    !route.includes("no-user-agent") &&
+    !route.includes("no-accept-language") &&
     !route.includes("x-bg5-client-session") &&
     !route.includes("return \"untrusted-proxy-or-local\""),
-  "API route should use server-signed session cookies instead of caller-controlled rate keys"
+  "API route should use server-signed session cookies and a shared anonymous bucket instead of caller-controlled rate keys"
+);
+assert.ok(
+  rateLimit.includes("sweepExpiredBuckets") &&
+    rateLimit.includes("SWEEP_INTERVAL_MS") &&
+    rateLimit.includes("buckets.delete(key)") &&
+    rateLimit.indexOf("sweepExpiredBuckets(now)") < rateLimit.indexOf("const bucket = buckets.get(key)"),
+  "Rate-limit buckets should be pruned before bucket lookup"
 );
 assert.ok(
   route.includes("value.replace(/\\s+/g, \" \")") &&
