@@ -62,6 +62,20 @@ def duplicate_csv_row_numbers(csv_path: Path) -> list[int]:
     return duplicates
 
 
+def misaligned_application_row_numbers(csv_path: Path) -> list[int]:
+    misaligned: list[int] = []
+    model_prefixes = ("*S.", "S.", "2W.", "W.", "LX.", "25.", "MT.")
+    with csv_path.open("r", encoding="utf-8", newline="") as handle:
+        for line_number, row in enumerate(csv.DictReader(handle), start=2):
+            applies = row.get("applies_for_models", "")
+            notes = row.get("notes", "")
+            notes_looks_like_models = notes.startswith(model_prefixes) and "EJ" in notes
+            applies_looks_like_option_note = applies in {"EUR.RUSTPROOF"}
+            if notes_looks_like_models or applies_looks_like_option_note:
+                misaligned.append(line_number)
+    return misaligned
+
+
 def main() -> None:
     failures: list[str] = []
 
@@ -85,6 +99,12 @@ def main() -> None:
             failures.append(
                 f"{csv_path.relative_to(ROOT)} contains duplicate row(s) at line(s): "
                 f"{', '.join(str(line) for line in duplicate_lines)}"
+            )
+        misaligned_lines = misaligned_application_row_numbers(csv_path)
+        if misaligned_lines:
+            failures.append(
+                f"{csv_path.relative_to(ROOT)} contains model application data in the notes/options columns "
+                f"at line(s): {', '.join(str(line) for line in misaligned_lines)}"
             )
 
     by_category: dict[str, list[dict[str, str]]] = {}

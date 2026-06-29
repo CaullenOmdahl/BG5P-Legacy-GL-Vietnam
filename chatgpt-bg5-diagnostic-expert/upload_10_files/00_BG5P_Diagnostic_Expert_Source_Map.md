@@ -21,9 +21,9 @@ These repository sources are integrated into the strict 10-file upload set, so t
 | Source | Integrated Into | Rows / Lines | SHA-256 | Purpose |
 |---|---|---:|---|---|
 | `docs/bg5p-consumables-wear-interchange.md` | `08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 257 lines | `3a896b6c52b757f3` | Purchase-facing consumables and wear-parts interchange guide with confidence labels. |
-| `docs/parts-interchange-research.md` | `08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 140 lines | `8b651223035fa78a` | Parts-interchange research rules, Car-Part/Hollander usage boundaries, and source hierarchy. |
-| `docs/bg5p-oem-parts-master.csv` | `09_BG5P_Parts_Diagram_Index.csv` | 3608 rows | `2b8041149788934c` | Full local EPC-derived OEM part master with interchange signal and confidence gate fields. |
-| `docs/bg5p-shared-engine-interchange-candidates.csv` | `09_BG5P_Parts_Diagram_Index.csv` | 261 rows | `1142c6c00f1a5fd0` | Rows where EPC text explicitly mentions EJ20E plus donor engine tokens such as EJ18E or EJ25D. |
+| `docs/parts-interchange-research.md` | `08_BG5P_Maintenance_Parts_LLM_Corpus.md` | 145 lines | `13613f69976b7d3a` | Parts-interchange research rules, Car-Part/Hollander usage boundaries, and source hierarchy. |
+| `docs/bg5p-oem-parts-master.csv` | `09_BG5P_Parts_Diagram_Index.csv` | 3608 rows | `8294c1a0f100044c` | Full local EPC-derived OEM part master with interchange signal and confidence gate fields. |
+| `docs/bg5p-shared-engine-interchange-candidates.csv` | `09_BG5P_Parts_Diagram_Index.csv` | 258 rows | `3787862d38b3f025` | Rows where EPC text explicitly mentions EJ20E plus donor engine tokens such as EJ18E or EJ25D. |
 
 ## Recommended 20-File Upload Set
 

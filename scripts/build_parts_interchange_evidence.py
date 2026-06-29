@@ -24,6 +24,8 @@ MASTER_CSV = DOCS_DIR / "bg5p-oem-parts-master.csv"
 SHARED_ENGINE_CSV = DOCS_DIR / "bg5p-shared-engine-interchange-candidates.csv"
 
 ENGINE_RE = re.compile(r"\bEJ\d{2}[A-Z]?\b", re.IGNORECASE)
+MODEL_APPLICATION_PREFIXES = ("*S.", "S.", "2W.", "W.", "LX.", "25.", "MT.")
+OPTION_NOTE_VALUES = {"EUR.RUSTPROOF"}
 
 
 MASTER_FIELDS = [
@@ -71,6 +73,25 @@ def engine_tokens(row: dict) -> list[str]:
         for field in ("production_period", "applies_for_models", "notes")
     )
     return sorted({match.group(0).upper() for match in ENGINE_RE.finditer(text)})
+
+
+def looks_like_model_application(value: str) -> bool:
+    return value.startswith(MODEL_APPLICATION_PREFIXES) and bool(ENGINE_RE.search(value))
+
+
+def normalize_application_fields(row: dict) -> dict:
+    normalized = dict(row)
+    applies = str(normalized.get("applies_for_models", ""))
+    notes = str(normalized.get("notes", ""))
+
+    if applies in OPTION_NOTE_VALUES and looks_like_model_application(notes):
+        normalized["applies_for_models"] = notes
+        normalized["notes"] = applies
+    elif not applies and looks_like_model_application(notes):
+        normalized["applies_for_models"] = notes
+        normalized["notes"] = ""
+
+    return normalized
 
 
 def classify(row: dict, section: str, tokens: list[str]) -> tuple[str, str, str]:
@@ -130,6 +151,7 @@ def build_rows(parts: dict, diagrams: dict[str, tuple[str, str]]) -> list[dict]:
     for category_code, entries in sorted(parts.items()):
         section, diagram = diagrams.get(category_code, ("Unknown", "Unknown"))
         for row in entries:
+            row = normalize_application_fields(row)
             tokens = engine_tokens(row)
             signal, confidence_gate, required = classify(row, section, tokens)
             rows.append(
@@ -169,18 +191,22 @@ def main() -> None:
 
     master_rows = build_rows(parts, diagrams)
     shared_rows = []
+    seen_shared_rows: set[tuple[str, ...]] = set()
     for row in master_rows:
         tokens = [token for token in row["engine_tokens"].split(";") if token]
         donor_tokens = [token for token in tokens if token != "EJ20E"]
         if row["interchange_signal"] != "shared_engine_candidate":
             continue
-        shared_rows.append(
-            {
-                **row,
-                "donor_engine_tokens": ";".join(donor_tokens),
-                "confidence_statement": row["confidence_gate"],
-            }
-        )
+        shared_row = {
+            **row,
+            "donor_engine_tokens": ";".join(donor_tokens),
+            "confidence_statement": row["confidence_gate"],
+        }
+        shared_key = tuple(str(shared_row.get(field, "")) for field in SHARED_FIELDS)
+        if shared_key in seen_shared_rows:
+            continue
+        seen_shared_rows.add(shared_key)
+        shared_rows.append(shared_row)
 
     write_csv(MASTER_CSV, MASTER_FIELDS, master_rows)
     write_csv(SHARED_ENGINE_CSV, SHARED_FIELDS, shared_rows)

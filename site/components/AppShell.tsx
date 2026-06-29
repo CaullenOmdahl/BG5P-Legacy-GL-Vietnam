@@ -152,7 +152,10 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
       <div className="border-t border-border p-3">
         <button
           type="button"
-          onClick={() => openChat(labels.chatPrompt)}
+          onClick={() => {
+            onNavigate?.();
+            openChat(labels.chatPrompt);
+          }}
           className="flex w-full items-center justify-center gap-2 rounded-md bg-accent px-3 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-accent-hover"
         >
           <Bot className="h-4 w-4" aria-hidden="true" />

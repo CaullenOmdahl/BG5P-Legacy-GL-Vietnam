@@ -997,6 +997,7 @@ export default function Bg5ChatWidget() {
   async function sendPrompt(prompt: string) {
     const trimmed = prompt.trim() || buildFallbackPrompt(mode, intake, locale);
     if (!trimmed || loading) return;
+    const currentPageContext = getPageContext();
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -1008,6 +1009,7 @@ export default function Bg5ChatWidget() {
     setInput("");
     setError("");
     setLoading(true);
+    setPageContext(currentPageContext);
 
     try {
       const response = await fetch("/api/chat", {
@@ -1017,7 +1019,7 @@ export default function Bg5ChatWidget() {
           locale,
           diagnosticMode: mode,
           intake,
-          pageContext: diagnosticSession.pageContext,
+          pageContext: currentPageContext,
           messages: trimUserFirstHistory(
             nextMessages.filter((message) => message.id !== "initial")
           ).map(({ role, content }) => ({ role, content })),

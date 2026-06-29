@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const appShell = fs.readFileSync(path.join(root, "components/AppShell.tsx"), "utf8");
 const widget = fs.readFileSync(path.join(root, "components/Bg5ChatWidget.tsx"), "utf8");
 const route = fs.readFileSync(path.join(root, "app/api/chat/route.ts"), "utf8");
 const page = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
@@ -21,6 +22,15 @@ function collectIndexFiles(directory) {
     const fullPath = path.join(directory, entry.name);
     if (entry.isDirectory()) return collectIndexFiles(fullPath);
     return entry.isFile() && entry.name === "index.html" ? [fullPath] : [];
+  });
+}
+
+function collectDirectories(directory) {
+  const entries = fs.readdirSync(directory, { withFileTypes: true });
+  return entries.flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    if (!entry.isDirectory()) return [];
+    return [fullPath, ...collectDirectories(fullPath)];
   });
 }
 
@@ -136,6 +146,17 @@ assert.ok(
   "Floating chat open path should refresh page context"
 );
 assert.ok(
+  widget.includes("const currentPageContext = getPageContext()") &&
+    widget.includes("setPageContext(currentPageContext)") &&
+    widget.includes("pageContext: currentPageContext"),
+  "Chat submit path should refresh page context before posting prompts"
+);
+assert.ok(
+  appShell.includes("onNavigate?.();") &&
+    appShell.indexOf("onNavigate?.();") < appShell.indexOf("openChat(labels.chatPrompt)"),
+  "Sidebar chat launch should close the mobile drawer before opening chat"
+);
+assert.ok(
   widget.includes("messagesHydrated") &&
     widget.includes("setMessages(loadPersistedMessages") &&
     !widget.includes("useState<ChatMessage[]>(() => [\n    ...loadPersistedMessages"),
@@ -243,6 +264,15 @@ for (const indexPath of [
   assert.ok(
     !deprecatedManualIndexAttributes.test(fs.readFileSync(indexPath, "utf8")),
     `BG-chassis manual index should use CSS instead of deprecated table attributes: ${indexPath}`
+  );
+}
+for (const directoryPath of [
+  ...collectDirectories(path.dirname(bgChassisPublicIndexPath)),
+  ...collectDirectories(path.dirname(bgChassisSourceIndexPath)),
+]) {
+  assert.ok(
+    fs.existsSync(path.join(directoryPath, "index.html")),
+    `BG-chassis manual directory should have a parent-link index: ${directoryPath}`
   );
 }
 assert.ok(

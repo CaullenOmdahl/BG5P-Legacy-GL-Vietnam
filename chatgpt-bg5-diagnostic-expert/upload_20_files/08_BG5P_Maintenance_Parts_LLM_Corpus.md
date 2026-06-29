@@ -13050,6 +13050,6 @@ Use this order:
 
 ## Structured Source Available In CSV: docs/bg5p-shared-engine-interchange-candidates.csv
 
-- Rows: 261
+- Rows: 258
 - Columns: category_code, section, diagram, group_code, group_name, oem_number, quantity, production_period, applies_for_models, notes, donor_engine_tokens, confidence_statement, required_verification
 - Integrated target: `09_BG5P_Parts_Diagram_Index.csv`
