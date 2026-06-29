@@ -52,8 +52,9 @@ Create `site/scripts/verify-site-index.mjs` with this behavior:
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.resolve(import.meta.dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const baseUrl = "https://bg5.caphedigital.com";
 const readJson = (relative) =>
   JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -157,8 +158,9 @@ Create `site/scripts/generate-site-index.mjs` with this behavior:
 ```js
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.resolve(import.meta.dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const baseUrl = (process.env.BG5_SITE_BASE_URL || "https://bg5.caphedigital.com").replace(/\/$/, "");
 const readJson = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
 

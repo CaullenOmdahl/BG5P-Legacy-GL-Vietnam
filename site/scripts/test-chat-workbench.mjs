@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.resolve(import.meta.dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const widget = fs.readFileSync(path.join(root, "components/Bg5ChatWidget.tsx"), "utf8");
 const route = fs.readFileSync(path.join(root, "app/api/chat/route.ts"), "utf8");
 const page = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");

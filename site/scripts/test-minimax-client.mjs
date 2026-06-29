@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import ts from "typescript";
 
-const root = path.resolve(import.meta.dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = path.join(root, "lib/chat/minimax.ts");
 const source = fs.readFileSync(sourcePath, "utf8");
 const transpiled = ts.transpileModule(source, {
