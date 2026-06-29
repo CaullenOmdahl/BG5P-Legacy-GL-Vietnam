@@ -12,6 +12,16 @@ const history = fs.readFileSync(path.join(root, "lib/chat/history.ts"), "utf8");
 const manualsClient = fs.readFileSync(path.join(root, "components/ManualsClient.tsx"), "utf8");
 const bgChassisPublicIndexPath = path.join(root, "public/manuals/BG-chassis/index.html");
 const bgChassisSourceIndexPath = path.join(root, "../manuals/BG-chassis/index.html");
+const deprecatedManualIndexAttributes = /\s(?:align|bgcolor|border|cellspacing|width)=/i;
+
+function collectIndexFiles(directory) {
+  const entries = fs.readdirSync(directory, { withFileTypes: true });
+  return entries.flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return collectIndexFiles(fullPath);
+    return entry.isFile() && entry.name === "index.html" ? [fullPath] : [];
+  });
+}
 
 const widgetRequired = [
   "Locale",
@@ -214,6 +224,15 @@ assert.ok(
     fs.readFileSync(bgChassisSourceIndexPath, "utf8").includes("BODY%20SECTION/index.html"),
   "BG-chassis static manual section indexes should have an existing parent index"
 );
+for (const indexPath of [
+  ...collectIndexFiles(path.dirname(bgChassisPublicIndexPath)),
+  ...collectIndexFiles(path.dirname(bgChassisSourceIndexPath)),
+]) {
+  assert.ok(
+    !deprecatedManualIndexAttributes.test(fs.readFileSync(indexPath, "utf8")),
+    `BG-chassis manual index should use CSS instead of deprecated table attributes: ${indexPath}`
+  );
+}
 assert.ok(
   fs.readFileSync(path.join(root, "components/LocaleProvider.tsx"), "utf8").includes(
     "effective !== initialLocale"
