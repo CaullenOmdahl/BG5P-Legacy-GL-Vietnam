@@ -482,9 +482,11 @@ def make_quick_reference() -> None:
         lines.append("")
         lines.append(f"- Difficulty: {item.get('difficulty', '')}")
         lines.append(f"- Interval: {item.get('interval', '')}")
+        lines.append("- Review: " + item.get("review_status", "unreviewed") + "; exact-page/configuration validation required")
+        lines.append("- Interval basis: " + item.get("interval_basis", "unreviewed"))
         lines.append("- Specs:")
         for spec in item.get("specs", []):
-            lines.append(f"  - {spec.get('label', '')}: {spec.get('value', '')}")
+            lines.append(f"  - {spec.get('label', '')}: {spec.get('value', '')} [{spec.get('status', 'unreviewed')}; {spec.get('conditions', 'source/configuration review required')}]")
         lines.append("- Steps:")
         for idx, step in enumerate(item.get("steps", []), start=1):
             lines.append(f"  {idx}. {step}")
@@ -778,7 +780,7 @@ def make_gpt_instructions() -> None:
         "For no-OBD engine fault codes, use Subaru two-digit DTCs and MIL/CEL flash-code logic. Long flashes are tens, short flashes are ones, and OK code uses the middle-length flash.",
         "",
     ]
-    write_text(PACK / "GPT_INSTRUCTIONS.md", "\n".join(lines))
+    write_text(PACK / "GPT_INSTRUCTIONS.md", "\n".join(lines) + "\n\n" + (ROOT / "site/sourcing/assistant-rules.md").read_text())
 
 
 def make_upload_20_set() -> None:

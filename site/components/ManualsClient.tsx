@@ -1,14 +1,21 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { SourcingData } from "@/lib/sourcing-types";
+import { sourcingCopy } from "@/lib/sourcing-copy";
 import { useLocale } from "@/components/LocaleProvider";
-import { getCopy, localizeManualTitle, localizeTechnicalName } from "@/lib/i18n";
+import {
+  getCopy,
+  localizeManualTitle,
+  localizeTechnicalName,
+} from "@/lib/i18n";
 
 export interface PdfEntry {
   name: string;
   href: string;
   size: string;
   bytes: number;
+  applicability?: SourcingData["manuals"][number];
 }
 
 export interface SubSection {
@@ -86,11 +93,16 @@ export default function ManualsClient({
       if (!anchor) return;
 
       for (const section of chassisSections) {
-        const sub = section.subsections.find((candidate) => candidate.anchor === anchor);
+        const sub = section.subsections.find(
+          (candidate) => candidate.anchor === anchor,
+        );
         if (!sub) continue;
 
         setOpenSections((prev) => ({ ...prev, [section.name]: true }));
-        setOpenSubs((prev) => ({ ...prev, [`${section.name}/${sub.name}`]: true }));
+        setOpenSubs((prev) => ({
+          ...prev,
+          [`${section.name}/${sub.name}`]: true,
+        }));
         window.requestAnimationFrame(() => {
           document.getElementById(anchor)?.scrollIntoView({ block: "start" });
         });
@@ -106,7 +118,9 @@ export default function ManualsClient({
   const filteredEngine = useMemo(() => {
     if (!q) return enginePdfs;
     return enginePdfs.filter((p) =>
-      `${p.name} ${localizeManualTitle(p.name, locale)}`.toLowerCase().includes(q)
+      `${p.name} ${localizeManualTitle(p.name, locale)} ${p.applicability?.market} ${p.applicability?.applicability} ${p.applicability?.description}`
+        .toLowerCase()
+        .includes(q),
     );
   }, [enginePdfs, locale, q]);
 
@@ -117,7 +131,9 @@ export default function ManualsClient({
         const sectionHit =
           section.name.toLowerCase().includes(q) ||
           section.description.toLowerCase().includes(q) ||
-          localizeTechnicalName(section.name, locale).toLowerCase().includes(q) ||
+          localizeTechnicalName(section.name, locale)
+            .toLowerCase()
+            .includes(q) ||
           (
             text.sectionDescriptions[
               section.name as keyof typeof text.sectionDescriptions
@@ -134,9 +150,9 @@ export default function ManualsClient({
             const filteredPdfs = subHit
               ? sub.pdfs
               : sub.pdfs.filter((p) =>
-                  `${p.name} ${localizeManualTitle(p.name, locale)}`
+                  `${p.name} ${localizeManualTitle(p.name, locale)} ${p.applicability?.market} ${p.applicability?.applicability} ${p.applicability?.description}`
                     .toLowerCase()
-                    .includes(q)
+                    .includes(q),
                 );
             return { ...sub, pdfs: filteredPdfs };
           })
@@ -228,8 +244,21 @@ export default function ManualsClient({
                   <PdfIcon />
                   <span className="flex-1 text-sm font-medium text-foreground group-hover:text-accent transition-colors">
                     {localizeManualTitle(pdf.name, locale)}
+                    <span className="mt-1 block text-xs text-muted">
+                      {pdf.applicability?.market} · {pdf.applicability?.year} ·{" "}
+                      {sourcingCopy[locale].review}:{" "}
+                      {pdf.applicability?.review_status}
+                      <br />
+                      {pdf.applicability?.applicability}
+                      <br />
+                      {sourcingCopy[locale].manual}:{" "}
+                      {pdf.applicability?.reviewed_pages.join(", ") ||
+                        sourcingCopy[locale].unknown}
+                    </span>
                   </span>
-                  <span className="text-xs text-muted whitespace-nowrap">{pdf.size}</span>
+                  <span className="text-xs text-muted whitespace-nowrap">
+                    {pdf.size}
+                  </span>
                 </a>
               </li>
             ))}
@@ -244,11 +273,14 @@ export default function ManualsClient({
               {text.chassisTitle}
             </h2>
             <p className="mt-1 text-sm text-muted">
-              {text.chassisSubtitle(chassisSections.reduce(
-                (n, s) =>
-                  n + s.subsections.reduce((m, sub) => m + sub.pdfs.length, 0),
-                0
-              ))}
+              {text.chassisSubtitle(
+                chassisSections.reduce(
+                  (n, s) =>
+                    n +
+                    s.subsections.reduce((m, sub) => m + sub.pdfs.length, 0),
+                  0,
+                ),
+              )}
             </p>
           </div>
 
@@ -257,7 +289,7 @@ export default function ManualsClient({
               const sectionOpen = isSectionOpen(section.name);
               const sectionPdfCount = section.subsections.reduce(
                 (n, sub) => n + sub.pdfs.length,
-                0
+                0,
               );
 
               return (
@@ -323,6 +355,19 @@ export default function ManualsClient({
                                       <PdfIcon />
                                       <span className="flex-1 text-sm text-foreground group-hover:text-accent transition-colors">
                                         {localizeManualTitle(pdf.name, locale)}
+                                        <span className="mt-1 block text-xs text-muted">
+                                          {pdf.applicability?.market} ·{" "}
+                                          {pdf.applicability?.year} ·{" "}
+                                          {sourcingCopy[locale].review}:{" "}
+                                          {pdf.applicability?.review_status}
+                                          <br />
+                                          {pdf.applicability?.applicability}
+                                          <br />
+                                          {sourcingCopy[locale].manual}:{" "}
+                                          {pdf.applicability?.reviewed_pages.join(
+                                            ", ",
+                                          ) || sourcingCopy[locale].unknown}
+                                        </span>
                                       </span>
                                       <span className="text-xs text-muted whitespace-nowrap shrink-0">
                                         {pdf.size}

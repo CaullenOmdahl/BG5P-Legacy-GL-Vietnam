@@ -1,6 +1,8 @@
-# Part Number Index — BG5P Legacy GL
-All OEM part numbers. Search by number or name.
+Schema 1 | Record version 68696de79e3dbd83 | Checked 2026-10-09
+Subaru shares many parts across engines, markets and models. Compatibility is assessed per part using OEM numbers, documented replacements, manufacturer applications, dimensions and installed-component evidence. Catalog inclusion is a starting point, not confirmation. Check production-date and equipment restrictions.
+Catalog rows are unreviewed. Candidate relationships are not verified supersessions. Unknown build date yields conditional fitment.
 
+# OEM index; index entries differ from raw row/unique OEM counts
 OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 010006120 | FLANGE BOLT-PILOT | Body Electrical 1 | 822
 010006120 | FLANGE BOLT-PILOT | Steering | 343
@@ -3043,3 +3045,5 @@ OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE
 X2111AA031 | water pump and gasket kit | Engine Main | 035
 X2111AA032 | water pump and gasket kit | Engine Main | 035
 X9201AA090 | MIRROR KIT-REAR VIEW,INNER | Inner Accessories | 931
+## Full qualified records
+https://bg5.caphedigital.com/data/sourcing.json

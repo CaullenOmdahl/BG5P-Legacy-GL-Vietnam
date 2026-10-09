@@ -1,0 +1,1281 @@
+{
+  "checked_date": "2026-10-09",
+  "compatibility": "Subaru shares many parts across engines, markets and models. Compatibility is assessed per part using OEM numbers, documented replacements, manufacturer applications, dimensions and installed-component evidence. Catalog inclusion is a starting point, not confirmation. Check production-date and equipment restrictions.",
+  "vehicle": {
+    "id": "owner-bg5p-1997",
+    "facts": {
+      "model_year": {
+        "value": 1997,
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "build_date": {
+        "value": null,
+        "source": "owner-description",
+        "status": "unknown"
+      },
+      "chassis": {
+        "value": "BG5P",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "applied_model": {
+        "value": null,
+        "source": "owner-description",
+        "status": "unknown"
+      },
+      "market": {
+        "value": "General Market",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "steering": {
+        "value": "LHD",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "engine": {
+        "value": "EJ20E 2.0 SOHC NA",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "transmission": {
+        "value": "5MT",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "transmission_code": {
+        "value": null,
+        "source": "owner-description",
+        "status": "unknown"
+      },
+      "drivetrain": {
+        "value": "AWD",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "body": {
+        "value": "wagon",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "trim": {
+        "value": "GL",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "abs": {
+        "value": null,
+        "source": "owner-description",
+        "status": "unknown"
+      },
+      "catalyst": {
+        "value": null,
+        "source": "owner-description",
+        "status": "unknown"
+      },
+      "front_brakes": {
+        "value": "factory calipers / OEM-spec discs",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "rear_brakes": {
+        "value": "drums",
+        "source": "owner-description",
+        "status": "owner_reported"
+      },
+      "modifications": {
+        "value": null,
+        "source": "owner-description",
+        "status": "unknown"
+      },
+      "power_rating": {
+        "value": null,
+        "source": "owner-description",
+        "status": "unknown"
+      }
+    },
+    "source_coverage": "1994–1998 source catalog; owner car model year 1997",
+    "suffix_p": "Undocumented; General Market decode is a hypothesis",
+    "example_vin": null
+  },
+  "parts": [
+    {
+      "id": "reference-09567311",
+      "number": "09.5673.11",
+      "normalized_number": "09567311",
+      "aliases": [],
+      "name": "Brembo Prime front rotor",
+      "name_vi": "Đĩa phanh trước Brembo Prime",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "curated_application",
+        "original_source_variant": "BG5 manufacturer application"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": 2,
+        "order_unit": "rotor",
+        "units_per_pack": 2,
+        "source": "brembo-bg5",
+        "note": "Manufacturer units per box; seller may sell individually. Ask before ordering."
+      },
+      "dimensions": [
+        {
+          "label": "diameter",
+          "value": 260,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "disc_thickness",
+          "value": 24,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "height",
+          "value": 57,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "centering",
+          "value": 58,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "minimum_disc_thickness",
+          "value": 22,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "holes",
+          "value": 5,
+          "unit": "count",
+          "source": "brembo-bg5"
+        }
+      ],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "brembo-bg5",
+          "us-brake-manual"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Confirm installed rotor dimensions, mounting and standard single-piston caliper family."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [
+        "us2200: standard L/LS/Brighton/Postal 260 x 24 mm front family; supported dimensional/manual comparison. Exact SKU/interchange remains conditional."
+      ],
+      "offers": [
+        {
+          "seller": "Brembo Store",
+          "manufacturer_sku": "09.5673.11",
+          "url": "https://www.brembostore.com/products/prime-front-disc-brake-rotor-09-5673-11",
+          "availability": "listed_in_stock",
+          "checked_date": "2026-10-09",
+          "order_unit": "listing; units per sale not verified",
+          "price": 78.29,
+          "currency": "USD",
+          "shipping": "Free ground over $75 advertised within contiguous US; Vietnam delivery not verified",
+          "tax": null,
+          "returns": "30 days, unused in original manufacturer packaging; confirm current policy",
+          "provenance": "Exact product listing read 2026-10-09",
+          "disclaimer": "Dated sourcing lead, not fitment or delivery guarantee. Confirm whether price is for one rotor or pair; no normalized unit price until order unit verified."
+        }
+      ]
+    },
+    {
+      "id": "reference-p78009",
+      "number": "P 78 009",
+      "normalized_number": "P78009",
+      "aliases": [
+        "D722",
+        "D722 7590"
+      ],
+      "name": "Brembo front pad D722 7590",
+      "name_vi": "Má phanh trước Brembo D722",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "curated_application",
+        "original_source_variant": "BG5 manufacturer application"
+      },
+      "constraints": {
+        "build_from": "1996-05",
+        "braking_system": "Akebono"
+      },
+      "quantity": {
+        "catalog_value": null,
+        "per_car": 1,
+        "order_unit": "axle pad set",
+        "units_per_pack": null
+      },
+      "dimensions": [
+        {
+          "label": "pad_width",
+          "value": 138,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "pad_height",
+          "value": 54,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "total_pad_thickness",
+          "value": 17,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        }
+      ],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "brembo-bg5"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Build date is unknown; confirm manufacture from May 1996, pad silhouette and Akebono caliper.",
+          "P78009N and compound/suffix variants require their own evidence."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-p78004",
+      "number": "P 78 004",
+      "normalized_number": "P78004",
+      "aliases": [],
+      "name": "Brembo earlier front pad",
+      "name_vi": "Má phanh trước đời sớm Brembo",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "curated_application",
+        "original_source_variant": "BG5 manufacturer application"
+      },
+      "constraints": {
+        "build_to": "1996-04"
+      },
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [
+        {
+          "label": "pad_width",
+          "value": 128,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "pad_height",
+          "value": 55,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "total_pad_thickness",
+          "value": 17,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        }
+      ],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "brembo-bg5"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Earlier application through April 1996; not the default for a 1997 model-year car. Build date/caliper evidence required."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-14a68610",
+      "number": "14.A686.10",
+      "normalized_number": "14A68610",
+      "aliases": [],
+      "name": "Brembo rear drum reference",
+      "name_vi": "Tham khảo tang trống phanh sau Brembo",
+      "category": "263",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "rear",
+      "catalog": null,
+      "provenance": {
+        "kind": "curated_application",
+        "original_source_variant": "BG5 manufacturer application"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [
+        {
+          "label": "nominal_diameter",
+          "value": 228,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "width",
+          "value": 43.5,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "height",
+          "value": 63,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "centering",
+          "value": 58,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        },
+        {
+          "label": "maximum_diameter",
+          "value": 230,
+          "unit": "mm",
+          "source": "brembo-bg5"
+        }
+      ],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "brembo-bg5"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Measure installed part and confirm all interfaces before ordering."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": [
+        {
+          "seller": "Brembo catalog",
+          "manufacturer_sku": "14.A686.10",
+          "url": "https://www.bremboparts.com/europe/en/catalogue/subaru-legacy-ii-estate-bg-2-0-i-4wd-bg5/000004447-1",
+          "availability": "discontinued",
+          "checked_date": "2026-10-09",
+          "order_unit": "unknown",
+          "price": null,
+          "currency": null,
+          "shipping": null,
+          "tax": null,
+          "returns": null,
+          "provenance": "manufacturer listing",
+          "disclaimer": "Dimensional sourcing lead; no buyable offer verified."
+        }
+      ]
+    },
+    {
+      "id": "reference-us277front",
+      "number": "US-277-FRONT",
+      "normalized_number": "US277FRONT",
+      "aliases": [],
+      "name": "US GT/LSi/Outback 277 mm front family",
+      "name_vi": "Họ phanh trước 277 mm GT/LSi/Outback",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "curated_application",
+        "original_source_variant": "BG5 manufacturer application"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [
+        {
+          "label": "diameter",
+          "value": 277,
+          "unit": "mm",
+          "source": "us-brake-manual"
+        },
+        {
+          "label": "disc_thickness",
+          "value": 24,
+          "unit": "mm",
+          "source": "us-brake-manual"
+        }
+      ],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "rejected",
+        "evidence": [
+          "us-brake-manual"
+        ],
+        "exclusions": [
+          "277 mm twin-piston family differs from the factory standard 260 mm front setup."
+        ],
+        "unresolved": [
+          "Requires a brake conversion with matching caliper/support; not a direct replacement."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-p78005",
+      "number": "P 78 005",
+      "normalized_number": "P78005",
+      "aliases": [],
+      "name": "Rear disc pad variant",
+      "name_vi": "Biến thể má phanh đĩa sau",
+      "category": "263",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "rear",
+      "catalog": null,
+      "provenance": {
+        "kind": "curated_application",
+        "original_source_variant": "BG5 manufacturer application"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "rejected",
+        "evidence": [
+          "brembo-bg5"
+        ],
+        "exclusions": [
+          "Rear disc variant; incompatible with rear drums."
+        ],
+        "unresolved": [
+          "Owner vehicle has rear drums. Do not order rear disc pads."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-16546aa020",
+      "number": "16546AA020",
+      "normalized_number": "16546AA020",
+      "aliases": [],
+      "name": "ELEMENT-AIR CLEANER",
+      "name_vi": "",
+      "category": "070",
+      "section": "engine-auxiliaries",
+      "section_name": "Engine Auxiliaries",
+      "position": "unknown",
+      "catalog": null,
+      "provenance": {
+        "kind": "local_epc_extract",
+        "path": "public/data/parts.json",
+        "category": "070",
+        "review_status": "unreviewed",
+        "original_source_variant": "Mixed imported EPC variants; exact source not retained per row"
+      },
+      "constraints": {
+        "production_period": "02.1997 - 11.1998",
+        "applies_for_models": "*EJ20E +EJ25D",
+        "notes": "L/J"
+      },
+      "quantity": {
+        "catalog_value": "01",
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": "16546",
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "catalog-pilot-16546AA020"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Measure airbox element dimensions and sealing lip; verify production date and intake housing.",
+          "No verified supplier offer or aftermarket equivalence recorded."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-32187aa022",
+      "number": "32187AA022",
+      "normalized_number": "32187AA022",
+      "aliases": [],
+      "name": "SPRING-RETURN,REVERSE",
+      "name_vi": "",
+      "category": "130",
+      "section": "manual-transmission",
+      "section_name": "Manual Transmission",
+      "position": "unknown",
+      "catalog": null,
+      "provenance": {
+        "kind": "local_epc_extract",
+        "path": "public/data/parts.json",
+        "category": "130",
+        "review_status": "unreviewed",
+        "original_source_variant": "Mixed imported EPC variants; exact source not retained per row"
+      },
+      "constraints": {
+        "production_period": "",
+        "applies_for_models": "F4W.MT",
+        "notes": ""
+      },
+      "quantity": {
+        "catalog_value": "01",
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": "32893",
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "catalog-pilot-32187AA022"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Confirm transmission code, reverse-detent mechanism and spring dimensions; unknown gearbox prevents exact fit.",
+          "No verified supplier offer or aftermarket equivalence recorded."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-31020ga050",
+      "number": "31020GA050",
+      "normalized_number": "31020GA050",
+      "aliases": [],
+      "name": "BUSHING-STEERING",
+      "name_vi": "",
+      "category": "341",
+      "section": "steering",
+      "section_name": "Steering",
+      "position": "unknown",
+      "catalog": null,
+      "provenance": {
+        "kind": "local_epc_extract",
+        "path": "public/data/parts.json",
+        "category": "341",
+        "review_status": "unreviewed",
+        "original_source_variant": "Mixed imported EPC variants; exact source not retained per row"
+      },
+      "constraints": {
+        "production_period": "",
+        "applies_for_models": "S +W",
+        "notes": ""
+      },
+      "quantity": {
+        "catalog_value": "01",
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": "34572",
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "catalog-pilot-31020GA050"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Check LHD column, bush bore and mounting geometry; original catalog quantity is not an order-unit guarantee.",
+          "No verified supplier offer or aftermarket equivalence recorded."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-22433aa370",
+      "number": "22433AA370",
+      "normalized_number": "22433AA370",
+      "aliases": [],
+      "name": "COIL ASSEMBLY-IGNITION",
+      "name_vi": "",
+      "category": "090",
+      "section": "engine-electrical",
+      "section_name": "Engine Electrical",
+      "position": "unknown",
+      "catalog": null,
+      "provenance": {
+        "kind": "local_epc_extract",
+        "path": "public/data/parts.json",
+        "category": "090",
+        "review_status": "unreviewed",
+        "original_source_variant": "Mixed imported EPC variants; exact source not retained per row"
+      },
+      "constraints": {
+        "production_period": "02.1997 - 11.1998",
+        "applies_for_models": "EJ25D",
+        "notes": ""
+      },
+      "quantity": {
+        "catalog_value": "01",
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": "22433",
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "catalog-pilot-22433AA370"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Check coil model, connectors, pinout and mounting; catalyst and ignition revision remain unknown.",
+          "No verified supplier offer or aftermarket equivalence recorded."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-57110ac100",
+      "number": "57110AC100",
+      "normalized_number": "57110AC100",
+      "aliases": [],
+      "name": "FENDER COMPLETE-FRONT,RIGHT",
+      "name_vi": "",
+      "category": "540",
+      "section": "body-key-bumper",
+      "section_name": "Body Key Bumper",
+      "position": "unknown",
+      "catalog": null,
+      "provenance": {
+        "kind": "local_epc_extract",
+        "path": "public/data/parts.json",
+        "category": "540",
+        "review_status": "unreviewed",
+        "original_source_variant": "Mixed imported EPC variants; exact source not retained per row"
+      },
+      "constraints": {
+        "production_period": "01.06.1997 - 30.11.1998",
+        "applies_for_models": "S +W",
+        "notes": ""
+      },
+      "quantity": {
+        "catalog_value": "01",
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": "57110",
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "catalog-pilot-57110AC100"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Confirm right-side wagon/facelift panel, lamp/bumper interfaces and attachment points.",
+          "No verified supplier offer or aftermarket equivalence recorded."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-26310ac060",
+      "number": "26310AC060",
+      "normalized_number": "26310AC060",
+      "aliases": [],
+      "name": "OEM front rotor relationship lead",
+      "name_vi": "Ứng viên quan hệ mã OEM đĩa trước",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "research_lead",
+        "original_source_variant": "Owner-approved plan; direct OEM source not revalidated"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "plan-leads"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Verify this full OEM number, directed replacement, production date and manufacturer cross-reference from direct sources; no equivalence or dimension inherited from a related part."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-26310ac06a",
+      "number": "26310AC06A",
+      "normalized_number": "26310AC06A",
+      "aliases": [],
+      "name": "OEM front rotor relationship lead",
+      "name_vi": "Ứng viên quan hệ mã OEM đĩa trước",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "research_lead",
+        "original_source_variant": "Owner-approved plan; direct OEM source not revalidated"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "plan-leads"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Verify this full OEM number, directed replacement, production date and manufacturer cross-reference from direct sources; no equivalence or dimension inherited from a related part."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-26296ac010",
+      "number": "26296AC010",
+      "normalized_number": "26296AC010",
+      "aliases": [],
+      "name": "OEM front pad relationship lead",
+      "name_vi": "Ứng viên quan hệ mã OEM má trước",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "research_lead",
+        "original_source_variant": "Owner-approved plan; direct OEM source not revalidated"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "plan-leads"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Verify this full OEM number, directed replacement, production date and manufacturer cross-reference from direct sources; no equivalence or dimension inherited from a related part."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-26296ac011",
+      "number": "26296AC011",
+      "normalized_number": "26296AC011",
+      "aliases": [],
+      "name": "OEM front pad relationship lead",
+      "name_vi": "Ứng viên quan hệ mã OEM má trước",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "research_lead",
+        "original_source_variant": "Owner-approved plan; direct OEM source not revalidated"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "plan-leads"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Verify this full OEM number, directed replacement, production date and manufacturer cross-reference from direct sources; no equivalence or dimension inherited from a related part."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-26296ac020",
+      "number": "26296AC020",
+      "normalized_number": "26296AC020",
+      "aliases": [],
+      "name": "OEM front pad relationship lead",
+      "name_vi": "Ứng viên quan hệ mã OEM má trước",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "research_lead",
+        "original_source_variant": "Owner-approved plan; direct OEM source not revalidated"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "plan-leads"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Verify this full OEM number, directed replacement, production date and manufacturer cross-reference from direct sources; no equivalence or dimension inherited from a related part."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    },
+    {
+      "id": "reference-26296ac021",
+      "number": "26296AC021",
+      "normalized_number": "26296AC021",
+      "aliases": [],
+      "name": "OEM front pad relationship lead",
+      "name_vi": "Ứng viên quan hệ mã OEM má trước",
+      "category": "262",
+      "section": "suspension-axle-brake",
+      "section_name": "Suspension Axle Brake",
+      "position": "front",
+      "catalog": null,
+      "provenance": {
+        "kind": "research_lead",
+        "original_source_variant": "Owner-approved plan; direct OEM source not revalidated"
+      },
+      "constraints": {},
+      "quantity": {
+        "catalog_value": null,
+        "per_car": null,
+        "order_unit": "unknown",
+        "units_per_pack": null
+      },
+      "dimensions": [],
+      "interfaces": [],
+      "diagram_callout": null,
+      "fitment": {
+        "target": "owner-bg5p-1997",
+        "status": "candidate",
+        "evidence": [
+          "plan-leads"
+        ],
+        "exclusions": [],
+        "unresolved": [
+          "Verify this full OEM number, directed replacement, production date and manufacturer cross-reference from direct sources; no equivalence or dimension inherited from a related part."
+        ]
+      },
+      "relationships": [],
+      "shared_applications": [],
+      "offers": []
+    }
+  ],
+  "relationships": [
+    {
+      "id": "relation-26310AC060-26310AC06A",
+      "type": "oem_supersession",
+      "to": "26310AC06A",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26310AC060"
+    },
+    {
+      "id": "relation-26296AC020-26296AC021",
+      "type": "oem_supersession",
+      "to": "26296AC021",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26296AC020"
+    },
+    {
+      "id": "relation-26296AC010-26296AC011",
+      "type": "oem_supersession",
+      "to": "26296AC011",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26296AC010"
+    },
+    {
+      "id": "relation-26310AC06A-09567311",
+      "type": "aftermarket_cross_reference",
+      "to": "09.5673.11",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26310AC06A"
+    },
+    {
+      "id": "relation-26296AC010-P78009",
+      "type": "aftermarket_cross_reference",
+      "to": "P 78 009",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26296AC010"
+    },
+    {
+      "id": "relation-26296AC011-P78009",
+      "type": "aftermarket_cross_reference",
+      "to": "P 78 009",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26296AC011"
+    },
+    {
+      "id": "relation-26296AC020-P78009",
+      "type": "aftermarket_cross_reference",
+      "to": "P 78 009",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26296AC020"
+    },
+    {
+      "id": "relation-26296AC021-P78009",
+      "type": "aftermarket_cross_reference",
+      "to": "P 78 009",
+      "status": "candidate",
+      "evidence": [
+        "plan-leads"
+      ],
+      "conditions": "Verify exact catalog/application and date restrictions; no transitive equivalence",
+      "checked_date": null,
+      "direction": "from_to",
+      "unresolved": [
+        "Direct OEM/manufacturer source not revalidated; do not publish as verified supersession."
+      ],
+      "from": "26296AC021"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "owner-description",
+      "publisher": "Owner",
+      "source_type": "owner_observation",
+      "url": "/about",
+      "document_id": null,
+      "revision": null,
+      "location": "Authorized vehicle description",
+      "fact": "1997 BG5P GL, General Market LHD, EJ20E, 5MT AWD; factory front brakes and rear drums. No private VIN stored.",
+      "checked_date": "2026-10-09",
+      "variant": "Owner-described vehicle",
+      "reviewer": "Implementation author",
+      "contradictions": []
+    },
+    {
+      "id": "brembo-bg5",
+      "publisher": "Brembo",
+      "source_type": "manufacturer_catalog",
+      "url": "https://www.bremboparts.com/europe/en/catalogue/subaru-legacy-ii-estate-bg-2-0-i-4wd-bg5/000004447-1",
+      "document_id": "000004447-1",
+      "revision": null,
+      "location": "Front discs, front pads and rear drums application tables",
+      "fact": "BG5 2.0 AWD 85 kW / 116 CV 09/94–11/98; front 260 x 24 mm, height 57 mm, center 58 mm; P 78 009 from 05/1996; P 78 004 to 04/1996; drum 14.A686.10 discontinued.",
+      "checked_date": "2026-10-09",
+      "variant": "European catalog BG5 application; not exact owner market",
+      "reviewer": "Implementation author",
+      "contradictions": [
+        "Manufacturer power rating differs from historical site 120 HP; do not collapse ratings.",
+        "228 mm nominal manufacturer drum versus 228.6 mm USDM effective drum diameter: preserve distinct dimensions."
+      ]
+    },
+    {
+      "id": "us-brake-manual",
+      "publisher": "Subaru",
+      "source_type": "factory_manual",
+      "url": "/manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3677.pdf",
+      "document_id": "MSA5TCD97L3677",
+      "revision": "1997 USDM",
+      "location": "Printed pages 3, 5, 7 (PDF pages 1, 3, 5)",
+      "fact": "Standard 2200 front 24 x 260 mm, single 57.2 mm cylinder; 2500 GT/LSi/Outback front 24 x 277 mm, twin 42.8 mm cylinders. Page 5 drum dimensions refer to US variants.",
+      "checked_date": "2026-10-09",
+      "variant": "USDM; front family comparison only",
+      "reviewer": "Implementation author",
+      "contradictions": []
+    },
+    {
+      "id": "plan-leads",
+      "publisher": "Owner-approved research plan",
+      "source_type": "research_lead",
+      "url": null,
+      "document_id": "BG5-whole-site-update-plan.docx",
+      "revision": "2026-10-09",
+      "location": "Page 5",
+      "fact": "OEM rotor/pad relationships are supplied leads requiring direct OEM/manufacturer revalidation.",
+      "checked_date": null,
+      "variant": "Unresolved OEM cross-references",
+      "reviewer": null,
+      "contradictions": []
+    },
+    {
+      "id": "catalog-pilot-16546AA020",
+      "publisher": "Imported Subaru EPC extraction",
+      "source_type": "local_catalog_capture",
+      "url": "/data/parts.json",
+      "document_id": "parts.json category 070",
+      "revision": null,
+      "location": "OEM 16546AA020 / callout 16546",
+      "fact": "{\"oem_number\": \"16546AA020\", \"quantity\": \"01\", \"production_period\": \"02.1997 - 11.1998\", \"applies_for_models\": \"*EJ20E +EJ25D\", \"notes\": \"L/J\", \"group_code\": \"16546\", \"group_name\": \"ELEMENT-AIR CLEANER\"}",
+      "checked_date": "2026-10-09",
+      "variant": "*EJ20E +EJ25D",
+      "reviewer": "Implementation author",
+      "contradictions": [
+        "Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."
+      ]
+    },
+    {
+      "id": "catalog-pilot-32187AA022",
+      "publisher": "Imported Subaru EPC extraction",
+      "source_type": "local_catalog_capture",
+      "url": "/data/parts.json",
+      "document_id": "parts.json category 130",
+      "revision": null,
+      "location": "OEM 32187AA022 / callout 32893",
+      "fact": "{\"oem_number\": \"32187AA022\", \"quantity\": \"01\", \"production_period\": \"\", \"applies_for_models\": \"F4W.MT\", \"notes\": \"\", \"group_code\": \"32893\", \"group_name\": \"SPRING-RETURN,REVERSE\"}",
+      "checked_date": "2026-10-09",
+      "variant": "F4W.MT",
+      "reviewer": "Implementation author",
+      "contradictions": [
+        "Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."
+      ]
+    },
+    {
+      "id": "catalog-pilot-31020GA050",
+      "publisher": "Imported Subaru EPC extraction",
+      "source_type": "local_catalog_capture",
+      "url": "/data/parts.json",
+      "document_id": "parts.json category 341",
+      "revision": null,
+      "location": "OEM 31020GA050 / callout 34572",
+      "fact": "{\"oem_number\": \"31020GA050\", \"quantity\": \"01\", \"production_period\": \"\", \"applies_for_models\": \"S +W\", \"notes\": \"\", \"group_code\": \"34572\", \"group_name\": \"BUSHING-STEERING\"}",
+      "checked_date": "2026-10-09",
+      "variant": "S +W",
+      "reviewer": "Implementation author",
+      "contradictions": [
+        "Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."
+      ]
+    },
+    {
+      "id": "catalog-pilot-22433AA370",
+      "publisher": "Imported Subaru EPC extraction",
+      "source_type": "local_catalog_capture",
+      "url": "/data/parts.json",
+      "document_id": "parts.json category 090",
+      "revision": null,
+      "location": "OEM 22433AA370 / callout 22433",
+      "fact": "{\"oem_number\": \"22433AA370\", \"quantity\": \"01\", \"production_period\": \"02.1997 - 11.1998\", \"applies_for_models\": \"EJ25D\", \"notes\": \"\", \"group_code\": \"22433\", \"group_name\": \"COIL ASSEMBLY-IGNITION\"}",
+      "checked_date": "2026-10-09",
+      "variant": "EJ25D",
+      "reviewer": "Implementation author",
+      "contradictions": [
+        "Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."
+      ]
+    },
+    {
+      "id": "catalog-pilot-57110AC100",
+      "publisher": "Imported Subaru EPC extraction",
+      "source_type": "local_catalog_capture",
+      "url": "/data/parts.json",
+      "document_id": "parts.json category 540",
+      "revision": null,
+      "location": "OEM 57110AC100 / callout 57110",
+      "fact": "{\"oem_number\": \"57110AC100\", \"quantity\": \"01\", \"production_period\": \"01.06.1997 - 30.11.1998\", \"applies_for_models\": \"S +W\", \"notes\": \"\", \"replacements\": \"\", \"group_code\": \"57110\", \"group_name\": \"FENDER COMPLETE-FRONT,RIGHT\"}",
+      "checked_date": "2026-10-09",
+      "variant": "S +W",
+      "reviewer": "Implementation author",
+      "contradictions": [
+        "Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."
+      ]
+    }
+  ]
+}

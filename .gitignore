@@ -1,0 +1,4 @@
+# Local execution artifacts; public repositories never receive project memory.
+__pycache__/
+*.py[cod]
+.agent/memory/

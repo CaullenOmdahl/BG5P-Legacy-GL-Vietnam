@@ -1,81 +1,53 @@
-# BG5P Legacy GL — Service Reference
+Schema 1 | Record version 68696de79e3dbd83 | Checked 2026-10-09
+Subaru shares many parts across engines, markets and models. Compatibility is assessed per part using OEM numbers, documented replacements, manufacturer applications, dimensions and installed-component evidence. Catalog inclusion is a starting point, not confirmation. Check production-date and equipment restrictions.
+Catalog rows are unreviewed. Candidate relationships are not verified supersessions. Unknown build date yields conditional fitment.
 
-> Parts diagrams, maintenance guides, and factory service manuals for the 1994-1998 Subaru BG5P Legacy Touring Wagon GL. Vietnamese market, left-hand drive, EJ20E 2.0L SOHC NA, 5MT AWD.
-
+# BG5P Legacy GL — sourcing and service reference
 ## Vehicle
-- Model: BG5P | Engine: EJ20E 2.0L Flat-4 SOHC NA | 120 HP / 184 Nm
-- Transmission: 5-speed manual | Drivetrain: Full-time AWD
-- Market: Vietnam (General Market LHD export, built in Gunma, Japan)
-- Diagnostics: SSM1 protocol only — NO OBD-II port
-- Years: 1994-1998 | Steering: Left-hand drive
-
-## How to Search
-
-This reference is split into small files. Fetch only what you need.
-
-| Question type | What to fetch |
-|---|---|
-| Task or procedure ("how do I change the oil?") | `/llms/maintenance/{id}.txt` — has steps, specs, AND part numbers |
-| System or category ("what steering parts exist?") | `/llms/{section-slug}.txt` — all diagrams and parts for that system |
-| Specific part number ("what is 30210AA370?") | `/llms/parts-index.txt` — every OEM number with name and section |
-| General overview | You're reading it |
-
+{"id": "owner-bg5p-1997", "facts": {"model_year": {"value": 1997, "source": "owner-description", "status": "owner_reported"}, "build_date": {"value": null, "source": "owner-description", "status": "unknown"}, "chassis": {"value": "BG5P", "source": "owner-description", "status": "owner_reported"}, "applied_model": {"value": null, "source": "owner-description", "status": "unknown"}, "market": {"value": "General Market", "source": "owner-description", "status": "owner_reported"}, "steering": {"value": "LHD", "source": "owner-description", "status": "owner_reported"}, "engine": {"value": "EJ20E 2.0 SOHC NA", "source": "owner-description", "status": "owner_reported"}, "transmission": {"value": "5MT", "source": "owner-description", "status": "owner_reported"}, "transmission_code": {"value": null, "source": "owner-description", "status": "unknown"}, "drivetrain": {"value": "AWD", "source": "owner-description", "status": "owner_reported"}, "body": {"value": "wagon", "source": "owner-description", "status": "owner_reported"}, "trim": {"value": "GL", "source": "owner-description", "status": "owner_reported"}, "abs": {"value": null, "source": "owner-description", "status": "unknown"}, "catalyst": {"value": null, "source": "owner-description", "status": "unknown"}, "front_brakes": {"value": "factory calipers / OEM-spec discs", "source": "owner-description", "status": "owner_reported"}, "rear_brakes": {"value": "drums", "source": "owner-description", "status": "owner_reported"}, "modifications": {"value": null, "source": "owner-description", "status": "unknown"}, "power_rating": {"value": null, "source": "owner-description", "status": "unknown"}}, "source_coverage": "1994–1998 source catalog; owner car model year 1997", "suffix_p": "Undocumented; General Market decode is a hypothesis", "example_vin": null}
+Owner car: 1997 BG5P GL General Market LHD EJ20E 5MT AWD; factory front brakes and rear drums. Full VIN not stored. Source coverage 1994–1998 is separate from model year.
+Diagnostics remain SSM1/no OBD-II; exact connector/pin instructions require source validation.
+US 2200 standard 260 mm front brakes share the supported standard family. GT/LSi/Outback 277 mm twin-piston fronts require conversion. An engine or market label alone neither proves nor disproves fitment.
+## Find a part
+/find-part — OEM/alias/SKU/name search; candidate, conflicting, rejected and unreviewed records remain distinguishable.
 ## Full Site Index
-
-- [Full Site Index](/llms/site-index.txt): all public pages, diagram images, and manual PDFs
-
-## Maintenance Procedures
-
-Fetch: `/llms/maintenance/{id}.txt`
-Each file includes the full procedure, all specs/torque values, AND the related OEM part numbers.
-
-- [Oil Change](/llms/maintenance/oil-change.txt): Easy | Every 5,000 km or 6 months | Oil Type: 5W-30 preferred (API SJ/SH or SG), Capacity (to upper level): 4.0 L (4.2 US qt), Capacity (to lower level): 3.0 L (3.2 US qt)
-- [Timing Belt Replacement](/llms/maintenance/timing-belt.txt): Advanced | Every 100,000 km or 60 months | Belt Tooth Count Z1: 44 teeth, Belt Tooth Count Z2: 40.5 teeth, Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
-- [Coolant Flush](/llms/maintenance/coolant-flush.txt): Easy | Every 30,000 km or 24 months | Coolant Type: Subaru Genuine Long-Life Coolant, Capacity (MT, to FULL): 6.3 L (6.7 US qt), Capacity (AT, to FULL): 6.4 L (6.8 US qt)
-- [Brake Pads (Front & Rear)](/llms/maintenance/brake-pads.txt): Moderate | Every 20,000 km or as needed | Front Type: Disc (Floating type, ventilated), Front Pad Dimensions (friction material): 112.4 x 44.3 x 11.0 mm, Front Pad Standard Thickness (factory service check, including back metal): 17 mm (0.67 in)
-- [Spark Plugs](/llms/maintenance/spark-plugs.txt): Moderate | Every 20,000 km or 12 months | Plug (without catalytic converter): NGK BKR6E, Plug (with catalytic converter): Champion RC10YC4 or NGK BKR5E-11, Thread Size: M14, P = 1.25
-- [Air Filter Replacement](/llms/maintenance/air-filter.txt): Easy | Every 20,000 km or 12 months (inspect every 10,000 km) | Filter Type: Panel filter element, OEM Part Number: 16546-AA020 (verify for model year), Case Bolt Torque: 6.5 Nm (0.66 kgf-m, 4.8 ft-lb)
-- [Manual Transmission Fluid Change](/llms/maintenance/transmission-fluid.txt): Moderate | Every 50,000 km or 30 months | Fluid Type: GL-5 (75W-90 gear oil), Capacity: 3.5 L (3.7 US qt), Transmission Type: 5-speed synchromesh with reverse
-- [Clutch Replacement](/llms/maintenance/clutch.txt): Advanced | As needed (typically 100,000-150,000 km) | Clutch Disc Facing O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm, Clutch Disc Facing: Woven type, Clutch Disc Spline O.D. (24 teeth): 25.2 mm
-- [Differential Fluid Change](/llms/maintenance/differential-fluid.txt): Moderate | Every 50,000 km or 30 months | Front Diff Type: Straight bevel gear (integrated in transmission), Front Diff Gear Type: Hypoid, Front Final Ratio (BG5P EJ20E): 3.900
-
-## Parts Catalog Sections
-
-Fetch: `/llms/{section-slug}.txt`
-Each file lists every diagram and every OEM part number in that system, plus any related maintenance procedures.
-
-- [Engine Main](/llms/engine-main.txt): 19 diagrams — Block, head, pistons, crankshaft, timing belt, oil pan, valvetrain, gaskets | Maintenance: timing-belt, oil-change, coolant-flush
-- [Engine Auxiliaries](/llms/engine-auxiliaries.txt): 10 diagrams — Intake, exhaust, fuel injection, air filter, pulleys, belts | Maintenance: air-filter
-- [Engine Electrical](/llms/engine-electrical.txt): 7 diagrams — Spark plugs, alternator, starter motor, sensors, ignition coil | Maintenance: spark-plugs
-- [Manual Transmission](/llms/manual-transmission.txt): 17 diagrams — Gearbox internals, shift linkage, synchros, clutch assembly | Maintenance: transmission-fluid, clutch
-- [Differential Propeller](/llms/differential-propeller.txt): 3 diagrams — Front/rear differentials, propeller shaft, viscous coupling | Maintenance: differential-fluid
-- [Suspension Axle Brake](/llms/suspension-axle-brake.txt): 32 diagrams — Shocks, springs, control arms, hubs, calipers, rotors, brake lines | Maintenance: brake-pads
-- [Steering](/llms/steering.txt): 19 diagrams — Rack, column, power steering pump, tie rods, U-joints
-- [Engine Mounting Cooling](/llms/engine-mounting-cooling.txt): 13 diagrams — Engine mounts, radiator, water pump, thermostat, hoses, fan
-- [Body Key Bumper](/llms/body-key-bumper.txt): 28 diagrams — Body panels, bumpers, fenders, hood, trunk, locks, mirrors, glass
-- [Door Parts](/llms/door-parts.txt): 11 diagrams — Door shells, glass, window regulators, handles, weatherstrips
-- [Seat Instrument Panel](/llms/seat-instrument-panel.txt): 17 diagrams — Seats, seatbelts, dashboard, gauges, glovebox, console
-- [Heater & AC](/llms/heater-ac.txt): 8 diagrams — Heater core, blower motor, A/C compressor, evaporator, controls
-- [Body Electrical 1](/llms/body-electrical-1.txt): 19 diagrams — Main harness, fuse box, relays, switches, ground points
-- [Body Electrical 2](/llms/body-electrical-2.txt): 25 diagrams — Headlights, tail lights, wipers, horn, power windows, door locks
-- [Outer Accessories](/llms/outer-accessories.txt): 18 diagrams — Roof rails, mud flaps, emblems, antenna, spoiler, tow hook
-- [Inner Accessories](/llms/inner-accessories.txt): 16 diagrams — Floor mats, cargo area, jack, tool kit, spare tire, cup holder
-
-## Part Number Lookup
-
-- [Part Number Index](/llms/parts-index.txt): 3041 parts, sorted by OEM number
-
-## Service Manuals (PDF, not machine-readable)
-
-373 openable factory PDFs. Referenced by URL in maintenance and section files above.
-- EJ20E engine manuals: `/manuals/EJ20E-SOHC-engine/{filename}.pdf`
-- EJ20 electrical archive members: `/manuals/EJ20E-SOHC-engine/EJ20_Electrical_System/{filename}.pdf`
-- BG chassis manuals: `/manuals/BG-chassis/{section}/{subsection}/{filename}.pdf`
-
-## Compatibility Notes
-
-- USDM Legacy used EJ22 (2.2L), NOT EJ20E — engine-specific parts and procedures differ
-- No OBD-II port — diagnostics require SSM1 scan tool or manual CEL code reading
-- BG chassis parts (body, suspension, brakes, steering) are shared across all BG5 variants
-- Engine parts are EJ20E-specific — always verify part numbers against this catalog
-- "BG5P" model code: BG=Legacy Wagon 2nd gen, 5=EJ20 series, P=General Market export
+/llms/site-index.txt
+## Structured data
+/data/sourcing.json
+/data/coverage.json
+/llms/manuals.txt
+## Procedures
+[Oil Change](/llms/maintenance/oil-change.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Timing Belt Replacement](/llms/maintenance/timing-belt.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Coolant Flush](/llms/maintenance/coolant-flush.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Front Brake Pads and Rear Drum Inspection](/llms/maintenance/brake-pads.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Spark Plugs](/llms/maintenance/spark-plugs.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Air Filter Replacement](/llms/maintenance/air-filter.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Manual Transmission Fluid Change](/llms/maintenance/transmission-fluid.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Clutch Replacement](/llms/maintenance/clutch.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+[Differential Fluid Change](/llms/maintenance/differential-fluid.txt) — unreviewed; Existing owner recommendation; factory schedule not revalidated
+## Sections
+[Engine Main](/llms/engine-main.txt) — 19 diagrams
+[Engine Auxiliaries](/llms/engine-auxiliaries.txt) — 10 diagrams
+[Engine Electrical](/llms/engine-electrical.txt) — 7 diagrams
+[Manual Transmission](/llms/manual-transmission.txt) — 17 diagrams
+[Differential Propeller](/llms/differential-propeller.txt) — 3 diagrams
+[Suspension Axle Brake](/llms/suspension-axle-brake.txt) — 32 diagrams
+[Steering](/llms/steering.txt) — 19 diagrams
+[Engine Mounting Cooling](/llms/engine-mounting-cooling.txt) — 13 diagrams
+[Body Key Bumper](/llms/body-key-bumper.txt) — 28 diagrams
+[Door Parts](/llms/door-parts.txt) — 11 diagrams
+[Seat Instrument Panel](/llms/seat-instrument-panel.txt) — 17 diagrams
+[Heater & AC](/llms/heater-ac.txt) — 8 diagrams
+[Body Electrical 1](/llms/body-electrical-1.txt) — 19 diagrams
+[Body Electrical 2](/llms/body-electrical-2.txt) — 25 diagrams
+[Outer Accessories](/llms/outer-accessories.txt) — 18 diagrams
+[Inner Accessories](/llms/inner-accessories.txt) — 16 diagrams
+## Part index
+/llms/parts-index.txt
+3041 index entries; 3608 raw rows; 2937 distinct OEM numbers
+373 PDFs; nine inherited guides are not fully verified procedures
+## Evidence
+[{"id": "owner-description", "publisher": "Owner", "source_type": "owner_observation", "url": "/about", "document_id": null, "revision": null, "location": "Authorized vehicle description", "fact": "1997 BG5P GL, General Market LHD, EJ20E, 5MT AWD; factory front brakes and rear drums. No private VIN stored.", "checked_date": "2026-10-09", "variant": "Owner-described vehicle", "reviewer": "Implementation author", "contradictions": []}, {"id": "brembo-bg5", "publisher": "Brembo", "source_type": "manufacturer_catalog", "url": "https://www.bremboparts.com/europe/en/catalogue/subaru-legacy-ii-estate-bg-2-0-i-4wd-bg5/000004447-1", "document_id": "000004447-1", "revision": null, "location": "Front discs, front pads and rear drums application tables", "fact": "BG5 2.0 AWD 85 kW / 116 CV 09/94–11/98; front 260 x 24 mm, height 57 mm, center 58 mm; P 78 009 from 05/1996; P 78 004 to 04/1996; drum 14.A686.10 discontinued.", "checked_date": "2026-10-09", "variant": "European catalog BG5 application; not exact owner market", "reviewer": "Implementation author", "contradictions": ["Manufacturer power rating differs from historical site 120 HP; do not collapse ratings.", "228 mm nominal manufacturer drum versus 228.6 mm USDM effective drum diameter: preserve distinct dimensions."]}, {"id": "us-brake-manual", "publisher": "Subaru", "source_type": "factory_manual", "url": "/manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3677.pdf", "document_id": "MSA5TCD97L3677", "revision": "1997 USDM", "location": "Printed pages 3, 5, 7 (PDF pages 1, 3, 5)", "fact": "Standard 2200 front 24 x 260 mm, single 57.2 mm cylinder; 2500 GT/LSi/Outback front 24 x 277 mm, twin 42.8 mm cylinders. Page 5 drum dimensions refer to US variants.", "checked_date": "2026-10-09", "variant": "USDM; front family comparison only", "reviewer": "Implementation author", "contradictions": []}, {"id": "plan-leads", "publisher": "Owner-approved research plan", "source_type": "research_lead", "url": null, "document_id": "BG5-whole-site-update-plan.docx", "revision": "2026-10-09", "location": "Page 5", "fact": "OEM rotor/pad relationships are supplied leads requiring direct OEM/manufacturer revalidation.", "checked_date": null, "variant": "Unresolved OEM cross-references", "reviewer": null, "contradictions": []}, {"id": "catalog-pilot-16546AA020", "publisher": "Imported Subaru EPC extraction", "source_type": "local_catalog_capture", "url": "/data/parts.json", "document_id": "parts.json category 070", "revision": null, "location": "OEM 16546AA020 / callout 16546", "fact": "{\"oem_number\": \"16546AA020\", \"quantity\": \"01\", \"production_period\": \"02.1997 - 11.1998\", \"applies_for_models\": \"*EJ20E +EJ25D\", \"notes\": \"L/J\", \"group_code\": \"16546\", \"group_name\": \"ELEMENT-AIR CLEANER\"}", "checked_date": "2026-10-09", "variant": "*EJ20E +EJ25D", "reviewer": "Implementation author", "contradictions": ["Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."]}, {"id": "catalog-pilot-32187AA022", "publisher": "Imported Subaru EPC extraction", "source_type": "local_catalog_capture", "url": "/data/parts.json", "document_id": "parts.json category 130", "revision": null, "location": "OEM 32187AA022 / callout 32893", "fact": "{\"oem_number\": \"32187AA022\", \"quantity\": \"01\", \"production_period\": \"\", \"applies_for_models\": \"F4W.MT\", \"notes\": \"\", \"group_code\": \"32893\", \"group_name\": \"SPRING-RETURN,REVERSE\"}", "checked_date": "2026-10-09", "variant": "F4W.MT", "reviewer": "Implementation author", "contradictions": ["Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."]}, {"id": "catalog-pilot-31020GA050", "publisher": "Imported Subaru EPC extraction", "source_type": "local_catalog_capture", "url": "/data/parts.json", "document_id": "parts.json category 341", "revision": null, "location": "OEM 31020GA050 / callout 34572", "fact": "{\"oem_number\": \"31020GA050\", \"quantity\": \"01\", \"production_period\": \"\", \"applies_for_models\": \"S +W\", \"notes\": \"\", \"group_code\": \"34572\", \"group_name\": \"BUSHING-STEERING\"}", "checked_date": "2026-10-09", "variant": "S +W", "reviewer": "Implementation author", "contradictions": ["Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."]}, {"id": "catalog-pilot-22433AA370", "publisher": "Imported Subaru EPC extraction", "source_type": "local_catalog_capture", "url": "/data/parts.json", "document_id": "parts.json category 090", "revision": null, "location": "OEM 22433AA370 / callout 22433", "fact": "{\"oem_number\": \"22433AA370\", \"quantity\": \"01\", \"production_period\": \"02.1997 - 11.1998\", \"applies_for_models\": \"EJ25D\", \"notes\": \"\", \"group_code\": \"22433\", \"group_name\": \"COIL ASSEMBLY-IGNITION\"}", "checked_date": "2026-10-09", "variant": "EJ25D", "reviewer": "Implementation author", "contradictions": ["Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."]}, {"id": "catalog-pilot-57110AC100", "publisher": "Imported Subaru EPC extraction", "source_type": "local_catalog_capture", "url": "/data/parts.json", "document_id": "parts.json category 540", "revision": null, "location": "OEM 57110AC100 / callout 57110", "fact": "{\"oem_number\": \"57110AC100\", \"quantity\": \"01\", \"production_period\": \"01.06.1997 - 30.11.1998\", \"applies_for_models\": \"S +W\", \"notes\": \"\", \"replacements\": \"\", \"group_code\": \"57110\", \"group_name\": \"FENDER COMPLETE-FRONT,RIGHT\"}", "checked_date": "2026-10-09", "variant": "S +W", "reviewer": "Implementation author", "contradictions": ["Mixed source catalogs; row inclusion reviewed, exact owner fitment not verified."]}]
+## Coverage
+[{"section": "engine-main", "diagrams": 19, "catalog_rows": 299, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "engine-auxiliaries", "diagrams": 10, "catalog_rows": 109, "reviewed_claims": 1, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "engine-electrical", "diagrams": 7, "catalog_rows": 73, "reviewed_claims": 1, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "manual-transmission", "diagrams": 17, "catalog_rows": 411, "reviewed_claims": 1, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "differential-propeller", "diagrams": 3, "catalog_rows": 107, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "suspension-axle-brake", "diagrams": 32, "catalog_rows": 426, "reviewed_claims": 12, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "steering", "diagrams": 19, "catalog_rows": 333, "reviewed_claims": 1, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "engine-mounting-cooling", "diagrams": 13, "catalog_rows": 193, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "body-key-bumper", "diagrams": 28, "catalog_rows": 335, "reviewed_claims": 1, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "door-parts", "diagrams": 11, "catalog_rows": 176, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "seat-instrument-panel", "diagrams": 17, "catalog_rows": 325, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "heater-ac", "diagrams": 8, "catalog_rows": 197, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "body-electrical-1", "diagrams": 19, "catalog_rows": 157, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "body-electrical-2", "diagrams": 25, "catalog_rows": 115, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "outer-accessories", "diagrams": 18, "catalog_rows": 108, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}, {"section": "inner-accessories", "diagrams": 16, "catalog_rows": 244, "reviewed_claims": 0, "confirmed_fits": 0, "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer", "editor": "Repository maintainers; no owner reassignment"}]

@@ -1,17 +1,19 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
-import Fuse from 'fuse.js';
-import { createSearchIndex, search, type SearchItem } from '@/lib/search';
-import { useLocale } from '@/components/LocaleProvider';
+import type { SourcingData } from "@/lib/sourcing-types";
+import { sourcingCopy } from "@/lib/sourcing-copy";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useRouter } from "next/navigation";
+import Fuse from "fuse.js";
+import { createSearchIndex, search, type SearchItem } from "@/lib/search";
+import { useLocale } from "@/components/LocaleProvider";
 import {
   getCopy,
   localizeManualTitle,
   localizePartText,
   localizeSectionName,
   localizeTechnicalName,
-} from '@/lib/i18n';
+} from "@/lib/i18n";
 
 interface Section {
   slug: string;
@@ -31,7 +33,7 @@ export default function SearchBar() {
   const router = useRouter();
   const { locale } = useLocale();
   const text = getCopy(locale).components.search;
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -46,7 +48,7 @@ export default function SearchBar() {
       const items: SearchItem[] = [];
 
       try {
-        const sectionsRes = await fetch('/data/sections.json');
+        const sectionsRes = await fetch("/data/sections.json");
         const sections: Section[] = await sectionsRes.json();
 
         for (const section of sections) {
@@ -54,96 +56,82 @@ export default function SearchBar() {
           if (section.diagrams.length > 0) {
             const firstDiagram = section.diagrams[0];
             items.push({
-              type: 'diagram',
+              type: "diagram",
               label: localizeSectionName(section.name, locale),
               detail: text.section,
               keywords: `${section.name} ${localizeSectionName(section.name, locale)} ${firstDiagram.code}`,
               sectionSlug: section.slug,
-              diagramCode: firstDiagram.code.replace(/_/g, '-'),
+              diagramCode: firstDiagram.code.replace(/_/g, "-"),
             });
           }
 
           // Add each diagram
           for (const diagram of section.diagrams) {
-            const localizedDiagramName = localizeTechnicalName(diagram.name, locale);
-            const localizedSectionName = localizeSectionName(section.name, locale);
+            const localizedDiagramName = localizeTechnicalName(
+              diagram.name,
+              locale,
+            );
+            const localizedSectionName = localizeSectionName(
+              section.name,
+              locale,
+            );
             items.push({
-              type: 'diagram',
+              type: "diagram",
               label: localizedDiagramName,
               detail: localizedSectionName,
               keywords: `${diagram.name} ${localizedDiagramName} ${section.name} ${localizedSectionName} ${diagram.code}`,
               sectionSlug: section.slug,
-              diagramCode: diagram.code.replace(/_/g, '-'),
+              diagramCode: diagram.code.replace(/_/g, "-"),
             });
           }
         }
 
-        // Load parts if available
-        const partsRes = await fetch('/data/parts.json');
-        const partsData: Record<string, PartEntry[]> = await partsRes.json();
-
-        if (partsData && typeof partsData === 'object') {
-          for (const [categoryCode, parts] of Object.entries(partsData)) {
-            if (!Array.isArray(parts)) continue;
-
-            let sectionSlug = '';
-            let diagramCode = categoryCode.replace(/_/g, '-');
-
-            // Find matching section and diagram for this category
-            for (const section of sections) {
-              const matchingDiagram = section.diagrams.find(
-                (d) => d.code === categoryCode || d.code.startsWith(categoryCode + '_')
-              );
-              if (matchingDiagram) {
-                sectionSlug = section.slug;
-                // If the category code doesn't have a suffix, use the first matching full diagram code
-                if (categoryCode.length === 3) {
-                  diagramCode = matchingDiagram.code.replace(/_/g, '-');
-                }
-                break;
-              }
-            }
-
-            // Skip if we couldn't find a section (to avoid broken links)
-            if (!sectionSlug) continue;
-
-            // Add the category code itself as a searchable item
-            if (categoryCode.length === 3) {
-              const categoryName = parts[0]?.group_name || text.category;
-              const localizedCategoryName = localizePartText(categoryName, locale);
-              items.push({
-                type: 'diagram',
-                label: `${categoryCode} - ${localizedCategoryName}`,
-                detail: text.category,
-                keywords: `${categoryCode} ${categoryName} ${localizedCategoryName}`,
-                sectionSlug,
-                diagramCode,
-              });
-            }
-
-            for (const part of parts) {
-              if (!part.oem_number) continue;
-              items.push({
-                type: 'part',
-                label: part.oem_number,
-                detail: localizePartText(part.group_name, locale),
-                keywords: `${part.oem_number} ${part.group_name || ''} ${localizePartText(part.group_name, locale)}`,
-                sectionSlug,
-                diagramCode,
-                oemNumber: part.oem_number,
-              });
-            }
-          }
+        const canonical: {
+          content_version: string;
+          parts: (Pick<
+            SourcingData["parts"][number],
+            | "id"
+            | "number"
+            | "normalized_number"
+            | "name"
+            | "name_vi"
+            | "aliases"
+            | "fitment"
+          > & { related_numbers: string[] })[];
+        } = await (await fetch("/data/sourcing-search.json")).json();
+        for (const p of canonical.parts) {
+          items.push({
+            type: "part",
+            label: p.number,
+            detail:
+              (locale === "vi"
+                ? p.name_vi || localizePartText(p.name, locale)
+                : p.name) +
+              " · " +
+              sourcingCopy[locale][p.fitment.status as "candidate"],
+            oemNumber: p.normalized_number,
+            keywords: [
+              p.name,
+              p.name_vi,
+              ...p.aliases,
+              ...p.related_numbers,
+            ].join(" "),
+            href: "/find-part/" + p.id,
+          });
         }
 
         // Load manuals index
-        const manualsRes = await fetch('/api/manuals');
+        const manualsRes = await fetch("/api/manuals");
         if (manualsRes.ok) {
-          const manuals: { label: string; detail: string; href: string; isPdf: boolean }[] =
-            await manualsRes.json();
+          const manuals: {
+            label: string;
+            detail: string;
+            href: string;
+            isPdf: boolean;
+          }[] = await manualsRes.json();
           for (const m of manuals) {
             items.push({
-              type: 'manual',
+              type: "manual",
               label: localizeManualTitle(m.label, locale),
               detail: localizeTechnicalName(m.detail, locale),
               keywords: `${m.label} ${m.detail} ${localizeManualTitle(m.label, locale)}`,
@@ -171,8 +159,8 @@ export default function SearchBar() {
         setIsOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Debounced search
@@ -199,11 +187,11 @@ export default function SearchBar() {
 
   function navigateToResult(item: SearchItem) {
     setIsOpen(false);
-    setQuery('');
+    setQuery("");
     setResults([]);
-    if (item.type === 'manual' && item.href) {
-      if (item.href.toLowerCase().endsWith('.pdf')) {
-        window.open(item.href, '_blank', 'noopener,noreferrer');
+    if (item.href) {
+      if (item.href.toLowerCase().endsWith(".pdf")) {
+        window.open(item.href, "_blank", "noopener,noreferrer");
       } else {
         router.push(item.href);
       }
@@ -214,7 +202,7 @@ export default function SearchBar() {
 
   function handleKeyDown(e: React.KeyboardEvent) {
     if (!isOpen || results.length === 0) {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setIsOpen(false);
         inputRef.current?.blur();
       }
@@ -222,25 +210,21 @@ export default function SearchBar() {
     }
 
     switch (e.key) {
-      case 'ArrowDown':
+      case "ArrowDown":
         e.preventDefault();
-        setActiveIndex((prev) =>
-          prev < results.length - 1 ? prev + 1 : 0
-        );
+        setActiveIndex((prev) => (prev < results.length - 1 ? prev + 1 : 0));
         break;
-      case 'ArrowUp':
+      case "ArrowUp":
         e.preventDefault();
-        setActiveIndex((prev) =>
-          prev > 0 ? prev - 1 : results.length - 1
-        );
+        setActiveIndex((prev) => (prev > 0 ? prev - 1 : results.length - 1));
         break;
-      case 'Enter':
+      case "Enter":
         e.preventDefault();
         if (activeIndex >= 0 && activeIndex < results.length) {
           navigateToResult(results[activeIndex]);
         }
         break;
-      case 'Escape':
+      case "Escape":
         e.preventDefault();
         setIsOpen(false);
         inputRef.current?.blur();
@@ -308,8 +292,8 @@ export default function SearchBar() {
                 aria-selected={index === activeIndex}
                 className={`flex cursor-pointer items-center gap-2.5 px-3 py-2.5 text-sm transition-colors ${
                   index === activeIndex
-                    ? 'bg-accent/15 text-foreground'
-                    : 'text-foreground hover:bg-surface'
+                    ? "bg-accent/15 text-foreground"
+                    : "text-foreground hover:bg-surface"
                 }`}
                 onMouseDown={(e) => {
                   e.preventDefault();
@@ -318,7 +302,7 @@ export default function SearchBar() {
                 onMouseEnter={() => setActiveIndex(index)}
               >
                 {/* Icon */}
-                {item.type === 'manual' ? (
+                {item.type === "manual" ? (
                   <svg
                     className="h-4 w-4 shrink-0 text-red-400"
                     fill="none"
@@ -332,7 +316,7 @@ export default function SearchBar() {
                       d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
                     />
                   </svg>
-                ) : item.type === 'diagram' ? (
+                ) : item.type === "diagram" ? (
                   <svg
                     className="h-4 w-4 shrink-0 text-accent"
                     fill="none"

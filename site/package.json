@@ -6,13 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "check:localization": "node scripts/check-localization.mjs",
-    "generate:llms": "python3 scripts/generate-llms.py",
-    "generate:index": "node scripts/generate-site-index.mjs && python3 scripts/generate-llms.py",
+    "generate:llms": "python3 scripts/build-sourcing.py && python3 scripts/generate-llms.py && python3 ../scripts/build_parts_interchange_evidence.py && python3 ../scripts/refresh_sourcing_pack.py",
+    "generate:index": "python3 scripts/build-sourcing.py && node scripts/generate-site-index.mjs && python3 scripts/generate-llms.py && python3 ../scripts/build_parts_interchange_evidence.py && python3 ../scripts/refresh_sourcing_pack.py",
     "verify:index": "node scripts/verify-site-index.mjs",
     "verify:catalog": "python3 scripts/verify_catalog_quality.py",
     "verify:parts": "python3 scripts/verify_parts_coverage.py",
     "test:chat-workbench": "node scripts/test-chat-workbench.mjs",
-    "start": "next start"
+    "start": "next start",
+    "generate:sourcing": "python3 scripts/build-sourcing.py",
+    "test:sourcing": "python3 scripts/test-sourcing.py && node scripts/test-sourcing-search.mjs && node scripts/test-sourcing-ai.mjs"
   },
   "dependencies": {
     "fuse.js": "^7.1.0",

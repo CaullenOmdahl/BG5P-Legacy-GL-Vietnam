@@ -95,55 +95,8 @@ def normalize_application_fields(row: dict) -> dict:
 
 
 def classify(row: dict, section: str, tokens: list[str]) -> tuple[str, str, str]:
-    text = " ".join(
-        str(row.get(field, "")).upper()
-        for field in ("production_period", "applies_for_models", "notes", "group_name")
-    )
-    has_ej20e = "EJ20E" in tokens
-    donor_tokens = [token for token in tokens if token != "EJ20E"]
-
-    if has_ej20e and donor_tokens:
-        return (
-            "shared_engine_candidate",
-            "95%+ only after the donor is from the same BG/B11 production range and the OEM/stamped part number matches.",
-            "Confirm donor frame/engine, same OEM number or supersession, production date, side/trim, and physical connector/mounting match.",
-        )
-
-    if has_ej20e:
-        return (
-            "ej20e_specific_target_part",
-            "Target-fit evidence only; no cross-engine interchange claim.",
-            "Use exact OEM number or supersession for purchases; do not substitute a donor engine without separate evidence.",
-        )
-
-    if tokens:
-        return (
-            "non_ej20e_reference_only",
-            "Below 95% for this car unless separate evidence proves the same OEM number also applies to BG5/EJ20E.",
-            "Do not buy for the BG5P without an exact EJ20E/BG5 application, supersession, or stamped-number match.",
-        )
-
-    if section in {"Manual Transmission", "Differential Propeller"} or any(
-        marker in text for marker in ("F4W", "F4WD", "MT", "TY752")
-    ):
-        return (
-            "drivetrain_option_specific",
-            "Can reach 95%+ only after matching transmission code, AWD/final-drive data, and OEM number.",
-            "Confirm transmission code, rear diff ratio, prop shaft length, axle spline/count, and OEM number.",
-        )
-
-    if not row.get("applies_for_models") and not row.get("notes"):
-        return (
-            "common_or_unspecified_bg_chassis_part",
-            "Can reach 95%+ only when the donor has the same OEM number or a verified Subaru supersession.",
-            "Confirm same BG wagon body style, LHD/RHD where relevant, side, color/trim, and OEM number.",
-        )
-
-    return (
-        "requires_option_confirmation",
-        "Below 95% until the option code and donor vehicle evidence are resolved.",
-        "Confirm all application notes before buying.",
-    )
+    signal = "shared_engine_candidate" if "EJ20E" in tokens and len(tokens)>1 else "catalog_variant_unreviewed"
+    return signal, "Unreviewed catalog row; no confirmed fit or numerical confidence assigned.", "Match OEM/relationships, date, equipment, dimensions and interfaces. Engine/market labels alone do not prove or reject fitment."
 
 
 def build_rows(parts: dict, diagrams: dict[str, tuple[str, str]]) -> list[dict]:

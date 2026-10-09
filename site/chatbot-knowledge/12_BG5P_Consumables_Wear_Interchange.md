@@ -1,3 +1,5 @@
+> Current configuration (2026-10-09): owner reports factory front brakes and rear drums. The historical disc entries below describe alternate source-catalog variants; they are not fits for this vehicle. Use /find-part and /data/sourcing.json for current claim status. Numerical confidence statements below are historical, not verified fit badges.
+
 # BG5P Consumables And Wear Parts Interchange Guide
 
 Date: 2026-04-29
@@ -43,7 +45,7 @@ lookup.
 | Frame/build date | Exact frame number and build month. | Several 1997 rows overlap, especially timing guide, clutch cover, rear brake, and early/late supersessions. | Full frame/VIN, build plate, transmission code. |
 | Emissions/catalyst | Whether this car has the catalyst/exhaust-converter setup shown in the BG5/EJ20E MT EPC. | Spark plug selection differs between the factory manual's catalyst and non-catalyst notes. | Photos of converter, oxygen sensor, emissions label, current plug part number. |
 | Front brakes | Confirm 14 inch, 1-pot front caliper and rotor dimensions. | The exact MT EPC page confirms the 14 inch / 1-pot brake family. The earlier `S.25 + W.(25+OBK)` pad/rotor numbers are not acceptable as BG5P proof, and 2026-06-29 external rechecks did not produce BG5P/EJ20E-specific purchase proof. | Caliper casting, rotor OD/thickness, pad shape, ABS/no ABS, wheel size. |
-| Rear brakes | Confirm rear disc brake with D=38 caliper. | The exact MT EPC resolves rear disc parts for W.F4W LX/TXS/BRIGLD, but the actual BG5P still needs a physical package check before stocking parts. | Rear rotor OD/thickness, caliper piston/casting, parking-brake shoe type. |
+| Rear brakes | Owner rear drums; rear-disc D=38 is an alternate catalog variant. | The exact MT EPC resolves rear disc parts for W.F4W LX/TXS/BRIGLD, but the actual BG5P still needs a physical package check before stocking parts. | Rear rotor OD/thickness, caliper piston/casting, parking-brake shoe type. |
 | Radiator hoses | Exact hose-kit subpage or physical hose match. | The exact MT EPC confirms radiator and hose group for MT EJ20E/EJ20D, but the individual hose numbers in the local data came from a different captured variant. | Hose photos, radiator tank layout, upper/lower hose routing, old hose markings. |
 | Fuel tank / pump / strainer | Pump hanger and in-tank filter layout. | Local rows mix 2WD, A/S, AT, and EJ25D notes; enough for leads, not enough for bulk buying. | Pump hanger photos, connector, strainer shape, fuel line routing, tank access layout. |
 | Hubs/CV/axles | ABS tone ring and axle/boot dimensions. | Chassis rows are broad `S + W` or `W.F4W`; ABS and axle style still affect used assemblies and boot kits. | ABS sensor/tone ring photos, spline count if disassembled, boot diameters. |
