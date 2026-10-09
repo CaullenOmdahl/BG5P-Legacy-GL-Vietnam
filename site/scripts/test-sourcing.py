@@ -31,7 +31,12 @@ class SourcingContract(unittest.TestCase):
         for field in ["vehicle", "compatibility", "evidence", "relationships"]:
             self.assertEqual(self.data[field], curated[field])
         self.assertCountEqual(
-            [p for p in self.data["parts"] if not p["catalog"]], curated["parts"]
+            [
+                {k: v for k, v in p.items() if k != "search_terms"}
+                for p in self.data["parts"]
+                if not p["catalog"]
+            ],
+            curated["parts"],
         )
         self.assertEqual(
             self.data["procedures"],

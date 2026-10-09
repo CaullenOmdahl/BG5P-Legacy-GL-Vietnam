@@ -55,7 +55,7 @@ export function findParts(
           part.aliases.some((a) => normalizeNumber(a) === n));
       const relation = related.has(part.normalized_number);
       const words =
-        `${part.name} ${part.name_vi} ${part.number} ${part.catalog?.applies_for_models ?? ""} ${part.shared_applications.join(" ")}`.toLowerCase();
+        `${part.name} ${part.name_vi} ${part.search_terms.join(" ")} ${part.number} ${part.catalog?.applies_for_models ?? ""} ${part.shared_applications.join(" ")}`.toLowerCase();
       if (q && !exact && !relation && !words.includes(q)) return [];
       return [
         {
@@ -73,4 +73,58 @@ export function findParts(
         ["exact", "related", "name"].indexOf(a.match) -
         ["exact", "related", "name"].indexOf(b.match),
     );
+}
+
+export const procedureAliases: Record<string, string[]> = {
+  "oil-change": ["engine oil", "oil change", "dầu động cơ", "thay dầu máy"],
+  "timing-belt": ["timing", "dây cam", "dây đai cam"],
+  "coolant-flush": ["coolant", "nước làm mát"],
+  "brake-pads": ["brake", "front pads", "pad", "phanh", "má phanh"],
+  "spark-plugs": ["spark", "bugi"],
+  "air-filter": ["air filter", "air cleaner", "lọc gió"],
+  "transmission-fluid": ["transmission", "gearbox oil", "hộp số", "dầu hộp số"],
+  clutch: ["clutch", "ly hợp", "côn"],
+  "differential-fluid": ["differential", "vi sai"],
+};
+export const matchesPhrase = (query: string, phrase: string) =>
+  ` ${query.toLowerCase().replace(/[^\p{L}\p{N}.-]+/gu, " ")} `.includes(
+    ` ${phrase.toLowerCase()} `,
+  ) || ` ${query.toLowerCase()} `.includes(` ${phrase.toLowerCase()}s `);
+
+export function resolveSourcingParts(
+  data: SourcingData,
+  query: string,
+): SourcingPart[] {
+  const found = new Map<string, SourcingPart>();
+  const add = (term: string) => {
+    for (const { part } of findParts(data, term)) found.set(part.id, part);
+  };
+  add(query);
+  // Explicit tokens keep relationship lookup directed and nontransitive.
+  for (const token of query.match(
+    /[A-Za-z0-9][A-Za-z0-9.-]*(?: [0-9]{2} [0-9]{3})?/g,
+  ) ?? [])
+    if (/\d/.test(token)) add(token);
+  for (const term of new Set(data.parts.flatMap((p) => p.search_terms)))
+    if (matchesPhrase(query, term)) add(term);
+  const brake =
+    procedureAliases["brake-pads"].some((term) => matchesPhrase(query, term)) ||
+    /rotor|caliper|D722|P.?78.?009/i.test(query);
+  if (brake)
+    for (const p of data.parts.filter(
+      (p) =>
+        !p.catalog &&
+        [
+          "09.5673.11",
+          "P 78 009",
+          "P 78 004",
+          "14.A686.10",
+          "US-277-FRONT",
+          "P 78 005",
+        ].includes(p.number),
+    ))
+      found.set(p.id, p);
+  return [...found.values()]
+    .sort((a, b) => Number(!!a.catalog) - Number(!!b.catalog))
+    .slice(0, 10);
 }

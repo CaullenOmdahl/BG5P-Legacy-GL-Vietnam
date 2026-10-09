@@ -1,4 +1,9 @@
-import { findParts, getSourcing } from "../sourcing";
+import {
+  getSourcing,
+  resolveSourcingParts,
+  procedureAliases,
+  matchesPhrase,
+} from "../sourcing";
 import fs from "fs";
 import path from "path";
 import { localizeManualTitle, localizeTechnicalName } from "@/lib/i18n";
@@ -696,7 +701,9 @@ export function retrievePublicLinks(
   const normalizedQuery = query.trim().toLowerCase();
   const queryTokens = tokenize(normalizedQuery);
   const links = new Map<string, PublicLinkSource>();
-  for (const { part: p } of findParts(getSourcing(), query).slice(0, 3)) {
+  for (const { part: p } of resolveSourcingParts(getSourcing(), query)
+    .slice(0, 3)
+    .map((part) => ({ part }))) {
     const url = `${BASE_URL}/find-part/${p.id}`;
     links.set(url, {
       id: p.id,
@@ -803,26 +810,8 @@ export function retrieveKnowledge(query: string): {
 
 function canonicalSourcingContext(query: string): string {
   const data = getSourcing();
-  const parts = findParts(data, query)
-    .slice(0, 4)
-    .map((x) => x.part);
-  // Brake questions must carry the drum setup and split front families even when phrased as a sentence.
-  if (/brak|rotor|caliper|phanh|D722|P.?78.?009/i.test(query)) {
-    for (const p of data.parts.filter(
-      (p) =>
-        !p.catalog &&
-        [
-          "09.5673.11",
-          "P 78 009",
-          "P 78 004",
-          "14.A686.10",
-          "US-277-FRONT",
-          "P 78 005",
-        ].includes(p.number),
-    ))
-      if (!parts.some((x) => x.id === p.id)) parts.push(p);
-  }
-  return JSON.stringify({
+  const parts = resolveSourcingParts(data, query);
+  const canonical = {
     content_version: data.content_version,
     vehicle: data.vehicle,
     compatibility: data.compatibility,
@@ -842,20 +831,77 @@ function canonicalSourcingContext(query: string): string {
         parts.some((p) => p.fitment.evidence.includes(e.id)),
     ),
     coverage_url: "https://bg5.caphedigital.com/data/coverage.json",
-  });
+  };
+  // Keep whole qualified records and their evidence, never truncate JSON.
+  const budget = MAX_CONTEXT_CHARS - 1000;
+  if (JSON.stringify(canonical).length > budget)
+    canonical.procedures = canonical.procedures.map((g) => ({
+      ...g,
+      specs: undefined,
+      steps: undefined,
+      detail_policy:
+        "Compact applicability summary: fetch the qualified specifications URL and exact manual pages for omitted inherited details.",
+    }));
+  while (
+    JSON.stringify(canonical).length > budget &&
+    canonical.parts.length > 0
+  ) {
+    canonical.parts.pop();
+    canonical.relationships = canonical.relationships.filter((r) =>
+      canonical.parts.some((p) => p.number === r.from || p.number === r.to),
+    );
+    canonical.evidence = canonical.evidence.filter(
+      (e) =>
+        e.id === "plan-leads" ||
+        canonical.parts.some((p) => p.fitment.evidence.includes(e.id)),
+    );
+  }
+  while (
+    JSON.stringify(canonical).length > budget &&
+    canonical.procedures.length > 0
+  )
+    canonical.procedures.pop();
+  return JSON.stringify(canonical);
 }
 
-function getSourcingProcedures(query: string): unknown[] {
+function getSourcingProcedures(query: string) {
   const raw = JSON.parse(
     fs.readFileSync(
       path.join(process.cwd(), "public/data/maintenance.json"),
       "utf8",
     ),
-  ) as { id: string }[];
-  const lower = query.toLowerCase();
+  ) as {
+    id: string;
+    title: string;
+    specs: unknown;
+    steps: unknown;
+    review_status: string;
+    configuration: unknown;
+    interval_basis: unknown;
+    prerequisites: unknown;
+    limits: unknown;
+    relatedPdfs: unknown;
+    relatedDiagrams: unknown;
+  }[];
   return raw
     .filter((g) =>
-      g.id.split("-").some((word) => word.length > 3 && lower.includes(word)),
+      (procedureAliases[g.id] ?? []).some((term) => matchesPhrase(query, term)),
     )
-    .slice(0, 2);
+    .map((g) => ({
+      ...g,
+      id: g.id,
+      title: g.title,
+      review_status: g.review_status,
+      configuration: g.configuration,
+      interval_basis: g.interval_basis,
+      prerequisites: g.prerequisites,
+      limits: g.limits,
+      relatedPdfs: g.relatedPdfs,
+      relatedDiagrams: g.relatedDiagrams,
+      url: "https://bg5.caphedigital.com/maintenance/" + g.id,
+      qualified_specifications_url:
+        "https://bg5.caphedigital.com/llms/maintenance/" + g.id + ".txt",
+      detail_policy:
+        "Inherited step/specification details remain unreviewed; check the qualified guide and exact manual pages before service advice.",
+    }));
 }

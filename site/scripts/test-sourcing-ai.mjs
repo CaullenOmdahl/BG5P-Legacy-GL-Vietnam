@@ -38,7 +38,7 @@ try {
     assert.ok(r.context.includes(data.content_version));
     assert.ok(r.context.includes("rear_brakes"));
     assert.ok(
-      r.context.length < 24500,
+      r.context.length <= 24000,
       `Bounded context for ${query}: ${r.context.length}`,
     );
     const first = JSON.parse(r.context.split("\n\n---\n\n")[0]);
@@ -46,6 +46,46 @@ try {
     assert.ok(first.rules.toLowerCase().includes("unreviewed"));
     if (query === "clutch")
       assert.equal(first.procedures[0].review_status, "unreviewed");
+  }
+  const canonical = (query) =>
+    JSON.parse(k.retrieveKnowledge(query).context.split("\n\n---\n\n")[0]);
+  for (const query of ["What front pads fit my car?", "má phanh trước"]) {
+    const c = canonical(query);
+    for (const number of ["P 78 009", "P 78 004", "US-277-FRONT"])
+      assert.ok(
+        c.parts.some((p) => p.number === number),
+        query + ": " + number,
+      );
+    assert.ok(c.procedures.some((g) => g.id === "brake-pads"));
+  }
+  for (const [query, id] of [
+    ["thay dây cam", "timing-belt"],
+    ["thay dầu hộp số", "transmission-fluid"],
+  ]) {
+    const c = canonical(query);
+    const g = c.procedures.find((g) => g.id === id);
+    assert.equal(g.review_status, "unreviewed");
+    assert.ok(g.configuration && g.limits && g.url);
+  }
+  assert.ok(
+    canonical("Can I source 26310AC060?").parts.every(
+      (p) => p.number !== "09.5673.11",
+    ),
+    "Natural number extraction must not infer transitive equivalence",
+  );
+  const multi = k.retrieveKnowledge(
+    "timing belt clutch transmission oil coolant brake spark differential",
+  );
+  assert.ok(
+    multi.context.length <= 24000,
+    "Multi-intent budget: " + multi.context.length,
+  );
+  const compact = JSON.parse(multi.context.split("\n\n---\n\n")[0]);
+  assert.ok(compact.parts.length && compact.procedures.length);
+  for (const p of compact.parts) {
+    assert.ok(p.url && p.fitment.unresolved);
+    for (const id of p.fitment.evidence)
+      assert.ok(compact.evidence.some((e) => e.id === id));
   }
   assert.ok(
     k

@@ -66,7 +66,7 @@
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "target": "08_BG5P_Maintenance_Parts_LLM_Corpus.md",
       "kind": "md",
-      "bytes": 5976256
+      "bytes": 6302090
     },
     {
       "source": "chatgpt-bg5-diagnostic-expert/upload_20_files/09_BG5P_Parts_Diagram_Index.csv",
@@ -117,6 +117,6 @@
       "bytes": 24048
     }
   ],
-  "content_version": "68696de79e3dbd83",
+  "content_version": "9a9ea400eb2d64a4",
   "text_refreshed_date": "2026-10-09"
 }

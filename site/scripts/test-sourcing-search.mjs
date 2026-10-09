@@ -52,6 +52,27 @@ try {
     findParts(data, "", { section: "steering" }).length,
     data.parts.filter((p) => p.section === "steering").length,
   );
+  for (const term of ["bơm nước", "đèn pha", "lọc gió"])
+    assert.ok(findParts(data, term).length > 0, term);
+  const air = findParts(data, "lọc gió");
+  for (const number of ["46053AC090", "46033AC000", "46060AA010"]) {
+    const part = air.find((r) => r.part.number === number).part;
+    assert.equal(
+      part.name_vi,
+      part.catalog.group_name,
+      "Partial translation retains complete component identity",
+    );
+    assert.ok(part.search_terms.includes("lọc gió"));
+  }
+  assert.ok(
+    new Set(
+      air
+        .filter((r) =>
+          ["46053AC090", "46033AC000", "46060AA010"].includes(r.part.number),
+        )
+        .map((r) => r.part.name_vi),
+    ).size === 3,
+  );
   console.log(
     "Sourcing search: normalized OEM/SKU, explicit relationships, variants and unknown-preserving filters passed.",
   );

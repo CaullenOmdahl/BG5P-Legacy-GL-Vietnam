@@ -95,6 +95,30 @@ with sync_playwright() as p:
             "Má phanh trước và kiểm tra tang trống sau"
             in page.locator("body").inner_text()
         )
+        # Vietnamese lookup must retain component identity through supplier copy.
+        from urllib.parse import quote
+
+        for term in ["bơm nước", "đèn pha"]:
+            page.goto(BASE + "/find-part?q=" + quote(term))
+            assert page.locator('a[href^="/find-part/catalog-"]').count() > 0, term
+        page.goto(BASE + "/find-part?q=" + quote("lọc gió"))
+        for number in ["46053AC090", "46033AC000", "46060AA010"]:
+            part = next(p for p in data["parts"] if p["number"] == number)
+            assert (
+                page.get_by_role(
+                    "link", name=number + " — " + part["name_vi"], exact=True
+                ).count()
+                >= 1
+            )
+        part = next(p for p in data["parts"] if p["number"] == "46053AC090")
+        page.goto(BASE + "/find-part/" + part["id"])
+        assert part["name"] in page.locator("h1").inner_text()
+        page.get_by_role(
+            "button", name="Sao chép thông tin nhà cung cấp", exact=True
+        ).click()
+        page.get_by_role("button", name="Đã sao chép", exact=True).wait_for()
+        assert part["name"] in page.evaluate("navigator.clipboard.readText()")
+        page.screenshot(path=f"/tmp/bg5-repair-identity-{width}.png", full_page=True)
         assert not errors, errors
         context.close()
     browser.close()

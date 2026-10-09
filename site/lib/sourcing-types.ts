@@ -29,6 +29,7 @@ export interface SourcingPart {
   aliases: string[];
   name: string;
   name_vi: string;
+  search_terms: string[];
   category: string;
   section: string;
   section_name: string;

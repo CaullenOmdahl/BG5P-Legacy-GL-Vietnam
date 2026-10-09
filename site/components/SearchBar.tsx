@@ -95,6 +95,7 @@ export default function SearchBar() {
             | "normalized_number"
             | "name"
             | "name_vi"
+            | "search_terms"
             | "aliases"
             | "fitment"
           > & { related_numbers: string[] })[];
@@ -113,6 +114,7 @@ export default function SearchBar() {
             keywords: [
               p.name,
               p.name_vi,
+              ...p.search_terms,
               ...p.aliases,
               ...p.related_numbers,
             ].join(" "),

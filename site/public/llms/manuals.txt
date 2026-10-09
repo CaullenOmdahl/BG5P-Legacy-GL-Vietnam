@@ -1,4 +1,4 @@
-Schema 1 | Record version 68696de79e3dbd83 | Checked 2026-10-09
+Schema 1 | Record version 9a9ea400eb2d64a4 | Checked 2026-10-09
 Subaru shares many parts across engines, markets and models. Compatibility is assessed per part using OEM numbers, documented replacements, manufacturer applications, dimensions and installed-component evidence. Catalog inclusion is a starting point, not confirmation. Check production-date and equipment restrictions.
 Catalog rows are unreviewed. Candidate relationships are not verified supersessions. Unknown build date yields conditional fitment.
 

@@ -3,6 +3,7 @@
 import csv
 import hashlib
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -27,23 +28,41 @@ def normal(value):
     return "".join(c for c in value.upper() if c.isalnum())
 
 
-def technical_terms(name):
-    terms = {
-        "AIR CLEANER": "air filter lọc gió",
-        "SPARK PLUG": "spark plug bugi",
-        "IGNITION": "ignition đánh lửa",
-        "COIL": "coil cuộn đánh lửa",
-        "OIL FILTER": "oil filter lọc dầu",
-        "STEERING": "steering lái",
-        "FENDER": "fender chắn bùn",
-        "CLUTCH": "clutch ly hợp",
-        "BRAKE": "brake phanh",
-        "DIFFERENTIAL": "differential vi sai",
-        "TIMING": "timing cam",
-        "WIPER": "wiper gạt mưa",
-        "RADIATOR": "radiator két nước",
+def terminology():
+    # Reuse the site's established terminology without treating it as a full
+    # translation of a catalog subcomponent name.
+    source = (SITE / "lib/i18n.ts").read_text()
+    block = source.split("const TECHNICAL_NAMES_VI: Record<string, string> = {", 1)[
+        1
+    ].split("\n};", 1)[0]
+    entries = re.findall(r'^  (?:("[^"\n]+")|([A-Z_]+)): ("[^"\n]+"),$', block, re.M)
+    assert len(entries) > 100, "Technical terminology extraction changed"
+    return {
+        json.loads(key) if key else bare: json.loads(value)
+        for key, bare, value in entries
     }
-    return " / ".join(value for key, value in terms.items() if key in name.upper())
+
+
+def technical_terms(name, diagram_name, translations):
+    subjects = [name.upper(), diagram_name.upper()]
+    terms = []
+    for key, value in translations.items():
+        if any(key in subject for subject in subjects):
+            terms.extend([key.lower(), value.lower()])
+    # Common sourcing phrases supplement, rather than replace, part identity.
+    aliases = {
+        "AIR CLEANER": ["air filter", "lọc gió"],
+        "SPARK PLUG": ["spark plug", "bugi"],
+        "BRAKE": ["brake", "phanh"],
+        "TIMING": ["timing belt", "dây cam"],
+        "CLUTCH": ["clutch", "ly hợp"],
+        "HEAD LAMP": ["headlamp", "headlight", "đèn pha"],
+        "WATER PUMP": ["water pump", "bơm nước"],
+    }
+    for key, values in aliases.items():
+        if any(key in subject for subject in subjects):
+            terms.extend(values)
+    return sorted(set(terms))
 
 
 def build():
@@ -52,6 +71,7 @@ def build():
     meta = diagram_index(sections)
     section_by_name = {s["name"]: s["slug"] for s in sections}
     parts = []
+    translations = terminology()
     collisions = Counter()
     for category, rows in read(DATA / "parts.json").items():
         name, diagram = meta[category]
@@ -71,7 +91,14 @@ def build():
                     normalized_number=normal(row["oem_number"]),
                     aliases=[],
                     name=row.get("group_name", ""),
-                    name_vi=technical_terms(row.get("group_name", "")),
+                    # Exact translations only. For partial coverage retain the full
+                    # original function/side designation, never a broad keyword.
+                    name_vi=translations.get(
+                        row.get("group_name", "").upper(), row.get("group_name", "")
+                    ),
+                    search_terms=technical_terms(
+                        row.get("group_name", ""), diagram, translations
+                    ),
                     category=category,
                     section=section_by_name.get(name, ""),
                     section_name=name,
@@ -110,7 +137,10 @@ def build():
                     offers=[],
                 )
             )
-    parts += curated["parts"]
+    parts += [
+        dict(p, search_terms=technical_terms(p["name"], "", translations))
+        for p in curated["parts"]
+    ]
     procedures = read(SITE / "sourcing/procedures.json")
     manuals = []
     titles = read(DATA / "manual-titles.json")
@@ -212,6 +242,7 @@ def build():
                     "normalized_number",
                     "name",
                     "name_vi",
+                    "search_terms",
                     "aliases",
                     "fitment",
                 ]

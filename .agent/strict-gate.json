@@ -112,6 +112,16 @@
           "cwd": "site",
           "timeout_seconds": 180,
           "cache": false
+        },
+        {
+          "name": "review-config",
+          "run": [
+            "python3",
+            "scripts/test_review_config.py"
+          ],
+          "cwd": ".",
+          "timeout_seconds": 60,
+          "cache": false
         }
       ]
     }
