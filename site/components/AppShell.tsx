@@ -21,10 +21,12 @@ import { LocaleProvider, useLocale } from "@/components/LocaleProvider";
 import Bg5ChatWidget from "@/components/Bg5ChatWidget";
 import SearchBar from "@/components/SearchBar";
 import { getCopy } from "@/lib/i18n";
+import { sourcingCopy } from "@/lib/sourcing-copy";
 import type { Locale } from "@/lib/locale";
 
 const primaryNav = [
   { href: "/", key: "overview", icon: Home },
+  { href: "/find-part", key: "find", icon: CircuitBoard },
   { href: "/parts", key: "parts", icon: CircuitBoard },
   { href: "/maintenance", key: "maintenance", icon: Wrench },
   { href: "/manuals", key: "manuals", icon: BookOpenText },
@@ -38,7 +40,7 @@ function openChat(prompt?: string) {
         prompt,
         mode: "diagnose",
       },
-    })
+    }),
   );
 }
 
@@ -73,7 +75,9 @@ function NavLink({
         <span className="block truncate font-medium leading-4">{label}</span>
         <span
           className={`mt-0.5 block truncate text-[11px] leading-4 ${
-            active ? "text-background/70" : "text-muted/70 group-hover:text-muted"
+            active
+              ? "text-background/70"
+              : "text-muted/70 group-hover:text-muted"
           }`}
         >
           {secondary}

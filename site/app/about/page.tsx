@@ -1,4 +1,7 @@
+import { sourcingField } from "@/lib/sourcing-fields";
 import type { Metadata } from "next";
+import { getSourcing } from "@/lib/sourcing";
+import { sourcingCopy } from "@/lib/sourcing-copy";
 import { Gauge } from "lucide-react";
 import { getCopy, getPageMetadata } from "@/lib/i18n";
 import { getServerLocale } from "@/lib/server-locale";
@@ -11,9 +14,29 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AboutPage() {
   const locale = await getServerLocale();
   const copy = getCopy(locale).about;
+  const data = getSourcing();
+  const t = sourcingCopy[locale];
 
   return (
     <div className="flex flex-col gap-10">
+      <section className="bg5-panel rounded p-5">
+        <h2 className="text-xl">{t.facts}</h2>
+        <dl className="grid gap-3 sm:grid-cols-2">
+          {Object.entries(data.vehicle.facts).map(([key, f]) => (
+            <div key={key}>
+              <dt className="text-muted">{sourcingField(key, locale)}</dt>
+              <dd>
+                {f.value ?? t.unknown} · {f.status}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p>{data.vehicle.suffix_p}</p>
+        <p>{t.fitment}</p>
+        <p>
+          {t.version}: {data.content_version}
+        </p>
+      </section>
       <section className="bg5-panel-strong rounded-lg p-5 sm:p-7">
         <div className="flex items-start gap-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-md border border-border bg-panel text-accent">
@@ -30,22 +53,6 @@ export default async function AboutPage() {
               {copy.description}
             </p>
           </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="bg5-panel rounded-lg p-5 sm:p-6">
-          <h2 className="mb-4 text-lg font-semibold text-foreground">
-            {copy.vehicleSummaryTitle}
-          </h2>
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-3 text-sm sm:grid-cols-2">
-            {copy.vehicleSummary.map((item) => (
-              <div key={item.label} className="flex flex-col">
-                <dt className="text-muted">{item.label}</dt>
-                <dd className="font-medium text-foreground">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
@@ -68,7 +75,10 @@ export default async function AboutPage() {
               </thead>
               <tbody>
                 {copy.chassisPlate.map((row) => (
-                  <tr key={row.code} className="border-b border-border last:border-0">
+                  <tr
+                    key={row.code}
+                    className="border-b border-border last:border-0"
+                  >
                     <td className="whitespace-nowrap px-4 py-3 font-mono font-medium text-accent">
                       {row.code}
                     </td>
@@ -119,11 +129,15 @@ export default async function AboutPage() {
           {copy.sourcesTitle}
         </h2>
         <ul className="list-outside list-disc space-y-2 pl-5 text-sm text-muted">
-          {copy.sources.map((source) => (
-            <li key={source.label}>
-              {source.label}: <span className="text-foreground">{source.value}</span>
-            </li>
-          ))}
+          {data.evidence
+            .filter((source) => source.url)
+            .map((source) => (
+              <li key={source.id}>
+                <a className="text-accent underline" href={source.url!}>
+                  {source.publisher}: {source.location}
+                </a>
+              </li>
+            ))}
         </ul>
       </section>
     </div>

@@ -1,0 +1,153 @@
+{
+  "content_version": "9a9ea400eb2d64a4",
+  "sections": [
+    {
+      "section": "engine-main",
+      "diagrams": 19,
+      "catalog_rows": 299,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "engine-auxiliaries",
+      "diagrams": 10,
+      "catalog_rows": 109,
+      "reviewed_claims": 1,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "engine-electrical",
+      "diagrams": 7,
+      "catalog_rows": 73,
+      "reviewed_claims": 1,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "manual-transmission",
+      "diagrams": 17,
+      "catalog_rows": 411,
+      "reviewed_claims": 1,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "differential-propeller",
+      "diagrams": 3,
+      "catalog_rows": 107,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "suspension-axle-brake",
+      "diagrams": 32,
+      "catalog_rows": 426,
+      "reviewed_claims": 12,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "steering",
+      "diagrams": 19,
+      "catalog_rows": 333,
+      "reviewed_claims": 1,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "engine-mounting-cooling",
+      "diagrams": 13,
+      "catalog_rows": 193,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "body-key-bumper",
+      "diagrams": 28,
+      "catalog_rows": 335,
+      "reviewed_claims": 1,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "door-parts",
+      "diagrams": 11,
+      "catalog_rows": 176,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "seat-instrument-panel",
+      "diagrams": 17,
+      "catalog_rows": 325,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "heater-ac",
+      "diagrams": 8,
+      "catalog_rows": 197,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "body-electrical-1",
+      "diagrams": 19,
+      "catalog_rows": 157,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "body-electrical-2",
+      "diagrams": 25,
+      "catalog_rows": 115,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "outer-accessories",
+      "diagrams": 18,
+      "catalog_rows": 108,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    },
+    {
+      "section": "inner-accessories",
+      "diagrams": 16,
+      "catalog_rows": 244,
+      "reviewed_claims": 0,
+      "confirmed_fits": 0,
+      "review_trigger": "New OEM evidence, changed installed equipment, contradictory dimensions or dated offer",
+      "editor": "Repository maintainers; no owner reassignment"
+    }
+  ],
+  "raw_rows": 3608,
+  "unique_oem": 2937,
+  "indexed_entries": 3041,
+  "manuals": 373
+}

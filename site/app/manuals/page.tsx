@@ -1,4 +1,5 @@
 import fs from "fs";
+import { getSourcing } from "@/lib/sourcing";
 import path from "path";
 import type { Metadata } from "next";
 import ManualsClient, {
@@ -15,7 +16,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const MANUALS_DIR = path.join(process.cwd(), "public", "manuals");
-const TITLES_FILE = path.join(process.cwd(), "public", "data", "manual-titles.json");
+const TITLES_FILE = path.join(
+  process.cwd(),
+  "public",
+  "data",
+  "manual-titles.json",
+);
 
 function loadTitles(): Record<string, string> {
   try {
@@ -32,10 +38,14 @@ function formatBytes(bytes: number): string {
 }
 
 function slugify(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/, "");
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/, "");
 }
 
 const titles = loadTitles();
+const manualManifest = getSourcing().manuals;
 
 function humanizeName(filename: string): string {
   // Use extracted PDF title if available
@@ -92,6 +102,9 @@ function readPdfs(dirPath: string, urlPrefix: string): PdfEntry[] {
       href: entryUrl,
       size: formatBytes(stats.size),
       bytes: stats.size,
+      applicability: manualManifest.find(
+        (m) => m.path === decodeURIComponent(entryUrl),
+      ),
     });
   }
 
@@ -101,7 +114,7 @@ function readPdfs(dirPath: string, urlPrefix: string): PdfEntry[] {
 function loadEnginePdfs(): PdfEntry[] {
   return readPdfs(
     path.join(MANUALS_DIR, "EJ20E-SOHC-engine"),
-    "/manuals/EJ20E-SOHC-engine"
+    "/manuals/EJ20E-SOHC-engine",
   );
 }
 
@@ -151,7 +164,7 @@ export default async function ManualsPage() {
     enginePdfs.length +
     chassisSections.reduce(
       (n, s) => n + s.subsections.reduce((m, sub) => m + sub.pdfs.length, 0),
-      0
+      0,
     );
 
   return (

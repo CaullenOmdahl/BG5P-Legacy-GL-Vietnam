@@ -38,8 +38,7 @@ These are the correct manuals for the Vietnamese-market car.
 
 ### manuals/BG-chassis/ (39 MB)
 Factory service manual sections for the BG chassis. These are from the 1997 USDM FSM but cover
-the shared platform — body, suspension, brakes, steering, transmission, wiring — which is the
-same across all BG Legacy wagons regardless of engine or market.
+the shared platform — body, suspension, brakes, steering, transmission, wiring — which requires per-part and per-procedure checks against engine, equipment, market and production date.
 
 - `BODY SECTION/` — Body panels, doors, windows, interior, seats, seatbelts, instrument panel
 - `MECHANICAL COMPONENTS SECTION/` — Brakes, suspension, steering, wheels, A/C, heater
@@ -64,13 +63,12 @@ for part number lookup with exploded diagrams:
 
 Note: The EPC-Data variant 141 lists as automatic/BRIGOLD trim, and the PartSouq BG5-284344
 entry is a GT B-SPEC turbo. Engine-specific part numbers will differ from the EJ20E SOHC NA,
-but chassis, body, suspension, brake, interior, and electrical parts are shared across BG5
-variants.
+and catalog inclusion alone does not confirm any engine, chassis, brake, electrical or body part for the owner car.
 
 ## Notes
 
 - The USDM version of this car used the EJ22 (2.2L) engine, NOT the EJ20E. Engine-specific
-  procedures from a USDM FSM will NOT match. Use the EJ20E manuals in this folder instead.
+  procedures require exact source/configuration checks. Some parts are shared across engines; consult the qualified sourcing records.
 - These cars have NO OBD-II port. Diagnostics require either an SSM1 scan tool
   (e.g., EvoScan SSM1 cable) or manual code reading by bridging diagnostic connector pins
   under the dash and counting CEL flashes.
@@ -82,3 +80,7 @@ variants.
 - EJ20 engine manuals: https://www.car-inform.com/subaru-engines/ej20-engine/
 - BG chassis FSM: 1997 Subaru Legacy USDM Factory Service Manual
 - Vehicle info confirmed by Vietnamese automotive press (Thanh Nien, CarBiz.vn)
+
+## Versioned sourcing reference
+
+The owner car is a 1997 BG5P GL, General Market LHD EJ20E, 5MT AWD, factory front brakes and rear drums. Build date, transmission code, ABS and catalyst are unknown. The canonical generated dataset is `site/public/data/sourcing.json`; authored inputs live in `site/sourcing/`. Raw catalog rows are preserved and unreviewed. See `docs/whole-site-sourcing.md` for generation, coverage and evidence limits.

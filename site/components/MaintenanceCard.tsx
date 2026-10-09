@@ -2,9 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { sourcingCopy } from "@/lib/sourcing-copy";
 import type { MaintenanceCard as MaintenanceCardType } from "@/lib/data";
 import { useLocale } from "@/components/LocaleProvider";
-import { getCopy, localizeDifficulty, localizeMaintenanceCard } from "@/lib/i18n";
+import {
+  getCopy,
+  localizeDifficulty,
+  localizeMaintenanceCard,
+} from "@/lib/i18n";
 
 const difficultyColors: Record<string, string> = {
   Easy: "bg-green-600 text-white",
@@ -21,7 +26,11 @@ function ChevronIcon({ open }: { open: boolean }) {
       strokeWidth={2}
       stroke="currentColor"
     >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
     </svg>
   );
 }
@@ -61,14 +70,20 @@ export default function MaintenanceCard({
     }
   }, []);
 
-  const badgeClass = difficultyColors[card.difficulty] ?? "bg-muted text-foreground";
+  const badgeClass =
+    difficultyColors[card.difficulty] ?? "bg-muted text-foreground";
 
   return (
     <div className="bg5-panel rounded-lg p-5 flex flex-col gap-4">
+      <p className="rounded border border-border p-3 text-sm">
+        {sourcingCopy[locale].procedure}
+      </p>
       {/* Header */}
       <div className="flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg font-semibold text-foreground">{localizedCard.title}</h3>
+          <h3 className="text-lg font-semibold text-foreground">
+            {localizedCard.title}
+          </h3>
           <span
             className={`shrink-0 rounded px-2 py-0.5 text-xs font-semibold ${badgeClass}`}
           >
@@ -102,6 +117,21 @@ export default function MaintenanceCard({
                       </td>
                       <td className="py-1.5 px-2 text-foreground font-medium">
                         {spec.value}
+                        <span className="mt-1 block text-xs text-muted">
+                          {sourcingCopy[locale].review} ·{" "}
+                          {spec.status || "unreviewed"}
+                        </span>
+                        <details className="text-xs text-muted">
+                          <summary>{sourcingCopy[locale].sources}</summary>
+                          <p>{spec.conditions}</p>
+                          {spec.source_candidates?.map((href) => (
+                            <p key={href}>
+                              <a className="text-accent underline" href={href}>
+                                {href.split("/").pop()}
+                              </a>
+                            </p>
+                          ))}
+                        </details>
                       </td>
                     </tr>
                   ))}

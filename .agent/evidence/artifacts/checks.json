@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "source": {
+    "repository": "CaullenOmdahl/BG5P-Legacy-GL-Vietnam",
+    "revision": "7dd3188dc29336149a6a6fae505b8dd581510029",
+    "snapshot_digest": "801dd5515bf98e33abc7f372238c4cce690ba893338d30593ed395d26b2904fa"
+  },
+  "authority": "Author-run uncached checks; independent audit pending",
+  "checks": [
+    {
+      "name": "sourcing",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "25d7536def8f745a28091721d86b49bb15294b50ed29bde559621f2e4f44170b"
+    },
+    {
+      "name": "localization",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "9b28aaec2952f465d9d8b1984e53534e6cff949a8976fb0cc5ca6527d7da212a"
+    },
+    {
+      "name": "catalog",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "9a8506e017ffc9c1f186476fafaef26ecd26af5ab1929f5c3bb976a839cb5821"
+    },
+    {
+      "name": "parts",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "55f976e015b5806224a45e614a6357e782082d20fac68087b16a07d7ba956851"
+    },
+    {
+      "name": "index",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "9833d13105baabba9e1afdb16b0a73304496ff3eee8980ee4473f3029c486076"
+    },
+    {
+      "name": "chat",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "b60ad8efa872346692e6ef6718a5ecea33788ea2fd329b86cf0f1f01da18280c"
+    },
+    {
+      "name": "manual-assets",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "bfda29287614eea75459308662283764c263689278074081ba3c52bf825d3c60"
+    },
+    {
+      "name": "typescript",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "production-build",
+      "exit_code": 0,
+      "cached": false,
+      "output_sha256": "22ba41644013ecf46e0ef1b54cbcdaf4d358a06942bea33095368e1996d36126"
+    }
+  ],
+  "browser": {
+    "routes_http_200": 310,
+    "viewports": [
+      390,
+      1440
+    ],
+    "locales": [
+      "en",
+      "vi"
+    ],
+    "checks": [
+      "evidence links",
+      "clipboard completion",
+      "keyboard activation",
+      "no horizontal overflow",
+      "front-pad/rear-drum guide",
+      "global normalized SKU keyboard navigation"
+    ]
+  },
+  "not_run": [
+    "live hosted model API",
+    "exhaustive fitment/procedure page review",
+    "direct OEM revalidation",
+    "destination-specific checkout",
+    "independent audit",
+    "merge",
+    "deployment"
+  ]
+}

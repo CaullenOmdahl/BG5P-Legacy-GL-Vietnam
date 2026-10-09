@@ -3,7 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const baseUrl = (process.env.BG5_SITE_BASE_URL || "https://bg5.caphedigital.com").replace(/\/$/, "");
+const baseUrl = (
+  process.env.BG5_SITE_BASE_URL || "https://bg5.caphedigital.com"
+).replace(/\/$/, "");
 
 const readJson = (relative) =>
   JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -33,7 +35,14 @@ function absoluteUrl(route) {
 }
 
 function htmlRoutes() {
-  const routes = ["/", "/about", "/manuals", "/parts", "/maintenance"];
+  const routes = [
+    "/",
+    "/about",
+    "/manuals",
+    "/parts",
+    "/maintenance",
+    "/find-part",
+  ];
 
   for (const card of maintenance) {
     routes.push(`/maintenance/${card.id}`);
@@ -42,14 +51,20 @@ function htmlRoutes() {
   for (const section of sections) {
     routes.push(`/parts/${section.slug}`);
     for (const diagram of section.diagrams) {
-      routes.push(`/parts/${section.slug}/${diagram.code.replaceAll("_", "-")}`);
+      routes.push(
+        `/parts/${section.slug}/${diagram.code.replaceAll("_", "-")}`,
+      );
     }
   }
 
+  const sourcing = readJson("public/data/sourcing.json");
+  for (const p of sourcing.parts) routes.push(`/find-part/${p.id}`);
   return Array.from(new Set(routes));
 }
 
-const urls = htmlRoutes().map((route) => `  <url><loc>${xmlEscape(absoluteUrl(route))}</loc></url>`);
+const urls = htmlRoutes().map(
+  (route) => `  <url><loc>${xmlEscape(absoluteUrl(route))}</loc></url>`,
+);
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -69,4 +84,6 @@ const robots = [
 fs.writeFileSync(path.join(root, "public/sitemap.xml"), sitemap);
 fs.writeFileSync(path.join(root, "public/robots.txt"), robots);
 
-console.log(`Wrote sitemap.xml and robots.txt for ${urls.length} HTML route(s)`);
+console.log(
+  `Wrote sitemap.xml and robots.txt for ${urls.length} HTML route(s)`,
+);

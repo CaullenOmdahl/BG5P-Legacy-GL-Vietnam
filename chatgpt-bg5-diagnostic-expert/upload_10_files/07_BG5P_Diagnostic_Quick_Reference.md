@@ -83,15 +83,17 @@
 
 - Difficulty: Easy
 - Interval: Every 5,000 km or 6 months
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Oil Type: 5W-30 preferred (API SJ/SH or SG)
-  - Capacity (to upper level): 4.0 L (4.2 US qt)
-  - Capacity (to lower level): 3.0 L (3.2 US qt)
-  - Drain Plug Torque: 44 Nm (4.5 kgf-m, 33 ft-lb)
-  - Oil Filter Thread: M20 x 1.5
-  - Oil Filter Type: Full-flow, 80 x 70 mm
-  - Oil Filter Wrench (ST): 498547000
-  - Alt. Viscosity (hot climate): 10W-30, 10W-40, 20W-40, 20W-50
+  - Oil Type: 5W-30 preferred (API SJ/SH or SG) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Capacity (to upper level): 4.0 L (4.2 US qt) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification; distinguish dry fill from drain/refill and verify level]
+  - Capacity (to lower level): 3.0 L (3.2 US qt) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification; distinguish dry fill from drain/refill and verify level]
+  - Drain Plug Torque: 44 Nm (4.5 kgf-m, 33 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Oil Filter Thread: M20 x 1.5 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Oil Filter Type: Full-flow, 80 x 70 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Oil Filter Wrench (ST): 498547000 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Alt. Viscosity (hot climate): 10W-30, 10W-40, 20W-40, 20W-50 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Warm engine for 5 minutes, then shut off
   2. Place drain pan under oil pan and remove drain plug
@@ -112,21 +114,23 @@
 
 - Difficulty: Advanced
 - Interval: Every 100,000 km or 60 months
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Belt Tooth Count Z1: 44 teeth
-  - Belt Tooth Count Z2: 40.5 teeth
-  - Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb)
-  - Belt Idler No. 1 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)
-  - Belt Idler No. 2 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb)
-  - Camshaft Sprocket Torque: 78 Nm (8.0 kgf-m, 57.9 ft-lb)
-  - Crank Pulley Bolt Torque: 127 Nm (13.0 kgf-m, 94 ft-lb)
-  - Belt Cover Torque: 5 Nm (0.5 kgf-m, 3.6 ft-lb)
-  - Belt-to-Guide Clearance: 1.0 +/- 0.5 mm
-  - Tensioner Rod Extension: 5.7 +/- 0.5 mm
-  - Tensioner Press Force: 294 N (30 kgf, 66 lb)
-  - Crank Pulley Wrench (ST): 499977300
-  - Cam Sprocket Wrench (ST1): 499207100
-  - Cam Sprocket Wrench (ST2): 499207400
+  - Timing mark span (not total belt teeth) Z1: 44 teeth [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Timing mark span (not total belt teeth) Z2: 40.5 teeth [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Tensioner Adjuster Torque: 25 Nm (2.5 kgf-m, 18.4 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Belt Idler No. 1 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Belt Idler No. 2 Torque: 39 Nm (4.0 kgf-m, 28.9 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Camshaft Sprocket Torque: 78 Nm (8.0 kgf-m, 57.9 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Crank Pulley Bolt Torque: 127 Nm (13.0 kgf-m, 94 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Belt Cover Torque: 5 Nm (0.5 kgf-m, 3.6 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Belt-to-Guide Clearance: 1.0 +/- 0.5 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Tensioner Rod Extension: 5.7 +/- 0.5 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Tensioner Press Force: 294 N (30 kgf, 66 lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Crank Pulley Wrench (ST): 499977300 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Cam Sprocket Wrench (ST1): 499207100 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Cam Sprocket Wrench (ST2): 499207400 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Disconnect battery ground cable
   2. Remove V-belts (alternator, A/C, power steering)
@@ -157,18 +161,20 @@
 
 - Difficulty: Easy
 - Interval: Every 30,000 km or 24 months
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Coolant Type: Subaru Genuine Long-Life Coolant
-  - Capacity (MT, to FULL): 6.3 L (6.7 US qt)
-  - Capacity (AT, to FULL): 6.4 L (6.8 US qt)
-  - Reservoir Tank Capacity: 0.45 L (0.5 US qt)
-  - Thermostat Opens: 76-80 C (169-176 F)
-  - Thermostat Fully Open: 91 C (196 F)
-  - Thermostat Valve Lift: 9.0 mm (0.354 in) or more
-  - Thermostat Cover Torque: 6.4 Nm (0.65 kgf-m, 4.7 ft-lb)
-  - Coolant Concentration: 30-50% (adjust for climate)
-  - Radiator Cap Pressure: 108 +/- 15 kPa (16 +/- 2 psi)
-  - Water Pump Bolt Torque: 12 Nm (1.2 kgf-m, 8.7 ft-lb) in 2 stages
+  - Coolant Type: Subaru Genuine Long-Life Coolant [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Capacity (MT, to FULL): 6.3 L (6.7 US qt) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification; distinguish dry fill from drain/refill and verify level]
+  - Capacity (AT, to FULL): 6.4 L (6.8 US qt) [unreviewed; Automatic-transmission alternate configuration; not the owner 5MT default]
+  - Reservoir Tank Capacity: 0.45 L (0.5 US qt) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification; distinguish dry fill from drain/refill and verify level]
+  - Thermostat Opens: 76-80 C (169-176 F) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Thermostat Fully Open: 91 C (196 F) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Thermostat Valve Lift: 9.0 mm (0.354 in) or more [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Thermostat Cover Torque: 6.4 Nm (0.65 kgf-m, 4.7 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Coolant Concentration: 30-50% (adjust for climate) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Radiator Cap Pressure: 108 +/- 15 kPa (16 +/- 2 psi) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Water Pump Bolt Torque: 12 Nm (1.2 kgf-m, 8.7 ft-lb) in 2 stages [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Allow engine to cool completely - radiator is pressurized when hot
   2. Lift vehicle, remove under cover
@@ -188,29 +194,25 @@
   - /manuals/EJ20E-SOHC-engine/EJ20_Cooling.pdf
 - Related diagrams: 035_01, 036_01
 
-### Brake Pads (Front & Rear)
+### Front Brake Pads and Rear Drum Inspection
 
 - Difficulty: Moderate
 - Interval: Every 20,000 km or as needed
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Front Type: Disc (Floating type, ventilated)
-  - Front Pad Dimensions (friction material): 112.4 x 44.3 x 11.0 mm
-  - Front Pad Standard Thickness (factory service check, including back metal): 17 mm (0.67 in)
-  - Front Pad Wear Limit (factory service check, including back metal): 7.5 mm (0.295 in)
-  - Front Disc Thickness (new): 24 mm (0.94 in)
-  - Front Disc Min Thickness: 22 mm (0.87 in)
-  - Front Disc Max Runout: 0.075 mm (0.003 in)
-  - Front Caliper Guide Pin Torque: 37 Nm (3.8 kgf-m, 27.5 ft-lb)
-  - Front Support Bolt Torque: 78 Nm (8.0 kgf-m, 58 ft-lb)
-  - Rear Type: Disc (Floating type)
-  - Rear Pad Dimensions (friction material): 92.4 x 33.7 x 10.0 mm
-  - Rear Pad Standard Thickness (factory service check, including back metal): 15 mm (0.59 in)
-  - Rear Pad Wear Limit (factory service check, including back metal): 6.5 mm (0.256 in)
-  - Rear Disc Thickness (new): 10 mm (0.39 in)
-  - Rear Disc Min Thickness: 8.5 mm (0.335 in)
-  - Rear Disc Max Runout: 0.10 mm (0.004 in)
-  - Brake Fluid: DOT 3 or DOT 4
-  - Air Bleeder Screw Torque: 8 Nm (0.8 kgf-m, 5.8 ft-lb)
+  - Front Type: Disc (Floating type, ventilated) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Pad Dimensions (friction material): 112.4 x 44.3 x 11.0 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Pad Standard Thickness (factory service check, including back metal): 17 mm (0.67 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Pad Wear Limit (factory service check, including back metal): 7.5 mm (0.295 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Disc Thickness (new): 24 mm (0.94 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Disc Min Thickness: 22 mm (0.87 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Disc Max Runout: 0.075 mm (0.003 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Caliper Guide Pin Torque: 37 Nm (3.8 kgf-m, 27.5 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Support Bolt Torque: 78 Nm (8.0 kgf-m, 58 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Brake Fluid: DOT 3 or DOT 4 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Air Bleeder Screw Torque: 8 Nm (0.8 kgf-m, 5.8 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Rear equipment: Owner-confirmed drums; no rear disc pads [owner_reported; Owner-described installed equipment]
 - Steps:
   1. Loosen wheel lug nuts, raise vehicle and support on jack stands
   2. Remove wheel
@@ -224,30 +226,32 @@
   10. Install new pad clips on support bracket
   11. Install new inner shim, pad (inside), pad (outside), and outer shim
   12. Lower caliper over new pads and install guide pin bolts
-  13. Torque guide pin bolts to 37 Nm (front) or per spec (rear)
-  14. Reinstall wheel, torque lug nuts
-  15. Pump brake pedal several times before driving to seat pads
-  16. Check and top up brake fluid reservoir
+  13. Reinstall wheel, torque lug nuts
+  14. Pump brake pedal several times before driving to seat pads
+  15. Check and top up brake fluid reservoir
+  16. Rear drums: inspect shoe lining, cylinder leaks, hardware and adjuster using the matching drum procedure. Rear disc parking-brake shoes are a different application; replacement specifications remain unreviewed.
 - Related PDFs:
   - /manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3677.pdf
   - /manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3678.pdf
-- Related diagrams: 265_01, 265_02, 265_03, 265_04
+- Related diagrams: 262_02, 262_04
 
 ### Spark Plugs
 
 - Difficulty: Moderate
 - Interval: Every 20,000 km or 12 months
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Plug (without catalytic converter): NGK BKR6E
-  - Plug (with catalytic converter): Champion RC10YC4 or NGK BKR5E-11
-  - Thread Size: M14, P = 1.25
-  - Gap (without catalyst): 0.7-0.8 mm (0.028-0.031 in)
-  - Gap (with catalyst): 1.0-1.1 mm (0.039-0.043 in)
-  - Spark Plug Torque: 21 Nm (2.1 kgf-m, 15 ft-lb)
-  - Ignition Coil Bolt Torque: 6.4 Nm (0.65 kgf-m, 4.7 ft-lb)
-  - Spark Plug Cord Resistance: 5.24-12.23 k-ohm
-  - Firing Order: 1-3-2-4
-  - Ignition Coil: Hitachi CM12-100B
+  - Plug (without catalytic converter): NGK BKR6E [unreviewed; Catalyst configuration unknown; identify installed equipment before selecting plug/gap]
+  - Plug (with catalytic converter): Champion RC10YC4 or NGK BKR5E-11 [unreviewed; Catalyst configuration unknown; identify installed equipment before selecting plug/gap]
+  - Thread Size: M14, P = 1.25 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Gap (without catalyst): 0.7-0.8 mm (0.028-0.031 in) [unreviewed; Catalyst configuration unknown; identify installed equipment before selecting plug/gap]
+  - Gap (with catalyst): 1.0-1.1 mm (0.039-0.043 in) [unreviewed; Catalyst configuration unknown; identify installed equipment before selecting plug/gap]
+  - Spark Plug Torque: 21 Nm (2.1 kgf-m, 15 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Ignition Coil Bolt Torque: 6.4 Nm (0.65 kgf-m, 4.7 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Spark Plug Cord Resistance: 5.24-12.23 k-ohm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Firing Order: 1-3-2-4 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Ignition Coil: Hitachi CM12-100B [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Disconnect battery ground cable
   2. RH side: Remove air intake duct and resonator chamber
@@ -270,12 +274,14 @@
 
 - Difficulty: Easy
 - Interval: Every 20,000 km or 12 months (inspect every 10,000 km)
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Filter Type: Panel filter element
-  - OEM Part Number: 16546-AA020 (verify for model year)
-  - Case Bolt Torque: 6.5 Nm (0.66 kgf-m, 4.8 ft-lb)
-  - Case Stay Bolt Torque: 16 Nm (1.6 kgf-m, 11.6 ft-lb)
-  - Resonator Chamber Torque: 33 Nm (3.4 kgf-m, 24.4 ft-lb)
+  - Filter Type: Panel filter element [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - OEM Part Number: 16546-AA020 (verify for model year) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Case Bolt Torque: 6.5 Nm (0.66 kgf-m, 4.8 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Case Stay Bolt Torque: 16 Nm (1.6 kgf-m, 11.6 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Resonator Chamber Torque: 33 Nm (3.4 kgf-m, 24.4 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Open hood and locate air cleaner case on top of engine
   2. Release clips (B) above the air cleaner case
@@ -295,20 +301,22 @@
 
 - Difficulty: Moderate
 - Interval: Every 50,000 km or 30 months
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Fluid Type: GL-5 (75W-90 gear oil)
-  - Capacity: 3.5 L (3.7 US qt)
-  - Transmission Type: 5-speed synchromesh with reverse
-  - Transfer Gear Ratio: 1.000
-  - Final Drive Ratio (BG5P EJ20E): 3.900
-  - 1st Gear Ratio: 3.545
-  - 2nd Gear Ratio: 2.111
-  - 3rd Gear Ratio: 1.448
-  - 4th Gear Ratio: 1.088
-  - 5th Gear Ratio: 0.780
-  - Reverse Gear Ratio: 3.416
-  - Transmission Drain Plug Torque: 70 Nm (7.1 kgf-m, 51.6 ft-lb) for gasket-type plug, or 44 Nm (4.5 kgf-m, 32.5 ft-lb) for tapered-thread plug
-  - Transmission Fill Plug Torque: 44 Nm (4.5 kgf-m, 32.5 ft-lb)
+  - Fluid Type: GL-5 (75W-90 gear oil) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Capacity: 3.5 L (3.7 US qt) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification; distinguish dry fill from drain/refill and verify level]
+  - Transmission Type: 5-speed synchromesh with reverse [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Transfer Gear Ratio: 1.000 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Final Drive Ratio (source variant; exact car unknown): 3.900 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - 1st Gear Ratio: 3.545 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - 2nd Gear Ratio: 2.111 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - 3rd Gear Ratio: 1.448 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - 4th Gear Ratio: 1.088 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - 5th Gear Ratio: 0.780 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Reverse Gear Ratio: 3.416 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Transmission Drain Plug Torque: 70 Nm (7.1 kgf-m, 51.6 ft-lb) for gasket-type plug, or 44 Nm (4.5 kgf-m, 32.5 ft-lb) for tapered-thread plug [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Transmission Fill Plug Torque: 44 Nm (4.5 kgf-m, 32.5 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Raise vehicle and support on jack stands, remove under cover
   2. Place drain pan under transmission
@@ -329,20 +337,22 @@
 
 - Difficulty: Advanced
 - Interval: As needed (typically 100,000-150,000 km)
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Clutch Disc Facing O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm
-  - Clutch Disc Facing: Woven type
-  - Clutch Disc Spline O.D. (24 teeth): 25.2 mm
-  - Diaphragm Set Load (BG5P EJ20E): 450 kg (992 lb)
-  - Release Bearing Type: Grease-packed self-aligning
-  - Release Lever Ratio: 3.0
-  - Clutch Pedal Full Stroke: 140-150 mm (5.51-5.91 in)
-  - Release Lever Stroke: 24-26 mm (0.94-1.02 in)
-  - Release Lever Play (at center): 3-4 mm (0.12-0.16 in)
-  - Disc Rivet Depth (standard): 1.3-1.9 mm
-  - Disc Rivet Depth (wear limit): 0.3 mm
-  - Disc Runout Limit: 1.0 mm at R=107 mm
-  - Cover Bolt Torque: 15.7 Nm (1.6 kgf-m, 11.6 ft-lb)
+  - Clutch Disc Facing O.D. x I.D. x Thickness: 225 x 150 x 3.5 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Clutch Disc Facing: Woven type [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Clutch Disc Spline O.D. (24 teeth): 25.2 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Diaphragm Set Load (source variant; exact car unknown): 450 kg (992 lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Release Bearing Type: Grease-packed self-aligning [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Release Lever Ratio: 3.0 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Clutch Pedal Full Stroke: 140-150 mm (5.51-5.91 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Release Lever Stroke: 24-26 mm (0.94-1.02 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Release Lever Play (at center): 3-4 mm (0.12-0.16 in) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Disc Rivet Depth (standard): 1.3-1.9 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Disc Rivet Depth (wear limit): 0.3 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Disc Runout Limit: 1.0 mm at R=107 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Cover Bolt Torque: 15.7 Nm (1.6 kgf-m, 11.6 ft-lb) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Disconnect battery ground cable
   2. Remove air intake duct and air cleaner assembly
@@ -370,25 +380,27 @@
 - Related PDFs:
   - /manuals/BG-chassis/ENGINE - UNIVERSAL/CLUTCH/MSA5TCD97L3544.pdf
   - /manuals/BG-chassis/ENGINE - UNIVERSAL/CLUTCH/MSA5TCD97L3545.pdf
-- Related diagrams: 130_03, 130_04
+- Related diagrams: 100_01, 373_01
 
 ### Differential Fluid Change
 
 - Difficulty: Moderate
 - Interval: Every 50,000 km or 30 months
+- Review: unreviewed; exact-page/configuration validation required
+- Interval basis: Existing owner recommendation; factory schedule not revalidated
 - Specs:
-  - Front Diff Type: Straight bevel gear (integrated in transmission)
-  - Front Diff Gear Type: Hypoid
-  - Front Final Ratio (BG5P EJ20E): 3.900
-  - Front Diff Fluid: GL-5 (shared with transmission, 3.5 L total)
-  - Rear Diff Type: Hypoid gear
-  - Rear Final Ratio (BG5P EJ20E): 3.900
-  - Rear Diff Fluid Type: GL-5 (75W-90 gear oil)
-  - Rear Diff Capacity: 0.8 L (0.85 US qt) *
-  - Rear Diff Bevel Gear Backlash: 0.13-0.18 mm
-  - Center Diff Type: Viscous coupling with bevel gears (AWD)
-  - Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 26 ft-lb) *
-  - * Note: Rear diff capacity and plug torque are community-standard values
+  - Front Diff Type: Straight bevel gear (integrated in transmission) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Diff Gear Type: Hypoid [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Final Ratio (source variant; exact car unknown): 3.900 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Front Diff Fluid: GL-5 (shared with transmission, 3.5 L total) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Rear Diff Type: Hypoid gear [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Rear Final Ratio (source variant; exact car unknown): 3.900 [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Rear Diff Fluid Type: GL-5 (75W-90 gear oil) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Rear Diff Capacity: 0.8 L (0.85 US qt) * [unreviewed; Source variant and exact page not revalidated; not an exact-car specification; distinguish dry fill from drain/refill and verify level]
+  - Rear Diff Bevel Gear Backlash: 0.13-0.18 mm [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Center Diff Type: Viscous coupling with bevel gears (AWD) [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - Rear Diff Drain/Fill Plug Torque: 35 Nm (3.6 kgf-m, 26 ft-lb) * [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
+  - * Note: Rear diff capacity and plug torque are community-standard values [unreviewed; Source variant and exact page not revalidated; not an exact-car specification]
 - Steps:
   1. Raise vehicle and support securely on jack stands
   2. Place drain pan under rear differential

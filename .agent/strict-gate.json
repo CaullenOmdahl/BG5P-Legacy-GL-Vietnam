@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "exclude_paths": [
+    "**/__pycache__/**",
+    ".agent/evidence/**",
+    ".agent/traceability.md"
+  ],
+  "components": [
+    {
+      "name": "whole-site",
+      "paths": [
+        "**"
+      ],
+      "depends_on": [],
+      "dependency_verification": {
+        "kind": "unverified"
+      },
+      "commands": [
+        {
+          "name": "sourcing",
+          "run": [
+            "npm",
+            "run",
+            "test:sourcing"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "localization",
+          "run": [
+            "npm",
+            "run",
+            "check:localization"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "catalog",
+          "run": [
+            "npm",
+            "run",
+            "verify:catalog"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "parts",
+          "run": [
+            "npm",
+            "run",
+            "verify:parts"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "index",
+          "run": [
+            "npm",
+            "run",
+            "verify:index"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "chat",
+          "run": [
+            "npm",
+            "run",
+            "test:chat-workbench"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "manual-assets",
+          "run": [
+            "python3",
+            "scripts/verify_manual_archive_assets.py"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "typescript",
+          "run": [
+            "./node_modules/.bin/tsc",
+            "--noEmit"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "production-build",
+          "run": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "cwd": "site",
+          "timeout_seconds": 180,
+          "cache": false
+        },
+        {
+          "name": "review-config",
+          "run": [
+            "python3",
+            "scripts/test_review_config.py"
+          ],
+          "cwd": ".",
+          "timeout_seconds": 60,
+          "cache": false
+        },
+        {
+          "name": "review-sdk-argv",
+          "run": [
+            "node",
+            "scripts/test_review_sdk_args.mjs"
+          ],
+          "cwd": ".",
+          "timeout_seconds": 60,
+          "cache": false
+        }
+      ]
+    }
+  ]
+}

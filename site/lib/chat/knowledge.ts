@@ -1,3 +1,9 @@
+import {
+  getSourcing,
+  resolveSourcingParts,
+  procedureAliases,
+  matchesPhrase,
+} from "../sourcing";
 import fs from "fs";
 import path from "path";
 import { localizeManualTitle, localizeTechnicalName } from "@/lib/i18n";
@@ -116,7 +122,8 @@ const INTERNAL_SOURCE_LINKS: Array<{
     url: `${BASE_URL}/manuals`,
   },
   {
-    match: /parts diagram|parts master|parts interchange|consumables|wear|shared engine/i,
+    match:
+      /parts diagram|parts master|parts interchange|consumables|wear|shared engine/i,
     title: "Parts Catalog",
     titleVi: "Catalogue phụ tùng",
     url: `${BASE_URL}/parts`,
@@ -153,7 +160,8 @@ function walkFiles(dir: string): string[] {
       continue;
     }
     if (!entry.isFile()) continue;
-    if (!SUPPORTED_EXTENSIONS.has(path.extname(entry.name).toLowerCase())) continue;
+    if (!SUPPORTED_EXTENSIONS.has(path.extname(entry.name).toLowerCase()))
+      continue;
     files.push(fullPath);
   }
   return files.sort((a, b) => a.localeCompare(b));
@@ -170,9 +178,7 @@ function readableTitle(filePath: string): string {
 }
 
 function tokenize(text: string): string[] {
-  const matches = text
-    .toLowerCase()
-    .match(/[a-z0-9][a-z0-9.-]{1,}/g);
+  const matches = text.toLowerCase().match(/[a-z0-9][a-z0-9.-]{1,}/g);
   if (!matches) return [];
   return Array.from(new Set(matches.filter((token) => token.length >= 2)));
 }
@@ -250,7 +256,7 @@ function loadChunks(): KnowledgeChunk[] {
   if (chunkCache) return chunkCache;
 
   const files = walkFiles(KNOWLEDGE_DIR).filter(
-    (file) => path.basename(file) !== "manifest.json"
+    (file) => path.basename(file) !== "manifest.json",
   );
   chunkCache = files.flatMap(buildChunksForFile);
   return chunkCache;
@@ -302,7 +308,7 @@ function loadDiagramRoutes(): DiagramRoute[] {
       sectionSlug: section.slug,
       sectionName: section.name,
       imagePath: diagram.imagePath,
-    }))
+    })),
   );
 
   return diagramRouteCache;
@@ -313,7 +319,7 @@ function loadMaintenanceRoutes(): MaintenanceRoute[] {
 
   maintenanceRouteCache = readJsonFile<MaintenanceRoute[]>(
     path.join(DATA_DIR, "maintenance.json"),
-    []
+    [],
   );
 
   return maintenanceRouteCache;
@@ -370,14 +376,14 @@ function loadManualRoutes(): ManualRoute[] {
 function loadPartsRoutes(): Map<string, DiagramRoute> {
   if (partsRouteCache) return partsRouteCache;
 
-  const partsByCategory = readJsonFile<Record<string, Array<{ oem_number?: string }>>>(
-    path.join(DATA_DIR, "parts.json"),
-    {}
-  );
+  const partsByCategory = readJsonFile<
+    Record<string, Array<{ oem_number?: string }>>
+  >(path.join(DATA_DIR, "parts.json"), {});
   const diagramsByCategory = new Map<string, DiagramRoute>();
   for (const diagram of loadDiagramRoutes()) {
     const category = diagram.code.split("_")[0];
-    if (!diagramsByCategory.has(category)) diagramsByCategory.set(category, diagram);
+    if (!diagramsByCategory.has(category))
+      diagramsByCategory.set(category, diagram);
   }
 
   partsRouteCache = new Map<string, DiagramRoute>();
@@ -385,7 +391,9 @@ function loadPartsRoutes(): Map<string, DiagramRoute> {
     const diagram = diagramsByCategory.get(category);
     if (!diagram) continue;
     for (const part of parts) {
-      const partNumber = part.oem_number ? normalizePartNumber(part.oem_number) : "";
+      const partNumber = part.oem_number
+        ? normalizePartNumber(part.oem_number)
+        : "";
       if (partNumber && !partsRouteCache.has(partNumber)) {
         partsRouteCache.set(partNumber, diagram);
       }
@@ -400,7 +408,9 @@ export function exactDiagramCode(query: string): string | null {
   if (!match) return null;
 
   const code = `${match[1]}_${match[2]}`;
-  return loadDiagramRoutes().some((diagram) => diagram.code === code) ? code : null;
+  return loadDiagramRoutes().some((diagram) => diagram.code === code)
+    ? code
+    : null;
 }
 
 export function exactMaintenanceId(query: string): string | null {
@@ -439,7 +449,11 @@ export function loadChatInstructions(): string {
   return instructions;
 }
 
-function scoreChunk(chunk: KnowledgeChunk, queryTokens: string[], query: string): number {
+function scoreChunk(
+  chunk: KnowledgeChunk,
+  queryTokens: string[],
+  query: string,
+): number {
   if (queryTokens.length === 0) return 0;
 
   let score = 0;
@@ -455,7 +469,9 @@ function scoreChunk(chunk: KnowledgeChunk, queryTokens: string[], query: string)
     if (chunk.searchText.includes(part.toLowerCase())) score += 18;
   }
 
-  const dtcMatch = query.match(/\b(?:dtc|code|flash(?:\s+code)?)\s*#?\s*(\d{2})\b/i);
+  const dtcMatch = query.match(
+    /\b(?:dtc|code|flash(?:\s+code)?)\s*#?\s*(\d{2})\b/i,
+  );
   if (dtcMatch) {
     const code = dtcMatch[1];
     if (chunk.searchText.includes(`| ${code} |`)) score += 90;
@@ -472,23 +488,29 @@ function isTemplatePublicUrl(url: string): boolean {
 }
 
 function extractPublicUrls(text: string): string[] {
-  const matches = text.match(/https:\/\/bg5\.caphedigital\.com\/[^\s`|)]+/g) ?? [];
+  const matches =
+    text.match(/https:\/\/bg5\.caphedigital\.com\/[^\s`|)]+/g) ?? [];
   return Array.from(
     new Set(
       matches
         .map((url) => url.replace(/[.,;]+$/, ""))
-        .filter((url) => !isTemplatePublicUrl(url))
-    )
+        .filter((url) => !isTemplatePublicUrl(url)),
+    ),
   );
 }
 
 function localizePublicTitle(title: string, locale: Locale): string {
   if (locale === "en") return title;
-  if (title.includes(".pdf") || /\bPDF\b/i.test(title)) return localizeManualTitle(title, locale);
+  if (title.includes(".pdf") || /\bPDF\b/i.test(title))
+    return localizeManualTitle(title, locale);
   return localizeTechnicalName(title, locale);
 }
 
-function titleForPublicUrl(chunk: KnowledgeChunk, url: string, locale: Locale): string {
+function titleForPublicUrl(
+  chunk: KnowledgeChunk,
+  url: string,
+  locale: Locale,
+): string {
   const line = chunk.text
     .split(/\r?\n/)
     .find((candidate) => candidate.includes(url));
@@ -502,7 +524,9 @@ function titleForPublicUrl(chunk: KnowledgeChunk, url: string, locale: Locale): 
     .map((cell) => cell.trim())
     .filter(Boolean);
 
-  const title = cells.find((cell) => !cell.startsWith("http") && !/^-+$/.test(cell));
+  const title = cells.find(
+    (cell) => !cell.startsWith("http") && !/^-+$/.test(cell),
+  );
   return title
     ? localizePublicTitle(title.replace(/`/g, ""), locale)
     : localizePublicTitle(readableUrlTitle(url), locale);
@@ -510,7 +534,12 @@ function titleForPublicUrl(chunk: KnowledgeChunk, url: string, locale: Locale): 
 
 function readableUrlTitle(url: string): string {
   const last = decodeURIComponent(url.split("/").filter(Boolean).at(-1) ?? url);
-  return last.replace(/\.(pdf|txt|gif)$/i, "").replace(/[-_]/g, " ").trim() || url;
+  return (
+    last
+      .replace(/\.(pdf|txt|gif)$/i, "")
+      .replace(/[-_]/g, " ")
+      .trim() || url
+  );
 }
 
 function exactManualFilename(query: string): ManualRoute | null {
@@ -519,7 +548,9 @@ function exactManualFilename(query: string): ManualRoute | null {
     loadManualRoutes().find((manual) => {
       const filename = manual.filename.toLowerCase();
       const stem = filename.replace(/\.pdf$/i, "");
-      return normalizedQuery.includes(filename) || normalizedQuery.includes(stem);
+      return (
+        normalizedQuery.includes(filename) || normalizedQuery.includes(stem)
+      );
     }) ?? null
   );
 }
@@ -538,7 +569,7 @@ function specificLink(
   title: string,
   url: string,
   scoreOffset: number,
-  locale: Locale
+  locale: Locale,
 ): PublicLinkSource {
   return {
     id,
@@ -548,7 +579,10 @@ function specificLink(
   };
 }
 
-function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLinkSource[] {
+function prioritizeSpecificPublicLinks(
+  query: string,
+  locale: Locale,
+): PublicLinkSource[] {
   const links: PublicLinkSource[] = [];
 
   const diagramCode = exactDiagramCode(query);
@@ -560,8 +594,8 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
         `${diagram.code} ${diagram.name}`,
         `${BASE_URL}/parts/${diagram.sectionSlug}/${diagram.code.replace(/_/g, "-")}`,
         links.length,
-        locale
-      )
+        locale,
+      ),
     );
     links.push(
       specificLink(
@@ -569,8 +603,8 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
         `${diagram.code} diagram image`,
         publicUrl(diagram.imagePath),
         links.length,
-        locale
-      )
+        locale,
+      ),
     );
   }
 
@@ -585,8 +619,8 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
         maintenance.title,
         `${BASE_URL}/maintenance/${maintenance.id}`,
         links.length,
-        locale
-      )
+        locale,
+      ),
     );
     links.push(
       specificLink(
@@ -594,8 +628,8 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
         `${maintenance.title} LLM reference`,
         `${BASE_URL}/llms/maintenance/${maintenance.id}.txt`,
         links.length,
-        locale
-      )
+        locale,
+      ),
     );
   }
 
@@ -607,8 +641,8 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
         manual.filename,
         manual.url,
         links.length,
-        locale
-      )
+        locale,
+      ),
     );
   }
 
@@ -622,8 +656,8 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
         `${partNumber} diagram`,
         `${BASE_URL}/parts/${partDiagram.sectionSlug}/${partDiagram.code.replace(/_/g, "-")}`,
         links.length,
-        locale
-      )
+        locale,
+      ),
     );
     links.push(
       specificLink(
@@ -631,8 +665,8 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
         `${partDiagram.sectionName} parts`,
         `${BASE_URL}/parts/${partDiagram.sectionSlug}`,
         links.length,
-        locale
-      )
+        locale,
+      ),
     );
   }
 
@@ -644,26 +678,41 @@ function prioritizeSpecificPublicLinks(query: string, locale: Locale): PublicLin
   return Array.from(uniqueLinks.values());
 }
 
-function publicLinksForInternalSource(source: KnowledgeSource, locale: Locale): PublicLinkSource[] {
+function publicLinksForInternalSource(
+  source: KnowledgeSource,
+  locale: Locale,
+): PublicLinkSource[] {
   const haystack = `${source.title}\n${source.path}`.toLowerCase();
-  return INTERNAL_SOURCE_LINKS
-    .filter((candidate) => candidate.match.test(haystack))
-    .map((candidate) => ({
-      id: `${source.id}:${candidate.url}`,
-      title: locale === "vi" ? candidate.titleVi : candidate.title,
-      url: candidate.url,
-      score: source.score,
-    }));
+  return INTERNAL_SOURCE_LINKS.filter((candidate) =>
+    candidate.match.test(haystack),
+  ).map((candidate) => ({
+    id: `${source.id}:${candidate.url}`,
+    title: locale === "vi" ? candidate.titleVi : candidate.title,
+    url: candidate.url,
+    score: source.score,
+  }));
 }
 
 export function retrievePublicLinks(
   query: string,
   internalSources: KnowledgeSource[],
-  locale: Locale = "en"
+  locale: Locale = "en",
 ): PublicLinkSource[] {
   const normalizedQuery = query.trim().toLowerCase();
   const queryTokens = tokenize(normalizedQuery);
   const links = new Map<string, PublicLinkSource>();
+  for (const { part: p } of resolveSourcingParts(getSourcing(), query)
+    .slice(0, 3)
+    .map((part) => ({ part }))) {
+    const url = `${BASE_URL}/find-part/${p.id}`;
+    links.set(url, {
+      id: p.id,
+      title:
+        p.number + " — " + (locale === "vi" ? p.name_vi || p.name : p.name),
+      url,
+      score: 100,
+    });
+  }
 
   for (const link of prioritizeSpecificPublicLinks(query, locale)) {
     links.set(link.url, link);
@@ -680,9 +729,12 @@ export function retrievePublicLinks(
     .filter(
       (chunk) =>
         chunk.path === "11_BG5P_Web_Deeplink_Sitemap.md" ||
-        chunk.path === "00_BG5P_Diagnostic_Expert_Source_Map.md"
+        chunk.path === "00_BG5P_Diagnostic_Expert_Source_Map.md",
     )
-    .map((chunk) => ({ chunk, score: scoreChunk(chunk, queryTokens, normalizedQuery) }))
+    .map((chunk) => ({
+      chunk,
+      score: scoreChunk(chunk, queryTokens, normalizedQuery),
+    }))
     .filter((entry) => entry.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 5);
@@ -714,21 +766,28 @@ export function retrieveKnowledge(query: string): {
   const queryTokens = tokenize(normalizedQuery);
 
   const ranked = loadChunks()
-    .map((chunk) => ({ chunk, score: scoreChunk(chunk, queryTokens, normalizedQuery) }))
+    .map((chunk) => ({
+      chunk,
+      score: scoreChunk(chunk, queryTokens, normalizedQuery),
+    }))
     .filter((entry) => entry.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, MAX_CHUNKS);
 
-  let usedChars = 0;
-  const contextParts: string[] = [];
+  const canonical = canonicalSourcingContext(query);
+  let usedChars = canonical.length;
+  const contextParts: string[] = [canonical];
   const sourceMap = new Map<string, KnowledgeSource>();
 
   for (const { chunk, score } of ranked) {
     const block = `INTERNAL CONTEXT TITLE: ${chunk.title}\nINTERNAL PATH (do not cite to users): ${chunk.path}\n${chunk.text}`;
-    if (usedChars + block.length > MAX_CONTEXT_CHARS && contextParts.length > 0) {
+    if (
+      usedChars + block.length + 20 > MAX_CONTEXT_CHARS &&
+      contextParts.length > 0
+    ) {
       continue;
     }
-    usedChars += block.length;
+    usedChars += block.length + 20;
     contextParts.push(block);
 
     const key = `${chunk.title}|${chunk.path}`;
@@ -747,4 +806,102 @@ export function retrieveKnowledge(query: string): {
     context: contextParts.join("\n\n---\n\n"),
     sources: Array.from(sourceMap.values()).sort((a, b) => b.score - a.score),
   };
+}
+
+function canonicalSourcingContext(query: string): string {
+  const data = getSourcing();
+  const parts = resolveSourcingParts(data, query);
+  const canonical = {
+    content_version: data.content_version,
+    vehicle: data.vehicle,
+    compatibility: data.compatibility,
+    rules:
+      "Historical excerpts may include superseded rear-disc and numeric-confidence assumptions; canonical qualified records govern. Unknown build date is conditional. Owner rear drums never default to disc pads. Unreviewed rows, inherited specifications and unverified relationships are not buying/service advice. Cite exact public part/PDF pages, preserve conflicts and units. Do not invent stock, numbers, torque or diagnostic pins.",
+    parts: parts.map((p) => ({
+      ...p,
+      url: "https://bg5.caphedigital.com/find-part/" + p.id,
+    })),
+    relationships: data.relationships.filter((r) =>
+      parts.some((p) => p.number === r.from || p.number === r.to),
+    ),
+    procedures: getSourcingProcedures(query),
+    evidence: data.evidence.filter(
+      (e) =>
+        e.id === "plan-leads" ||
+        parts.some((p) => p.fitment.evidence.includes(e.id)),
+    ),
+    coverage_url: "https://bg5.caphedigital.com/data/coverage.json",
+  };
+  // Keep whole qualified records and their evidence, never truncate JSON.
+  const budget = MAX_CONTEXT_CHARS - 1000;
+  if (JSON.stringify(canonical).length > budget)
+    canonical.procedures = canonical.procedures.map((g) => ({
+      ...g,
+      specs: undefined,
+      steps: undefined,
+      detail_policy:
+        "Compact applicability summary: fetch the qualified specifications URL and exact manual pages for omitted inherited details.",
+    }));
+  while (
+    JSON.stringify(canonical).length > budget &&
+    canonical.parts.length > 0
+  ) {
+    canonical.parts.pop();
+    canonical.relationships = canonical.relationships.filter((r) =>
+      canonical.parts.some((p) => p.number === r.from || p.number === r.to),
+    );
+    canonical.evidence = canonical.evidence.filter(
+      (e) =>
+        e.id === "plan-leads" ||
+        canonical.parts.some((p) => p.fitment.evidence.includes(e.id)),
+    );
+  }
+  while (
+    JSON.stringify(canonical).length > budget &&
+    canonical.procedures.length > 0
+  )
+    canonical.procedures.pop();
+  return JSON.stringify(canonical);
+}
+
+function getSourcingProcedures(query: string) {
+  const raw = JSON.parse(
+    fs.readFileSync(
+      path.join(process.cwd(), "public/data/maintenance.json"),
+      "utf8",
+    ),
+  ) as {
+    id: string;
+    title: string;
+    specs: unknown;
+    steps: unknown;
+    review_status: string;
+    configuration: unknown;
+    interval_basis: unknown;
+    prerequisites: unknown;
+    limits: unknown;
+    relatedPdfs: unknown;
+    relatedDiagrams: unknown;
+  }[];
+  return raw
+    .filter((g) =>
+      (procedureAliases[g.id] ?? []).some((term) => matchesPhrase(query, term)),
+    )
+    .map((g) => ({
+      ...g,
+      id: g.id,
+      title: g.title,
+      review_status: g.review_status,
+      configuration: g.configuration,
+      interval_basis: g.interval_basis,
+      prerequisites: g.prerequisites,
+      limits: g.limits,
+      relatedPdfs: g.relatedPdfs,
+      relatedDiagrams: g.relatedDiagrams,
+      url: "https://bg5.caphedigital.com/maintenance/" + g.id,
+      qualified_specifications_url:
+        "https://bg5.caphedigital.com/llms/maintenance/" + g.id + ".txt",
+      detail_policy:
+        "Inherited step/specification details remain unreviewed; check the qualified guide and exact manual pages before service advice.",
+    }));
 }

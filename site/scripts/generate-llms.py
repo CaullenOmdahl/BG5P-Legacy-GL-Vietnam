@@ -1,363 +1,160 @@
 #!/usr/bin/env python3
-"""Generate llms.txt and detail files from the site's JSON data."""
+"""Generate qualified UI/AI exports from the canonical sourcing snapshot."""
 
 import json
 import os
-import sys
 from pathlib import Path
 from urllib.parse import quote
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "public", "data")
-OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "public", "llms")
-PUBLIC_DIR = Path(__file__).resolve().parents[1] / "public"
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
-from parts_category_metadata import diagram_index as build_diagram_index  # noqa: E402
+ROOT = Path(__file__).resolve().parents[1]
+PUBLIC = ROOT / "public"
+OUT = PUBLIC / "llms"
+OUT.mkdir(exist_ok=True)
+BASE = os.environ.get("BG5_SITE_BASE_URL", "https://bg5.caphedigital.com").rstrip("/")
 
-BASE_URL = os.environ.get("BG5_SITE_BASE_URL", "https://bg5.caphedigital.com").rstrip("/")
 
-def load(name):
-    with open(os.path.join(DATA_DIR, name)) as f:
-        return json.load(f)
+def url(p):
+    return BASE + quote("/" + p.lstrip("/"), safe="/")
 
-def load_optional(name):
-    path = os.path.join(DATA_DIR, name)
-    if not os.path.exists(path):
-        return {}
-    with open(path) as f:
-        return json.load(f)
-
-def diagram_key(code):
-    """032_01 -> 032"""
-    return code.split("_")[0]
-
-def url_for_path(path):
-    return f"{BASE_URL}/{quote(path.strip('/'), safe='/')}"
-
-def html_routes(sections, maintenance):
-    routes = ["/", "/about", "/manuals", "/parts", "/maintenance"]
-    for card in maintenance:
-        routes.append(f"/maintenance/{card['id']}")
-    for section in sections:
-        routes.append(f"/parts/{section['slug']}")
-        for diagram in section["diagrams"]:
-            routes.append(f"/parts/{section['slug']}/{diagram['code'].replace('_', '-')}")
-    return list(dict.fromkeys(routes))
-
-def zip_backed_archive(path):
-    try:
-        with path.open("rb") as fh:
-            return fh.read(2) == b"PK"
-    except OSError:
-        return False
-
-def manual_pdf_urls():
-    manuals_dir = PUBLIC_DIR / "manuals"
-    urls = []
-    for pdf in sorted(manuals_dir.rglob("*.pdf"), key=lambda p: str(p).lower()):
-        if zip_backed_archive(pdf):
-            continue
-        urls.append(url_for_path(pdf.relative_to(PUBLIC_DIR).as_posix()))
-    return urls
-
-def write_site_index(sections, maintenance):
-    manual_urls = manual_pdf_urls()
-    lines = []
-    lines.append("# BG5P Full Site Index")
-    lines.append("")
-    lines.append("## Public HTML Pages")
-    for route in html_routes(sections, maintenance):
-        lines.append(url_for_path(route))
-    lines.append("")
-    lines.append("## Diagram Image Assets")
-    for section in sections:
-        for diagram in section["diagrams"]:
-            lines.append(url_for_path(diagram["imagePath"]))
-    lines.append("")
-    lines.append("## Manual PDF Assets")
-    lines.extend(manual_urls)
-
-    path = os.path.join(OUT_DIR, "site-index.txt")
-    with open(path, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines) + "\n")
-    print(f"  site-index.txt ({len(lines)} lines)")
-    return len(manual_urls)
 
 def main():
-    sections = load("sections.json")
-    parts = load("parts.json")
-    parts_status = load_optional("parts-status.json")
-    maintenance = load("maintenance.json")
+    data = json.loads((PUBLIC / "data/sourcing.json").read_text())
+    statuses = json.loads((PUBLIC / "data/parts-status.json").read_text())
+    header = f"Schema {data['schema_version']} | Record version {data['content_version']} | Checked {data['checked_date']}\n{data['compatibility']}\nCatalog rows are unreviewed. Candidate relationships are not verified supersessions. Unknown build date yields conditional fitment.\n"
 
-    os.makedirs(OUT_DIR, exist_ok=True)
+    def save(name, lines):
+        p = PUBLIC / name
+        p.parent.mkdir(exist_ok=True, parents=True)
+        p.write_text(header + "\n" + "\n".join(lines) + "\n")
 
-    # Build maintenance lookup: diagram_key -> [maintenance guide]
-    maint_by_diagram = {}
-    for m in maintenance:
-        for dc in m.get("relatedDiagrams", []):
-            key = diagram_key(dc)
-            maint_by_diagram.setdefault(key, []).append(m)
+    def record(p):
+        return json.dumps(p, ensure_ascii=False)
 
-    # Build section slug -> maintenance guides mapping
-    maint_by_section = {}
-    for s in sections:
-        seen_ids = set()
-        for d in s["diagrams"]:
-            key = diagram_key(d["code"])
-            for m in maint_by_diagram.get(key, []):
-                if m["id"] not in seen_ids:
-                    seen_ids.add(m["id"])
-                    maint_by_section.setdefault(s["slug"], []).append(m)
+    def procedure(g):
+        return [f"### {g['title']}", json.dumps(g, ensure_ascii=False)]
 
-    # Section descriptions for the index
-    section_descriptions = {
-        "engine-main": "Block, head, pistons, crankshaft, timing belt, oil pan, valvetrain, gaskets",
-        "engine-auxiliaries": "Intake, exhaust, fuel injection, air filter, pulleys, belts",
-        "engine-electrical": "Spark plugs, alternator, starter motor, sensors, ignition coil",
-        "manual-transmission": "Gearbox internals, shift linkage, synchros, clutch assembly",
-        "differential-propeller": "Front/rear differentials, propeller shaft, viscous coupling",
-        "suspension-axle-brake": "Shocks, springs, control arms, hubs, calipers, rotors, brake lines",
-        "steering": "Rack, column, power steering pump, tie rods, U-joints",
-        "engine-mounting-cooling": "Engine mounts, radiator, water pump, thermostat, hoses, fan",
-        "body-key-bumper": "Body panels, bumpers, fenders, hood, trunk, locks, mirrors, glass",
-        "door-parts": "Door shells, glass, window regulators, handles, weatherstrips",
-        "seat-instrument-panel": "Seats, seatbelts, dashboard, gauges, glovebox, console",
-        "heater-ac": "Heater core, blower motor, A/C compressor, evaporator, controls",
-        "body-electrical-1": "Main harness, fuse box, relays, switches, ground points",
-        "body-electrical-2": "Headlights, tail lights, wipers, horn, power windows, door locks",
-        "outer-accessories": "Roof rails, mud flaps, emblems, antenna, spoiler, tow hook",
-        "inner-accessories": "Floor mats, cargo area, jack, tool kit, spare tire, cup holder",
-    }
-
-    # --- Generate section files ---
-    for s in sections:
-        lines = []
-        lines.append(f"# {s['name']}")
-        lines.append(f"{s['diagramCount']} exploded diagrams | BG5P Legacy GL EJ20E SOHC NA")
-        lines.append("")
-
-        # Maintenance guides for this section
-        guides = maint_by_section.get(s["slug"], [])
-        if guides:
-            lines.append("## Maintenance Procedures")
-            lines.append("")
-            for m in guides:
-                lines.append(f"### {m['title']}")
-                lines.append(f"Difficulty: {m['difficulty']} | Interval: {m['interval']}")
-                lines.append("")
-                lines.append("Specs:")
-                for spec in m["specs"]:
-                    lines.append(f"  {spec['label']}: {spec['value']}")
-                lines.append("")
-                lines.append("Steps:")
-                for i, step in enumerate(m["steps"], 1):
-                    lines.append(f"  {i}. {step}")
-                lines.append("")
-                if m.get("relatedPdfs"):
-                    lines.append("Service manuals:")
-                    for pdf in m["relatedPdfs"]:
-                        lines.append(f"  {pdf}")
-                    lines.append("")
-
-        # Parts by diagram
-        lines.append("## Parts by Diagram")
-        lines.append("")
-        for d in s["diagrams"]:
-            key = diagram_key(d["code"])
-            diagram_parts = parts.get(key, [])
-            status = parts_status.get(key)
-            lines.append(f"### {d['code']}: {d['name']}")
-            if not diagram_parts:
-                if status:
-                    lines.append(status["detail"])
-                    lines.append(f"Source: {status['source']}")
-                else:
-                    lines.append("No local parts rows or source status recorded.")
-            else:
-                for p in diagram_parts:
-                    qty = f" x{p['quantity']}" if p.get("quantity") else ""
-                    period = f" | {p['production_period']}" if p.get("production_period") else ""
-                    notes = f" | {p['notes']}" if p.get("notes") else ""
-                    lines.append(f"{p['oem_number']} | {p['group_name']}{qty}{period}{notes}")
-            lines.append("")
-
-        path = os.path.join(OUT_DIR, f"{s['slug']}.txt")
-        with open(path, "w") as f:
-            f.write("\n".join(lines))
-        print(f"  {s['slug']}.txt ({len(lines)} lines)")
-
-    # --- Generate maintenance files ---
-    maint_dir = os.path.join(OUT_DIR, "maintenance")
-    os.makedirs(maint_dir, exist_ok=True)
-
-    for m in maintenance:
-        lines = []
-        lines.append(f"# {m['title']}")
-        lines.append(f"Difficulty: {m['difficulty']} | Interval: {m['interval']}")
-        lines.append("")
-
-        lines.append("## Specs")
-        for spec in m["specs"]:
-            lines.append(f"  {spec['label']}: {spec['value']}")
-        lines.append("")
-
-        lines.append("## Steps")
-        for i, step in enumerate(m["steps"], 1):
-            lines.append(f"  {i}. {step}")
-        lines.append("")
-
-        # Inline the related parts
-        lines.append("## Parts")
-        for dc in m.get("relatedDiagrams", []):
-            key = diagram_key(dc)
-            # Find diagram name from sections
-            diagram_name = dc
-            for s in sections:
-                for d in s["diagrams"]:
-                    if d["code"] == dc:
-                        diagram_name = f"{dc}: {d['name']}"
-                        break
-            diagram_parts = parts.get(key, [])
-            lines.append(f"### {diagram_name}")
-            for p in diagram_parts:
-                qty = f" x{p['quantity']}" if p.get("quantity") else ""
-                lines.append(f"{p['oem_number']} | {p['group_name']}{qty}")
-            lines.append("")
-
-        if m.get("relatedPdfs"):
-            lines.append("## Service Manuals")
-            for pdf in m["relatedPdfs"]:
-                lines.append(f"  {pdf}")
-            lines.append("")
-
-        # Link to full section
-        for s in sections:
-            for d in s["diagrams"]:
-                if d["code"] in m.get("relatedDiagrams", []):
-                    lines.append(f"## Full Section")
-                    lines.append(f"/llms/{s['slug']}.txt")
-                    lines.append("")
-                    break
-            else:
-                continue
-            break
-
-        path = os.path.join(maint_dir, f"{m['id']}.txt")
-        with open(path, "w") as f:
-            f.write("\n".join(lines))
-        print(f"  maintenance/{m['id']}.txt ({len(lines)} lines)")
-
-    # --- Generate parts index ---
-    lines = []
-    lines.append("# Part Number Index — BG5P Legacy GL")
-    lines.append("All OEM part numbers. Search by number or name.")
-    lines.append("")
-    lines.append("OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE")
-
-    # Build section lookup for each diagram key, including known off-diagram
-    # EPC categories used by the raw catalog rows.
-    diagram_to_section = {
-        category_code: (section_name, category_code, diagram_name)
-        for category_code, (section_name, diagram_name) in build_diagram_index(sections).items()
-    }
-
-    index_rows = []
-    seen = set()
-    for cat_key, cat_parts in parts.items():
-        section_info = diagram_to_section.get(cat_key, ("Unknown", cat_key, ""))
-        for p in cat_parts:
-            dedup = (p["oem_number"], section_info[0])
-            if dedup in seen:
-                continue
-            seen.add(dedup)
-            index_rows.append(
-                f"{p['oem_number']} | {p['group_name']} | {section_info[0]} | {cat_key}"
+    for section in data["sections"]:
+        rows = [p for p in data["parts"] if p["section"] == section["slug"]]
+        lines = [
+            f"# {section['name']}",
+            f"{len(section['diagrams'])} diagrams; {len(rows)} records",
+            "## Parts (source constraints and missing fields retained)",
+        ]
+        lines += [record(p) for p in rows]
+        for d in section["diagrams"]:
+            category = d["code"].split("_")[0]
+            if category in statuses:
+                lines.append(
+                    json.dumps(
+                        dict(diagram=d["code"], source_status=statuses[category]),
+                        ensure_ascii=False,
+                    )
+                )
+        for g in data["procedures"]:
+            if any(d["code"] in g["relatedDiagrams"] for d in section["diagrams"]):
+                lines += procedure(g)
+        lines += [
+            "## Claim sources",
+            json.dumps(data["evidence"], ensure_ascii=False),
+            "## Directed relationships",
+            json.dumps(
+                [
+                    r
+                    for r in data["relationships"]
+                    if any(p["number"] in [r["from"], r["to"]] for p in rows)
+                ],
+                ensure_ascii=False,
+            ),
+        ]
+        save("llms/" + section["slug"] + ".txt", lines)
+    for g in data["procedures"]:
+        lines = procedure(g) + ["## Catalog candidates; not a shopping list"]
+        categories = {d.split("_")[0] for d in g["relatedDiagrams"]}
+        lines += [record(p) for p in data["parts"] if p["category"] in categories]
+        save("llms/maintenance/" + g["id"] + ".txt", lines)
+    index_map = {}
+    for p in data["parts"]:
+        if p["catalog"]:
+            index_map.setdefault(
+                (p["number"], p["section_name"]),
+                f"{p['number']} | {p['name']} | {p['section_name']} | {p['category']}",
             )
+    index = sorted(index_map.values())
+    save(
+        "llms/parts-index.txt",
+        [
+            "# OEM index; index entries differ from raw row/unique OEM counts",
+            "OEM_NUMBER | PART_NAME | SECTION | DIAGRAM_CODE",
+            *index,
+            "## Full qualified records",
+            url("/data/sourcing.json"),
+        ],
+    )
+    paths = ["/", "/about", "/parts", "/maintenance", "/manuals", "/find-part"]
+    paths += ["/maintenance/" + g["id"] for g in data["procedures"]]
+    for s in data["sections"]:
+        paths.append("/parts/" + s["slug"])
+        paths += [
+            f"/parts/{s['slug']}/{d['code'].replace('_', '-')}" for d in s["diagrams"]
+        ]
+    paths += ["/find-part/" + p["id"] for p in data["parts"]]
+    save(
+        "llms/site-index.txt",
+        [
+            "# Full site index",
+            *[url(p) for p in paths],
+            *[url(d["imagePath"]) for s in data["sections"] for d in s["diagrams"]],
+            *[url(m["path"]) for m in data["manuals"]],
+        ],
+    )
+    save(
+        "llms/manuals.txt",
+        [
+            "# Manual manifest; Universal is a source heading, not universal fitment",
+            *[json.dumps(m, ensure_ascii=False) for m in data["manuals"]],
+        ],
+    )
+    lines = [
+        "# BG5P Legacy GL — sourcing and service reference",
+        "## Vehicle",
+        json.dumps(data["vehicle"], ensure_ascii=False),
+        "Owner car: 1997 BG5P GL General Market LHD EJ20E 5MT AWD; factory front brakes and rear drums. Full VIN not stored. Source coverage 1994–1998 is separate from model year.",
+        "Diagnostics remain SSM1/no OBD-II; exact connector/pin instructions require source validation.",
+        "US 2200 standard 260 mm front brakes share the supported standard family. GT/LSi/Outback 277 mm twin-piston fronts require conversion. An engine or market label alone neither proves nor disproves fitment.",
+        "## Find a part",
+        "/find-part — OEM/alias/SKU/name search; candidate, conflicting, rejected and unreviewed records remain distinguishable.",
+        "## Full Site Index",
+        "/llms/site-index.txt",
+        "## Structured data",
+        "/data/sourcing.json",
+        "/data/coverage.json",
+        "/llms/manuals.txt",
+        "## Procedures",
+    ]
+    lines += [
+        f"[{g['title']}](/llms/maintenance/{g['id']}.txt) — {g['review_status']}; {g['interval_basis']}"
+        for g in data["procedures"]
+    ]
+    lines += ["## Sections"] + [
+        f"[{s['name']}](/llms/{s['slug']}.txt) — {len(s['diagrams'])} diagrams"
+        for s in data["sections"]
+    ]
+    lines += [
+        "## Part index",
+        "/llms/parts-index.txt",
+        f"{len(index)} index entries; {sum(bool(p['catalog']) for p in data['parts'])} raw rows; {len({p['number'] for p in data['parts'] if p['catalog']})} distinct OEM numbers",
+        f"{len(data['manuals'])} PDFs; nine inherited guides are not fully verified procedures",
+        "## Evidence",
+        json.dumps(data["evidence"], ensure_ascii=False),
+        "## Coverage",
+        json.dumps(data["coverage"], ensure_ascii=False),
+    ]
+    save("llms.txt", lines)
+    print(
+        "Generated all section, procedure, manual and index exports from "
+        + data["content_version"]
+    )
 
-    index_rows.sort()
-    lines.extend(index_rows)
-
-    path = os.path.join(OUT_DIR, "parts-index.txt")
-    with open(path, "w") as f:
-        f.write("\n".join(lines))
-    print(f"  parts-index.txt ({len(lines)} lines)")
-
-    # --- Generate full site index ---
-    manual_pdf_count = write_site_index(sections, maintenance)
-
-    # --- Generate llms.txt (the router/index) ---
-    lines = []
-    lines.append("# BG5P Legacy GL — Service Reference")
-    lines.append("")
-    lines.append("> Parts diagrams, maintenance guides, and factory service manuals for the 1994-1998 Subaru BG5P Legacy Touring Wagon GL. Vietnamese market, left-hand drive, EJ20E 2.0L SOHC NA, 5MT AWD.")
-    lines.append("")
-    lines.append("## Vehicle")
-    lines.append("- Model: BG5P | Engine: EJ20E 2.0L Flat-4 SOHC NA | 120 HP / 184 Nm")
-    lines.append("- Transmission: 5-speed manual | Drivetrain: Full-time AWD")
-    lines.append("- Market: Vietnam (General Market LHD export, built in Gunma, Japan)")
-    lines.append("- Diagnostics: SSM1 protocol only — NO OBD-II port")
-    lines.append("- Years: 1994-1998 | Steering: Left-hand drive")
-    lines.append("")
-    lines.append("## How to Search")
-    lines.append("")
-    lines.append("This reference is split into small files. Fetch only what you need.")
-    lines.append("")
-    lines.append("| Question type | What to fetch |")
-    lines.append("|---|---|")
-    lines.append("| Task or procedure (\"how do I change the oil?\") | `/llms/maintenance/{id}.txt` — has steps, specs, AND part numbers |")
-    lines.append("| System or category (\"what steering parts exist?\") | `/llms/{section-slug}.txt` — all diagrams and parts for that system |")
-    lines.append("| Specific part number (\"what is 30210AA370?\") | `/llms/parts-index.txt` — every OEM number with name and section |")
-    lines.append("| General overview | You're reading it |")
-    lines.append("")
-    lines.append("## Full Site Index")
-    lines.append("")
-    lines.append("- [Full Site Index](/llms/site-index.txt): all public pages, diagram images, and manual PDFs")
-    lines.append("")
-    lines.append("## Maintenance Procedures")
-    lines.append("")
-    lines.append("Fetch: `/llms/maintenance/{id}.txt`")
-    lines.append("Each file includes the full procedure, all specs/torque values, AND the related OEM part numbers.")
-    lines.append("")
-    for m in maintenance:
-        specs_summary = ", ".join(f"{s['label']}: {s['value']}" for s in m["specs"][:3])
-        lines.append(f"- [{m['title']}](/llms/maintenance/{m['id']}.txt): {m['difficulty']} | {m['interval']} | {specs_summary}")
-    lines.append("")
-    lines.append("## Parts Catalog Sections")
-    lines.append("")
-    lines.append("Fetch: `/llms/{section-slug}.txt`")
-    lines.append("Each file lists every diagram and every OEM part number in that system, plus any related maintenance procedures.")
-    lines.append("")
-    for s in sections:
-        desc = section_descriptions.get(s["slug"], "")
-        guide_ids = [m["id"] for m in maint_by_section.get(s["slug"], [])]
-        guide_note = f" | Maintenance: {', '.join(guide_ids)}" if guide_ids else ""
-        lines.append(f"- [{s['name']}](/llms/{s['slug']}.txt): {s['diagramCount']} diagrams — {desc}{guide_note}")
-    lines.append("")
-    lines.append("## Part Number Lookup")
-    lines.append("")
-    lines.append(f"- [Part Number Index](/llms/parts-index.txt): {len(index_rows)} parts, sorted by OEM number")
-    lines.append("")
-    lines.append("## Service Manuals (PDF, not machine-readable)")
-    lines.append("")
-    lines.append(f"{manual_pdf_count} openable factory PDFs. Referenced by URL in maintenance and section files above.")
-    lines.append("- EJ20E engine manuals: `/manuals/EJ20E-SOHC-engine/{filename}.pdf`")
-    lines.append("- EJ20 electrical archive members: `/manuals/EJ20E-SOHC-engine/EJ20_Electrical_System/{filename}.pdf`")
-    lines.append("- BG chassis manuals: `/manuals/BG-chassis/{section}/{subsection}/{filename}.pdf`")
-    lines.append("")
-    lines.append("## Compatibility Notes")
-    lines.append("")
-    lines.append("- USDM Legacy used EJ22 (2.2L), NOT EJ20E — engine-specific parts and procedures differ")
-    lines.append("- No OBD-II port — diagnostics require SSM1 scan tool or manual CEL code reading")
-    lines.append("- BG chassis parts (body, suspension, brakes, steering) are shared across all BG5 variants")
-    lines.append("- Engine parts are EJ20E-specific — always verify part numbers against this catalog")
-    lines.append("- \"BG5P\" model code: BG=Legacy Wagon 2nd gen, 5=EJ20 series, P=General Market export")
-
-    path = os.path.join(OUT_DIR, "..", "llms.txt")
-    with open(path, "w") as f:
-        f.write("\n".join(lines))
-    print(f"  llms.txt ({len(lines)} lines)")
-
-    print("\nDone.")
 
 if __name__ == "__main__":
     main()

@@ -55,6 +55,7 @@ export const SITE_COPY = {
       switchLanguage: "Switch to Vietnamese",
       chatPrompt: "Help me pick the right BG5P diagnostic path.",
       nav: {
+        find: "Find a part",
         overview: "Overview",
         parts: "Parts Catalog",
         maintenance: "Maintenance",
@@ -62,6 +63,7 @@ export const SITE_COPY = {
         about: "Vehicle Profile",
       },
       navSecondary: {
+        find: "Evidence and sourcing",
         overview: "Main page",
         parts: "OEM diagrams",
         maintenance: "Specs and procedures",
@@ -105,21 +107,24 @@ export const SITE_COPY = {
           href: "/parts",
           value: "262",
           unit: "diagrams",
-          description: "Exploded views, OEM part numbers, groups, and replacements.",
+          description:
+            "Exploded views, OEM part numbers, groups, and replacements.",
         },
         {
           title: "Maintenance",
           href: "/maintenance",
           value: "service",
           unit: "cards",
-          description: "Specs, torque values, intervals, related diagrams, and PDFs.",
+          description:
+            "Specs, torque values, intervals, related diagrams, and PDFs.",
         },
         {
           title: "Manuals",
           href: "/manuals",
           value: "373",
           unit: "factory PDFs",
-          description: "EJ20E engine, BG chassis, wiring, drivetrain, and body manuals.",
+          description:
+            "EJ20E engine, BG chassis, wiring, drivetrain, and body manuals.",
         },
       ],
       diagnosticTitle: "Diagnostic posture",
@@ -156,7 +161,8 @@ export const SITE_COPY = {
     maintenance: {
       eyebrow: "Service procedures",
       title: "Maintenance Guides",
-      description: "Quick-reference specs and procedures for the EJ20E SOHC NA.",
+      description:
+        "Quick-reference specs and procedures for the EJ20E SOHC NA.",
       allGuides: "All maintenance guides",
       specs: "Specs",
       steps: "Steps",
@@ -213,9 +219,15 @@ export const SITE_COPY = {
       sourcesTitle: "Sources",
       vehicleSummary: [
         { label: "Model Code", value: "BG5P" },
-        { label: "Generation", value: "2nd-gen Legacy Touring Wagon (1993–1998)" },
+        {
+          label: "Generation",
+          value: "2nd-gen Legacy Touring Wagon (1993–1998)",
+        },
         { label: "Trim", value: "GL (base)" },
-        { label: "Engine", value: "EJ20E 2.0L Flat-4 SOHC NA — 120 HP / 184 Nm" },
+        {
+          label: "Engine",
+          value: "EJ20E 2.0L Flat-4 SOHC NA — 120 HP / 184 Nm",
+        },
         { label: "Transmission", value: "5-speed manual" },
         { label: "Drivetrain", value: "Full-time AWD" },
         { label: "Steering", value: "Left-hand drive" },
@@ -225,27 +237,36 @@ export const SITE_COPY = {
       chassisPlate: [
         { code: "BG", meaning: "Legacy Touring Wagon (2nd gen)" },
         { code: "5", meaning: "EJ20 engine series" },
-        { code: "P", meaning: "General Market variant" },
-        { code: "JF1BG5LJ4VG072437", meaning: "Example VIN" },
+        {
+          code: "P",
+          meaning: "General Market decode is an unverified hypothesis",
+        },
+        { code: "Example only — not owner VIN", meaning: "Example VIN" },
       ],
       engineParagraphs: [
-        "The EJ20E is a 2.0-liter horizontally opposed (“flat-four”) engine with a single overhead camshaft (SOHC) and natural aspiration. It produces approximately 120 HP at ~5,600 rpm and 184 Nm of torque at ~4,400 rpm.",
-        "The fuel system uses single-range electronic multi-point injection (EMPI). This engine is not OBD-II equipped. Diagnostics rely on the SSM1 protocol, which requires either a dedicated SSM1 scan tool or manual CEL code reading by bridging connector pins under the dash.",
+        "The EJ20E is a 2.0-liter horizontally opposed (“flat-four”) engine with a single overhead camshaft (SOHC) and natural aspiration. Historical sources quote approximately 120 HP / 184 Nm; the Brembo application is 85 kW / 116 CV. Neither rating is verified as the exact owner-market specification.",
+        "The fuel system uses single-range electronic multi-point injection (EMPI). This engine is not OBD-II equipped. Diagnostics rely on the SSM1 protocol, which requires either a dedicated SSM1 scan tool or manual CEL code reading using the matching factory procedure; exact connector/pin instructions require verification.",
       ],
       historyParagraphs: [
-        "Approximately a few dozen BG5P wagons were imported to Vietnam around 1997. These were General Market left-hand-drive exports, built at Subaru’s Gunma plant in Japan.",
-        "The BG5P was never officially sold in Vietnam. These were private imports, likely brought in by individuals or small dealers. Very rare today, possibly fewer than a dozen examples survive in the country.",
+        "Historical import estimates have not been independently verified. They do not establish part compatibility.",
+        "Import route and surviving-vehicle counts remain unverified; this reference uses the owner-described 1997 vehicle configuration.",
       ],
       notes: [
         "The USDM version of the Legacy used the EJ22 (2.2L), not the EJ20E. Engine procedures differ between these two powerplants.",
         "There is no OBD-II port on this vehicle. Diagnostics require an SSM1-compatible scan tool or manual code reading.",
         "The BG5P model code is largely undocumented in public databases. The P suffix is believed to denote the General Market variant code.",
-        "BG chassis parts are generally shared across variants, but engine parts are EJ20E-specific. Always verify part numbers against the EJ20E parts catalog.",
+        "Compatibility is assessed per part; engine and market labels alone neither confirm nor exclude shared parts. Catalog inclusion is not fitment confirmation.",
       ],
       sources: [
         { label: "Service manuals", value: "car-inform.com" },
-        { label: "BG chassis FSM", value: "1997 Subaru Legacy USDM Factory Service Manual" },
-        { label: "Vehicle info", value: "Vietnamese automotive press (Thanh Nien, CarBiz.vn)" },
+        {
+          label: "BG chassis FSM",
+          value: "1997 Subaru Legacy USDM Factory Service Manual",
+        },
+        {
+          label: "Vehicle info",
+          value: "Vietnamese automotive press (Thanh Nien, CarBiz.vn)",
+        },
       ],
     },
     notFound: {
@@ -273,7 +294,8 @@ export const SITE_COPY = {
         hint: "Scroll to zoom · Drag to pan · Pinch on mobile",
       },
       partsTable: {
-        empty: "Parts data is not listed for this diagram in the local BG5P corpus.",
+        empty:
+          "Parts data is not listed for this diagram in the local BG5P corpus.",
         notApplicable:
           "The EPC source marks this subgroup as not applicable for the selected BG5 AT complectation.",
         noItemizedRows:
@@ -329,6 +351,7 @@ export const SITE_COPY = {
       switchLanguage: "Chuyển sang tiếng Anh",
       chatPrompt: "Giúp tôi chọn hướng chẩn đoán đúng cho BG5P.",
       nav: {
+        find: "Tìm phụ tùng",
         overview: "Tổng quan",
         parts: "Phụ tùng",
         maintenance: "Bảo dưỡng",
@@ -336,6 +359,7 @@ export const SITE_COPY = {
         about: "Hồ sơ xe",
       },
       navSecondary: {
+        find: "Chứng cứ và nguồn cung",
         overview: "Trang chính",
         parts: "Sơ đồ và mã OEM",
         maintenance: "Thông số và quy trình",
@@ -393,7 +417,8 @@ export const SITE_COPY = {
           href: "/manuals",
           value: "373",
           unit: "PDF nhà máy",
-          description: "Động cơ EJ20E, khung gầm BG, điện, truyền động và thân xe.",
+          description:
+            "Động cơ EJ20E, khung gầm BG, điện, truyền động và thân xe.",
         },
       ],
       diagnosticTitle: "Cách chẩn đoán",
@@ -451,15 +476,19 @@ export const SITE_COPY = {
       clearFilter: "Xóa bộ lọc",
       noDocuments: (filter: string) => `Không có tài liệu khớp “${filter}”`,
       engineTitle: "Tài liệu động cơ EJ20E",
-      engineSubtitle: (count: number) => `${count} tài liệu — động cơ EJ20 2.0L SOHC NA`,
+      engineSubtitle: (count: number) =>
+        `${count} tài liệu — động cơ EJ20 2.0L SOHC NA`,
       chassisTitle: "Tài liệu khung gầm BG",
       chassisSubtitle: (count: number) =>
         `${count} tài liệu — thân xe, điện, cơ khí, truyền động và dây điện`,
       docs: (count: number) => `${count} tài liệu`,
       sectionDescriptions: {
-        "BODY SECTION": "Tấm thân xe, nẹp ngoài, cửa kính, ghế, nội thất, túi khí",
-        "ELECTRICAL SECTION": "Đèn, đồng hồ táp-lô, điều khiển HVAC, phụ kiện điện",
-        "ENGINE - UNIVERSAL": "Cơ khí động cơ, nhiên liệu, xả, chân máy, ly hợp",
+        "BODY SECTION":
+          "Tấm thân xe, nẹp ngoài, cửa kính, ghế, nội thất, túi khí",
+        "ELECTRICAL SECTION":
+          "Đèn, đồng hồ táp-lô, điều khiển HVAC, phụ kiện điện",
+        "ENGINE - UNIVERSAL":
+          "Cơ khí động cơ, nhiên liệu, xả, chân máy, ly hợp",
         "MECHANICAL COMPONENTS SECTION":
           "Phanh, treo, lái, bánh và moay-ơ, hệ thống A/C",
         TRANSMISSION: "Hộp số sàn/tự động, vi sai trước/sau/giữa",
@@ -483,7 +512,10 @@ export const SITE_COPY = {
         { label: "Mã model", value: "BG5P" },
         { label: "Thế hệ", value: "Legacy Touring Wagon đời 2 (1993–1998)" },
         { label: "Phiên bản", value: "GL (base)" },
-        { label: "Động cơ", value: "EJ20E 2.0L Flat-4 SOHC NA — 120 HP / 184 Nm" },
+        {
+          label: "Động cơ",
+          value: "EJ20E 2.0L Flat-4 SOHC NA — 120 HP / 184 Nm",
+        },
         { label: "Hộp số", value: "Số sàn 5 cấp" },
         { label: "Truyền động", value: "AWD toàn thời gian" },
         { label: "Vô-lăng", value: "Tay lái trái" },
@@ -493,27 +525,33 @@ export const SITE_COPY = {
       chassisPlate: [
         { code: "BG", meaning: "Legacy Touring Wagon đời 2" },
         { code: "5", meaning: "Dòng động cơ EJ20" },
-        { code: "P", meaning: "Biến thể General Market" },
-        { code: "JF1BG5LJ4VG072437", meaning: "VIN ví dụ" },
+        { code: "P", meaning: "Giả thuyết General Market; chưa xác minh" },
+        { code: "Example only — not owner VIN", meaning: "VIN ví dụ" },
       ],
       engineParagraphs: [
-        "EJ20E là động cơ boxer 2.0 lít, 4 xi-lanh nằm ngang, SOHC và hút khí tự nhiên. Công suất xấp xỉ 120 HP tại ~5.600 rpm và mô-men xoắn 184 Nm tại ~4.400 rpm.",
-        "Hệ thống nhiên liệu dùng phun xăng điện tử đa điểm single-range (EMPI). Động cơ này không có OBD-II. Chẩn đoán dựa trên giao thức SSM1, dùng máy SSM1 hoặc đọc mã CEL thủ công bằng cách nối chân giắc chẩn đoán.",
+        "EJ20E là động cơ boxer 2.0 lít, 4 xi-lanh nằm ngang, SOHC và hút khí tự nhiên. Nguồn cũ ghi khoảng 120 HP / 184 Nm; ứng dụng Brembo ghi 85 kW / 116 CV. Chưa xác minh thông số công suất chính xác cho thị trường xe chủ sở hữu.",
+        "Hệ thống nhiên liệu dùng phun xăng điện tử đa điểm single-range (EMPI). Động cơ này không có OBD-II. Chẩn đoán dựa trên giao thức SSM1, dùng máy SSM1 hoặc đọc mã CEL theo quy trình hãng phù hợp; cần xác minh chính xác giắc và chân nối.",
       ],
       historyParagraphs: [
-        "Khoảng vài chục xe BG5P wagon được nhập về Việt Nam quanh năm 1997. Đây là xe xuất khẩu General Market tay lái trái, sản xuất tại nhà máy Gunma của Subaru ở Nhật.",
-        "BG5P không được bán chính hãng tại Việt Nam. Các xe này nhiều khả năng là nhập tư nhân hoặc qua đại lý nhỏ. Hiện nay rất hiếm, có thể chỉ còn dưới một chục xe trong nước.",
+        "Ước tính nhập khẩu lịch sử chưa được xác minh độc lập và không chứng minh tương thích phụ tùng.",
+        "Nguồn nhập khẩu và số xe còn tồn tại chưa được xác minh; cấu hình tham chiếu là xe 1997 do chủ sở hữu mô tả.",
       ],
       notes: [
         "Legacy bản USDM dùng EJ22 2.2L, không phải EJ20E. Quy trình động cơ giữa hai máy khác nhau.",
         "Xe không có cổng OBD-II. Chẩn đoán cần máy tương thích SSM1 hoặc đọc mã nháy thủ công.",
         "Mã model BG5P gần như không có trong cơ sở dữ liệu công khai. Hậu tố P được cho là mã biến thể General Market.",
-        "Phụ tùng khung gầm BG thường dùng chung giữa các biến thể, nhưng phụ tùng động cơ phải đúng EJ20E. Luôn đối chiếu mã phụ tùng với catalogue EJ20E.",
+        "Đánh giá tương thích theo từng phụ tùng; nhãn động cơ hay thị trường không tự chứng minh hoặc loại trừ khả năng dùng chung. Có trong catalogue chưa chứng minh phù hợp.",
       ],
       sources: [
         { label: "Tài liệu kỹ thuật", value: "car-inform.com" },
-        { label: "FSM khung gầm BG", value: "1997 Subaru Legacy USDM Factory Service Manual" },
-        { label: "Thông tin xe", value: "báo ô tô Việt Nam (Thanh Niên, CarBiz.vn)" },
+        {
+          label: "FSM khung gầm BG",
+          value: "1997 Subaru Legacy USDM Factory Service Manual",
+        },
+        {
+          label: "Thông tin xe",
+          value: "báo ô tô Việt Nam (Thanh Niên, CarBiz.vn)",
+        },
       ],
     },
     notFound: {
@@ -541,7 +579,8 @@ export const SITE_COPY = {
         hint: "Cuộn để zoom · Kéo để di chuyển · Chụm trên mobile",
       },
       partsTable: {
-        empty: "Dữ liệu phụ tùng không được liệt kê cho sơ đồ này trong bộ dữ liệu BG5P cục bộ.",
+        empty:
+          "Dữ liệu phụ tùng không được liệt kê cho sơ đồ này trong bộ dữ liệu BG5P cục bộ.",
         notApplicable:
           "Nguồn EPC đánh dấu phân nhóm này là không áp dụng cho cấu hình BG5 AT đã chọn.",
         noItemizedRows:
@@ -563,7 +602,10 @@ export function getCopy(locale: Locale) {
   return SITE_COPY[locale];
 }
 
-export function getPageMetadata(locale: Locale, page: keyof typeof SITE_COPY.en.metadata): Metadata {
+export function getPageMetadata(
+  locale: Locale,
+  page: keyof typeof SITE_COPY.en.metadata,
+): Metadata {
   return SITE_COPY[locale].metadata[page] satisfies PageMeta;
 }
 
@@ -574,7 +616,10 @@ export function diagramCount(locale: Locale, count: number) {
 }
 
 export function localizeDifficulty(value: string, locale: Locale) {
-  const labels = SITE_COPY[locale].maintenance.difficulty as Record<string, string>;
+  const labels = SITE_COPY[locale].maintenance.difficulty as Record<
+    string,
+    string
+  >;
   return labels[value] ?? value;
 }
 
@@ -700,7 +745,8 @@ const TECHNICAL_NAMES_VI: Record<string, string> = {
   "FRONT BUMPER": "Cản trước",
   "REAR BUMPER": "Cản sau",
   "FRONT DOOR PANEL": "Tấm cửa trước",
-  "FRONT DOOR PARTS (GLASS & REGULATOR)": "Phụ tùng cửa trước (kính và bộ nâng)",
+  "FRONT DOOR PARTS (GLASS & REGULATOR)":
+    "Phụ tùng cửa trước (kính và bộ nâng)",
   "FRONT DOOR PARTS (LATCH & HANDLE)": "Phụ tùng cửa trước (chốt và tay nắm)",
   "REAR DOOR PANEL": "Tấm cửa sau",
   "REAR DOOR PARTS (GLASS & REGULATOR)": "Phụ tùng cửa sau (kính và bộ nâng)",
@@ -865,7 +911,10 @@ export function localizeManualTitle(name: string, locale: Locale) {
   return localizeTechnicalName(name.replace(/\bno OBD\b/gi, "no-OBD"), locale);
 }
 
-export function localizePartText(value: string | null | undefined, locale: Locale) {
+export function localizePartText(
+  value: string | null | undefined,
+  locale: Locale,
+) {
   if (!value) return "";
   if (locale === "en") return value;
   return localizeTechnicalName(value, locale);
@@ -980,18 +1029,24 @@ const MAINTENANCE_VI: Record<string, MaintenanceTranslation> = {
     interval: "Mỗi 20.000 km hoặc khi cần",
     specs: {
       "Front Type": "Loại phanh trước",
-      "Front Pad Dimensions (friction material)": "Kích thước vật liệu ma sát má phanh trước",
-      "Front Pad Standard Thickness (factory service check, including back metal)": "Độ dày chuẩn má trước theo kiểm tra xưởng, kèm lưng thép",
-      "Front Pad Wear Limit (factory service check, including back metal)": "Giới hạn mòn má trước theo kiểm tra xưởng, kèm lưng thép",
+      "Front Pad Dimensions (friction material)":
+        "Kích thước vật liệu ma sát má phanh trước",
+      "Front Pad Standard Thickness (factory service check, including back metal)":
+        "Độ dày chuẩn má trước theo kiểm tra xưởng, kèm lưng thép",
+      "Front Pad Wear Limit (factory service check, including back metal)":
+        "Giới hạn mòn má trước theo kiểm tra xưởng, kèm lưng thép",
       "Front Disc Thickness (new)": "Độ dày đĩa trước mới",
       "Front Disc Min Thickness": "Độ dày tối thiểu đĩa trước",
       "Front Disc Max Runout": "Độ đảo tối đa đĩa trước",
       "Front Caliper Guide Pin Torque": "Lực siết chốt trượt cùm trước",
       "Front Support Bolt Torque": "Lực siết bu-lông giá đỡ trước",
       "Rear Type": "Loại phanh sau",
-      "Rear Pad Dimensions (friction material)": "Kích thước vật liệu ma sát má phanh sau",
-      "Rear Pad Standard Thickness (factory service check, including back metal)": "Độ dày chuẩn má sau theo kiểm tra xưởng, kèm lưng thép",
-      "Rear Pad Wear Limit (factory service check, including back metal)": "Giới hạn mòn má sau theo kiểm tra xưởng, kèm lưng thép",
+      "Rear Pad Dimensions (friction material)":
+        "Kích thước vật liệu ma sát má phanh sau",
+      "Rear Pad Standard Thickness (factory service check, including back metal)":
+        "Độ dày chuẩn má sau theo kiểm tra xưởng, kèm lưng thép",
+      "Rear Pad Wear Limit (factory service check, including back metal)":
+        "Giới hạn mòn má sau theo kiểm tra xưởng, kèm lưng thép",
       "Rear Disc Thickness (new)": "Độ dày đĩa sau mới",
       "Rear Disc Min Thickness": "Độ dày tối thiểu đĩa sau",
       "Rear Disc Max Runout": "Độ đảo tối đa đĩa sau",
@@ -1108,9 +1163,11 @@ const MAINTENANCE_VI: Record<string, MaintenanceTranslation> = {
     title: "Thay ly hợp",
     interval: "Khi cần, thường khoảng 100.000-150.000 km",
     specs: {
-      "Clutch Disc Facing O.D. x I.D. x Thickness": "Kích thước bố lá côn O.D. x I.D. x dày",
+      "Clutch Disc Facing O.D. x I.D. x Thickness":
+        "Kích thước bố lá côn O.D. x I.D. x dày",
       "Clutch Disc Facing": "Vật liệu bề mặt lá côn",
-      "Clutch Disc Spline O.D. (24 teeth)": "Đường kính ngoài then hoa lá côn (24 răng)",
+      "Clutch Disc Spline O.D. (24 teeth)":
+        "Đường kính ngoài then hoa lá côn (24 răng)",
       "Diaphragm Set Load (BG5P EJ20E)": "Tải lò xo màng (BG5P EJ20E)",
       "Release Bearing Type": "Loại bi tê",
       "Release Lever Ratio": "Tỷ số càng côn",
@@ -1154,10 +1211,12 @@ const MAINTENANCE_VI: Record<string, MaintenanceTranslation> = {
     specs: {
       "Front Diff Type": "Loại vi sai trước",
       "Front Diff Gear Type": "Loại bánh răng vi sai trước",
-      "Front Final Ratio (BG5P EJ20E)": "Tỷ số truyền cuối phía trước (BG5P EJ20E)",
+      "Front Final Ratio (BG5P EJ20E)":
+        "Tỷ số truyền cuối phía trước (BG5P EJ20E)",
       "Front Diff Fluid": "Dầu vi sai trước",
       "Rear Diff Type": "Loại vi sai sau",
-      "Rear Final Ratio (BG5P EJ20E)": "Tỷ số truyền cuối phía sau (BG5P EJ20E)",
+      "Rear Final Ratio (BG5P EJ20E)":
+        "Tỷ số truyền cuối phía sau (BG5P EJ20E)",
       "Rear Diff Fluid Type": "Loại dầu vi sai sau",
       "Rear Diff Capacity": "Dung tích vi sai sau",
       "Rear Diff Bevel Gear Backlash": "Độ rơ bánh răng côn vi sai sau",
@@ -1183,7 +1242,10 @@ const MAINTENANCE_VI: Record<string, MaintenanceTranslation> = {
   },
 };
 
-export function localizeMaintenanceCard(card: MaintenanceCard, locale: Locale): MaintenanceCard {
+export function localizeMaintenanceCard(
+  card: MaintenanceCard,
+  locale: Locale,
+): MaintenanceCard {
   if (locale === "en") return card;
   const translated = MAINTENANCE_VI[card.id];
   if (!translated) {
@@ -1201,14 +1263,25 @@ export function localizeMaintenanceCard(card: MaintenanceCard, locale: Locale): 
 
   return {
     ...card,
-    title: translated.title,
+    title:
+      card.id === "brake-pads"
+        ? "Má phanh trước và kiểm tra tang trống sau"
+        : translated.title,
     difficulty: localizeDifficulty(card.difficulty, locale),
     interval: translated.interval,
     specs: card.specs.map((spec) => ({
-      label: translated.specs[spec.label] ?? localizeTechnicalName(spec.label, locale),
+      ...spec,
+      label:
+        translated.specs[spec.label] ??
+        localizeTechnicalName(spec.label, locale),
       value: localizeSpecValue(spec.value, locale),
     })),
-    steps: translated.steps.length === card.steps.length ? translated.steps : card.steps,
+    steps:
+      card.id === "brake-pads"
+        ? card.steps
+        : translated.steps.length === card.steps.length
+          ? translated.steps
+          : card.steps,
   };
 }
 
