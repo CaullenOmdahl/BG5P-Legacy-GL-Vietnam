@@ -1,0 +1,70 @@
+{
+  "artifact": {
+    "reference": ".agent/evidence/artifacts/bg5-part-desktop.png",
+    "sha256": "fd044c0dfee7386418821a4dbadc5fd7d0fabde8abf45440fb688776229543b4"
+  },
+  "change_id": "bg5-whole-site-sourcing",
+  "decision": "ADR-0001",
+  "evidence": [
+    {
+      "kind": "file",
+      "reference": ".agent/evidence/artifacts/checks.json"
+    },
+    {
+      "kind": "file",
+      "reference": ".agent/evidence/artifacts/bg5-part-mobile.png"
+    },
+    {
+      "kind": "file",
+      "reference": "docs/whole-site-sourcing.md"
+    },
+    {
+      "kind": "check",
+      "reference": "Uncached nine-command completion matrix passed"
+    },
+    {
+      "kind": "check",
+      "reference": "Rendered mobile desktop bilingual and keyboard workflows passed"
+    }
+  ],
+  "id": "bg5-whole-site-20261009",
+  "lane": "scoped-behavior",
+  "schema_version": 2,
+  "source": {
+    "repository": "CaullenOmdahl/BG5P-Legacy-GL-Vietnam",
+    "revision": "7dd3188dc29336149a6a6fae505b8dd581510029",
+    "snapshot_digest": "801dd5515bf98e33abc7f372238c4cce690ba893338d30593ed395d26b2904fa"
+  },
+  "states": {
+    "external_acceptance": {
+      "reason": "Owner fitment approval and independent audit are outstanding.",
+      "scope": "artifact",
+      "status": "pending"
+    },
+    "implementation": {
+      "scope": "source",
+      "status": "passed"
+    },
+    "merge": {
+      "reason": "User authorized draft PR and audit only.",
+      "scope": "source",
+      "status": "blocked"
+    },
+    "release": {
+      "reason": "No deployment authorized.",
+      "scope": "source",
+      "status": "not_applicable"
+    },
+    "review": {
+      "reason": "One independent audit of the final draft PR head is owned by the parent.",
+      "scope": "source",
+      "status": "pending"
+    },
+    "validation": {
+      "scope": "artifact",
+      "status": "passed"
+    }
+  },
+  "summary": "All 16 sections migrated with original rows retained. Nine guides and 373 manuals qualified; 15 candidates, 2 rejected configurations and no confirmed owner fits. Uncached checks and rendered workflows passed; claim validation remains explicit.",
+  "supersedes": []
+}
