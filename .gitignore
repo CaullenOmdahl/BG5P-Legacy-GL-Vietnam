@@ -3,3 +3,6 @@ __pycache__/
 *.py[cod]
 .agent/memory/
 .agent/evidence/.write.lock
+
+# Hash-verified upstream source used only for offline review-argv regressions
+.agent/review-test-deps/

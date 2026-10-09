@@ -122,6 +122,16 @@
           "cwd": ".",
           "timeout_seconds": 60,
           "cache": false
+        },
+        {
+          "name": "review-sdk-argv",
+          "run": [
+            "node",
+            "scripts/test_review_sdk_args.mjs"
+          ],
+          "cwd": ".",
+          "timeout_seconds": 60,
+          "cache": false
         }
       ]
     }

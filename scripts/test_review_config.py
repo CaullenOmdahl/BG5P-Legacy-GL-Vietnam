@@ -15,7 +15,8 @@ assert "actions/checkout@" not in workflow
 assert "contents: write" not in workflow and "pull-requests: write" not in workflow
 assert "vars.BG5_CLAUDE_AUTO_REVIEW_ENABLED == 'true'" in workflow
 assert "head.repo.full_name == github.repository" in workflow
-assert '--tools ""' in workflow and '--disallowedTools "mcp__*"' in workflow
+assert "buildReviewOptions" in workflow
+assert "anthropics/claude-code-action@" not in workflow
 harness = r"""
 const assert = require('node:assert/strict');
 const source = JSON.parse(require('node:fs').readFileSync(0, 'utf8'));
