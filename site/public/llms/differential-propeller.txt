@@ -36,7 +36,7 @@ Steps:
   13. Lower vehicle and test-drive, listening for whine or noise
 
 Service manuals:
-  /manuals/BG-chassis/TRANSMISSION/MANUAL TRANSMISSION AND DIFFERENTIAL/MSA5TCD97L3564.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/TRANSMISSION/MANUAL%20TRANSMISSION%20AND%20DIFFERENTIAL/MSA5TCD97L3564.pdf
 
 ## Parts by Diagram
 

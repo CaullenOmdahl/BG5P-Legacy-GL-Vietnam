@@ -48,6 +48,16 @@ same across all BG Legacy wagons regardless of engine or market.
 - `ENGINE - UNIVERSAL/` — Clutch, cooling, lubrication, mounts, fuel system, on-car services
 - `TRANSMISSION/` — 5-speed manual transmission, differential, AWD system
 
+### docs/
+Research notes and project plans.
+
+- `esp32-ssm1-interface-project.md` — Staged plan and parts list for the ESP32-S3 SSM1
+  diagnostics interface, Ride Dat BLE integration, and Android Auto carputer
+- `bg5p-common-issues-internet-research.md` — Known failure modes for this chassis and engine
+- `bg5p-consumables-wear-interchange.md` — Consumables and wear items with interchange options
+- `parts-interchange-research.md` — Cross-model part interchange research
+- `bg5p-oem-parts-master.csv`, `bg5p-shared-engine-interchange-candidates.csv` — Parts data
+
 ## Parts Catalog (Online)
 
 No downloadable parts catalog exists for the BG5 EJ20E. Use these free online EPC databases

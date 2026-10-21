@@ -26,7 +26,7 @@ Steps:
   10. Reinstall securing bolts
 
 Service manuals:
-  /manuals/EJ20E-SOHC-engine/EJ20_SOHC_Intake.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_SOHC_Intake.pdf
 
 ## Parts by Diagram
 

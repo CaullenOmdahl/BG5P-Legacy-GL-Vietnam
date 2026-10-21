@@ -59,7 +59,7 @@ X2111AA032 | water pump and gasket kit x01
 807607191 | HOSE x01
 
 ## Service Manuals
-  /manuals/EJ20E-SOHC-engine/EJ20_Cooling.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_Cooling.pdf
 
 ## Full Section
-/llms/engine-main.txt
+https://bg5.caphedigital.com/llms/engine-main.txt

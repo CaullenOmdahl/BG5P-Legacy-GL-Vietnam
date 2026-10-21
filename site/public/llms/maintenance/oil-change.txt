@@ -47,7 +47,7 @@ Difficulty: Easy | Interval: Every 5,000 km or 6 months
 806919050 | seal O ring x01
 
 ## Service Manuals
-  /manuals/EJ20E-SOHC-engine/EJ20_Lubrication.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_Lubrication.pdf
 
 ## Full Section
-/llms/engine-main.txt
+https://bg5.caphedigital.com/llms/engine-main.txt

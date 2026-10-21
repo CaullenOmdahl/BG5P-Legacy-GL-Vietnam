@@ -45,8 +45,8 @@ Steps:
   16. Check and top up brake fluid reservoir
 
 Service manuals:
-  /manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3677.pdf
-  /manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3678.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/MECHANICAL%20COMPONENTS%20SECTION/BRAKES/MSA5TCD97L3677.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/MECHANICAL%20COMPONENTS%20SECTION/BRAKES/MSA5TCD97L3678.pdf
 
 ## Parts by Diagram
 

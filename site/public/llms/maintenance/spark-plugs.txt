@@ -49,7 +49,7 @@ Difficulty: Moderate | Interval: Every 20,000 km or 12 months
 22464AA001 | BRACKET-POWER STEERING PIPE x01
 
 ## Service Manuals
-  /manuals/EJ20E-SOHC-engine/EJ20_SOHC_Ignition_no_OBD.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_SOHC_Ignition_no_OBD.pdf
 
 ## Full Section
-/llms/engine-electrical.txt
+https://bg5.caphedigital.com/llms/engine-electrical.txt

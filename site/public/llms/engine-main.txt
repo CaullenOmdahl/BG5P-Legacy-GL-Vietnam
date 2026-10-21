@@ -46,7 +46,7 @@ Steps:
   21. Rotate engine 2 full turns and verify all alignment marks
 
 Service manuals:
-  /manuals/EJ20E-SOHC-engine/EJ20_SOHC_Mechanical.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_SOHC_Mechanical.pdf
 
 ### Oil Change
 Difficulty: Easy | Interval: Every 5,000 km or 6 months
@@ -75,7 +75,7 @@ Steps:
   11. Top up if necessary between L and F marks on dipstick
 
 Service manuals:
-  /manuals/EJ20E-SOHC-engine/EJ20_Lubrication.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_Lubrication.pdf
 
 ### Coolant Flush
 Difficulty: Easy | Interval: Every 30,000 km or 24 months
@@ -110,7 +110,7 @@ Steps:
   14. Install radiator cap and reservoir cap securely
 
 Service manuals:
-  /manuals/EJ20E-SOHC-engine/EJ20_Cooling.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_Cooling.pdf
 
 ## Parts by Diagram
 
