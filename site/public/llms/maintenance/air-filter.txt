@@ -38,7 +38,7 @@ Difficulty: Easy | Interval: Every 20,000 km or 12 months (inspect every 10,000 
 46053AC080 | CASE COMPLETE-AIR CLEANER,LOWER x01
 
 ## Service Manuals
-  /manuals/EJ20E-SOHC-engine/EJ20_SOHC_Intake.pdf
+  https://bg5.caphedigital.com/manuals/EJ20E-SOHC-engine/EJ20_SOHC_Intake.pdf
 
 ## Full Section
-/llms/engine-auxiliaries.txt
+https://bg5.caphedigital.com/llms/engine-auxiliaries.txt

@@ -151,8 +151,8 @@ Difficulty: Advanced | Interval: As needed (typically 100,000-150,000 km)
 037012000 | GASKET-ALUMINIUM
 
 ## Service Manuals
-  /manuals/BG-chassis/ENGINE - UNIVERSAL/CLUTCH/MSA5TCD97L3544.pdf
-  /manuals/BG-chassis/ENGINE - UNIVERSAL/CLUTCH/MSA5TCD97L3545.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/ENGINE%20-%20UNIVERSAL/CLUTCH/MSA5TCD97L3544.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/ENGINE%20-%20UNIVERSAL/CLUTCH/MSA5TCD97L3545.pdf
 
 ## Full Section
-/llms/manual-transmission.txt
+https://bg5.caphedigital.com/llms/manual-transmission.txt

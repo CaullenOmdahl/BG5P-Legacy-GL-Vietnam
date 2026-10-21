@@ -345,8 +345,8 @@ Difficulty: Moderate | Interval: Every 20,000 km or as needed
 26542AA010 | GROMMET-BRAKE PIPE CENTER,FRONT x01
 
 ## Service Manuals
-  /manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3677.pdf
-  /manuals/BG-chassis/MECHANICAL COMPONENTS SECTION/BRAKES/MSA5TCD97L3678.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/MECHANICAL%20COMPONENTS%20SECTION/BRAKES/MSA5TCD97L3677.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/MECHANICAL%20COMPONENTS%20SECTION/BRAKES/MSA5TCD97L3678.pdf
 
 ## Full Section
-/llms/suspension-axle-brake.txt
+https://bg5.caphedigital.com/llms/suspension-axle-brake.txt

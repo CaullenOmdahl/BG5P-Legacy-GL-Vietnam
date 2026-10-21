@@ -301,7 +301,7 @@ def build_sitemap() -> str:
             "- Diagram page: `https://bg5.caphedigital.com/parts/{section-slug}/{diagram-code-with-dashes}`",
             "- Raw diagram image: `https://bg5.caphedigital.com/diagrams/{section_folder}/{filename}.gif`",
             "- Maintenance page: `https://bg5.caphedigital.com/maintenance/{guide-id}`",
-            "- LLM text: `https://bg5.caphedigital.com/llms/{section-slug}.txt` or `/llms/maintenance/{guide-id}.txt`",
+            "- LLM text: `https://bg5.caphedigital.com/llms/{section-slug}.txt` or `https://bg5.caphedigital.com/llms/maintenance/{guide-id}.txt`",
             "",
         ]
     )

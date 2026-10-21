@@ -137,7 +137,7 @@ Difficulty: Moderate | Interval: Every 50,000 km or 30 months
 383875200 | LOCK NUT-DRIVE PINION x01
 
 ## Service Manuals
-  /manuals/BG-chassis/TRANSMISSION/MANUAL TRANSMISSION AND DIFFERENTIAL/MSA5TCD97L3564.pdf
+  https://bg5.caphedigital.com/manuals/BG-chassis/TRANSMISSION/MANUAL%20TRANSMISSION%20AND%20DIFFERENTIAL/MSA5TCD97L3564.pdf
 
 ## Full Section
-/llms/differential-propeller.txt
+https://bg5.caphedigital.com/llms/differential-propeller.txt

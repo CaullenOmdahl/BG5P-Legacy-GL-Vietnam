@@ -34,6 +34,10 @@ def diagram_key(code):
 def url_for_path(path):
     return f"{BASE_URL}/{quote(path.strip('/'), safe='/')}"
 
+def url_pattern(path):
+    """Absolute URL for a path containing {placeholders}, left unquoted."""
+    return f"{BASE_URL}/{path.strip('/')}"
+
 def html_routes(sections, maintenance):
     routes = ["/", "/about", "/manuals", "/parts", "/maintenance"]
     for card in maintenance:
@@ -156,7 +160,7 @@ def main():
                 if m.get("relatedPdfs"):
                     lines.append("Service manuals:")
                     for pdf in m["relatedPdfs"]:
-                        lines.append(f"  {pdf}")
+                        lines.append(f"  {url_for_path(pdf)}")
                     lines.append("")
 
         # Parts by diagram
@@ -227,7 +231,7 @@ def main():
         if m.get("relatedPdfs"):
             lines.append("## Service Manuals")
             for pdf in m["relatedPdfs"]:
-                lines.append(f"  {pdf}")
+                lines.append(f"  {url_for_path(pdf)}")
             lines.append("")
 
         # Link to full section
@@ -235,7 +239,7 @@ def main():
             for d in s["diagrams"]:
                 if d["code"] in m.get("relatedDiagrams", []):
                     lines.append(f"## Full Section")
-                    lines.append(f"/llms/{s['slug']}.txt")
+                    lines.append(url_for_path(f"llms/{s['slug']}.txt"))
                     lines.append("")
                     break
             else:
@@ -304,45 +308,47 @@ def main():
     lines.append("")
     lines.append("| Question type | What to fetch |")
     lines.append("|---|---|")
-    lines.append("| Task or procedure (\"how do I change the oil?\") | `/llms/maintenance/{id}.txt` — has steps, specs, AND part numbers |")
-    lines.append("| System or category (\"what steering parts exist?\") | `/llms/{section-slug}.txt` — all diagrams and parts for that system |")
-    lines.append("| Specific part number (\"what is 30210AA370?\") | `/llms/parts-index.txt` — every OEM number with name and section |")
+    lines.append("| Task or procedure (\"how do I change the oil?\") | `" + url_pattern("llms/maintenance/{id}.txt") + "` — has steps, specs, AND part numbers |")
+    lines.append("| System or category (\"what steering parts exist?\") | `" + url_pattern("llms/{section-slug}.txt") + "` — all diagrams and parts for that system |")
+    lines.append("| Specific part number (\"what is 30210AA370?\") | `" + url_pattern("llms/parts-index.txt") + "` — every OEM number with name and section |")
     lines.append("| General overview | You're reading it |")
     lines.append("")
     lines.append("## Full Site Index")
     lines.append("")
-    lines.append("- [Full Site Index](/llms/site-index.txt): all public pages, diagram images, and manual PDFs")
+    lines.append(f"- [Full Site Index]({url_for_path('llms/site-index.txt')}): all public pages, diagram images, and manual PDFs")
     lines.append("")
     lines.append("## Maintenance Procedures")
     lines.append("")
-    lines.append("Fetch: `/llms/maintenance/{id}.txt`")
+    lines.append("Fetch: `" + url_pattern("llms/maintenance/{id}.txt") + "`")
     lines.append("Each file includes the full procedure, all specs/torque values, AND the related OEM part numbers.")
     lines.append("")
     for m in maintenance:
         specs_summary = ", ".join(f"{s['label']}: {s['value']}" for s in m["specs"][:3])
-        lines.append(f"- [{m['title']}](/llms/maintenance/{m['id']}.txt): {m['difficulty']} | {m['interval']} | {specs_summary}")
+        maint_url = url_for_path(f"llms/maintenance/{m['id']}.txt")
+        lines.append(f"- [{m['title']}]({maint_url}): {m['difficulty']} | {m['interval']} | {specs_summary}")
     lines.append("")
     lines.append("## Parts Catalog Sections")
     lines.append("")
-    lines.append("Fetch: `/llms/{section-slug}.txt`")
+    lines.append("Fetch: `" + url_pattern("llms/{section-slug}.txt") + "`")
     lines.append("Each file lists every diagram and every OEM part number in that system, plus any related maintenance procedures.")
     lines.append("")
     for s in sections:
         desc = section_descriptions.get(s["slug"], "")
         guide_ids = [m["id"] for m in maint_by_section.get(s["slug"], [])]
         guide_note = f" | Maintenance: {', '.join(guide_ids)}" if guide_ids else ""
-        lines.append(f"- [{s['name']}](/llms/{s['slug']}.txt): {s['diagramCount']} diagrams — {desc}{guide_note}")
+        section_url = url_for_path(f"llms/{s['slug']}.txt")
+        lines.append(f"- [{s['name']}]({section_url}): {s['diagramCount']} diagrams — {desc}{guide_note}")
     lines.append("")
     lines.append("## Part Number Lookup")
     lines.append("")
-    lines.append(f"- [Part Number Index](/llms/parts-index.txt): {len(index_rows)} parts, sorted by OEM number")
+    lines.append(f"- [Part Number Index]({url_for_path('llms/parts-index.txt')}): {len(index_rows)} parts, sorted by OEM number")
     lines.append("")
     lines.append("## Service Manuals (PDF, not machine-readable)")
     lines.append("")
     lines.append(f"{manual_pdf_count} openable factory PDFs. Referenced by URL in maintenance and section files above.")
-    lines.append("- EJ20E engine manuals: `/manuals/EJ20E-SOHC-engine/{filename}.pdf`")
-    lines.append("- EJ20 electrical archive members: `/manuals/EJ20E-SOHC-engine/EJ20_Electrical_System/{filename}.pdf`")
-    lines.append("- BG chassis manuals: `/manuals/BG-chassis/{section}/{subsection}/{filename}.pdf`")
+    lines.append("- EJ20E engine manuals: `" + url_pattern("manuals/EJ20E-SOHC-engine/{filename}.pdf") + "`")
+    lines.append("- EJ20 electrical archive members: `" + url_pattern("manuals/EJ20E-SOHC-engine/EJ20_Electrical_System/{filename}.pdf") + "`")
+    lines.append("- BG chassis manuals: `" + url_pattern("manuals/BG-chassis/{section}/{subsection}/{filename}.pdf") + "`")
     lines.append("")
     lines.append("## Compatibility Notes")
     lines.append("")
