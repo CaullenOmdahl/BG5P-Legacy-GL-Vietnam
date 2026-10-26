@@ -1,0 +1,16 @@
+# Keep the Docker build context to the Next.js app in site/.
+.git
+.agent
+.claude
+docs
+manuals
+parts-catalog
+chatgpt-bg5-diagnostic-expert
+chatbot
+scripts
+**/node_modules
+**/.next
+**/*.log
+**/.env
+**/.env.local
+site/tsconfig.tsbuildinfo
